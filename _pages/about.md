@@ -18,7 +18,7 @@ news: true  # includes a list of news items
 latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
-teaching: true  #includes teaching activities
+# <!-- teaching: true  #includes teaching activities
 ---
 
 Rafael Fernandes Cunha received his B.S. degree in Electronic Engineering from the Technological Institute of Aeronautics - ITA, Brazil, in 2008. From 2009 to 2017, he worked as a Petroleum Engineer at Petrobras, Brazil. In 2018, he received his M.S. degree in Electrical Engineering from the University of Campinas – UNICAMP, Brazil. He is currently pursuing his Ph.D. at the University of Groningen, the Netherlands, where he has also been a Lecturer in Artificial Intelligence since 2023. His research interest includes reinforcement learning, multi-agent systems, and control theory.
