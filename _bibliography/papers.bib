@@ -3,82 +3,108 @@
 
 @string{aps = {American Physical Society,}}
 
-@book{einstein1956investigations,
+@article{cunha2019robust,
   bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+  abbr={IJSS},
+  title={Robust partial sampled-data state feedback control of Markov jump linear systems},
+  author={Cunha, Rafael F and Gabriel, Gabriela W and Geromel, Jos{\'e} C},
+  abstract={This paper proposes new conditions for the design of a robust partial sampled-data state 
+  feedback control law for Markov jump linear systems (MJLS). Although, as usual, the control structure depends on 
+  the Markov mode, only the state variable is sampled in order to cope with a specific network control structure. For 
+  analysis, an equivalent hybrid system is proposed and a two-point boundary value problem (TPBVP) that ensures minimum 
+  Hoo or H2 cost is defined. For control synthesis, it is rewritten as a convex set of sufficient conditions leading to 
+  minimum guaranteed cost of the mentioned performance classes. The optimality conditions are expressed through differential 
+  linear matrix inequalities (DLMIs), a useful mathematical device that can be handled by means of any available LMI solver. 
+  Examples are included for illustration.},
+  journal={International Journal of Systems Science},
+  volume={50},
+  number={11},
+  pages={2142--2152},
+  year={2019},
+  selected={true},
+  publisher={Taylor \& Francis}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
+@article{cunha2018partial,
   bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+  abbr={ROCOND},
+  title={Partial sampled-data state feedback control of markov jump linear systems},
+  author={Cunha, Rafael F and Gabriel, Gabriela W and Geromel, Jos{\'e} C},
+  abstract={This paper aims at designing a partial sampled-data state feedback control law for Markov jump linear systems (MJLS). 
+  The interesting feature of the control structure is that only the state variable is sampled, while the stochastic parameter that 
+  defines the Markov mode of the system used for control purposes is free to change at any time between samples. The main goal is 
+  to provide sufficient convex conditions for the existence of a solution for this class of control design problems in the context 
+  of Hoo and H2 performances, which are expressed through Differential Linear Matrix Inequalities (DLMI). The proposed method is 
+  mplemented using LMIs facilities and provides a minimum guaranteed cost control in only one shot. An example is solved for illustration and comparison.},
+  journal={IFAC-PapersOnLine},
+  volume={51},
+  number={25},
+  pages={222--227},
+  year={2018},
+  publisher={Elsevier}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
+@article{cunha2022reducing,
+  bibtex_show={true},
+  abbr={ICONS},
+  title={Reducing fuel consumption in platooning systems through reinforcement learning},
+  author={Cunha, Rafael F and Goncalves, Tiago R and Varma, Vineeth S and Elayoubi, Salah E and Cao, Ming},
+  abstract={Fuel efficiency in platooning systems is a central topic of interest because of its significant economic and environmental impact on the transportation industry.
+  In platoon systems, Adaptive Cruise Control (ACC) is widely adopted because it can guarantee string stability while requiring only radar or lidar measurements.
+  A key parameter in ACC is the desired time gap between the platoon's neighboring vehicles.
+  A small time gap results in a short inter-vehicular distance, which is fuel efficient when the vehicles are moving at constant speeds due to air drag reductions. 
+  On the other hand, when the vehicles accelerate and brake a lot, a bigger time gap is more fuel efficient. This motivates us to find a policy that minimizes fuel 
+  consumption by conveniently switching between two desired time gap parameters.
+  Thus, one can interpret this formulation as a dynamic system controlled by a switching ACC, and the learning problem reduces to finding a switching rule that is fuel efficient.
+  We apply a Reinforcement Learning (RL) algorithm to find a time switching policy between two desired time gap parameters of an ACC controller to reach our goal.
+  We adopt the proximal policy optimization (PPO) algorithm to learn the appropriate transient shift times that minimize the platoon's fuel consumption when it faces stochastic 
+  traffic conditions. Numerical simulations show that the PPO algorithm outperforms both static time gap ACC and a threshold-based switching control in terms of the average fuel efficiency.},
+  journal={IFAC Conference on Intelligent Control and Automation Sciences (ICONS)},
+  booktitle={2021 European Control Conference (ECC)},
+  volume={55},
+  number={15},
+  pages={99--104},
+  year={2022},
+  publisher={Elsevier} 
+}
+
+@inproceedings{cunha2021imitation,
+  bibtex_show={true},
+  abbr={ECC},
+  title={On imitation dynamics in population games with Markov switching},
+  author={Cunha, Rafael and Zino, Lorenzo and Cao, Ming},
+  abstract={Imitation dynamics in population games are a class of evolutionary game-theoretic models, widely used to study decision-making processes in social groups. Different from 
+  other models, imitation dynamics allow players to have minimal information on the structure of the game they are playing, and are thus suitable for many applications, including traffic 
+  management, marketing, and disease control. In this work, we study a general case of imitation dynamics where the structure of the game and the imitation mechanisms change in time due 
+  to external factors, such as weather conditions or social trends. These changes are modeled using a continuous-time Markov jump process. We present tools to identify the dominant 
+  strategy that emerges from the dynamics through methodological analysis of the function parameters. Numerical simulations are provided to support our theoretical findings.},
+  booktitle={2021 European Control Conference (ECC)},
+  pages={722--727},
+  year={2021},
+  organization={IEEE},
   selected={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@inproceedings{cunha2019changing,
+  abbr={Benelux Meeting},
+  title={Changing the Perception of Social Power in Opinion Dynamics},
+  author={Cunha, Rafael Fernandes and Ye, Ben and Cao, Ming},
+  booktitle={38th Benelux Meeting on Systems and Control},
+  year={2019}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif}
+@article{tiago2023fuel,
+  abbr={ITS},
+  title={Fuel-efficient switching control for platooning systems with a deep reinforcement learning approach},
+  author={Goncalves, Tiago R and Cunha, Rafael F and  Varma, Vineeth S and Elayoubi, Salah E},
+  journal={IEEE Transactions on Intelligent Transportation Systems (Accepted)},
+  abstract={The wide appeal of fuel-efficient transport solutions is constantly increasing due to the major impact of the transportation industry on the environment. Platooning systems 
+  represent a relatively simple approach in terms of deployment toward fuel-efficient solutions. This paper addresses the reduction of the fuel consumption attainable by dynamically switching 
+  between two control policies: Adaptive Cruise Control (ACC) and Cooperative Adaptive Cruise Control (CACC), in platooning systems. The switching rule is dictated by a Deep Reinforcement 
+  Learning (DRL) technique to overcome unpredictable platoon disturbances and to learn appropriate transient shift times while maximizing fuel efficiency. However, due to safety and convergence
+   issues of DRL, our algorithm establishes transition times and minimum periods of operation of ACC and CACC controllers instead of directly controlling vehicles. Numerical experiments show 
+   that the DRL agent outperforms both static ACC and CACC versions and the threshold logic control in terms of fuel efficiency while also being robust to perturbations and satisfying safety requirements.},
+  year={2023},
+  selected={true},
+  publisher={IEEE}
 }
