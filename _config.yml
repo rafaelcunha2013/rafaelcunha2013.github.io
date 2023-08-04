@@ -426,3 +426,6 @@ jsonresume:
   - languages
   - interests
   - references
+
+exclude:
+  - _posts/2021-07-04-diagrams.md

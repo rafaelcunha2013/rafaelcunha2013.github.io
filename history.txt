@@ -1,0 +1,15 @@
+Sequence of steps to run the site.
+It is necessary to have ruby, gem, bundler, and jekyll installed
+
+# Installation of ruby environment manager
+https://github.com/rbenv/rbenv
+brew install rbenv ruby-build
+
+ruby -v
+gem -v
+jekyll -v
+
+bundle install
+bundle exec jekyll serve
+bin/deploy --user
+
