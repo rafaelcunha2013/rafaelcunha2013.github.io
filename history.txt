@@ -11,5 +11,18 @@ jekyll -v
 
 bundle install
 bundle exec jekyll serve
-bin/deploy --user
+./bin/deploy --user
+
+
+
+# Important files to change
+_config.yml
+
+
+# Some references
+https://otiliastr.github.io/
+
+
+
+CASANOV5GC <--------
 
