@@ -10,6 +10,7 @@ gem -v
 jekyll -v
 
 bundle install
+source ~/.envs/torch_mac_off/bin/activate
 bundle exec jekyll serve
 ./bin/deploy --user
 
