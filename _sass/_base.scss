@@ -1034,3 +1034,26 @@ nav[data-toggle="toc"] {
     padding-top: 0.5rem;
   }
 }
+
+// .post-date {
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   display: inline-block;
+//   width: 2000px;  /* Adjust the width according to your design */
+// }
+
+.post-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100px;  /* Adjust the width according to your design */
+  background-color: green;  /* Set the background of the box to green */
+  color: white;  /* Set the font color to white */
+  font-family: sans-serif;
+  padding: 5px;  /* Add some padding around the text for better appearance */
+  border-radius: 5px;  /* This makes the corners of the box slightly rounded; you can adjust or remove if you prefer */
+}
+
+
