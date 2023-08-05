@@ -5,7 +5,7 @@ permalink: /
 subtitle: <a href='https://www.rug.nl/research/bernoulli/?lang=en'>Artificial Intelligence Departament</a>, University of Groningen, The Netherlands. # <!-- Contacts. Moto. Etc.-->
 
 profile:
-  align: justify
+  align: right  # position of the picture
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular (true / false)
   # address: >
@@ -20,11 +20,16 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 # <!-- teaching: true  #includes teaching activities
 ---
-I am a Lecturer in Artificial Intelligence (AI) and a PhD Candidate at the [University of Groningen](https://www.rug.nl), the Netherlands, with a research focus on reinforcement learning (RL). 
+<div style="text-align: justify;">
+<p>I am a Lecturer in Artificial Intelligence (AI) and a PhD Candidate at the <a href="https://www.rug.nl">University of Groningen</a>, the Netherlands, with a research focus on reinforcement learning (RL). </p>
+</div>
 
-My present research is centered around improving data efficiency in fully cooperative multiagent RL problems through the application of transfer learning techniques. I am particularly interested in algorithm-level investigations and convergence analysis in this area. In a previous project, we leveraged RL to minimize the fuel consumption of a one-dimensional vehicle platoon.
-
-During my master's studies in Electrical Engineering, with a focus on control systems at [UNICAMP](https://www.unicamp.br/unicamp/english), I acquired experience in the mathematical modeling of dynamical systems and the resolution of convex optimization problems. This groundwork has helped me understand RL problems on the algorithmic level and discern their connection to output feedback control type problems, for which there are established mathematical tools for analysis.
+<div style="text-align: justify;">
+<p>My present research is centered around improving data efficiency in fully cooperative multiagent RL problems through the application of transfer learning techniques. I am particularly interested in algorithm-level investigations and convergence analysis in this area. In a previous project, we leveraged RL to minimize the fuel consumption of a one-dimensional vehicle platoon.</p>
+</div>
+<div style="text-align: justify;">
+<p>During my master's studies in Electrical Engineering, with a focus on control systems at <a href="https://www.unicamp.br/unicamp/english">UNICAMP</a>, I acquired experience in the mathematical modeling of dynamical systems and the resolution of convex optimization problems. This groundwork has helped me understand RL problems on the algorithmic level and discern their connection to output feedback control type problems, for which there are established mathematical tools for analysis.</p>
+</div>
 
 Here's a broad overview of my current research interests:
 * Deep Reinforcement Learning
