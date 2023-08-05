@@ -5,7 +5,7 @@
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Rafael
 middle_name: 
-last_name: F Cunha
+last_name: [F Cunha]
 email: rafaelcunha2013@gmail.com
 description:  # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -274,8 +274,8 @@ display_categories: ['blockquotes'] # these categories will be displayed on the 
 
 scholar:
 
-  last_name: [F Cunha]
-  first_name: [Rafael]
+  last_name: [F Cunha, F. Cunha, Cunha]
+  first_name: [Rafael, R.]
 
   style: apa
   locale: en
