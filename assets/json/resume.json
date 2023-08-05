@@ -1,74 +1,105 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Rafael Fernandes Cunha",
+    "label": "University Lecturer in AI, PhD Candidate",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "rafaelcunha2013@gmail.com",
+    "phone": "",
+    "url": "https://rafaelcunha2013.github.io",
+    "summary": "Research in Reinforcement Learning",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "University of Groningen",
+      "postalCode": "",
+      "city": "Groningen",
+      "countryCode": "NL",
+      "region": ""
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "LinkedIn",
+        "username": "Rafael F Cunha",
+        "url": "https://www.linkedin.com/in/rafaelcunha2013/"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
+      "name": "Bernoulli Institute, Artificial Intelligence Group, University of Groningen",
+      "position": "Lecturer in Artificial Intelligence",
+      "url": "https://www.rug.nl/staff/r.f.cunha/?lang=en",
+      "startDate": "2023-04-01",
+      "endDate": "",
+      "summary": "Development of courses for the AI curriculum, along with supervision of master's and bachelor's students enrolled in thesis projects within the AI department.",
       "highlights": [
-        "Relativity"
+        "Reinforcement Learning"
+      ]
+    },
+    {
+      "name": "Faculty of Science and Engineering, Discrete Technology and Production Automation, University of Groningen",
+      "position": "PhD Candidate",
+      "url": "",
+      "startDate": "2018-09-01",
+      "endDate": "",
+      "summary": "Multi-agent Reinforcement Learning: Development and convergence analysis of multi-agent machine learning algorithms that are able to transfer knowledge between different tasks.",
+      "highlights": [
+        "Reinforcement Learning"
+      ]
+    },
+    {
+      "name": "Petrobras",
+      "position": "Petroleum Engineer",
+      "url": "https://petrobras.com.br/en/",
+      "startDate": "2009-08-01",
+      "endDate": "2017-02-01",
+      "summary": "Multidisciplinary projects related to on-shore oil field management and reservoir simulations.",
+      "highlights": [
+        "On-shore oil reservoir management"
       ]
     }
   ],
   "volunteer": [],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
+      "institution": "University of Campinas - UNICAMP",
+      "url": "https://www.unicamp.br/unicamp/english",
+      "area": "Electric Engineering, Systems and Control",
+      "studyType": "MSc",
+      "startDate": "2017-03-01",
+      "endDate": "2018-09-01",
       "score": "",
       "courses": [
-        "Theory of Relativity"
+        "Thesis: Robust partial sampled-data state feedback control of Markov jump linear systems"
+      ]
+    },
+    {
+      "institution": "Technological Institute of Aeronautics - ITA",
+      "url": "https://www.ita.br",
+      "area": "Electronic Engineering",
+      "studyType": "BSc",
+      "startDate": "2003-03-01",
+      "endDate": "2008-12-01",
+      "score": "",
+      "courses": [
+        "Thesis: Development of a two-axis controller for radars"
       ]
     }
   ],
-  "awards": [
-    {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
-  ],
+  "awards": [],
   "certificates": [],
   "publications": [],
   "skills": [],
   "languages": [
     {
-      "language": "German",
+      "language": "Portuguese",
       "fluency": "Native speaker"
     },
     {
       "language": "English",
       "fluency": "Fluent"
+    },
+    {
+      "language": "Dutch",
+      "fluency": "B1"
     }
   ],
   "interests": [],
