@@ -7,12 +7,11 @@ first_name: Rafael
 middle_name: 
 last_name: [F Cunha]
 email: rafaelcunha2013@gmail.com
-description:  # the ">" symbol means to ignore newlines until "footer_text:"
+description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-# footer_text: >
-#   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-#   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-#   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+footer_text: >
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: reinforcement learning, multi-agent systems, control theory, machine learning, multi-agent reinforcement learning # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
@@ -275,7 +274,7 @@ display_categories: ['blockquotes'] # these categories will be displayed on the 
 scholar:
 
   last_name: [F Cunha, F. Cunha, Cunha, Fernandes Cunha]
-  first_name: [Rafael, R.]
+  first_name: [Rafael, R., Rafael F, Rafael F.]
 
   style: apa
   locale: en
