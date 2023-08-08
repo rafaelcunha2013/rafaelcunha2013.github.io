@@ -1,11 +1,11 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Here you can see a list of open projects that I am working on. Feel free to reach me out if you are interested to develop your bachelor's or master's thesis related to one of this projects.
 nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [current, old]
 horizontal: false
 ---
 

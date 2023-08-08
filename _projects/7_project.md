@@ -1,20 +1,12 @@
 ---
 layout: page
-title: Game Theory and Multi-agent Reinforcement Learning
-description: 
-img: assets/img/picture_1.png
+title: project 1
+description: a project with a background image
+img: assets/img/12.jpg
 importance: 1
 category: old
-related_publications: einstein1956investigations, einstein1950meaning, cunha2022reducing
+related_publications: einstein1956investigations, einstein1950meaning
 ---
-
-Project description:
-Multi-agent systems are rapidly finding applications in a variety of domains, including robotics, distributed control, telecommunications, and economics. Reinforcement learning (RL) is a powerful framework that allows an agent to behave near-optimally through a trial and error exploration of the environment. Although originally developed for single-agent settings, RL approaches have been extended to scenarios where multiple agents learn concurrently by interacting with each other. To deal with the strategic interaction between those rational decision-makers, game theory models are necessary. These are the basic theories surrounding the DeepMind AlphaStar project, for example. 
-
-Subject of design:
-This project aims to analyze whether and how RL and game theory tools are used to solve multi-agent systems problems. We will run numerical simulations to compare the performance of different algorithms.
-
-Field of knowledge: Game theory, multi-agent systems, reinforcement learning
 
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
@@ -31,10 +23,10 @@ To give your project a background in the portfolio page, just add the img tag to
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture_1.png" title="MARL in Starcraft II" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture_2.png" title="Autonomous Drinving as multi-agent systems" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -59,10 +51,10 @@ You describe how you toiled, sweated, *bled* for your project, and then... you r
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture_1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
