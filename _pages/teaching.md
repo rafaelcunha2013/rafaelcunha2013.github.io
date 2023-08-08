@@ -2,8 +2,7 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: I am a Lecturer in Artificial Intelligence, teaching some courses in the bachelor's and master's programm. I have also open projects
-to supervise bachelor's and master's students. Previously I was a TA assistance. During my PhD, I supervised many bachelor's and master's projects in the are of Reinforcement Learning from the Industrial Engeneering and Management (IEM) course.
+description: I am a Lecturer in Artificial Intelligence, teaching some courses in the bachelor's and master's programm. I have also open projects to supervise bachelor's and master's students. Previously I was a TA assistance. During my PhD, I supervised many bachelor's and master's projects in the are of Reinforcement Learning from the Industrial Engeneering and Management (IEM) course.
 nav: true
 nav_order: 5
 giscus_comments: false
@@ -12,81 +11,28 @@ giscus_comments: false
 ---
 
 <h3 style="color: #4b9cd3;" id="Lecturer @ RUG"><a href="https://ocasys.rug.nl/current/catalog/programme/56981">Lecturer @ RUG</a></h3>
-<!-- RL practical (Lectures) -->
+
+<!-- WBAI015-05 (Reinforcement Learning Practical) -->
 <div class="card mt-3">
   <div class="p-3">
     <div class="row">
       <div class="col-sm-10">
-        <h5 id="RLP" class="card-title">Reinforcement Learning Practical - 	WBAI015-05</h5>
-        <h6 class="card-subtitle font-italic">Block IB</h6>
-      </div>
-      <div class="col-sm-2 text-sm-right">
-        <span class="badge">
-          RLP
-        </span>
+        <h5 id="RLP" class="card-title"><a href="https://ocasys.rug.nl/current/catalog/course/WBAI015-05">Reinforcement Learning Practical - 	WBAI015-05</a></h5>
+        <h6 class="card-subtitle font-italic">Block IB 2023</h6>
       </div>
     </div>
     <ul class="card-text font-weight-light list-group list-group-flush">
       <li class="list-group-item">
         <div class="row">
-          <div class="col-sm-9">
-            I will give some lectures in this course, together with Matthia Sabatelli, where we will introduce some theoretical topical about 
-            reinforcement learning with focus on implementations aspects. In this course, we will see how one can train such agents by characterizing RL algorithms both from a theoretical perspective as well as from a more practical one. To this end, six theoretical lectures will be given, the content of which will have to be, in part, put into practice in two different assignments and in a final project. 
-          </div>
-          <div class="col-sm-3">
-            <a href="https://ocasys.rug.nl/current/catalog/course/WBAI015-05">RLP</a>
+          <div class="col-sm-12">
+            I will give some lectures in this course, together with Matthia Sabatelli, where we will introduce some theoretical topics about reinforcement learning with focus on implementations aspects. In this course, we will see how one can train agents agents by characterizing RL algorithms both from a theoretical perspective as well as from a more practical one. To this end, six theoretical lectures will be given, the content of which will have to be, in part, put into practice in two different assignments and in a final project. 
           </div>
         </div>
       </li>
       <li class="list-group-item">
         <div class="row">
           <div class="col-sm-9">
-            I added and wrote the autograder for a new part of the ALU implementation assignment, in which students implement flag detection in the ALU.
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I created a resource that implements and explains 12 circuits from the course.
-          </div>
-          <div class="col-sm-3">
-            <a href="https://github.com/jesse-wei/COMP311-circuits">COMP 311 circuits</a>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I have written 20+ in-use quiz and exam questions. In 23S, I wrote the entirety of a brand-new Quiz 7 on the MIPS processor and control signals.
-          </div>
-          <div class="col-sm-3">
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I have written and released explanations for 150+ practice PollEverywhere (PEW) questions. In 23S, I held three review sessions for the entire course, with an average of 40 students at each review session.
-          </div>
-          <div class="col-sm-3">
-            <a href="/assets/pdf/comp311/Quiz1Review.pdf" data-proofer-ignore>Quiz1</a>
-            <a href="/assets/pdf/comp311/Quiz2Review.pdf" data-proofer-ignore>Quiz2</a>
-            <a href="/assets/pdf/comp311/Quiz3Review.pdf" data-proofer-ignore>Quiz3</a>
-            <a href="/assets/pdf/comp311/Quiz4Review.pdf" data-proofer-ignore>Quiz4</a>
-            <a href="/assets/pdf/comp311/Quiz5Review.pdf" data-proofer-ignore>Quiz5</a>
-            <a href="/assets/pdf/comp311/Quiz6Review.pdf" data-proofer-ignore>Quiz6</a>
-            <a href="/assets/pdf/comp311/Exam1Review.pdf" data-proofer-ignore>Exam1</a>
-            (These links won't work but are available on request)
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I received the <a href="https://cs.unc.edu/about/awards/department-awards/pozefsky-la-award/">Diane Pozefsky Learning Assistant Award</a>.
-          </div>
-          <div class="col-sm-3">
+            Literature : <a href="http://incompleteideas.net/book/the-book.html">Reinforcement Learning: An Introduction, Richard S. Sutton, Andrew G. Barto</a>
           </div>
         </div>
       </li>
@@ -94,25 +40,20 @@ giscus_comments: false
   </div>
 </div>
 
-<!-- COMP 210 (Data Structures and Analysis) -->
+<!-- WBAI045-05 (Object-Oriented Programming (for AI)) -->
 <div class="card mt-3">
   <div class="p-3">
     <div class="row">
       <div class="col-sm-10">
-        <h5 id="comp210" class="card-title"><a href="https://www.cs.unc.edu/~kakiryan/teaching/summer-210.html">Data Structures and Analysis</a></h5>
-        <h6 class="card-subtitle font-italic">Summer 2022: Head UTA</h6>
-      </div>
-      <div class="col-sm-2 text-sm-right">
-        <span class="badge">
-          210 
-        </span>
+        <h5 id="comp210" class="card-title"><a href="https://ocasys.rug.nl/current/catalog/course/WBAI045-05">Object-Oriented Programming (for AI) - WBAI045-05</a></h5>
+        <h6 class="card-subtitle font-italic">Block IB 2023</h6>
       </div>
     </div>
     <ul class="card-text font-weight-light list-group list-group-flush">
       <li class="list-group-item">
         <div class="row">
-          <div class="col-sm-9">
-            I created ~10 in-use quiz questions.
+          <div class="col-sm-12">
+              This course continues on the path of Imperative Programming and Algorithms and Data Structures, and gives an introduction to object-oriented programming. In particular, principles of object oriented programming in Python will be discussed.
           </div>
           <div class="col-sm-3">
           </div>
@@ -121,10 +62,7 @@ giscus_comments: false
       <li class="list-group-item">
         <div class="row">
           <div class="col-sm-9">
-            I held 5 quiz review sessions.
-          </div>
-          <div class="col-sm-3">
-            <a href="https://docs.google.com/presentation/d/12e1sxpIHf1mICBM6xSjnnCluqbAZQcE1cxS9P-yykdk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a> (recordings included)
+            Literature : <a href="https://www.packtpub.com/product/python-object-oriented-programming-fourth-edition/9781801077262">Python Object-Oriented Programming - Fourth Edition, By Steven F. Lott, Dusty Phillips</a>
           </div>
         </div>
       </li>
@@ -132,44 +70,59 @@ giscus_comments: false
   </div>
 </div>
 
-<!-- COMP 110 (Introduction to Programming and Data Science) -->
+<!-- xxx (Reinforcement Learning) -->
 <div class="card mt-3">
   <div class="p-3">
     <div class="row">
       <div class="col-sm-10">
-        <h5 id="comp110" class="card-title"><a href="https://22s.comp110.com">Introduction to Programming and Data Science</a></h5>
-        <h6 class="card-subtitle font-italic">Spring 2021, Fall 2021, Spring 2022: UTA</h6>
-      </div>
-      <div class="col-sm-2 text-sm-right">
-        <span class="badge">
-          110
-        </span>
+        <h5 id="comp110" class="card-title"><a href="">Reinforcement Learning</a></h5>
+        <h6 class="card-subtitle font-italic">Block IIA 2024</h6>
       </div>
     </div>
     <ul class="card-text font-weight-light list-group list-group-flush">
       <li class="list-group-item">
         <div class="row">
-          <div class="col-sm-9">
-            I created a Git workshop for the COMP 110 hackathon Hack110.
-          </div>
-          <div class="col-sm-3">
-            <a href="https://docs.google.com/presentation/d/1EHSeRvvkmLQSM9iJL0GyXE-p_i4bnn7eMuCr-YWPQ_A/">Slides</a>
-            <br>
-            <a href="https://github.com/comp110git/git-workshop">GitHub</a>
+          <div class="col-sm-12">
+            Reinforcement Learning (RL) is the branch of machine learning that aims to teach agents how to interact with an environment through trial and error. Such interaction is usually modeled as a Markov Decision Process where the end goal of the agent, sometimes called the learner, is that of maximizing a certain reward signal. Unlike other machine learning approaches, such as the arguably more popular supervised learning one, RL is largely considered more challenging as an agent is deprived of any external supervision. Therefore, it can only rely on its own personal experience while learning. In this course, we will see how one can train such agents by characterizing RL algorithms from a theoretical perspective.
           </div>
         </div>
       </li>
       <li class="list-group-item">
         <div class="row">
           <div class="col-sm-9">
-            I created additional exercises for advanced learners.
+            Literature : <a href="http://incompleteideas.net/book/the-book.html">Reinforcement Learning: An Introduction, Richard S. Sutton, Andrew G. Barto</a>
           </div>
-          <div class="col-sm-3">
-            <a href="https://22s.comp110.com/explore/side-quest/sq01-pong.html">Pong</a>
-            <br>
-            <a href="https://22s.comp110.com/explore/side-quest/sq00-ttt.html">Tic-Tac-Toe</a>
-            <br>
-            <a href="https://22s.comp110.com/explore/pandas/exds01-cleaning.html">Data cleaning</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- WMAI024-05 (Deep Reinforcement Learning) -->
+<div class="card mt-3">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-sm-10">
+        <h5 id="RLP" class="card-title"><a href="https://ocasys.rug.nl/current/catalog/course/WMAI024-05">Deep Reinforcement Learning - 	WMAI024-05</a></h5>
+        <h6 class="card-subtitle font-italic">Block IB 2023</h6>
+      </div>
+    </div>
+    <ul class="card-text font-weight-light list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            I will give some lectures in this course, together with Matthia Sabatelli. The course aims to introduce the student to the field of Deep Reinforcement Learning; by the end of it the student will be familiar with Reinforcement Learning Basics, Deep Learning for Reinforcement Learning, Deep Q-Networks, Policy Gradients, Deep model-based RL, meta-learning, and transfer learning.
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-9">
+            Literature : 
+            <ul>
+              <li><a href="https://arxiv.org/abs/1811.12560">François-Lavet, V., Henderson, P., Islam, R., Bellemare, M. G., & Pineau, J. (2018). An introduction to deep reinforcement learning.</a></li>
+              <li><a href="https://arxiv.org/abs/2201.02135">Plaat, A. (2022). Deep reinforcement learning</a></li>
+            </ul> 
           </div>
         </div>
       </li>
@@ -179,54 +132,7 @@ giscus_comments: false
 
 <br>
 
-<!-- ACT -->
-<h3 id="self-employed">Self-employed</h3>
-<div class="card mt-3">
-  <div class="p-3">
-    <div class="row">
-      <div class="col-sm-10">
-        <h5 id="act" class="card-title">ACT</h5>
-        <h6 class="card-subtitle font-italic">Jan. 2021 - June 2022: Private ACT Tutor</h6>
-      </div>
-    </div>
-    <ul class="card-text font-weight-light list-group list-group-flush">
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I wrote a guide to the ACT in high school and have updated it quite a bit. I also wrote about advanced math concepts on the ACT.
-          </div>
-          <div class="col-sm-3">
-            <a href="/blog/2022/guide-to-act/">Jesse's Guide to the ACT®</a>
-            <br>
-            <a href="/assets/pdf/act/Advanced_Math_Concepts_for_the_ACT.pdf">Advanced Math Concepts for the ACT®</a> (<a href="https://www.overleaf.com/read/rhmqqyskcrwp">Source</a>)
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            I created resources for my students and compile them on this website.
-          </div>
-          <div class="col-sm-3">
-            <a href="/blog/2022/tutoring-notes">Notes from lessons</a>
-            <a href="/blog/2022/math-gists">Math GitHub gists</a>
-            <a href="/blog/2022/desmos">Desmos links</a>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-9">
-            A lot of my blog post ideas came from topics I covered during my tutoring lessons. They're quite out-of-scope for the ACT because they're for a general audience, not just ACT test-takers.
-          </div>
-          <div class="col-sm-3">
-            <a href="/blog/category/act/">Blog</a> (ACT category)
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+
 
 <!-- Separation before Giscus comments -->
 <br>
