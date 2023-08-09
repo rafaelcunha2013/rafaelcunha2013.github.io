@@ -35,6 +35,11 @@ Email: r.f.cunha@rug.nl
 
 # Project description:
 
+<h3 style="color: #00ab37;" id="Supervisions">Resources</h3>
+<li>R. N. Cahn, <a href="http://phyweb.lbl.gov/%7Erncahn/www/liealgebras/texall.pdf">Semi-Simple Lie Algebras and Their Representations</a></li>
+
+
+<br><br><br>
 Multi-agent systems are rapidly finding applications in a variety of domains, including robotics, distributed control, telecommunications, and economics. Reinforcement learning (RL) is a powerful framework that allows an agent to behave near-optimally through a trial and error exploration of the environment. Although originally developed for single-agent settings, RL approaches have been extended to scenarios where multiple agents learn concurrently by interacting with each other. To deal with the strategic interaction between those rational decision-makers, game theory models are necessary. These are the basic theories surrounding the DeepMind AlphaStar project, for example. 
 
 <div class="row justify-content-sm-center">
