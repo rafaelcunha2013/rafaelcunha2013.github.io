@@ -2,10 +2,10 @@
 layout: page
 title: MARL
 description: Game Theory and Multi-agent Reinforcement Learning
-img: assets/img/picture1.png
+img: assets/img/Picture1.png
 importance: 1
 category: old
-related_publications: einstein1956investigations, einstein1950meaning, cunha2022reducing
+related_publications: cunha2022reducing
 ---
 
 # Project description:

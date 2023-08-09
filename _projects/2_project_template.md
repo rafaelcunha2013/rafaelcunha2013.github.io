@@ -2,7 +2,7 @@
 layout: page
 title: template
 description: This is a template to other projects
-img: assets/img/picture2.png
+img: assets/img/Picture2.png
 importance: 2
 category: old
 related_publications: cunha2022reducing
