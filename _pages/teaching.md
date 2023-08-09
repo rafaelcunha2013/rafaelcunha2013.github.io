@@ -136,3 +136,4 @@ giscus_comments: false
 
 <!-- Separation before Giscus comments -->
 <br>
+<h3 style="color: #4b9cd3;" id="Supervisions"><a href="https://ocasys.rug.nl/current/catalog/programme/56981">Supervisions</a></h3>
