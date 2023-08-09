@@ -132,7 +132,7 @@ giscus_comments: false
 
 <!-- Starting of Supervision Section -->
 <br>
-<h3 style="color: #4b9cd3;" id="Supervisions"><a href="">Thesis Supervisions</a></h3>
+<h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions</h3>
 
 <!-- xxx (1st Semester 2019/2020) -->
 <div class="card mt-3">
