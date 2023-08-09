@@ -130,10 +130,106 @@ giscus_comments: false
   </div>
 </div>
 
+<!-- Starting of Supervision Section -->
 <br>
+<h3 style="color: #4b9cd3;" id="Supervisions"><a href="">Thesis Supervisions</a></h3>
+
+<!-- xxx (1st Semester 2019/2020) -->
+<div class="card mt-3">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="card-title">2nd Semester 2021/2022</h5>
+      </div>
+    </div>
+    <ul class="card-text font-weight-light list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Lars T. G. Mulder</div>
+            <div>Master Thesis: <a href="https://fse.studenttheses.ub.rug.nl/28673/">Applying Fast Multi-agent Reinforcement Learning with Generalized Policy Updates</a></div>
+          </div>
+        </div>
+      </li>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="card-title">2nd Semester 2020/2021</h5>
+        </div>
+      </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Bo T. Kroezen</div>
+            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/24641/">Stochastic Stability Analysis of Selection-Mutation Processes and Signaling Games</a></div>
+          </div>
+        </div>
+      </li>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="card-title">1st Semester 2020/2021</h5>
+        </div>
+      </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Tautas Hoedtke</div>
+            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/23954/">Safe Reinforcement Learning</a></div>
+          </div>
+        </div>
+      </li>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="card-title">2nd Semester 2019/2020</h5>
+        </div>
+      </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Muhammad Aqil Prasetyo</div>
+            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/22395/">Using Reinforcement Learning to Design a State feedback Controller</a></div>
+          </div>
+        </div>
+      </li>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="card-title">1st Semester 2019/2020</h5>
+        </div>
+      </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Martijn van Dis</div>
+            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/21541/">The performance of Reinforcement Learning with application for Adaptive Traffic Signal Controllers</a></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
 
+<!--
+<section id="teaching">
+  <div class="container">
+    <h3 style="color: rgb(0, 0, 0);">Teaching</h3>
 
-<!-- Separation before Giscus comments -->
-<br>
-<h3 style="color: #4b9cd3;" id="Supervisions"><a href="https://ocasys.rug.nl/current/catalog/programme/56981">Supervisions</a></h3>
+    <p style="text-align: justify; color: rgb(0, 0, 0);">
+      Academic year 2021/2022: <br>
+    <a class="icon fa-book" style="color: rgb(0, 0, 255);" href="https://rugcognitiverobotics.github.io/" target="_blank"> WMAI003-05: Cognitive Robotics (Coordinator)</a><br>
+
+    <a class="icon fa-book" style="color: rgb(0, 0, 255);" href="https://www.rug.nl/ocasys/frw/vak/show?code=KIB.AS03" target="_blank"> KIB.AS03: Autonomous Systems (Coordinator)</a><br>
+
+    </p><p style="text-align: justify; color: rgb(0, 0, 0);">
+A cademic year 2020/2021: <br>
+<a class="icon fa-book" style="color: rgb(0, 0, 255);" href="https://rugcognitiverobotics.github.io/" target="_blank"> WMAI003-05: Cognitive Robotics (Coordinator)</a><br>
+<a class="icon fa-book" style="color: rgb(0, 0, 255);" href="https://www.rug.nl/ocasys/frw/vak/show?code=KIB.AS03" target="_blank"> KIB.AS03: Autonomous Systems (Lecturer)</a><br>
+<a class="icon fa-book" style="color: rgb(0, 0, 255);" href="https://www.rug.nl/ocasys/let/vak/show?code=KIM.ML09" target="_blank"> WMAI18002: Deep Learning (Lecturer)</a><br>
+
+</p>
+</div>
+</section>
+-->
