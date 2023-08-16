@@ -28,7 +28,30 @@ related_publications:
 <h7 style="display: inline;">Deep Reinforcement Learning (DRL), Negative transfer in DRL, primacy bias </h7>
 
 <br>
-<h2 style="color: #00ab37;">Problem:</h2>
+<div class="row">
+    <!-- Text section occupying 2/3 of the width -->
+    <div class="col-sm-8 mt-3 mt-md-0" style="text-align: justify;">
+        <h2 style="color: #00ab37;">Problem:</h2>
+        Deep Reinforcement Learning (DRL) combines deep learning and reinforcement learning to enable AI agents to learn from raw input data and make decisions. DRL uses neural networks to approximate complex policies and value functions. It has achieved breakthroughs in tasks like game playing, robotics, and complex decision-making. 
+        <br><br>
+        Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on progressively growing datasets, deep RL agents incur a risk of overfitting to earlier experiences, negatively affecting the rest of the learning process [1].
+        <br><br>
+        Transfer Learning (TL) is an efficient machine learning paradigm that allows overcoming some of the hurdles that characterize the successful training of deep neural networks, ranging from long training times to the needs of large datasets. Transferring neural networks in a DRL context can be particularly challenging and is a process which in most cases results in negative transfer [2]. 
+        <br><br>
+        It may be the case that negative transfer in TL is related to primacy bias.
+    </div>
+
+    <!-- Images section occupying 1/3 of the width -->
+    <div class="col-sm-4 mt-3 mt-md-0">
+        {% include figure.html path="assets/img/projects/primacy_bias.png" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
+        {% include figure.html path="assets/img/projects/negative_transfer.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        <div class="caption mt-2">
+            On the left, an undicounted returns on quadruped-run for SAC with and without heavy priming on the first 100 transitions. An agent affected by the primacy bias is unable to learn [1]. On the right, a negative transfer scheme showing that you can have lower accuracy after transferring source information to train with the target. 
+        </div>
+    </div>
+</div>
+
+<!--
 Deep Reinforcement Learning (DRL) combines deep learning and reinforcement learning to enable AI agents to learn from raw input data and make decisions. DRL uses neural networks to approximate complex policies and value functions. It has achieved breakthroughs in tasks like game playing, robotics, and complex decision-making.  
 
 Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on
@@ -39,16 +62,17 @@ Transfer Learning (TL) is an efficient machine learning paradigm that allows ove
 It may be the case that negative transfer in TL is related to primacy bias.
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-6 mt-3 mt-md-0">
+    <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.html path="assets/img/projects/primacy_bias.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm-6 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/negative_transfer.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.html path="assets/img/projects/negative_transfer.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    On the left, a negative transfer scheme showing that you can have lower accuracy after transfering source information to train with the target. On the right, an undicounted returns on quadruped-run for SAC with and without heavy priming on the first 100 transitions. An agent affected by the primacy bias is unable to learn [1].
-</div> 
+    On the left, an undicounted returns on quadruped-run for SAC with and without heavy priming on the first 100 transitions. An agent affected by the primacy bias is unable to learn [1]. On the right, a negative transfer scheme showing that you can have lower accuracy after transfering source information to train with the target. 
+</div>
+--> 
 
 <br>
 <h2 style="color: #00ab37;">Goal:</h2>
@@ -81,6 +105,31 @@ Email: r.f.cunha@rug.nl
 
 Contact: Matthia Sabatelli  
 Email: m.sabatelli@rug.nl
+
+
+<div class="row">
+    <!-- Text section occupying 2/3 of the width -->
+    <div class="col-sm-8 mt-3 mt-md-0" style="text-align: justify;">
+        <h2 style="color: #00ab37;">Problem:</h2>
+        Deep Reinforcement Learning (DRL) combines deep learning and reinforcement learning to enable AI agents to learn from raw input data and make decisions. DRL uses neural networks to approximate complex policies and value functions. It has achieved breakthroughs in tasks like game playing, robotics, and complex decision-making. 
+        <br><br>
+        Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on progressively growing datasets, deep RL agents incur a risk of overfitting to earlier experiences, negatively affecting the rest of the learning process [1].
+        <br><br>
+        Transfer Learning (TL) is an efficient machine learning paradigm that allows overcoming some of the hurdles that characterize the successful training of deep neural networks, ranging from long training times to the needs of large datasets. Transferring neural networks in a DRL context can be particularly challenging and is a process which in most cases results in negative transfer [2]. 
+        <br><br>
+        It may be the case that negative transfer in TL is related to primacy bias.
+    </div>
+
+    <!-- Images section occupying 1/3 of the width -->
+    <div class="col-sm-4 mt-3 mt-md-0">
+        {% include figure.html path="assets/img/projects/primacy_bias.png" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
+        {% include figure.html path="assets/img/projects/negative_transfer.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        <div class="caption mt-2">
+            On the left, an undicounted returns on quadruped-run for SAC with and without heavy priming on the first 100 transitions. An agent affected by the primacy bias is unable to learn [1]. On the right, a negative transfer scheme showing that you can have lower accuracy after transferring source information to train with the target. 
+        </div>
+    </div>
+</div>
+
 
 
 
