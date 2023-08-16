@@ -1,75 +1,86 @@
 ---
 layout: page
 title: Transfer and Bias
-description: Is negative transfer related to primacy bias?
-img: assets/img/Picture2.png
+description: Is negative transfer in DRL related to primacy bias?
+img: assets/img/projects/primacy_bias.png
 importance: 1
 category: current
 related_publications: 
 ---
 
-Is negative transfer related to primacy bias?
-- Transfer Learning - > Negative transfer
-- Primacy Bias
-What are the connections in finite environments?
 
-<h3 style="color: #00ab37;">Course of study</h3>
+<style>
+    h7:after {
+        content: "\A";
+        white-space: pre;
+    }
+</style>
+<h6 style="color: #00ab37;display: inline">Course of study:</h6>
+<h7 style="display: inline;">Artificial Intelligence</h7>
 
-<h4 style="color: #00ab37;">Course of study</h4>
+<h6 style="color: #00ab37;display: inline">Kind of thesis:</h6> 
+<h7 style="display: inline;">Theoretical analysis and Numerical Simulation</h7>
 
-<h2 style="color: #00ab37;">Course of study</h2>
+<h6 style="color: #00ab37; display: inline">Programming languages:</h6>
+<h7 style="display: inline;">Python</h7>
 
-Course of study:
+<h6 style="color: #00ab37; display: inline">Keywords:</h6>
+<h7 style="display: inline;">Deep Reinforcement Learning (DRL), Negative transfer in DRL, primacy bias </h7>
 
-Kind of thesis:
+<br>
+<h2 style="color: #00ab37;">Problem:</h2>
+Deep Reinforcement Learning (DRL) combines deep learning and reinforcement learning to enable AI agents to learn from raw input data and make decisions. DRL uses neural networks to approximate complex policies and value functions. It has achieved breakthroughs in tasks like game playing, robotics, and complex decision-making.  
 
-Programming languages:
+Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on
+progressively growing datasets, deep RL agents incur a risk of overfitting to earlier experiences, negatively affecting the rest of the learning process [1].
 
-# Problem:
+Transfer Learning (TL) is an efficient machine learning paradigm that allows overcoming some of the hurdles that characterize the successful training of deep neural networks, ranging from long training times to the needs of large datasets. Transferring neural networks in a DRL context can be particularly challenging and is a process which in most cases results in negative transfer [2]. 
 
-# Goal:
-
-# Preliminary work:
-
-# Tasks:
-
-# Supervision
-
-Contact: Rafael Fernandes Cunha
-
-Adress: Bernoulli Institute, Autonomous Perceptive Systems group, Nijenborgh 9 (Bernoulliborg)
-
-Room: 5161.0438
-
-Email: r.f.cunha@rug.nl
-
-# Project description:
-
-<h3 style="color: #00ab37;" id="Supervisions">Resources</h3>
-<li>R. N. Cahn, <a href="http://phyweb.lbl.gov/%7Erncahn/www/liealgebras/texall.pdf">Semi-Simple Lie Algebras and Their Representations</a></li>
-
-
-<br><br><br>
-Multi-agent systems are rapidly finding applications in a variety of domains, including robotics, distributed control, telecommunications, and economics. Reinforcement learning (RL) is a powerful framework that allows an agent to behave near-optimally through a trial and error exploration of the environment. Although originally developed for single-agent settings, RL approaches have been extended to scenarios where multiple agents learn concurrently by interacting with each other. To deal with the strategic interaction between those rational decision-makers, game theory models are necessary. These are the basic theories surrounding the DeepMind AlphaStar project, for example. 
+It may be the case that negative transfer in TL is related to primacy bias.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-6 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/projects/primacy_bias.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-6 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/Picture2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/negative_transfer.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    On the left, a multi-agent reinforcemnt learning (MARL) system called <a href="https://www.deepmind.com/blog/alphastar-grandmaster-level-in-starcraft-ii-using-multi-agent-reinforcement-learning">AlphaStar</a> is playing Starcraft II and was able to achieve grandmaster performance. On the right, real life example application of a MARL systems to be used in the future to enchance autonoumous driving cars capabilities.
-</div>
+    On the left, a negative transfer scheme showing that you can have lower accuracy after transfering source information to train with the target. On the right, an undicounted returns on quadruped-run for SAC with and without heavy priming on the first 100 transitions. An agent affected by the primacy bias is unable to learn [1].
+</div> 
 
-# Subject of design:
+<br>
+<h2 style="color: #00ab37;">Goal:</h2>
+Identify if negative transfer is related to primacy bias in finite environments.
 
-This project aims to analyze whether and how RL and game theory tools are used to solve multi-agent systems problems. We will run numerical simulations to compare the performance of different algorithms.
+<br>
+<h2 style="color: #00ab37;">Preliminary work:</h2>
+There are works made analysing the problem of negative transfer, and primacy bias, but to our knowledge, there is no investigation if the two phenomenons are related.
 
-# Field of knowledge: 
+<br>
+<h2 style="color: #00ab37;">Tasks:</h2>
+<li>Understanding the theory surrounding negative transfer in TL, and primacy bias</li>
+<li>Make some numerical simulations in python to replicate the phenomena from the papers in the reference.</li>
+<li>Make a theoretical analyses considering if negative transfer is connected with the primacy bias problem in finite environments. </li>
+<li>Choose some environments and propose a numerical simulation where the supposed connection can been show. </li>
+ 
 
-Game theory, multi-agent systems, reinforcement learning
+<br>
+<h3 style="color: #00ab37;">Reference</h3>
+
+<li>[1] Nikishin, Evgenii, et al. <a href="https://proceedings.mlr.press/v162/nikishin22a">The primacy bias in deep reinforcement learning.</a> <i>International conference on machine learning. PMLR</i>, 2022.</li>
+
+<li>[2] Sabatelli, Matthia, and Pierre Geurts. <a href="https://arxiv.org/pdf/2110.02639.pdf">On the transferability of deep-q networks.</a> <i>arXiv preprint arXiv:2110.02639</i>, 2021.</li>
+
+<br>
+<h4 style="color: #00ab37;">Supervision</h4>
+Contact: <a href="https://www.rug.nl/staff/r.f.cunha/?lang=en">Rafael Fernandes Cunha</a>  
+Room: 5161.0438 (Bernoulliborg)  
+Email: r.f.cunha@rug.nl
+
+Contact: Matthia Sabatelli  
+Email: m.sabatelli@rug.nl
+
 
 
