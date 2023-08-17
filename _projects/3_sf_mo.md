@@ -28,10 +28,11 @@ related_publications:
 <h7 style="display: inline;">Deep Reinforcement Learning, Transfer Learning, Successor features, Multi-objective environments </h7>
 
 <br>
+<h2 style="color: #00ab37;">Problem:</h2>
 <div class="row">
     <!-- Text section occupying 2/3 of the width -->
     <div class="col-sm-8 mt-3 mt-md-0" style="text-align: justify;">
-        <h2 style="color: #00ab37;">Problem:</h2>
+        
         The combination of reinforcement learning (RL) with deep learning is a promising approach to tackle important sequential decisionmaking problems that are currently intractable. One obstacle to overcome is the amount of data needed by learning systems of this type.  
 
         Complex decision problems can be naturally decomposed into multiple tasks that unfold in sequence or in parallel. By associating each task with a reward function, this problem decomposition can be seamlessly accommodated within the standard reinforcement-learning formalism.
@@ -71,7 +72,7 @@ This project can include
 <li>Understanding how problems using SF can be interpreted as multi-objective environments</li>
 <li>Make some numerical simulations in python solving some multi-objective environments using SF, GPI, and the set of optimal policies.</li>
 <li>Run empirical analysis on how the size of the set of optimal policies is inpacted by some environments from the MO-Gymnasium library. </li>
-
+<br>
 The final tasks will be discussed with the supervisor. Please feel free to get in contact.
  
 
