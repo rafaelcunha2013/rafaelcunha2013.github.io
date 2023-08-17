@@ -66,6 +66,7 @@ This project can include
 <li>Make some numerical simulations in python to replicate the phenomena from the papers in the reference.</li>
 <li>Make a theoretical analysis considering if negative transfer is connected with the primacy bias problem in finite environments. </li>
 <li>Choose some environments and propose a numerical simulation where the supposed connection can been shown. </li>
+<br>
 The final tasks will be discussed with the supervisor. Please feel free to get in contact.
  
 
