@@ -82,7 +82,7 @@ Supervisor: <a href="https://www.rug.nl/staff/r.f.cunha/?lang=en">Rafael Fernand
 Room: 5161.0438 (Bernoulliborg)  
 Email: r.f.cunha@rug.nl
 
-Co-supervisor: Matthia Sabatelli  
+Co-supervisor: <a href="https://www.rug.nl/staff/m.sabatelli/?lang=en">Matthia Sabatelli</a> 
 Email: m.sabatelli@rug.nl
 
 
