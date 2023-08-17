@@ -34,7 +34,7 @@ related_publications:
         <h2 style="color: #00ab37;">Problem:</h2>
         Deep Reinforcement Learning (DRL) combines deep learning and reinforcement learning to enable AI agents to learn from raw input data and make decisions. DRL uses neural networks to approximate complex policies and value functions. It has achieved breakthroughs in tasks like game playing, robotics, and complex decision-making. 
         <br><br>
-        Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on progressively growing datasets, deep RL agents incur a risk of overfitting to earlier experiences, negatively affecting the rest of the learning process [1].
+        Primacy bias is a tendency that DRL algorithms have to rely on early interactions and ignore useful evidence encountered later. Because of training on progressively growing datasets, deep RL agents incur a risk of overfitting to earlier experiences, negatively affecting the rest of the learning process [1]. 
         <br><br>
         Transfer Learning (TL) is an efficient machine learning paradigm that allows overcoming some of the hurdles that characterize the successful training of deep neural networks, ranging from long training times to the needs of large datasets. Transferring neural networks in a DRL context can be particularly challenging and is a process which in most cases results in negative transfer [2]. 
         <br><br>
@@ -82,7 +82,7 @@ Supervisor: <a href="https://www.rug.nl/staff/r.f.cunha/?lang=en">Rafael Fernand
 Room: 5161.0438 (Bernoulliborg)  
 Email: r.f.cunha@rug.nl
 
-Co-supervisor: <a href="https://www.rug.nl/staff/m.sabatelli/?lang=en">Matthia Sabatelli</a> 
+Co-supervisor: <a href="https://www.rug.nl/staff/m.sabatelli/?lang=en">Matthia Sabatelli</a>   
 Email: m.sabatelli@rug.nl
 
 
