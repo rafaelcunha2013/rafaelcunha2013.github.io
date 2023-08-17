@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Transfer in multiobjective scenarios
-description: Transfer learning using successor features interpreted as a multiobjectve problem
+title: Transfer in multi-objective environments
+description: Transfer learning using successor features interpreted as a multi-objectve problem
 img: assets/img/projects/illustrative_work_commute.png
 importance: 2
 category: current
@@ -79,7 +79,7 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 <br>
 <h3 style="color: #00ab37;">References</h3>
 
-<li>[1] Barreto, André, et al. <a href="https://www.davidsilver.uk/wp-content/uploads/2020/09/Fast-reinforcement.pdf">Fast reinforcement learning with generalized policy updates.</a> <i>Proceedings of the National Academy of Sciences 117.48</i>, (2020): 30079-30087. Click <a href="https://www.youtube.com/watch?v=6_7vE08acVM">here</a>for a videos presentation, and <a href="https://www.deepmind.com/blog/fast-reinforcement-learning-through-the-composition-of-behaviours">here</a> for the Google DeepMind blog post about the topic.</li>
+<li>[1] Barreto, André, et al. <a href="https://www.davidsilver.uk/wp-content/uploads/2020/09/Fast-reinforcement.pdf">Fast reinforcement learning with generalized policy updates.</a> <i>Proceedings of the National Academy of Sciences 117.48</i>, (2020): 30079-30087. Click <a href="https://www.youtube.com/watch?v=6_7vE08acVM">here</a> for a video presentation, and <a href="https://www.deepmind.com/blog/fast-reinforcement-learning-through-the-composition-of-behaviours">here</a> for the Google DeepMind blog post about the topic.</li>
 
 <li>[2] Alegre, Lucas Nunes, Ana Bazzan, and Bruno C. Da Silva. <a href="https://proceedings.mlr.press/v162/alegre22a.html">Optimistic linear support and successor features as a basis for optimal policy transfer.</a> <i>International Conference on Machine Learning. PMLR</i>, 2022.</li>
 
