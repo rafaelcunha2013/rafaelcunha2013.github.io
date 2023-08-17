@@ -42,7 +42,7 @@ related_publications:
         <br><br>
         If reward functions are expressed linearly, and the agent has previously learned a set of policies for different tasks, successor features (SFs) can be exploited to combine such policies and identify reasonable solutions for new problems [2]. The paper [2] allows RL agents to combine existing policies and directly identify optimal policies for arbitrary new problems, without requiring any further interactions with the environment. It shows that the transfer learning problem tackled by SFs is equivalent to the problem of learning to optimize multiple objectives in RL.
         <br><br>
-        We would like to investigate the relation of SF and multi-objective problems further, understanding the minimum set of policies that is able to delivery a resonable performance for different types of environments. In other words, emperically have a intuition of what characteristics of different environments inpact more on the size of this set of policies. 
+        We would like to investigate the relation between SF and multi-objective problems further, understanding the minimum set of policies that can deliver reasonable performance for different types of environments. In other words, empirically gain an intuition of what characteristics of different environments impact more on the size of this set of policies.
         
     </div>
 
@@ -51,26 +51,26 @@ related_publications:
         {% include figure.html path="assets/img/projects/gridworld.jpg" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
         {% include figure.html path="assets/img/projects/corner_weights.png" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption mt-2">
-            In the top figure, an angent must choose the path that gives more return depending on rewards given for colect triangles or squares[1]. In the bottom figure, a schematic representation of the algorithm that suggest how to add new policies to the set of optimum policies by solving different tasks.
+            In the top figure, an agent must choose the path that gives more return depending on rewards given for collect triangles or squares [1]. In the bottom figure, a schematic representation of the algorithm that suggests how to add new policies to the set of optimum policies by solving different tasks.
         </div>
     </div>
 </div>
 
 <br>
 <h2 style="color: #00ab37;">Goal:</h2>
-Identify enpirically the connection of the size of the set of policies capable of delivery a resonable peformance when using SF and GPI with the characteristics of different multi-objective RL environments from the MO-Gymnasium library [4].
+Identify empirically the connection of the size of the set of policies capable of delivering a reasonable performance when using SF and GPI with the characteristics of different multi-objective RL environments from the MO-Gymnasium library [4].
 
 <br>
 <h2 style="color: #00ab37;">Preliminary work:</h2>
-[1] investigate how to do transfer learning using SF and GPI, and the work of [2] focus on the algorithm to find the set of policies to delivery the optimum solution when using SF and GPI. 
+[1] investigates how to do transfer learning using SF and GPI, and the work of [2] focuses on the algorithm to find the set of policies to deliver the optimum solution when using SF and GPI. 
 
 <br>
 <h2 style="color: #00ab37;">Tasks:</h2>
 This project can include
 <li>Understanding the theory surrounding SF and GPI</li>
-<li>Understanding how problems using SF can be interpreted as multi-opjective environments</li>
+<li>Understanding how problems using SF can be interpreted as multi-objective environments</li>
 <li>Make some numerical simulations in python solving some multi-objective environments using SF, GPI, and the set of optimal policies.</li>
-<li>Run empirical analysis on how the size of the set of optimal policies is been inpacted by some environments from the MO-Gymnasium library. </li>
+<li>Run empirical analysis on how the size of the set of optimal policies is inpacted by some environments from the MO-Gymnasium library. </li>
 
 The final tasks will be discussed with the supervisor. Please feel free to get in contact.
  
