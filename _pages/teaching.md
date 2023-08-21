@@ -111,7 +111,7 @@ giscus_comments: false
       <li class="list-group-item">
         <div class="row">
           <div class="col-sm-12">
-            I will give some lectures in this course, together with Matthia Sabatelli. The course aims to introduce the student to the field of Deep Reinforcement Learning; by the end of it the student will be familiar with Reinforcement Learning Basics, Deep Learning for Reinforcement Learning, Deep Q-Networks, Policy Gradients, Deep model-based RL, meta-learning, and transfer learning.
+            I will be giving a lecture in this course, where Matthia Sabatelli is the coordinator. The course aims to introduce the student to the field of Deep Reinforcement Learning; by the end of it the student will be familiar with Reinforcement Learning Basics, Deep Learning for Reinforcement Learning, Deep Q-Networks, Policy Gradients, Deep model-based RL, meta-learning, and transfer learning.
           </div>
         </div>
       </li>
