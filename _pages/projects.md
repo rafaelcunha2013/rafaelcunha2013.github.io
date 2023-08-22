@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Here you can see a list of open projects that I am working on. Feel free to reach me out if you are interested to develop your bachelor's or master's thesis related to one of this projects.
+description: Below is a list of ongoing projects I am currently engaged with. If you are an Artificial Intelligence student at the University of Groningen and are keen on pursuing your bachelor's or master's thesis related to any of these projects, please don't hesitate to reach out. Kindly email me with a brief CV and a motivation letter. In the motivation letter (ranging from 1/2 to 1 page), specify the projects you are interested in or suggest a project within the reinforcement learning (RL) field. Also, mention your intended start date and any relevant experiences you might have. Please note that prior knowledge of RL is not a prerequisite.
 nav: true
 nav_order: 2
 display_categories: [current, old]
