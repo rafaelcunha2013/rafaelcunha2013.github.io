@@ -5,7 +5,7 @@ description: Game Theory and Multi-agent Reinforcement Learning
 img: assets/img/Picture1.png
 importance: 1
 category: old
-related_publications: cunha2022reducing
+related_publications: 
 ---
 
 # Project description:
