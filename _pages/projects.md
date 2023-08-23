@@ -8,9 +8,7 @@ nav_order: 2
 display_categories: [current, old]
 horizontal: false
 ---
-If you are an <span style="color: #00ab37;">Artificial Intelligence student at the University of Groningen</span> and are keen on pursuing your <span style="color: #00ab37;">bachelor's or master's thesis</span> with me as your supervisor within the field of <span style="color: #00ab37;">reinforcement learning (RL)</span>, please don't hesitate to reach out.
-
-<br>
+If you are an <span style="color: #00ab37;">Artificial Intelligence student at the University of Groningen</span> and are keen on pursuing your <span style="color: #00ab37;">bachelor's or master's thesis</span> with me as your supervisor within the field of <span style="color: #00ab37;">reinforcement learning (RL)</span>, please don't hesitate to reach out.  
 <h6 style="color: #00ab37;">Kindly email me with:</h6>
 <ul>
     <li>Brief CV </li>
