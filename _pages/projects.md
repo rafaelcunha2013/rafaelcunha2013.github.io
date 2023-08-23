@@ -2,12 +2,28 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Below is a list of ongoing projects I am currently engaged with. If you are an Artificial Intelligence student at the University of Groningen and are keen on pursuing your bachelor's or master's thesis related to any of these projects, please don't hesitate to reach out. Kindly email me with a brief CV and a motivation letter. In the motivation letter (ranging from 1/2 to 1 page), specify the projects you are interested in or suggest a project within the reinforcement learning (RL) field. Also, mention your intended start date and any relevant experiences you might have. Please note that prior knowledge of RL is not a prerequisite.
+description: Below is a list of ongoing/open projects I am currently engaged with. 
 nav: true
 nav_order: 2
 display_categories: [current, old]
 horizontal: false
 ---
+If you are an <span style="color: #00ab37;">Artificial Intelligence student at the University of Groningen</span> and are keen on pursuing your <span style="color: #00ab37;">bachelor's or master's thesis</span> with me within the field of <span style="color: #00ab37;">reinforcement learning (RL)</span>, please don't hesitate to reach out.
+
+<br>
+<h6 style="color: #00ab37;">Kindly email me with:</h6>
+<ul>
+    <li>Brief CV </li>
+    <li>Motivation letter (ranging from 1/2 to 1 page)
+        <ol>
+            <li>Specify the projects you are interested in or suggest a project within the reinforcement learning (RL) field.</li>
+            <li>Mention your intended start date</li>
+            <li>Describe any relevant experiences you might have.</li>
+        </ol>
+    </li>
+</ul>
+
+Please note that prior knowledge in RL is <span style="color: #00ab37;">NOT</span> a prerequisite.
 
 <!-- pages/projects.md -->
 <div class="projects">
