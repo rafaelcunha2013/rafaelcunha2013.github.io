@@ -55,13 +55,13 @@ related_publications:
         The <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023</a> presents a <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a> as done in previous challenges as well as introduces an independent <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/forecasting-track-citylearn-challenge">forecasting track</a> where, both tracks are run in parallel and utilize the same dataset.
 
         <br><br>
-        In the <span style="color: #00ab37;">control track</span>, participants will develop energy management agent(s) and an optional custom reward function (in RLC solutions) to manage electrical and domestic hot water energy storage systems, and heat pump power in a synthetic single-family neighborhood under normal grid-operation and power outages.
+        In the <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a>, participants will develop energy management agent(s) and an optional custom reward function (in RLC solutions) to manage electrical and domestic hot water energy storage systems, and heat pump power in a synthetic single-family neighborhood under normal grid-operation and power outages.
 
         <br><br>
-        This project will focus on the <span style="color: #00ab37;">control track</span> of the above challenge. 
+        This project will focus on the <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a> of the above challenge. 
 
         <br><br>
-        In the control track, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.       
+        In the <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a>, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.       
     </div>
 </div>
 <br>
