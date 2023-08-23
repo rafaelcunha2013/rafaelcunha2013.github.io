@@ -28,13 +28,13 @@ related_publications:
 <h7 style="display: inline;">Reinforcement Learning, Climate Change, CityLearn, NeurIps RL challenge</h7>
 
 <br>
-
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/projects/citylearn_challenge_banner.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge" target="_blank">
+            {% include figure.html path="assets/img/projects/citylearn_challenge_banner.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </a>
     </div>
 </div>
-
 <h2 style="color: #00ab37;">Problem:</h2>
 <div class="row">
     <!-- Text section occupying 2/3 of the width -->
@@ -64,8 +64,8 @@ related_publications:
         In the control track, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.       
     </div>
 </div>
-
-<div class="row">
+<br>
+<div class="row justify-content-center align-items-center">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/projects/citylearn_challenge_buildings.png" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption mt-2">
