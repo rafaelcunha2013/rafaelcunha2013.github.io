@@ -49,7 +49,7 @@ related_publications:
         The CityLearn Challenge makes use of the CityLearn Gym environment as an opportunity to compete in investigating the potential of artificial intelligence (AI) and distributed control systems to tackle multiple problems within the built-environment domain. It is designed to attract a multidisciplinary participation audience including researchers, industry experts, sustainability enthusiasts and AI hobbyists as a means of crowd-sourcing solutions to these problems.
 
         <br><br>
-        The CityLearn Challenge 2023 addresses this multi-faceted nature of advanced control in buildings by blending the challenges of control algorithm design, forecast quality and grid-resilience. The CityLearn Challenge 2023 presents a control track as done in previous challenges as well as introduces an independent forecast track where, both tracks are run in parallel and utilize the same dataset.
+        The CityLearn Challenge 2023 addresses this multi-faceted nature of advanced control in buildings by blending the challenges of control algorithm design, forecast quality and grid-resilience. 
 
         <br><br>
         The <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023</a> presents a <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a> as done in previous challenges as well as introduces an independent <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/forecasting-track-citylearn-challenge">forecasting track</a> where, both tracks are run in parallel and utilize the same dataset.
