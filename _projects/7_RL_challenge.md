@@ -76,6 +76,14 @@ related_publications:
     </div>
 </div>
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/projects/citylearn_challenge_buildings.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        <div class="caption mt-2">
+            Schematic View of a Neighborhood in the CityLearn Gym Environment.
+        </div>
+    </div>
+</div>
 
 <br>
 <h2 style="color: #00ab37;">Goal:</h2>
