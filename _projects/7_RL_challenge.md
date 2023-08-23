@@ -38,7 +38,7 @@ related_publications:
 <h2 style="color: #00ab37;">Problem:</h2>
 <div class="row">
     <!-- Text section occupying 2/3 of the width -->
-    <div class="col-sm-8 mt-3 mt-md-0" style="text-align: justify;">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: justify;">
         Buildings are responsible for 30% of greenhouse gas emissions. At the same time buildings are taking a more active role in the power system by providing benefits to the electrical grid. As such, buildings are an unexplored opportunity to address climate change.
 
         Advanced control systems such as model predictive control (MPC) and reinforcement learning control (RLC) are well-suited for automated building energy management in a multi-task environment, while adapting to individual characteristics of occupants and buildings.
@@ -61,18 +61,7 @@ related_publications:
         This project will focus on the <span style="color: #00ab37;">control track</span> of the above challenge. 
 
         <br><br>
-        In the control track, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.
-
-        
-    </div>
-
-    <!-- Images section occupying 1/3 of the width -->
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/projects/four_room_ma.gif" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
-        {% include figure.html path="assets/img/projects/corner_weights.png" title="example image" class="img-fluid rounded z-depth-1" %}
-        <div class="caption mt-2">
-            In the top figure, two agents must choose the path that gives more return depending on rewards given for collect triangles of different colors. In the bottom figure, a schematic representation of the algorithm that suggests how to add new policies to the set of optimum policies by solving different tasks.
-        </div>
+        In the control track, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.       
     </div>
 </div>
 
