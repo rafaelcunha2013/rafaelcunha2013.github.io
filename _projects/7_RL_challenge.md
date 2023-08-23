@@ -1,10 +1,10 @@
 ---
 layout: page
-title: CityLearn Chalenge 2023
-description: CityLearn Challenge 2023. Using AI for Building's Energy Management
+title: CityLearn Chalenge 2023. Control Track.
+description: CityLearn Challenge 2023. Using AI for Building's Energy Management.
 img: assets/img/projects/citylearn_challenge_banner.png
 importance: 7
-category: fun
+category: current
 related_publications: 
 ---
 
@@ -28,6 +28,13 @@ related_publications:
 <h7 style="display: inline;">Reinforcement Learning, Climate Change, CityLearn, NeurIps RL challenge</h7>
 
 <br>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/projects/citylearn_challenge_banner.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 <h2 style="color: #00ab37;">Problem:</h2>
 <div class="row">
     <!-- Text section occupying 2/3 of the width -->
@@ -45,10 +52,16 @@ related_publications:
         The CityLearn Challenge 2023 addresses this multi-faceted nature of advanced control in buildings by blending the challenges of control algorithm design, forecast quality and grid-resilience. The CityLearn Challenge 2023 presents a control track as done in previous challenges as well as introduces an independent forecast track where, both tracks are run in parallel and utilize the same dataset.
 
         <br><br>
-        In the control track, participants will develop energy management agent(s) and an optional custom reward function (in RLC solutions) to manage electrical and domestic hot water energy storage systems, and heat pump power in a synthetic single-family neighborhood under normal grid-operation and power outages.
+        The <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023</a> presents a <span style="color: #00ab37;">control track</span> as done in previous challenges as well as introduces an independent <span style="color: #00ab37;">forecast track</span> where, both tracks are run in parallel and utilize the same dataset.
 
         <br><br>
-        This project will focus on the control track of the above challenge. 
+        In the <span style="color: #00ab37;">control track</span>, participants will develop energy management agent(s) and an optional custom reward function (in RLC solutions) to manage electrical and domestic hot water energy storage systems, and heat pump power in a synthetic single-family neighborhood under normal grid-operation and power outages.
+
+        <br><br>
+        This project will focus on the <span style="color: #00ab37;">control track</span> of the above challenge. 
+
+        <br><br>
+        In the control track, your objective is to design your own single-agent or multi-agent reinforcement learning control (RLC) policy. You can also opt to develop a custom reward function. This is targeted for electrical (battery) and domestic hot water storage systems, as well as heat pump control within buildings. The overarching goals are to ensure thermal comfort, decrease carbon emissions, enhance energy efficiency, and provide resilience during power outages.
 
         
     </div>
@@ -63,21 +76,23 @@ related_publications:
     </div>
 </div>
 
+
 <br>
 <h2 style="color: #00ab37;">Goal:</h2>
-Suggest and run simulations of a new cooperative multi-agent reinforcement learning algorithm with a joint reward signal that combines the ideas of VDN, successor features, and the strategy to find a set of optimum policies as described in [4].
+You are expected to grasp the problem, propose an RL agent, and refine the reward function. Your agent should demonstrate evidence of learning a beneficial policy. You are <span style="color: #00ab37;">NOT</span> expected to discover a policy that delivers outstanding performance due to the challenge's difficulty. However, achieving this would be a significant bonus for your project!
+
 
 <br>
 <h2 style="color: #00ab37;">Preliminary work:</h2>
-[1] proposes an algorithm to solve cooperative multi-agent reinforcement learning problems. [2] investigates how to do transfer learning using SF and GPI, and [4]'s work focuses on the algorithm to find the set of policies to deliver the optimum solution when using SF and GPI. 
+<a href="https://www.aicrowd.com/challenges/neurips-2022-citylearn-challenge">The CityLearn Challenge 2022</a> also offered a control track. You can gain insights into last year's solutions to build your own solution for this year. Additionally, the <a href="https://www.climatechange.ai/papers/iclr2023/2">tutorial in [4]</a> will provide you with a more hands-on understanding of the problem.
 
 <br>
 <h2 style="color: #00ab37;">Tasks:</h2>
 This project can include
-<li>Read the literature on SF, GPI, MARL, and multi-objective environments.</li>
-<li>Choose a multi-agent environment and run some simulations using VDN.</li>
-<li>Slightly modify a multi-agent environment to treat it as a multi-objective problem.</li>
-<li>Propose an algorithm that combines VDN, SF, and the strategy used in [4] to identify the set of optimal policies.</li>
+<li>Understand the CityLearn Challenge 2023 control track problem.</li>
+<li>Conduct a literature review on this problem. Papers based on the CityLearn Challenge 2022 may be helpful.</li>
+<li>Replicate the results of one of the solutions from the CityLearn Challenge 2022.</li>
+<li>Propose an RL algorithm to tackle the problem and design the reward function.</li>
 <li>Run simulations with the proposed algorithm and assess the results.</li>
 <br>
 The final tasks will be discussed with the supervisor. Please feel free to get in contact.
@@ -86,15 +101,13 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 <br>
 <h3 style="color: #00ab37;">References</h3>
 
-<li>[1] Barreto, André, et al. <a href="https://www.davidsilver.uk/wp-content/uploads/2020/09/Fast-reinforcement.pdf">Fast reinforcement learning with generalized policy updates.</a> <i>Proceedings of the National Academy of Sciences 117.48</i>, (2020): 30079-30087. Click <a href="https://www.youtube.com/watch?v=6_7vE08acVM">here</a> for a video presentation, and <a href="https://www.deepmind.com/blog/fast-reinforcement-learning-through-the-composition-of-behaviours">here</a> for the Google DeepMind blog post about the topic.</li>
+<li>[1] <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023.</a> </li>
 
-<li>[3] Dibangoye, Jilles Steeve, et al. <a href="http://proceedings.mlr.press/v139/gupta21a">Optimally solving Dec-POMDPs as continuous-state MDPs. </a> <i>Journal of Artificial Intelligence Research 55 (443-497)</i>, 2016.</li>
+<li>[2] <a href="https://www.aicrowd.com/challenges/neurips-2022-citylearn-challenge">CityLearn Challenge 2022.</a> </li>
 
+<li>[3] Vázquez-Canteli, José R., et al. <a href="https://www.citylearn.net/index.html">Citylearn v1. 0: An openai gym environment for demand response with deep reinforcement learning. </a> <i>Proceedings of the 6th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation.</i>, 2019.</li>
 
-<li>[5] Barreto, André, et al. <a href="https://proceedings.neurips.cc/paper/2017/hash/350db081a661525235354dd3e19b8c05-Abstract.html">Successor features for transfer in reinforcement learning.</a> <i>Advances in neural information processing systems 30</i>, 2017.</li>
-
-<li>[6] Alegre, Lucas N., et al. <a href="https://mo-gymnasium.farama.org/">MO-Gymnasium (Software) </a> <i>Multi-Objective Gymnasium type environment</i>, 2022.</li>
-
+<li>[4] Nweye, Kingsley et al. <a href="https://www.climatechange.ai/papers/iclr2023/2">CityLearn: A Tutorial on Reinforcement Learning Control for Grid-Interactive Efficient Buildings and Communities. </a> <i>ICLR 2023 Workshop on Tackling Climate Change with Machine Learning.</i>, 2023.</li>
 
 
 <br>
@@ -103,5 +116,5 @@ Supervisor: <a href="https://www.rug.nl/staff/r.f.cunha/?lang=en">Rafael Fernand
 Room: 5161.0438 (Bernoulliborg)  
 Email: r.f.cunha@rug.nl
 
-
-https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge
+Co-supervisor: <a href="https://www.rug.nl/staff/j.d.cardenas.cartagena/?lang=en">Juan Diego Cardenal Cartagena</a>  
+Email: j.d.cardenas.cartagena@rug.nl
