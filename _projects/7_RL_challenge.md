@@ -52,7 +52,7 @@ related_publications:
         The CityLearn Challenge 2023 addresses this multi-faceted nature of advanced control in buildings by blending the challenges of control algorithm design, forecast quality and grid-resilience. The CityLearn Challenge 2023 presents a control track as done in previous challenges as well as introduces an independent forecast track where, both tracks are run in parallel and utilize the same dataset.
 
         <br><br>
-        The <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023</a> presents a <span style="color: #00ab37;">control track</span> as done in previous challenges as well as introduces an independent <span style="color: #00ab37;">forecast track</span> where, both tracks are run in parallel and utilize the same dataset.
+        The <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge">CityLearn Challenge 2023</a> presents a <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/control-track-citylearn-challenge">control track</a> as done in previous challenges as well as introduces an independent <a href="https://www.aicrowd.com/challenges/neurips-2023-citylearn-challenge/problems/forecasting-track-citylearn-challenge">forecasting track</a> where, both tracks are run in parallel and utilize the same dataset.
 
         <br><br>
         In the <span style="color: #00ab37;">control track</span>, participants will develop energy management agent(s) and an optional custom reward function (in RLC solutions) to manage electrical and domestic hot water energy storage systems, and heat pump power in a synthetic single-family neighborhood under normal grid-operation and power outages.
@@ -66,7 +66,7 @@ related_publications:
 </div>
 <br>
 <div class="row justify-content-center align-items-center">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0 text-center">
         {% include figure.html path="assets/img/projects/citylearn_challenge_buildings.png" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption mt-2">
             Schematic View of a Neighborhood in the CityLearn Gym Environment.
