@@ -37,7 +37,7 @@ Here's a broad overview of my current research interests:
 * Transfer Learning
 * Hierarchical Reinforcement Learning
 
-Look at <a href="projects">here</a> to see a list of open projects that you can enroll for your bachelor's or master's thesis.
+Check out the list of open projects <a href="projects">here</a> that you can enroll in for your bachelor's or master's thesis.
 
 
 <!--Currently, I am working on the development of courses for the AI curriculum, along with supervision of master's and bachelor's students enrolled in thesis projects within the AI department.-->
