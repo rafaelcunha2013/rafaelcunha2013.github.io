@@ -14,7 +14,7 @@ If you are an <span style="color: #00ab37;">Artificial Intelligence student at t
     <li>Brief CV </li>
     <li>Motivation letter (ranging from 1/2 to 1 page)
         <ol>
-            <li>Specify the projects you are interested in or suggest a project within the reinforcement learning (RL) field.</li>
+            <li>Specify the projects you are interested in or suggest a project within the RL field.</li>
             <li>Mention your intended start date.</li>
             <li>Describe any relevant experiences you might have.</li>
         </ol>
