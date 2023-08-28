@@ -89,9 +89,9 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 <br>
 <h3 style="color: #00ab37;">References</h3>
 
-<li>[1] Parisi, Simone, et al. <a href="https://www.davidsilver.uk/wp-content/uploads/2020/09/Fast-reinforcement.pdf">Interesting object, curious agent: Learning task-agnostic exploration.</a> <i>Advances in Neural Information Processing Systems 34</i>, (2021): 20516-20530.</li>
+<li>[1] Parisi, Simone, et al. <a href="https://proceedings.neurips.cc/paper_files/paper/2021/hash/abe8e03e3ac71c2ec3bfb0de042638d8-Abstract.html">Interesting object, curious agent: Learning task-agnostic exploration.</a> <i>Advances in Neural Information Processing Systems 34</i>, (2021): 20516-20530.</li>
 
-<li>[2] Chevalier-Boisvert, Maxime, et al. <a href="http://proceedings.mlr.press/v139/gupta21a">Minigrid & Miniworld: Modular & Customizable Reinforcement Learning Environments for Goal-Oriented Tasks</a> <i>arXiv preprint arXiv:2306.13831</i>, 2023. Check also <a href="https://minigrid.farama.org/">this</a> page for the documentation.</li>
+<li>[2] Chevalier-Boisvert, Maxime, et al. <a href="https://arxiv.org/abs/2306.13831">Minigrid & Miniworld: Modular & Customizable Reinforcement Learning Environments for Goal-Oriented Tasks</a> <i>arXiv preprint arXiv:2306.13831</i>, 2023. Check also <a href="https://minigrid.farama.org/">this</a> page for the documentation.</li>
 
 <li>[3] Espeholt, Lasse, et al. <a href="http://proceedings.mlr.press/v80/espeholt18a.html">Impala: Scalable distributed deep-rl with importance weighted actor-learner architectures.</a> <i>International conference on machine learning. PMLR</i>, 2018.</li>
 
