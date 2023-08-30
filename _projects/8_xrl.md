@@ -79,7 +79,7 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 
 <li>[3] Arrighi, Leonardo, et al. <a href="https://drive.google.com/file/d/1WpfTWjSV6uS576-uF27NHzZBnWnWiN-8/view">Explainable Automated Anomaly Recognition in Failure Analysis: is Deep Learning Doing it Correctly?.</a> <i> XAI conference (2023). Under publication.</i>, 2023.</li>
 
-<li>[4] Milani, Stephanie, et al.  <a href="https://mo-gymnasium.farama.org/">A survey of explainable reinforcement learning.</a> <i>arXiv preprint arXiv:2202.08434</i>, 2022.</li>
+<li>[4] Milani, Stephanie, et al.  <a href="https://arxiv.org/abs/2202.08434">A survey of explainable reinforcement learning.</a> <i>arXiv preprint arXiv:2202.08434</i>, 2022.</li>
 
 <li>[5] Milani, Stephanie, et al.  <a href="https://gymnasium.farama.org/environments/atari/complete_list/">A complete list of atari gym environments.</a></li>
 
