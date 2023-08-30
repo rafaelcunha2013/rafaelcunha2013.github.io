@@ -32,19 +32,11 @@ related_publications:
 <div class="row">
     <!-- Text section occupying 2/3 of the width -->
     <div class="col-sm-8 mt-3 mt-md-0" style="text-align: justify;">
-        Neural Networks (NNs) are often cited as black-boxes, i.e., models which are not interpretable by human cognition and whose function learnt from the data is not directly accessible. For this reason, several techniques for trying to probe into one or more aspects of the inner functioning of NNs have been proposed, and this field has been dubbed Explainable AI (XAI). Input Attribution (IA) methods are tools to approximate which parts of an input are important in determining the model prediction.
-
+        Neural Networks (NNs) are often cited as black-boxes, i.e., models which are not interpretable by human cognition and whose function learnt from the data is not directly accessible. For this reason, several techniques for trying to probe into one or more aspects of the inner functioning of NNs have been proposed, and this field has been dubbed <i>Explainable AI</i> (XAI). Input Attribution (IA) methods are tools to approximate which parts of an input are important in determining the model prediction.
         <br><br>
-
-        NNs can also be employed as controllers of Reinforcement Learning (RL)-based agents, whereas the model is used to learn the best policy for navigating an environment in a given state. In this sense, IA methods, or any other explainability technique, can be a great tool for getting intuitions about the reasons why an agent executes a specific action.
-
+        NNs can also be employed as controllers of Reinforcement Learning (RL)-based agents, whereas the model is used to learn the best policy for navigating an environment in a given state. In this sense, IA methods, or any other explainability technique, can be a great tool for getting intuitions about the reasons why an agent executes a specific action. The field that looks for explainability in RL agent behaviors is called explainable RL (XRL). The goal of XRL is to elucidate the decision-making process of learning agents in sequential decision-making settings.
         <br><br>
-
-        One of the most pressing challenges of XAI is connected to the assessment of the quality of the explanations provided: in fact, many XAI tools are mere approximations of the underlying decision process operated by the NN, and the explanations can be widely inaccurate in that regard. A straightforward way of evaluating the explanations is to consider the faithfulness of the explanation: for instance, we could ask ourselves whether the input parts identified via IA are actually important for the NN—by perturbing or masking these areas, one reasonably expects the action of the underlying RL agent to change. The field that looks for explainability in RL agent behaviors is called explainable RL (XRL). The goal of XRL is to elucidate the decision-making process of learning agents in sequential decision-making settings.
-
-        <br><br>
-        We would like to investigate the relation between SF and multi-objective problems further, understanding the minimum set of policies that can deliver reasonable performance for different types of environments. In other words, empirically gain an intuition of what characteristics of different environments impact more on the size of this set of policies.
-        
+        One of the most pressing challenges of XAI is connected to the assessment of the <i>quality</i> of the explanations provided: in fact, many XAI tools are mere approximations of the underlying decision process operated by the NN, and the explanations can be widely inaccurate in that regard. A straightforward way of evaluating the explanations is to consider the <i>faithfulness</i> of the explanation: for instance, we could ask ourselves whether the input parts identified via IA are actually important for the NN—by perturbing or masking these areas, one reasonably expects the action of the underlying RL agent to change.       
     </div>
 
     <!-- Images section occupying 1/3 of the width -->
