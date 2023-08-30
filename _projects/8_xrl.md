@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Faithfulness of explanations in deep reinforcement learning
-description: Faithulles of xrl tequiniques when interpreting the policies
+description: Are input attribution methods applied to deep reinforcement learning agents faithful to the policy learned?
 img: assets/img/projects/inputAttibution.jpg
 importance: 8
 category: current
