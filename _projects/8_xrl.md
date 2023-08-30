@@ -2,9 +2,9 @@
 layout: page
 title: Faithfulness of explanations in deep reinforcement learning
 description: Faithulles of xrl tequiniques when interpreting the policies
-img: assets/img/projects/illustrative_work_commute.png
+img: assets/img/projects/inputAttibution.jpg
 importance: 8
-category: old
+category: current
 related_publications: 
 ---
 
@@ -25,7 +25,7 @@ related_publications:
 <h7 style="display: inline;">Python</h7>
 
 <h6 style="color: #00ab37; display: inline">Keywords:</h6>
-<h7 style="display: inline;">Explanable Reinforcement Learning, Explanability, Deep Learning </h7>
+<h7 style="display: inline;">Explanable Reinforcement Learning (XRL), Explanable AI, Input Attribution (IA) </h7>
 
 <br>
 <h2 style="color: #00ab37;">Problem:</h2>
@@ -36,15 +36,12 @@ related_publications:
 
         <br><br>
 
-        The combination of reinforcement learning (RL) with deep learning is a promising approach to tackle important sequential decisionmaking problems that are currently intractable. One obstacle to overcome is the amount of data needed by learning systems of this type.  
+        NNs can also be employed as controllers of Reinforcement Learning (RL)-based agents, whereas the model is used to learn the best policy for navigating an environment in a given state. In this sense, IA methods, or any other explainability technique, can be a great tool for getting intuitions about the reasons why an agent executes a specific action.
 
-        Complex decision problems can be naturally decomposed into multiple tasks that unfold in sequence or in parallel. By associating each task with a reward function, this problem decomposition can be seamlessly accommodated within the standard reinforcement-learning formalism.
+        <br><br>
 
-        If the reward function of a task can be well approximated as a linear combination of the reward functions of tasks previously solved, we can reduce a reinforcement-learning problem to a simpler linear regression [1].
-        <br><br>
-        Successor features (SF) is a value function representation that decouples the dynamics of the environment from the rewards, and generalized policy improvement (GPI) is a generalization of dynamic programming’s policy improvement operation that considers a set of policies rather than a single one. Put together, the two ideas lead to an approach that integrates seamlessly within the RL framework and allows the free exchange of information across tasks [3].
-        <br><br>
-        If reward functions are expressed linearly, and the agent has previously learned a set of policies for different tasks, successor features (SFs) can be exploited to combine such policies and identify reasonable solutions for new problems [2]. The paper [2] allows RL agents to combine existing policies and directly identify optimal policies for arbitrary new problems, without requiring any further interactions with the environment. It shows that the transfer learning problem tackled by SFs is equivalent to the problem of learning to optimize multiple objectives in RL.
+        One of the most pressing challenges of XAI is connected to the assessment of the quality of the explanations provided: in fact, many XAI tools are mere approximations of the underlying decision process operated by the NN, and the explanations can be widely inaccurate in that regard. A straightforward way of evaluating the explanations is to consider the faithfulness of the explanation: for instance, we could ask ourselves whether the input parts identified via IA are actually important for the NN—by perturbing or masking these areas, one reasonably expects the action of the underlying RL agent to change. The field that looks for explainability in RL agent behaviors is called explainable RL (XRL). The goal of XRL is to elucidate the decision-making process of learning agents in sequential decision-making settings.
+
         <br><br>
         We would like to investigate the relation between SF and multi-objective problems further, understanding the minimum set of policies that can deliver reasonable performance for different types of environments. In other words, empirically gain an intuition of what characteristics of different environments impact more on the size of this set of policies.
         
@@ -52,29 +49,31 @@ related_publications:
 
     <!-- Images section occupying 1/3 of the width -->
     <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/projects/gridworld.jpg" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
-        {% include figure.html path="assets/img/projects/corner_weights.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/projects/xrl_taxonomy.png" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
+        {% include figure.html path="assets/img/projects/explainable-ai.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption mt-2">
-            In the top figure, an agent must choose the path that gives more return depending on rewards given for collect triangles or squares [1]. In the bottom figure, a schematic representation of the algorithm that suggests how to add new policies to the set of optimum policies by solving different tasks.
+            In the top figure, XRL taxonomy and its relationship to the RL process [4]. In the bottom figure, resons to study explanable AI.
         </div>
     </div>
 </div>
 
 <br>
 <h2 style="color: #00ab37;">Goal:</h2>
-Understand if explanable reinforcement learning techniques are faithul to the policy?
+Are input attribution methods applied to deep reinforcement learning agents faithful to the policy learned?
+
 
 <br>
 <h2 style="color: #00ab37;">Preliminary work:</h2>
-[1] investigates how to do transfer learning using SF and GPI, and the work of [2] focuses on the algorithm to find the set of policies to deliver the optimum solution when using SF and GPI. 
+In [1], you can find an introductory course on XAI. [2] offers a comprehensive introduction to the evaluation of XAI techniques. [3] provides an example where input attribution methods exhibit low faithfulness, and [4] presents a literature review of some XRL methods.
+
 
 <br>
 <h2 style="color: #00ab37;">Tasks:</h2>
 This project can include
-<li>Make a literature review on explanable reinforcement learning (xrl) techniques</li>
-<li>Analyse how faithul is xrl when relating to the learned policy</li>
-<li>Make some numerical simulations in python solving </li>
-<li>Run empirical analysis on how the size of the set of optimal policies is inpacted by some environments from the MO-Gymnasium library. </li>
+<li>Literature review on XAI and XRL.</li>
+<li>Literature review on assessing quality of XAI tools.</li>
+<li>Run simulations in a chosen atari gym environment. </li>
+<li>Analyze results.</li>
 <br>
 The final tasks will be discussed with the supervisor. Please feel free to get in contact.
  
@@ -82,13 +81,15 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 <br>
 <h3 style="color: #00ab37;">References</h3>
 
-<li>[1] Barreto, André, et al. <a href="https://www.davidsilver.uk/wp-content/uploads/2020/09/Fast-reinforcement.pdf">Fast reinforcement learning with generalized policy updates.</a> <i>Proceedings of the National Academy of Sciences 117.48</i>, (2020): 30079-30087. Click <a href="https://www.youtube.com/watch?v=6_7vE08acVM">here</a> for a video presentation, and <a href="https://www.deepmind.com/blog/fast-reinforcement-learning-through-the-composition-of-behaviours">here</a> for the Google DeepMind blog post about the topic.</li>
+<li>[1] <a href="https://hcixaitutorial.github.io/"> Course on XAI. </a> </li>
 
-<li>[2] Alegre, Lucas Nunes, Ana Bazzan, and Bruno C. Da Silva. <a href="https://proceedings.mlr.press/v162/alegre22a.html">Optimistic linear support and successor features as a basis for optimal policy transfer.</a> <i>International Conference on Machine Learning. PMLR</i>, 2022.</li>
+<li>[2] Nauta, Meike, et al. <a href="https://arxiv.org/abs/2201.08164">From anecdotal evidence to quantitative evaluation methods: A systematic review on evaluating explainable ai.</a> <i>ACM Computing Surveys 55.13s: 1-42</i>, 2023.</li>
 
-<li>[3] Barreto, André, et al. <a href="https://proceedings.neurips.cc/paper/2017/hash/350db081a661525235354dd3e19b8c05-Abstract.html">Successor features for transfer in reinforcement learning.</a> <i>Advances in neural information processing systems 30</i>, 2017.</li>
+<li>[3] Arrighi, Leonardo, et al. <a href="https://drive.google.com/file/d/1WpfTWjSV6uS576-uF27NHzZBnWnWiN-8/view">Explainable Automated Anomaly Recognition in Failure Analysis: is Deep Learning Doing it Correctly?.</a> <i> XAI conference (2023). Under publication.</i>, 2023.</li>
 
-<li>[4] Alegre, Lucas N., et al. <a href="https://mo-gymnasium.farama.org/">MO-Gymnasium (Software) </a> <i>Multi-Objective Gymnasium type environment</i>, 2022.</li>
+<li>[4] Milani, Stephanie, et al.  <a href="https://mo-gymnasium.farama.org/">A survey of explainable reinforcement learning.</a> <i>arXiv preprint arXiv:2202.08434</i>, 2022.</li>
+
+<li>[5] Milani, Stephanie, et al.  <a href="https://gymnasium.farama.org/environments/atari/complete_list/">A complete list of atari gym environments.</a></li>
 
 
 
@@ -96,7 +97,11 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 <h4 style="color: #00ab37;">Supervision</h4>
 Supervisor: <a href="https://www.rug.nl/staff/r.f.cunha/?lang=en">Rafael Fernandes Cunha</a>  
 Room: 5161.0438 (Bernoulliborg)  
-Email: r.f.cunha@rug.nl
+Email: r.f.cunha@rug.nl  
+
+Supervisor: <a href="https://www.rug.nl/staff/m.zullich/?lang=en">Marco Zullich</a>  
+Room: 5161.0438 (Bernoulliborg)  
+Email: m.zullich@rug.nl
 
 
 
