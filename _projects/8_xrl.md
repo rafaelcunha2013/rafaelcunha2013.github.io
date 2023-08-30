@@ -52,7 +52,7 @@ related_publications:
         {% include figure.html path="assets/img/projects/xrl_taxonomy.png" title="example image" class="img-fluid rounded z-depth-1 mb-3" %}
         {% include figure.html path="assets/img/projects/explainable-ai.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption mt-2">
-            In the top figure, XRL taxonomy and its relationship to the RL process [4]. In the bottom figure, resons to study explanable AI.
+            In the top figure, there's the XRL taxonomy and its relationship to the RL process [4]. In the bottom figure, there are reasons to study explainable AI.
         </div>
     </div>
 </div>
