@@ -81,7 +81,7 @@ You are expected to grasp the problem, propose an RL agent, and refine the rewar
 
 <br>
 <h2 style="color: #00ab37;">Preliminary work:</h2>
-<a href="https://www.aicrowd.com/challenges/neurips-2022-citylearn-challenge">The CityLearn Challenge 2022</a> also offered a control track. You can gain insights into last year's solutions to build your own solution for this year. Additionally, the <a href="https://www.climatechange.ai/papers/iclr2023/2">tutorial in [4]</a> will provide you with a more hands-on understanding of the problem.
+<a href="https://www.aicrowd.com/challenges/neurips-2022-citylearn-challenge">The CityLearn Challenge 2022</a> also offered a control track. You can gain insights into last year's solutions to build your own solution for this year. Additionally, the <a href="https://www.climatechange.ai/papers/iclr2023/2">tutorial in [4]</a> will provide you with a more hands-on understanding of the problem. The solution from last year's winner can be found in [5], and a presentation featuring the top five teams is available in [6].
 
 <br>
 <h2 style="color: #00ab37;">Tasks:</h2>
@@ -106,6 +106,10 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 
 <li>[4] Nweye, Kingsley et al. <a href="https://www.climatechange.ai/papers/iclr2023/2">CityLearn: A Tutorial on Reinforcement Learning Control for Grid-Interactive Efficient Buildings and Communities. </a> <i>ICLR 2023 Workshop on Tackling Climate Change with Machine Learning.</i>, 2023.</li>
 
+<li>[5] Yang, Cheng, et al. <a href="https://ieeexplore-ieee-org.proxy-ub.rug.nl/abstract/document/10090669">Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task. </a> <i>2023 IEEE 2nd International Conference on Electrical Engineering, Big Data and Algorithms (EEBDA).</i>, 2023.</li>
+
+<li>[6] <a href="https://www.youtube.com/watch?v=Yel5zybmvwg&t=1s">Video presentation solution of the top 5 teams in 2022. </a> </li>
+
 
 <br>
 <h4 style="color: #00ab37;">Supervision</h4>
@@ -115,3 +119,8 @@ Email: r.f.cunha@rug.nl
 
 Co-supervisor: <a href="https://www.rug.nl/staff/j.d.cardenas.cartagena/?lang=en">Juan Diego Cardenal Cartagena</a>  
 Email: j.d.cardenas.cartagena@rug.nl
+
+
+Yang, Cheng, et al. "Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task." 2023 IEEE 2nd International Conference on Electrical Engineering, Big Data and Algorithms (EEBDA). IEEE, 2023.
+Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task
+https://ieeexplore-ieee-org.proxy-ub.rug.nl/abstract/document/10090669
