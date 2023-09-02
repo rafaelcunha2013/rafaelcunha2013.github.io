@@ -108,7 +108,7 @@ The final tasks will be discussed with the supervisor. Please feel free to get i
 
 <li>[5] Yang, Cheng, et al. <a href="https://ieeexplore-ieee-org.proxy-ub.rug.nl/abstract/document/10090669">Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task. </a> <i>2023 IEEE 2nd International Conference on Electrical Engineering, Big Data and Algorithms (EEBDA).</i>, 2023.</li>
 
-<li>[6] <a href="https://www.youtube.com/watch?v=Yel5zybmvwg&t=1s">Video presentation solution of the top 5 teams in 2022. </a> </li>
+<li>[6] <a href="https://www.youtube.com/watch?v=Yel5zybmvwg&t=1s">Video presentation of the top 5 teams' solution from 2022. </a> </li>
 
 
 <br>
@@ -119,8 +119,3 @@ Email: r.f.cunha@rug.nl
 
 Co-supervisor: <a href="https://www.rug.nl/staff/j.d.cardenas.cartagena/?lang=en">Juan Diego Cardenal Cartagena</a>  
 Email: j.d.cardenas.cartagena@rug.nl
-
-
-Yang, Cheng, et al. "Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task." 2023 IEEE 2nd International Conference on Electrical Engineering, Big Data and Algorithms (EEBDA). IEEE, 2023.
-Combining Forecasting and Multi-Agent Reinforcement Learning Techniques on Power Grid Scheduling Task
-https://ieeexplore-ieee-org.proxy-ub.rug.nl/abstract/document/10090669
