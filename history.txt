@@ -11,7 +11,7 @@ jekyll -v
 
 bundle install
 source ~/.envs/torch_mac_off/bin/activate
-bundle exec jekyll serve
+bundle exec jekyll serve. # or bundle exec jekyll serve --livereload --incremental
 ./bin/deploy --user
 
 
