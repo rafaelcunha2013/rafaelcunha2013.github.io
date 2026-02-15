@@ -132,17 +132,54 @@ giscus_comments: false
 
 <!-- Starting of Supervision Section -->
 <br>
-<h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions</h3>
-
-<!-- xxx (1st Semester 2019/2020) -->
+<h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions - Master</h3>
 <div class="card mt-3">
   <div class="p-3">
-    <div class="row">
-      <div class="col-sm-12">
-        <h5 class="card-title">2nd Semester 2021/2022</h5>
-      </div>
-    </div>
     <ul class="card-text font-weight-light list-group list-group-flush">
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5 class="card-title">2025</h5>
+          </div>
+        </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Hugo Kolste</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34803/">Scaling Up Centralized Multi-Agent Reinforcement Learning with Agent-by-Agent Optimization.</a></div>
+            <div>Co-supervised with Prof. Jilles Dibangoye</div>
+            <br>
+            <div>Student: Luca Mueller</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34511/">Formalizing Coverage-guided Greybox Fuzzing with Deep Reinforcement Learning.</a></div>
+            <div>Co-supervised with Prof. Fatih Turkmen</div>            
+          </div>
+        </div>
+      </li> 
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5 class="card-title">2024</h5>
+          </div>
+        </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Fatemeh Ziad Alizadeh</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34629/">Don't Focus on your Weakness, Use your Strengths: A Multi-Agent Approach for Multi-Hop Question-Answering Tasks for Large Language Models.</a></div>
+            <div>Co-supervised with Prof. Tsegaye Tashu</div>  
+            <br>
+            <div>Student: Davide Rigone</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34507/">Collaborative Reinforcement Learning for Cyber Defense: Analysis of Environments, Strategies, and Policies.</a></div>
+            <div>Co-supervised with Prof. Fatih Turkmen</div>            
+          </div>
+        </div>
+      </li>       
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5 class="card-title">2022</h5>
+          </div>
+        </div>
       <li class="list-group-item">
         <div class="row">
           <div class="col-sm-12">
@@ -151,6 +188,58 @@ giscus_comments: false
           </div>
         </div>
       </li>
+    </ul>
+  </div>
+</div>
+
+<br>
+<h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions - Bachelor</h3>
+
+<!-- xxx (1st Semester 2019/2020) -->
+<div class="card mt-3">
+  <div class="p-3">
+    <ul class="card-text font-weight-light list-group list-group-flush">
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5 class="card-title">2025</h5>
+          </div>
+        </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Catalin Zaharia</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34861/">Transfer Learning in Reinforcement Learning: When Task-Specific Adaptation Outperforms Generalization.</a></div>
+            <br>
+            <div>Student: Leendert Tanis</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34812/">Bridging Faithfulness of Explanations and Deep Reinforcement Learning: A Grad-CAM Anaylsis of Space Invaders.</a></div>
+            <div>Co-supervised with Marco Zullich</div> 
+          </div>
+        </div>
+      </li> 
+      <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5 class="card-title">2024</h5>
+          </div>
+        </div>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-12">
+            <div>Student: Diana-Maria Arapu</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33859/">Sparse Rewards Reinforcement Learning: Addressing Vanishing Intrinsic Rewards in Change-Based Exploration Transfer.</a></div>
+            <br>
+            <div>Student: Andre van Dommele</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33947/">Enhancing Football Simulation Performance in Deep Reinforcement Learning through Analytics-Based Dense Reward Shaping.</a></div>
+            <br>
+            <div>Student: Jeremias Lino Ferrao</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33851/">World Model Agents with Change-based Intrinsic Motivation.</a></div>
+            <br>
+            <div>Student: Niclas Mueller-Hof</div>
+            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33952/">Improving Efficiency of a Hierarchical Reinforcement Learning Algorithm.</a></div>
+          </div>
+        </div>
+      </li>       
       <br>
       <div class="row">
         <div class="col-sm-12">
