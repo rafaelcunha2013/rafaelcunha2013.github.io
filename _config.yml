@@ -210,6 +210,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - _posts
+  - assets/jupyter
+  - assets/jupyter/blog.ipynb
 keep_files:
   - CNAME
   - .nojekyll
@@ -223,14 +226,14 @@ plugins:
   - jekyll-feed
   - jekyll-get-json
   - jekyll-imagemagick
-  - jekyll-jupyter-notebook
+  # - jekyll-jupyter-notebook
   - jekyll-link-attributes
   - jekyll-minifier
   - jekyll-paginate-v2
   - jekyll/scholar
   - jekyll-sitemap
   - jekyll-toc
-  - jekyll-twitter-plugin
+  #- jekyll-twitter-plugin
   - jemoji
 
 # Sitemap settings
@@ -427,4 +430,5 @@ jsonresume:
   - references
 
 exclude:
+  - _posts
   - _posts/2021-07-04-diagrams.md
