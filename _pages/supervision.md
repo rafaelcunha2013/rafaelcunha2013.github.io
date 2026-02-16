@@ -212,7 +212,6 @@ giscus_comments: false
             }
         }
     </style>
-</head>
 <body>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
     <div class="container">
