@@ -2,7 +2,7 @@
 layout: page
 permalink: /supervision/
 title: Supervision
-description: Supervision over 20 bachelor’s and 6 master’s theses. This supervision resulted in several student projects being accepted for publication at international venues, such as the ECAI 2025 workshops and NLDL 2025 conference.
+description: I have supervised over 20 bachelor's and 6 master's theses, primarily in Reinforcement Learning, with projects also touching on Deep Learning, Large Language Models, and cybersecurity applications. Several of these projects led to publications at international venues, including ECAI 2025 workshops and the NLDL 2025 conference. Master and bachelor supervisions are listed separately in the tables below.
 nav: true
 nav_order: 3
 giscus_comments: false
