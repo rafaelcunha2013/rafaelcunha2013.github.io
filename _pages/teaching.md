@@ -4,7 +4,7 @@ permalink: /teaching/
 title: Teaching
 description: I am a Lecturer in Artificial Intelligence, teaching some courses in the bachelor's and master's programm. I have also open projects to supervise bachelor's and master's students. Previously I was a TA assistance. During my PhD, I supervised many bachelor's and master's projects in the are of Reinforcement Learning from the Industrial Engeneering and Management (IEM) course.
 nav: true
-nav_order: 3
+nav_order: 4
 giscus_comments: false
 # toc:
 #   sidebar: true
