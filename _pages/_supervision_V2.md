@@ -2,7 +2,7 @@
 layout: page
 permalink: /supervision/
 title: Supervision
-description: Supervision over 20 bachelor’s and 6 master’s theses. This supervision resulted in several student projects being accepted for publication at international venues, such as the ECAI 2025 workshops and NLDL 2025 conference.
+description: Supervision over 20 bachelor’s and 5 master’s theses. This supervision resulted in several student projects being accepted for publication at international venues, such as the ECAI 2025 workshops and NLDL 2025 conference.
 nav: true
 nav_order: 3
 giscus_comments: false
@@ -149,107 +149,8 @@ giscus_comments: false
 
 <div class="supervision-section">
     <div class="section-header">
-        <h2 class="section-title">Master Thesis Supervision <span class="section-count">— 6 Students</span></h2>
-        <!-- <p class="section-description">Supervised master theses in Artificial Intelligence and related fields, focusing on Reinforcement Learning, Deep Learning, and Machine Learning applications.</p> -->
-    </div>
-    <div class="table-wrapper">
-        <table class="supervision-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Student</th>
-                    <th>Thesis</th>
-                    <th>Research Output</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="table-date">Aug 2025</td>
-                    <td>
-                        <strong>Thomas Vos</strong>
-                        <div class="degree-label">Master in AI</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/36770/" class="table-link" target="_blank" rel="noopener">Learning the optimal policy for Hanabi using deep reinforcement learning with quantized PWLC</a>
-                        <div class="co-supervisor">Co-supervised with Jilles Dibangoye and Matthia Sabatelli</div>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-date">Mar 2025</td>
-                    <td>
-                        <strong>Hugo Kolste</strong>
-                        <div class="degree-label">Master in AI</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/34803/" class="table-link" target="_blank" rel="noopener">Scaling Up Centralized Multi-Agent Reinforcement Learning with Agent-by-Agent Optimization</a>
-                        <div class="co-supervisor">Co-supervised with Jilles Dibangoye</div>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-date">Feb 2025</td>
-                    <td>
-                        <strong>Fatemeh Ziad Alizadeh</strong>
-                        <div class="degree-label">Master in AI</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/34629/" class="table-link" target="_blank" rel="noopener">Don't Focus on your Weakness, Use your Strengths: A Multi-Agent Approach for Multi-Hop Question-Answering Tasks for Large Language Models</a>
-                        <div class="co-supervisor">Co-supervised with Tsegaye Tashu</div>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-date">Jan 2025</td>
-                    <td>
-                        <strong>Luca Mueller</strong>
-                        <div class="degree-label">Master in AI</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/34511/" class="table-link" target="_blank" rel="noopener">Formalizing Coverage-guided Greybox Fuzzing with Deep Reinforcement Learning</a>
-                        <div class="co-supervisor">Co-supervised with Fatih Turkmen</div>
-                    </td>
-                    <td>
-                        <a href="https://ceur-ws.org/Vol-4154/paper6.pdf" class="output-link" target="_blank" rel="noopener">ECAI 2025 (SPAIML)</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-date">Dec 2024</td>
-                    <td>
-                        <strong>Davide Rigone</strong>
-                        <div class="degree-label">Master in CS</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/34507/" class="table-link" target="_blank" rel="noopener">Collaborative Reinforcement Learning for Cyber Defense: Analysis of Environments, Strategies, and Policies</a>
-                        <div class="co-supervisor">Co-supervised with Fatih Turkmen</div>
-                    </td>
-                    <td>
-                        <a href="https://ceur-ws.org/Vol-4154/paper2.pdf" class="output-link" target="_blank" rel="noopener">ECAI 2025 (SPAIML)</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-date">Nov 2022</td>
-                    <td>
-                        <strong>Lars T. G. Mulder</strong>
-                        <div class="degree-label">Master in IEM</div>
-                    </td>
-                    <td>
-                        <a href="https://fse.studenttheses.ub.rug.nl/28673/" class="table-link" target="_blank" rel="noopener">Applying Fast Multi-agent Reinforcement Learning with Generalized Policy Updates</a>
-                        <div class="co-supervisor">Co-supervised with Ming Cao</div>
-                    </td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<br>
-
-<div class="supervision-section">
-    <div class="section-header">
         <h2 class="section-title">Bachelor Thesis Supervision <span class="section-count">— 20 Students</span></h2>
-        <!-- <p class="section-description">Supervised bachelor theses in Artificial Intelligence and related fields, focusing on Reinforcement Learning, Deep Learning, and Machine Learning applications.</p> -->
+        <p class="section-description">Supervised bachelor theses in Artificial Intelligence and related fields, focusing on Reinforcement Learning, Deep Learning, and Machine Learning applications.</p>
     </div>
     <div class="table-wrapper">
                 <table class="supervision-table">
