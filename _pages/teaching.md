@@ -130,7 +130,7 @@ giscus_comments: false
   </div>
 </div>
 
-<!-- Starting of Supervision Section -->
+<!-- Starting of Supervision Section
 <br>
 <h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions - Master</h3>
 <div class="card mt-3">
@@ -195,110 +195,7 @@ giscus_comments: false
 <br>
 <h3 style="color: #00ab37;" id="Supervisions">Thesis Supervisions - Bachelor</h3>
 
-<!-- xxx (1st Semester 2019/2020) -->
-<div class="card mt-3">
-  <div class="p-3">
-    <ul class="card-text font-weight-light list-group list-group-flush">
-      <br>
-        <div class="row">
-          <div class="col-sm-12">
-            <h5 class="card-title">2025</h5>
-          </div>
-        </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Catalin Zaharia</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34861/">Transfer Learning in Reinforcement Learning: When Task-Specific Adaptation Outperforms Generalization.</a></div>
-            <br>
-            <div>Student: Leendert Tanis</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/34812/">Bridging Faithfulness of Explanations and Deep Reinforcement Learning: A Grad-CAM Anaylsis of Space Invaders.</a></div>
-            <div>Co-supervised with Marco Zullich</div> 
-          </div>
-        </div>
-      </li> 
-      <br>
-        <div class="row">
-          <div class="col-sm-12">
-            <h5 class="card-title">2024</h5>
-          </div>
-        </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Diana-Maria Arapu</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33859/">Sparse Rewards Reinforcement Learning: Addressing Vanishing Intrinsic Rewards in Change-Based Exploration Transfer.</a></div>
-            <br>
-            <div>Student: Andre van Dommele</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33947/">Enhancing Football Simulation Performance in Deep Reinforcement Learning through Analytics-Based Dense Reward Shaping.</a></div>
-            <br>
-            <div>Student: Jeremias Lino Ferrao</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33851/">World Model Agents with Change-based Intrinsic Motivation.</a></div>
-            <br>
-            <div>Student: Niclas Mueller-Hof</div>
-            <div>Thesis: <a href="https://fse.studenttheses.ub.rug.nl/33952/">Improving Efficiency of a Hierarchical Reinforcement Learning Algorithm.</a></div>
-          </div>
-        </div>
-      </li>       
-      <br>
-      <div class="row">
-        <div class="col-sm-12">
-          <h5 class="card-title">2nd Semester 2020/2021</h5>
-        </div>
-      </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Bo T. Kroezen</div>
-            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/24641/">Stochastic Stability Analysis of Selection-Mutation Processes and Signaling Games</a></div>
-          </div>
-        </div>
-      </li>
-      <br>
-      <div class="row">
-        <div class="col-sm-12">
-          <h5 class="card-title">1st Semester 2020/2021</h5>
-        </div>
-      </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Tautas Hoedtke</div>
-            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/23954/">Safe Reinforcement Learning</a></div>
-          </div>
-        </div>
-      </li>
-      <br>
-      <div class="row">
-        <div class="col-sm-12">
-          <h5 class="card-title">2nd Semester 2019/2020</h5>
-        </div>
-      </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Muhammad Aqil Prasetyo</div>
-            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/22395/">Using Reinforcement Learning to Design a State feedback Controller</a></div>
-          </div>
-        </div>
-      </li>
-      <br>
-      <div class="row">
-        <div class="col-sm-12">
-          <h5 class="card-title">1st Semester 2019/2020</h5>
-        </div>
-      </div>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>Student: Martijn van Dis</div>
-            <div>Bachelor Thesis: <a href="https://fse.studenttheses.ub.rug.nl/21541/">The performance of Reinforcement Learning with application for Adaptive Traffic Signal Controllers</a></div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+
 
 
 <!--
