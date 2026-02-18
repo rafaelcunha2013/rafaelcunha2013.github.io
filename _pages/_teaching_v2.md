@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: I am a Lecturer in Artificial Intelligence at the University of Groningen, teaching a broad range of subjects including Reinforcement Learning, Foundations of AI, and Programming. My primary contributions to the curriculum include establishing the bachelor's theoretical RL course, redesigning the RL Practical into a research-oriented module, and co-developing the Python-based Object-Oriented Programming course. I also deliver lectures across the bachelor's and master's programs on topics such as Deep RL and Responsible AI.
+description: I am a Lecturer in Artificial Intelligence at the University of Groningen, where I teach courses across the bachelor's and master's programs in Reinforcement Learning, Deep Learning, and Object-Oriented Programming. I have served as course coordinator, creator, and lecturer since joining in 2023.
 nav: true
 nav_order: 4
 giscus_comments: false
@@ -162,7 +162,6 @@ giscus_comments: false
                 </tr>
             </thead>
             <tbody>
-                <!-- 2025/2026 -->
                 <tr>
                     <td class="year-block">2025/26 IA</td>
                     <td>
@@ -170,7 +169,7 @@ giscus_comments: false
                     </td>
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice</span></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="year-block">2025/26 IA</td>
@@ -181,25 +180,6 @@ giscus_comments: false
                     <td><span class="role-badge">Lecturer</span></td>
                     <td><span class="notes-text">Guest lecture</span></td>
                 </tr>
-                <!-- 2024/2025 -->
-                <tr>
-                    <td class="year-block">2024/25 IIB</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2024-2025/catalog/course/WMAI024-05" class="course-link" target="_blank" rel="noopener">Deep Reinforcement Learning</a>
-                    </td>
-                    <td><span class="level-badge level-master">Master</span></td>
-                    <td><span class="role-badge">Lecturer</span></td>
-                    <td><span class="notes-text">Created and delivered lecture on Multi-Agent RL</span></td>
-                </tr>
-                <tr>
-                    <td class="year-block">2024/25 IB</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2024-2025/catalog/course/WBAI015-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning Practical</a>
-                    </td>
-                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
-                    <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Complete redesign into a research-driven course with literature-based projects</span></td>
-                </tr>
                 <tr>
                     <td class="year-block">2024/25 IA</td>
                     <td>
@@ -207,7 +187,7 @@ giscus_comments: false
                     </td>
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Became mandatory for ML specialization; refined assignments</span></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="year-block">2024/25 IA</td>
@@ -218,7 +198,60 @@ giscus_comments: false
                     <td><span class="role-badge">Guest Lecturer</span></td>
                     <td><span class="notes-text">Topic: Responsible and explainable AI systems</span></td>
                 </tr>
-                <!-- 2023/2024 -->
+                <tr>
+                    <td class="year-block">2024/25 IB</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2024-2025/catalog/course/WBAI015-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning Practical</a>
+                    </td>
+                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
+                    <td><span class="role-badge">Coordinator & Lecturer</span></td>
+                    <td><span class="notes-text">Complete course redesign</span></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2024/25 IIB</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2024-2025/catalog/course/WMAI024-05" class="course-link" target="_blank" rel="noopener">Deep Reinforcement Learning</a>
+                    </td>
+                    <td><span class="level-badge level-master">Master</span></td>
+                    <td><span class="role-badge">Lecturer</span></td>
+                    <td><span class="notes-text">Created and delivered lecture on Multi-Agent RL</span></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2023/24 IA</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WMAI029-05" class="course-link" target="_blank" rel="noopener">Topics in AI</a>
+                    </td>
+                    <td><span class="level-badge level-master">Master</span></td>
+                    <td><span class="role-badge">Guest Lecturer</span></td>
+                    <td><span class="notes-text">Topic: RL applied to vehicle platoon and transfer learning</span></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2023/24 IB</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI045-05" class="course-link" target="_blank" rel="noopener">Object-Oriented Programming (for AI)</a>
+                    </td>
+                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
+                    <td><span class="role-badge">Co-creator & Lecturer</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2023/24 IB</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI015-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning Practical</a>
+                    </td>
+                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
+                    <td><span class="role-badge">Lecturer</span></td>
+                    <td><span class="notes-text">Two lectures: Dynamic Programming; Policy Gradients and Actor-Critic</span></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2023/24 IIA</td>
+                    <td>
+                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI061-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning</a>
+                    </td>
+                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
+                    <td><span class="role-badge">Creator, Coordinator & Lecturer</span></td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td class="year-block">2023/24 IIB</td>
                     <td>
@@ -236,42 +269,6 @@ giscus_comments: false
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Lecturer</span></td>
                     <td><span class="notes-text">Two lectures: Adversarial search and Games; Constraint satisfaction problems</span></td>
-                </tr>
-                <tr>
-                    <td class="year-block">2023/24 IIA</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI061-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning</a>
-                    </td>
-                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
-                    <td><span class="role-badge">Creator, Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Proposed and established this new theoretical foundation for the curriculum</span></td>
-                </tr>
-                <tr>
-                    <td class="year-block">2023/24 IB</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI045-05" class="course-link" target="_blank" rel="noopener">Object-Oriented Programming (for AI)</a>
-                    </td>
-                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
-                    <td><span class="role-badge">Co-creator & Lecturer</span></td>
-                    <td><span class="notes-text">Transitioned to Python; redesigned assignments to focus on ML applications</span></td>
-                </tr>
-                <tr>
-                    <td class="year-block">2023/24 IB</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WBAI015-05" class="course-link" target="_blank" rel="noopener">Reinforcement Learning Practical</a>
-                    </td>
-                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
-                    <td><span class="role-badge">Lecturer</span></td>
-                    <td><span class="notes-text">Two lectures: Dynamic Programming; Policy Gradients and Actor-Critic</span></td>
-                </tr>
-                <tr>
-                    <td class="year-block">2023/24 IA</td>
-                    <td>
-                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WMAI029-05" class="course-link" target="_blank" rel="noopener">Topics in AI</a>
-                    </td>
-                    <td><span class="level-badge level-master">Master</span></td>
-                    <td><span class="role-badge">Guest Lecturer</span></td>
-                    <td><span class="notes-text">Topic: RL applied to vehicle platoon and transfer learning</span></td>
                 </tr>
             </tbody>
         </table>
