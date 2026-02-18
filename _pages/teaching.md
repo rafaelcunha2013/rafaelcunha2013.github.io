@@ -267,7 +267,7 @@ giscus_comments: false
                 <tr>
                     <td class="year-block">2023/24 IA</td>
                     <td>
-                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WMAI029-05" class="course-link" target="_blank" rel="noopener">Topics in AI</a>
+                        <a href="https://ocasys.rug.nl/2023-2024/catalog/course/WMAI025-05" class="course-link" target="_blank" rel="noopener">Topics in AI</a>
                     </td>
                     <td><span class="level-badge level-master">Master</span></td>
                     <td><span class="role-badge">Guest Lecturer</span></td>
