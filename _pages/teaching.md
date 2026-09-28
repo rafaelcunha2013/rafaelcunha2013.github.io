@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: I am a Lecturer in Artificial Intelligence at the University of Groningen, teaching a broad range of subjects including Reinforcement Learning, Foundations of AI, and Programming. My primary contributions to the curriculum include establishing the bachelor's theoretical RL course, redesigning the RL Practical into a research-oriented module, and co-developing the Python-based Object-Oriented Programming course. I also deliver lectures across the bachelor's and master's programs on topics such as Deep RL and Responsible AI.
+description: I am a Lecturer at LIACS, Leiden University, where I coordinate and teach Basic Programming in Python and Basics of Computer Systems in the minor in Cyber Security. Previously, at the University of Groningen (2023–2026), I taught a broad range of subjects including Reinforcement Learning, Foundations of AI, and Programming. There I established the bachelor's theoretical RL course, redesigned the RL Practical into a research-oriented module, co-developed the Python-based Object-Oriented Programming course, and delivered lectures across the bachelor's and master's programs on topics such as Deep RL and Responsible AI.
 nav: true
 nav_order: 4
 giscus_comments: false
@@ -113,6 +113,14 @@ giscus_comments: false
             background: #3a1a4a;
             color: #ba68c8;
         }
+        .level-minor {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        html[data-theme="dark"] .level-minor {
+            background: #1a4a2a;
+            color: #81c784;
+        }
         .role-badge {
             display: inline-block;
             padding: 0.25rem 0.5rem;
@@ -147,7 +155,50 @@ giscus_comments: false
 
 <div class="teaching-section">
     <div class="section-header">
-        <h2 class="section-title">Teaching Experience</h2>
+        <h2 class="section-title">Leiden University (2026–present)</h2>
+        <p class="section-description">Courses taught at the Leiden Institute of Advanced Computer Science (LIACS).</p>
+    </div>
+    <div class="table-wrapper">
+        <table class="teaching-table">
+            <thead>
+                <tr>
+                    <th>Year/Block</th>
+                    <th>Course</th>
+                    <th>Level</th>
+                    <th>Role</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 2026/2027 -->
+                <tr>
+                    <td class="year-block">2026/27 Sem 1</td>
+                    <td>
+                        <a href="https://studiegids.universiteitleiden.nl/modules/4032BPPYXY?year=2261&tab=info&type=DEFAULT&mainTab=module" class="course-link" target="_blank" rel="noopener">Basic Programming in Python</a>
+                    </td>
+                    <td><span class="level-badge level-minor">Minor</span></td>
+                    <td><span class="role-badge">Coordinator & Lecturer</span></td>
+                    <td><span class="notes-text">Minor in Cyber Security</span></td>
+                </tr>
+                <tr>
+                    <td class="year-block">2026/27 Sem 1</td>
+                    <td>
+                        <a href="https://studiegids.universiteitleiden.nl/modules/4032MBCSXY?year=2261&tab=info&type=DEFAULT&mainTab=module" class="course-link" target="_blank" rel="noopener">Basics of Computer Systems</a>
+                    </td>
+                    <td><span class="level-badge level-minor">Minor</span></td>
+                    <td><span class="role-badge">Coordinator & Lecturer</span></td>
+                    <td><span class="notes-text">Minor in Cyber Security</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div class="teaching-section">
+    <div class="section-header">
+        <h2 class="section-title">University of Groningen (2023–2026)</h2>
         <p class="section-description">Courses taught at the University of Groningen across bachelor's and master's programs, with roles ranging from guest lecturer to course coordinator and creator.</p>
     </div>
     <div class="table-wrapper">

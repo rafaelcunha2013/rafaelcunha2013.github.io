@@ -1,16 +1,16 @@
 {
   "basics": {
     "name": "Rafael Fernandes Cunha",
-    "label": "University Lecturer in AI, PhD Candidate",
+    "label": "Lecturer at LIACS, Leiden University; PhD Candidate",
     "image": "",
-    "email": "r.f.cunha@rug.nl",
+    "email": "r.f.cunha@liacs.leidenuniv.nl",
     "phone": "",
     "url": "https://rafaelcunha2013.github.io",
     "summary": "Research in Reinforcement Learning",
     "location": {
-      "address": "University of Groningen",
+      "address": "Leiden Institute of Advanced Computer Science (LIACS), Leiden University",
       "postalCode": "",
-      "city": "Groningen",
+      "city": "Leiden",
       "countryCode": "NL",
       "region": ""
     },
@@ -24,11 +24,22 @@
   },
   "work": [
     {
+      "name": "Leiden Institute of Advanced Computer Science (LIACS), Leiden University",
+      "position": "Lecturer",
+      "url": "https://www.universiteitleiden.nl/en/science/computer-science",
+      "startDate": "2026-06-01",
+      "endDate": "",
+      "summary": "Coordinator and lecturer of Basic Programming in Python and Basics of Computer Systems in the minor in Cyber Security.",
+      "highlights": [
+        "Programming; Computer Systems; Cyber Security"
+      ]
+    },
+    {
       "name": "Bernoulli Institute, Artificial Intelligence Group, University of Groningen",
       "position": "Lecturer in Artificial Intelligence",
       "url": "https://www.rug.nl/staff/r.f.cunha/?lang=en",
       "startDate": "2023-04-01",
-      "endDate": "",
+      "endDate": "2026-03-31",
       "summary": "Development and Teaching courses for the AI curriculum, along with supervision of master's and bachelor's students enrolled in thesis projects within the AI department.",
       "highlights": [
         "Reinforcement Learning; Machine Learning; Artificial Intelligence"

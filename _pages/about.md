@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='https://www.rug.nl/research/bernoulli/?lang=en'>Artificial Intelligence Departament</a>, University of Groningen, The Netherlands. # <!-- Contacts. Moto. Etc.-->
+subtitle: <a href='https://www.universiteitleiden.nl/en/science/computer-science'>Leiden Institute of Advanced Computer Science (LIACS)</a>, Leiden University, The Netherlands. # <!-- Contacts. Moto. Etc.-->
 
 profile:
   align: right  # position of the picture
@@ -14,18 +14,18 @@ profile:
   #   <p>University of Groningen</p>
   # <p>Groningen, The Netherlands</p>
 
-news: false # includes a list of news items
+news: true # includes a list of news items
 latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 # <!-- teaching: true  #includes teaching activities
 ---
 <div style="text-align: justify;">
-<p>I am a Lecturer in Artificial Intelligence at the <a href="https://www.rug.nl">University of Groningen</a>, the Netherlands, where I teach reinforcement learning, among other AI topics, and supervise student research projects. I am also a PhD Candidate with a research focus on multi-agent reinforcement learning.</p>
+<p>I am a Lecturer at the <a href="https://www.universiteitleiden.nl/en/science/computer-science">Leiden Institute of Advanced Computer Science (LIACS)</a>, Leiden University, the Netherlands, where I teach programming and computer systems courses, including in the minor in Cyber Security. Before joining Leiden in June 2026, I was a Lecturer in Artificial Intelligence at the <a href="https://www.rug.nl">University of Groningen</a>, where I taught reinforcement learning, among other AI topics, and supervised student research projects. I am also a PhD Candidate at the University of Groningen with a research focus on multi-agent reinforcement learning.</p>
 </div>
 
 <div style="text-align: justify;">
-<p>Over the past three years as a lecturer, I have supervised more than 20 bachelor's and master's thesis projects, several of which have been published at international venues such as NLDL 2025, and ECAI 2025 workshops. These projects span topics from multi-agent coordination to applications in cyber security and large language model post-training.</p>
+<p>During my three years as a lecturer at the University of Groningen, I have supervised more than 20 bachelor's and master's thesis projects, several of which have been published at international venues such as NLDL 2025, and ECAI 2025 workshops. These projects span topics from multi-agent coordination to applications in cyber security and large language model post-training.</p>
 </div>
 
 <div style="text-align: justify;">
