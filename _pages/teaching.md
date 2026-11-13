@@ -172,6 +172,15 @@ giscus_comments: false
             <tbody>
                 <!-- 2026/2027 -->
                 <tr>
+                    <td class="year-block">2026/27 Sem 2</td>
+                    <td>
+                        <a href="https://studiegids.universiteitleiden.nl/modules/4031LOGX1Y?tab=info&year=2261" class="course-link" target="_blank" rel="noopener">Logic 1</a>
+                    </td>
+                    <td><span class="level-badge level-bachelor">Bachelor</span></td>
+                    <td><span class="role-badge">Instructor</span></td>
+                    <td><span class="notes-text">Developing extensions to Proof Rondo, the course's proof checker (lemmas, axioms, intuitionistic logic). <a href="/proof-rondo/" class="course-link" target="_blank" rel="noopener">Try the development version</a></span></td>
+                </tr>
+                <tr>
                     <td class="year-block">2026/27 Sem 1</td>
                     <td>
                         <a href="https://studiegids.universiteitleiden.nl/modules/4032BPPYXY?year=2261&tab=info&type=DEFAULT&mainTab=module" class="course-link" target="_blank" rel="noopener">Basic Programming in Python</a>
