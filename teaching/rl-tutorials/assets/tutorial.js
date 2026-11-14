@@ -46,6 +46,9 @@
         ? el("p", "hero-note is-solutions", RUNNABLE
           ? "<b>Solutions version.</b> Every cell runs automatically once Python is ready."
           : "<b>Solutions version.</b> This tutorial needs PyTorch, so its code does not run in the browser.")
+        : DATA.remote
+          ? el("p", "hero-note",
+            "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, use <b>Open in Colab</b>.")
         : RUNNABLE
           ? el("p", "hero-note",
             "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, and <b>Open in Colab</b> runs the tutorial in Google Colab.")
@@ -63,6 +66,11 @@
       }
       root.appendChild(cell);
     } else if (c.t === "callout") {
+      if (c.section) {
+        const head = el("div", "md-cell");
+        head.appendChild(el("h2", "section-title", esc(c.section).replace(/`([^`]+)`/g, "<code>$1</code>")));
+        root.appendChild(head);
+      }
       const box = el("aside", "callout k-" + c.kind);
       // labels may contain inline code, e.g. "Task: Investigate the `MountainCarContinuous-v0` Environment"
       box.appendChild(el("div", "callout-label", esc(c.label).replace(/`([^`]+)`/g, "<code>$1</code>")));
@@ -118,7 +126,7 @@
   }
   // Measured times for slow cells (from runtimes.json at build time).
   function runtimeNote(rt) {
-    let text = "Runs for about " + fmtDuration(rt.browser) + " in the browser";
+    let text = "Runs for about " + fmtDuration(rt.browser) + (DATA.remote ? " on the Binder server" : " in the browser");
     if (rt.laptop) text += " (about " + fmtDuration(rt.laptop) + " on a laptop)";
     text += ".";
     return el("div", "runtime-note",
@@ -228,19 +236,18 @@
   }
 
   // ---------- Table of contents ----------
-  // Top level: Section/Case/Part headings. Sub-entries: boxes titled "Section 1.2: ...".
+  // Top level: Section/Case/Part headings. Sub-entries: "Section 1.2: ..." headings (T6/T7).
   const toc = document.getElementById("toc");
   const introHead = root.querySelector(".intro-title");
   if (introHead) introHead.id = "introduction";
-  const SUB = /^(Section|Part)\s+\d+\.\d+/;
-  const heads = [...root.querySelectorAll(".intro-title, .md-cell h1, .callout-label")].filter((h) =>
-    h.classList.contains("callout-label") ? SUB.test(h.textContent) : (!h.classList.contains("intro-title") || h === introHead));
+  const heads = [...root.querySelectorAll(".intro-title, .md-cell h1, .md-cell h2.section-title")].filter((h) =>
+    !h.classList.contains("intro-title") || h === introHead);
   if (heads.length) {
     toc.appendChild(el("div", "toc-title", "Contents"));
     const list = el("ol");
     heads.forEach((h, k) => {
-      const sub = h.classList.contains("callout-label");
-      const target = sub ? h.closest(".callout") : h;
+      const sub = h.classList.contains("section-title");
+      const target = h;
       target.id = target.id || "s-" + k;
       h.dataset.tocTarget = target.id;
       const a = el("a", sub ? "sub" : "", h === introHead ? "Introduction" : esc(h.textContent));
@@ -281,9 +288,10 @@
     setStatus("loading", "Starting Python…");
     btnRunAll.disabled = true; btnRestart.disabled = true;
     const t0 = performance.now();
-    worker = new Worker("assets/py_worker.js");
+    // In-browser Python (Pyodide worker), or a remote Jupyter kernel for PyTorch tutorials.
+    worker = DATA.remote ? new RemoteKernel(DATA.remote) : new Worker("assets/py_worker.js");
     worker.onmessage = (e) => onMessage(e.data, t0);
-    worker.onerror = (e) => setStatus("error", "Python failed to start: " + e.message);
+    if (!DATA.remote) worker.onerror = (e) => setStatus("error", "Python failed to start: " + e.message);
     worker.postMessage({ type: "init", packages: DATA.packages });
   }
 
