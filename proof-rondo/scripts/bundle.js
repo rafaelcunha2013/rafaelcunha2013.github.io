@@ -3404,6 +3404,7 @@
   // core/src/parser/folproof-grammar.terms.mjs
   var ForallLetter = 1;
   var ExistsLetter = 2;
+  var definitionHead = 79;
 
   // core/src/parser/letters.mjs
   var letters = "a-zA-Z\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u024f\\u0386\\u0388-\\u03f5\\u03f7-\\u03ff\\u1e00-\\u1eff";
@@ -3429,23 +3430,34 @@
     if (char(input.peek(i2)) !== ".") return;
     input.acceptToken(token, 1);
   });
+  var definitionStart = new ExternalTokenizer((input, stack) => {
+    if (!stack.canShift(definitionHead)) return;
+    let line = "";
+    for (let i2 = 0; input.peek(i2) >= 0 && char(input.peek(i2)) !== "\n"; i2++)
+      line += char(input.peek(i2));
+    const code2 = line.replace(/#.*$/, "");
+    const at = code2.indexOf(":=");
+    if (at < 0 || [...code2.slice(at + 2)].every((c) => isSpace(c.charCodeAt(0))))
+      return;
+    input.acceptToken(definitionHead, 0);
+  });
 
   // core/src/parser/folproof-grammar.mjs
-  var spec_Identifier = { __proto__: null, with: 160, not: 176, bot: 182, "_|_": 184, and: 190, or: 196, v: 198, iff: 202, implies: 206, Univ: 212, Form: 214, axiom: 217, def: 219 };
+  var spec_Identifier = { __proto__: null, with: 164, not: 180, bot: 186, "_|_": 188, and: 194, or: 200, v: 202, iff: 206, implies: 210, Univ: 216, Form: 218, axiom: 221, def: 223 };
   var parser = LRParser.deserialize({
     version: 14,
-    states: "4|Q!dQROOOOQP'#Du'#DuQ!kQROOO#yQSO'#CuO$QQQO'#CiO$QQQO'#CmOOQO'#EQ'#EQOOQO'#Cs'#CsO$VQQO'#CrO$qQSO'#EXOOQO'#C{'#C{O%xQRO'#C|OOQO'#EX'#EXOOQO'#ET'#ETO&YQSO'#ESOOQO'#ES'#ESO'^QSO'#EROOQO'#ER'#ERO(XQSO'#EPOOQO'#EP'#EPO)SQQO'#ChOOQO'#Dm'#DmO)[QWO'#DlOOQO'#Ds'#DsO)aQWO'#DrOOQO'#Dt'#DtQ)fQQOOQOQQOOO*fQROOQYQROOO*sQQO'#CgOOQP-E7s-E7sQ+mQROOOOQP,59O,59OO,TQQO'#CvOOQO,59a,59aOOQO'#Ck'#CkO,]QQO,59TO,bQQO,59XOOQO,59^,59^O,gQSO'#CuO,nQQO,59`O,sQQO,59hOOQP'#C}'#C}O,xQRO,59]OOQP'#DO'#DOO,xQRO,59[OOQP'#DP'#DPO,xQRO,59ZOOQP'#DS'#DSO,xQRO,59mO-PQWO'#DUOOQO,59S,59SO-XQ`O,5:WO-dQ`O,5:^Q)fQQOOO-oQRO'#C|OOQO'#Dy'#DyO-vQSO'#DgOOQO'#Df'#DfO.RQRO'#DfOOQO'#Di'#DiOOQO'#Dk'#DkOOQO,59R,59ROOQO,59b,59bO.YQQO,59bO.bQQO'#CuO,xQRO1G.oO,xQRO1G.sOOQO1G.z1G.zOOQO1G/S1G/SO.mQSO1G.wOOQO1G.w1G.wO/qQSO1G.vOOQO1G.v1G.vOOQO1G.u1G.uOOQO1G/X1G/XO0}QpO,59pOOQO'#Dn'#DnO1XQQO'#DnOOQO1G/r1G/rO1^QWO1G/rOOQO1G/x1G/xO1fQWO1G/xO1nQSO,5:SO2uQQO'#DhOOQO-E7w-E7wOOQP'#Dj'#DjOOQP,5:R,5:ROOQO,5:Q,5:QO2zQQO1G.|O3SQQO1G.|OOQO1G.|1G.|OOQO7+$Z7+$ZOOQO7+$_7+$_O$QQQO'#DXO3[QpO'#D]OOQO'#Ei'#EiO3vQ`O'#D`O4RQQO'#DcOOQO'#Dc'#DcOOQO'#Eh'#EhO4ZQQO'#D_OOQO1G/[1G/[O4tQpO1G/[O4{QpO1G/[O5SQQO,5:YO5XQQO'#DzO5aQWO7+%^OOQO7+%^7+%^O5iQWO7+%dOOQO7+%d7+%dO5qQRO1G/nO5{QQO,5:SOOQO,5:b,5:bOOQO7+$h7+$hO6QQQO7+$hOOQO-E7t-E7tO6YQQO'#DYO6_QpO,59sO6vQpO,59zOOQO,59},59}O7OQQO,59}O7iQpO'#DxO7sQQO,59yOOQO7+$v7+$vO7{QpO7+$vOOQO1G/t1G/tOOQO,5:f,5:fOOQO-E7x-E7xOOQO<<Hx<<HxOOQO<<IO<<IOO8SQQO7+%YOOQO<<HS<<HSP8XQQO'#DvO8^QQO,59tO$QQQO'#DwO8cQpO1G/_OOQO1G/f1G/fO8zQQO1G/iO9SQQO1G/iOOQO1G/i1G/iOOQO,5:d,5:dOOQO-E7v-E7vOOQO<<Hb<<HbOOQO<<Ht<<HtO9[QpO'#CuOOQO1G/`1G/`OOQO,5:c,5:cOOQO-E7u-E7uOOQO7+%T7+%TO9sQQO7+%TOOQO<<Ho<<Ho",
-    stateData: ":O~O!qOSROS~OPSOQTOUPOVjOXRO^SO`iObTOkZO!rnO!xVO!yVO!zVO!|YO!}YO#OYO#`eO#agO~OTmO~PYOTpO~PYOkrOniXtiXwiXyiX!oiX#PiX#QiX#RiX#SiX#TiX#UiX#ViX#WiX#XiX#YiX#ZiX~OYqO~P!rOXtO~OXxOkZO!xVO!yVO!zVO!|YO!}YO#OYO~OnyOt!{Xw!{Xy!{X!o!{X#P!{X#Q!{X#R!{X#S!{X#T!{X#U!{X#V!{X#W!{X#X!{X#Y!{X#Z!{Xm!{X~OPSOQTO^SObTO~P$VO#P{O#Q{O#R{Ot!vXw!vXy!vX!o!vX#S!vX#T!vX#U!vX#V!vX#W!vX#X!vX#Y!vX#Z!vXm!vX~O#S}O#T}O#U}O#V}Ot!uXw!uXy!uX!o!uX#W!uX#X!uX#Y!uX#Z!uXm!uX~Ot!POw!RO#W!PO#X!PO#Y!RO#Z!ROy!sX!o!sXm!sX#S!sX#T!sX#U!sX#V!sX~Oy!TO!o[X~Oz!VO~Oz!WO~OTkOUPO~OPSOQTOXxO^SObTO!xVO!yVO!zVO!|YO!}YO#OYO#_!`O~Ok!YO!rnO#^!_O~P)nOX!aO~OPSOQTO^SObTOkZO!xVO!yVO!zVO!|YO!}YO#OYO~OVjOXRO`iO!rnO#`eO#agO~P*xOX!dOm!bO~O`!eO~O`!fO~OmiX~P!rOXxO~Om!hO~OXxO~P*xOz!oO!oxX~OX!pO!c!qO!e!rO~OX!pO!c!qO!e!tO~OX!vO~P*xOk!wOw!yO#Y!yO~OkZO~P)nOl!|Om#OO~OkrOliXmiX~O#P{O#Q{O#R{Oteiweiyei!oei#Sei#Tei#Uei#Vei#Wei#Xei#Yei#Zeimei~O#S}O#T}O#U}O#V}Otdiwdiydi!odi#Wdi#Xdi#Ydi#Zdimdi~OkZO!Q#SO!T#TO!W#VO!X#WO~O`#RO!oxa~P0lOX#^O~Ol#_O!e#aO~Ol#_O!e#cO~OY#dOkrOmiXniXtiXwiX#PiX#QiX#RiX#SiX#TiX#UiX#ViX#WiX#XiX#YiX#ZiX~OX#eO~OX!dOm#gO~Ol#hOm#gO~Ok!PXl#]X!Q!PX!T!PX!U#]X!W!PX!X!PX!o!PX~O!U#lOl!SX!o!SX~OX!dOm#mO~Ol#oO!o!RX~OkZO!T#TO!W#VO!X#WO!oxi~O!Q#TO~P4cO!oxi~P0lO!d#sO~OX!pO!c!qO~Ol#_O!e#vO~Ol#_O!e#wO~OXxO#^!_O~P*xOY#dO~OX!dOm#yO~O}#{O~O!O#|Ok{a!Q{a!T{a!W{a!X{a!o{a~O!Q#TO!T#TO~Ol$POm$RO~OkZO!Q#TO!T#TO!W#VO!X#WO~Ol!lX!o!lX~P7WOl#oO!o!Ra~O!oxq~P7WOm$VO~OX!dO~OX$WO~O!O#|Ok{i!Q{i!T{i!W{i!X{i!o{i~OX!dOm$[O~Ol$]Om$[O~OkrO!OiX!QiX!TiX!WiX!XiX!oiX~OX!dOm$^O~O!W!Q~",
-    goto: ".S#^PPPPPPPP#_PP#e#l#tP$VP#tP$a$p%S%g%y&]&o'fPPPP&]'m(W([(`P$a(cP(fPP(i(lPP(rP(x)SPP)SPP)Z)^)a)e)k)n)t)z*QPPP)t*Z)t*a*l*v*|+S+YPPPP+d,P,f,u-XPPP%gPPPPPPPPPPPPPP-o-xXlOQmpZkOQlmp]kOQlmp!^oUOQZlmp|!O!Q!S!Y!^!e!f#dQuSQvTT#j#R#|kcOQZlmp!Q!S!Y!^!e!f#djaOQZlmp!Q!S!Y!^!e!f#dR!l!Ol_OQZlmp!O!Q!S!Y!^!e!f#dR!j|q]OQWZlmp|!O!Q!S!Y!^!e!f#dqWOQWZlmp|!O!Q!S!Y!^!e!f#dq[OQWZlmp|!O!Q!S!Y!^!e!f#dpXOQWZlmp|!O!Q!S!Y!^!e!f#dQ!crQ!gyY#f!|#h#z$P$]Q#n#VR$X#{ZsRx!d!v$Wp[OQWZlmp|!O!Q!S!Y!^!e!f#dZ#W!o#[#]#o#rT|^!iT!O`!kR!QbR!SbR!UdR#]!oQ#k#RR$Y#|Q#[!oR#r#]Q#Z!oS#q#[#]R$U#rZ#X!o#[#]#o#rRklR!^lT!Zl![Q!]lR#x#dR!z![Q!]lR!{!^XkOQmpXfOQmpQ!s!VQ!u!WR#t#_XhOQmpSQOmSoQ!XR!XjQ!}!cS#i!}$QR$Q#nQ#}#kR$Z#}Q#p#YR$T#pQ![lR!x![Q#`!sQ#b!uT#u#`#b[dOQlmp!^SzZ!YQ!m!QQ!n!SQ#P!eQ#Q!fR#x#djcOQZlmp!Q!S!Y!^!e!f#dQ!j|R!l!OkbOQZlmp!Q!S!Y!^!e!f#dj`OQZlmp!Q!S!Y!^!e!f#dR!k!Ol^OQZlmp!O!Q!S!Y!^!e!f#dQwWR!i|W#Y!o#[#]#rR$S#oY#U!o#[#]#o#rR$O#l",
-    nodeNames: "\u26A0 ForallLetter ExistsLetter Comment Line LineNumber Bar Separator Declaration Identifier :: With Statement Forall ForallSymbol Variable . Exists ExistsSymbol Iff Or And Not NotOp Equality Term Arguments ( , ) EqOp Bottom Parenthesized AndOp OrOp IffOp <-> Implies ImpOp -> Justification : RuleName Substitution Replacement / ; RuleKind Name References Reference Number - InPlace Call Quoted Type Telescope Parameter Univ Arrow Form AxiomLine Axiom Argument { } := DefLine Def BlockEnd",
-    maxTerm: 109,
+    states: "5lQ!dQTOOOOQP'#Dv'#DvQ!kQTOOO#yQWO'#CuO$QQSO'#CiO$QQSO'#CmOOQO'#ES'#ESOOQO'#Cs'#CsO$VQSO'#CrO$qQWO'#EZOOQO'#C{'#C{O%xQTO'#C|OOQO'#EZ'#EZOOQO'#EV'#EVO&YQWO'#EUOOQO'#EU'#EUO'^QWO'#ETOOQO'#ET'#ETO(XQWO'#EROOQO'#ER'#ERO)SQSO'#ChOOQO'#Dm'#DmO)[Q`O'#DlOOQQ'#Ds'#DsO)aQbO'#DrOOQO'#Du'#DuQ)iQSOOQOQSOOO*iQTOOQYQTOOO*vQSO'#CgOOQP-E7t-E7tQ+pQTOOOOQP,59O,59OO,WQSO'#CvOOQO,59a,59aOOQO'#Ck'#CkO,`QSO,59TO,eQSO,59XOOQO,59^,59^O,jQWO'#CuO,qQSO,59`O,vQSO,59hOOQP'#C}'#C}O,{QTO,59]OOQP'#DO'#DOO,{QTO,59[OOQP'#DP'#DPO,{QTO,59ZOOQP'#DS'#DSO,{QTO,59mO-SQ`O'#DUOOQO,59S,59SO-[QpO,5:WO-gQpO,5:^O-rQSO,5:`Q)iQSOOO-wQTO'#C|OOQO'#Dz'#DzO.OQWO'#DgOOQO'#Df'#DfO.ZQTO'#DfOOQO'#Di'#DiOOQO'#Dk'#DkOOQO,59R,59ROOQO,59b,59bO.bQSO,59bO.jQSO'#CuO,{QTO1G.oO,{QTO1G.sOOQO1G.z1G.zOOQO1G/S1G/SO.uQWO1G.wOOQO1G.w1G.wO/yQWO1G.vOOQO1G.v1G.vOOQO1G.u1G.uOOQO1G/X1G/XO1VQ!bO,59pOOQO'#Dn'#DnO1aQSO'#DnOOQO1G/r1G/rO1fQ`O1G/rOOQO1G/x1G/xO1nQ`O1G/xO1vQpO'#CuO2OQ`O1G/zO2TQWO,5:SO3[QSO'#DhOOQO-E7x-E7xOOQP'#Dj'#DjOOQP,5:R,5:ROOQO,5:Q,5:QO3aQSO1G.|O3iQSO1G.|OOQO1G.|1G.|OOQO7+$Z7+$ZOOQO7+$_7+$_O$QQSO'#DXO3qQ!bO'#D]OOQO'#Ek'#EkO4]QpO'#D`O4hQSO'#DcOOQO'#Dc'#DcOOQO'#Ej'#EjO4pQSO'#D_OOQO1G/[1G/[O5ZQ!bO1G/[O5bQ!bO1G/[O5iQSO,5:YO5nQSO'#D{O5vQ`O7+%^OOQO7+%^7+%^O6OQ`O7+%dOOQO7+%d7+%dO,{QTO7+%fO6WQTO1G/nO6bQSO,5:SOOQO,5:c,5:cOOQO7+$h7+$hO6gQSO7+$hOOQO-E7u-E7uO6oQSO'#DYO6tQ!bO,59sO7]Q!bO,59zOOQO,59},59}O7eQSO,59}O8OQ!bO'#DyO8YQSO,59yOOQO7+$v7+$vO8bQ!bO7+$vOOQO1G/t1G/tOOQO,5:g,5:gOOQO-E7y-E7yOOQO<<Hx<<HxOOQO<<IO<<IOOOQO<<IQ<<IQO8iQSO7+%YOOQO<<HS<<HSP8nQSO'#DwO8sQSO,59tO$QQSO'#DxO8xQ!bO1G/_OOQO1G/f1G/fO9aQSO1G/iO9iQSO1G/iOOQO1G/i1G/iOOQO,5:e,5:eOOQO-E7w-E7wOOQO<<Hb<<HbOOQO<<Ht<<HtO9qQ!bO'#CuOOQO1G/`1G/`OOQO,5:d,5:dOOQO-E7v-E7vOOQO7+%T7+%TO:YQSO7+%TOOQO<<Ho<<Ho",
+    stateData: ":e~O!sOSROS~OPSOQTOUPOVjOXRO^SO`iObTOkZO!tnO!zVO!{VO!|VO#OYO#PYO#QYO#beO#cgO~OTmO~PYOTpO~PYOkrOniXtiXwiXyiX!piX#RiX#SiX#TiX#UiX#ViX#WiX#XiX#YiX#ZiX#[iX#]iX~OYqO~P!rOXtO~OXxOkZO!zVO!{VO!|VO#OYO#PYO#QYO~OnyOt!}Xw!}Xy!}X!p!}X#R!}X#S!}X#T!}X#U!}X#V!}X#W!}X#X!}X#Y!}X#Z!}X#[!}X#]!}Xm!}X~OPSOQTO^SObTO~P$VO#R{O#S{O#T{Ot!xXw!xXy!xX!p!xX#U!xX#V!xX#W!xX#X!xX#Y!xX#Z!xX#[!xX#]!xXm!xX~O#U}O#V}O#W}O#X}Ot!wXw!wXy!wX!p!wX#Y!wX#Z!wX#[!wX#]!wXm!wX~Ot!POw!RO#Y!PO#Z!PO#[!RO#]!ROy!uX!p!uXm!uX#U!uX#V!uX#W!uX#X!uX~Oy!TO!p[X~Oz!VO~Oz!WO!q!XO~OTkOUPO~OPSOQTOXxO^SObTO!zVO!{VO!|VO#OYO#PYO#QYO#a!aO~Ok!ZO!tnO#`!`O~P)qOX!bO~OPSOQTO^SObTOkZO!zVO!{VO!|VO#OYO#PYO#QYO~OVjOXRO`iO!tnO#beO#cgO~P*{OX!eOm!cO~O`!fO~O`!gO~OmiX~P!rOXxO~Om!iO~OXxO~P*{Oz!pO!pxX~OX!qO!c!rO!e!sO~OX!qO!c!rO!e!uO~OX!wO~OX!yO~P*{Ok!zOw!|O#[!|O~OkZO~P)qOl#POm#RO~OkrOliXmiX~O#R{O#S{O#T{Oteiweiyei!pei#Uei#Vei#Wei#Xei#Yei#Zei#[ei#]eimei~O#U}O#V}O#W}O#X}Otdiwdiydi!pdi#Ydi#Zdi#[di#]dimdi~OkZO!Q#VO!T#WO!W#YO!X#ZO~O`#UO!pxa~P0tOX#aO~Ol#bO!e#dO~Ol#bO!e#fO~OkrO!eiX~O!e#gO~OY#hOkrOmiXniXtiXwiX#RiX#SiX#TiX#UiX#ViX#WiX#XiX#YiX#ZiX#[iX#]iX~OX#iO~OX!eOm#kO~Ol#lOm#kO~Ok!PXl#_X!Q!PX!T!PX!U#_X!W!PX!X!PX!p!PX~O!U#pOl!SX!p!SX~OX!eOm#qO~Ol#sO!p!RX~OkZO!T#WO!W#YO!X#ZO!pxi~O!Q#WO~P4xO!pxi~P0tO!d#wO~OX!qO!c!rO~Ol#bO!e#zO~Ol#bO!e#{O~OXxO#`!`O~P*{OY#hO~OX!eOm$OO~O}$QO~O!O$ROk{a!Q{a!T{a!W{a!X{a!p{a~O!Q#WO!T#WO~Ol$UOm$WO~OkZO!Q#WO!T#WO!W#YO!X#ZO~Ol!mX!p!mX~P7mOl#sO!p!Ra~O!pxq~P7mOm$[O~OX!eO~OX$]O~O!O$ROk{i!Q{i!T{i!W{i!X{i!p{i~OX!eOm$aO~Ol$bOm$aO~OkrO!OiX!QiX!TiX!WiX!XiX!piX~OX!eOm$cO~O!W!Q~",
+    goto: ".j#`PPPPPPPP#aPP#g#n#vP$YP#vP$d$t%X%m&Q&e&x'sPPPP&e'{(g(k(oP$d(rP(uPP(x({PP)RP)X)cPP)cPP)j)m)p)t)z)}*T*Z*aPPP*T*j*T*T*p*{+V+]+c+iPPPPP+s,c,y-Z-nPPP%mPPPPPPPPPPPPPP.V.`XlOQmpZkOQlmp]kOQlmp!_qUOQZlmp|!O!Q!S!Z!_!f!g#g#hQuSQvTT#n#U$RmcOQZlmp!Q!S!Z!_!f!g#g#hlaOQZlmp!Q!S!Z!_!f!g#g#hR!m!On_OQZlmp!O!Q!S!Z!_!f!g#g#hR!k|s]OQWZlmp|!O!Q!S!Z!_!f!g#g#hsWOQWZlmp|!O!Q!S!Z!_!f!g#g#hs[OQWZlmp|!O!Q!S!Z!_!f!g#g#hrXOQWZlmp|!O!Q!S!Z!_!f!g#g#hQ!drQ!hyQ!x!XY#j#P#l$P$U$bQ#r#YR$^$Q]sRx!e!w!y$]r[OQWZlmp|!O!Q!S!Z!_!f!g#g#hZ#Z!p#_#`#s#vT|^!jT!O`!lR!QbR!SbR!UdR#`!pQ#o#UR$_$RQ#_!pR#v#`Q#^!pS#u#_#`R$Z#vZ#[!p#_#`#s#vRklR!_lT![l!]Q!^lR#}#hR!}!]Q!^lR#O!_XkOQmpXfOQmpQ!t!VQ!v!WR#x#bXhOQmpSQOmSoQ!YR!YjQ#Q!dS#m#Q$VR$V#rQ$S#oR$`$SQ#t#]R$Y#tQ!]lR!{!]Q#c!tQ#e!vT#y#c#e[dOQlmp!_SzZ!ZQ!n!QQ!o!SQ#S!fQ#T!gQ#|#gR#}#hlcOQZlmp!Q!S!Z!_!f!g#g#hQ!k|R!m!OmbOQZlmp!Q!S!Z!_!f!g#g#hl`OQZlmp!Q!S!Z!_!f!g#g#hR!l!On^OQZlmp!O!Q!S!Z!_!f!g#g#hQwWR!j|W#]!p#_#`#vR$X#sY#X!p#_#`#s#vR$T#p",
+    nodeNames: "\u26A0 ForallLetter ExistsLetter Comment Line LineNumber Bar Separator Declaration Identifier :: With Statement Forall ForallSymbol Variable . Exists ExistsSymbol Iff Or And Not NotOp Equality Term Arguments ( , ) EqOp Bottom Parenthesized AndOp OrOp IffOp <-> Implies ImpOp -> Justification : RuleName Substitution Replacement / ; RuleKind Name References Reference Number - InPlace Call Quoted Type Telescope Parameter Univ Arrow Form AxiomLine Axiom Argument { } := DefLine Def DefinitionLine BlockEnd",
+    maxTerm: 111,
     skippedNodes: [0, 3],
     repeatNodeCount: 6,
-    tokenData: "Ka~R!mOX%|XY'TZ]%|]^'T^p%|pq'Tqs%|st'rtv%|vw(Zwx)^xy.ryz/uz{%|{|0x|}1{}!O2Q!O!P5c!P!Q5h!Q![5m![!]5w!]!^6^!^!_6c!_!`9n!`!c%|!c!}:q!}#R%|#R#S:q#S#T%|#T#o:q#o#p>k#p#q?n#q#r@q#r#sAt#s$f%|$f$g'T$g$r%|$r$sBw$s%W%|%W%o:q%o%p%|%p&a:q&a&b%|&b-x:q-x4l%|4l4m:q4m4n%|4n7Q:q7Q7R%|7R7[:q7[$=|%|$=|$Ch:q$Ch$IS%|$IS$I`'T$I`$I|%|$I|$I}'T$I}$JO'T$JO%#v%|%#v%#wCz%#w%#x%|%#x%#yD}%#y%&Y%|%&Y%&ZFQ%&Z%&]%|%&]%&^GT%&^%'R%|%'R%'SHW%'S%'TIZ%'T%)u%|%)u%)vJ^%)v&FU%|&FU&FV'T&FV;'S%|;'S;=`&}<%lO%|S&R^zSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|S'QP;=`<%l%|~'YW!q~XY'T]^'Tpq'T$f$g'T$IS$I`'T$I|$I}'T$I}$JO'T&FU&FV'T~'wSR~OY'rZ;'S'r;'S;=`(T<%lO'r~(WP;=`<%l'rU(b^#QQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|o)gwXZ!X`zSOX%|Z]%|^p%|qr%|rs,Qtw%|wx)^x|%|}!O%|!Q![)^!^!c%|!c!})^!}#R%|#R#S)^#S#T%|#T#o)^#o#p%|#p#q,Q#q$f%|$g%W%|%W%o)^%o%p%|%p&a)^&a&b%|&b-x)^-x4l%|4l4m)^4m4n%|4n7Q)^7Q7R%|7R7[)^7[$=|%|$=|$Ch)^$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|_,XwXZzSOX%|Z]%|^p%|qr%|rs,Qtw%|wx,Qx|%|}!O%|!Q![,Q!^!c%|!c!},Q!}#R%|#R#S,Q#S#T%|#T#o,Q#o#p%|#p#q,Q#q$f%|$g%W%|%W%o,Q%o%p%|%p&a,Q&a&b%|&b-x,Q-x4l%|4l4m,Q4m4n%|4n7Q,Q7Q7R%|7R7[,Q7[$=|%|$=|$Ch,Q$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|g.y^kczSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|V/|^mRzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U1P^#TQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|~2QOl~o2Z`!UhzSVPOX%|Z]%|^p%|qs%|t|%|}!O3]!Q![%|!^!`%|!`!a4`!a$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T3d^zSVPOX%|Z]%|^p%|qs%|t|%|}!O3]!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U4g^wQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|~5hO`~~5mO}~a5tPTP!T`!Q![5m~5|QyR![!]6S!_!`6X~6XOY~[6^O!e[~6cO!O~U6h^zSOX%|Z]%|^p%|qs%|t|%|}!O7d!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U7i`zSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^!`%|!`!a8k!a$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U8r^tQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U9u^nQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|o:zxXZzS!Q`OX%|Z]%|^p%|qr%|rs,Qtw%|wx:qxy=hy|%|}!O%|!Q![:q!^!c%|!c!}:q!}#R%|#R#S:q#S#T%|#T#o:q#o#p%|#p#q,Q#q$f%|$g%W%|%W%o:q%o%p%|%p&a:q&a&b%|&b-x:q-x4l%|4l4m:q4m4n%|4n7Q:q7Q7R%|7R7[:q7[$=|%|$=|$Ch:q$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|d=o^zS!W`OX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|]>r^!cXzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T?u^UPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T@x^!dPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TA{^!xPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TCO^!yPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UDR^#YQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UEU^#WQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TFX^^PzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TG[^bPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UH_^#PQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UIb^#SQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TJe^!|PzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|",
-    tokenizers: [quantifierLetter, 0, 1, 2, 3, 4],
+    tokenData: "Ka~R!mOX%|XY'TZ]%|]^'T^p%|pq'Tqs%|st'rtv%|vw(Zwx)^xy.ryz/uz{%|{|0x|}1{}!O2Q!O!P5c!P!Q5h!Q![5m![!]5w!]!^6^!^!_6c!_!`9n!`!c%|!c!}:q!}#R%|#R#S:q#S#T%|#T#o:q#o#p>k#p#q?n#q#r@q#r#sAt#s$f%|$f$g'T$g$r%|$r$sBw$s%W%|%W%o:q%o%p%|%p&a:q&a&b%|&b-x:q-x4l%|4l4m:q4m4n%|4n7Q:q7Q7R%|7R7[:q7[$=|%|$=|$Ch:q$Ch$IS%|$IS$I`'T$I`$I|%|$I|$I}'T$I}$JO'T$JO%#v%|%#v%#wCz%#w%#x%|%#x%#yD}%#y%&Y%|%&Y%&ZFQ%&Z%&]%|%&]%&^GT%&^%'R%|%'R%'SHW%'S%'TIZ%'T%)u%|%)u%)vJ^%)v&FU%|&FU&FV'T&FV;'S%|;'S;=`&}<%lO%|S&R^zSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|S'QP;=`<%l%|~'YW!s~XY'T]^'Tpq'T$f$g'T$IS$I`'T$I|$I}'T$I}$JO'T&FU&FV'T~'wSR~OY'rZ;'S'r;'S;=`(T<%lO'r~(WP;=`<%l'rU(b^#SQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|o)gwXZ!X`zSOX%|Z]%|^p%|qr%|rs,Qtw%|wx)^x|%|}!O%|!Q![)^!^!c%|!c!})^!}#R%|#R#S)^#S#T%|#T#o)^#o#p%|#p#q,Q#q$f%|$g%W%|%W%o)^%o%p%|%p&a)^&a&b%|&b-x)^-x4l%|4l4m)^4m4n%|4n7Q)^7Q7R%|7R7[)^7[$=|%|$=|$Ch)^$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|_,XwXZzSOX%|Z]%|^p%|qr%|rs,Qtw%|wx,Qx|%|}!O%|!Q![,Q!^!c%|!c!},Q!}#R%|#R#S,Q#S#T%|#T#o,Q#o#p%|#p#q,Q#q$f%|$g%W%|%W%o,Q%o%p%|%p&a,Q&a&b%|&b-x,Q-x4l%|4l4m,Q4m4n%|4n7Q,Q7Q7R%|7R7[,Q7[$=|%|$=|$Ch,Q$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|o.y^kkzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|V/|^mRzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U1P^#VQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|~2QOl~o2Z`!UhzSVPOX%|Z]%|^p%|qs%|t|%|}!O3]!Q![%|!^!`%|!`!a4`!a$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T3d^zSVPOX%|Z]%|^p%|qs%|t|%|}!O3]!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U4g^wQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|~5hO`~~5mO}~a5tPTP!T`!Q![5m~5|QyR![!]6S!_!`6X~6XOY~[6^O!e[~6cO!O~U6h^zSOX%|Z]%|^p%|qs%|t|%|}!O7d!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U7i`zSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^!`%|!`!a8k!a$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U8r^tQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|U9u^nQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|o:zxXZzS!Q`OX%|Z]%|^p%|qr%|rs,Qtw%|wx:qxy=hy|%|}!O%|!Q![:q!^!c%|!c!}:q!}#R%|#R#S:q#S#T%|#T#o:q#o#p%|#p#q,Q#q$f%|$g%W%|%W%o:q%o%p%|%p&a:q&a&b%|&b-x:q-x4l%|4l4m:q4m4n%|4n7Q:q7Q7R%|7R7[:q7[$=|%|$=|$Ch:q$Ch$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|d=o^zS!W`OX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|]>r^!cXzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T?u^UPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|T@x^!dPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TA{^!zPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TCO^!{PzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UDR^#[QzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UEU^#YQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TFX^^PzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TG[^bPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UH_^#RQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|UIb^#UQzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|TJe^#OPzSOX%|Z]%|^p%|qs%|t|%|}!O%|!Q![%|!^$f%|$g$IS%|$I`$I|%|$JO&FU%|&FV;'S%|;'S;=`&}<%lO%|",
+    tokenizers: [quantifierLetter, definitionStart, 0, 1, 2, 3, 4],
     topRules: { "Line": [0, 4] },
     specialized: [{ term: 9, get: (value) => spec_Identifier[value] || -1 }],
-    tokenPrec: 1147
+    tokenPrec: 1168
   });
 
   // core/node_modules/chalk/source/utilities.js
@@ -3994,8 +4006,99 @@
       return [expr.variable, ...variables(expr.body)];
     return parts(expr).flatMap(variables);
   }
-  function substitute(expr, subst) {
+  function namesIn(formula2, bound = []) {
+    const names = [];
+    const todo = [[formula2, bound]];
+    while (todo.length > 0) {
+      const [f, around] = todo.pop();
+      switch (f.kind) {
+        case "id":
+          if (!(f.args === null && around.includes(f.name))) names.push(f.name);
+          for (const term of [...f.args ?? []].reverse())
+            todo.push([term, around]);
+          break;
+        case "forall":
+        case "exists":
+          todo.push([f.body, [...around, f.variable]]);
+          break;
+        default:
+          for (const part of [...parts(f)].reverse()) todo.push([part, around]);
+      }
+    }
+    return names;
+  }
+  function sizeOf(f) {
+    if (!sizes.has(f)) measure(f);
+    return sizes.get(f);
+  }
+  function depthOf(f) {
+    if (!depths.has(f)) measure(f);
+    return depths.get(f);
+  }
+  var sizes = /* @__PURE__ */ new WeakMap();
+  var depths = /* @__PURE__ */ new WeakMap();
+  function measure(f) {
+    const todo = [f];
+    while (todo.length > 0) {
+      const g = todo[todo.length - 1];
+      if (sizes.has(g)) {
+        todo.pop();
+        continue;
+      }
+      const unread = parts(g).filter((part) => !sizes.has(part));
+      if (unread.length > 0) {
+        todo.push(...unread);
+        continue;
+      }
+      todo.pop();
+      sizes.set(
+        g,
+        parts(g).reduce((n, part) => n + sizes.get(part), 1)
+      );
+      depths.set(
+        g,
+        1 + parts(g).reduce((n, part) => Math.max(n, depths.get(part)), 0)
+      );
+    }
+  }
+  function freeDepths(f, names) {
+    const wanted = new Set(names);
+    const deepest = /* @__PURE__ */ new Map();
+    const todo = [[f, 1, []]];
+    while (todo.length > 0) {
+      const [g, depth, bound] = todo.pop();
+      if (g.kind === "id" && g.args === null) {
+        if (wanted.has(g.name) && !bound.includes(g.name))
+          deepest.set(g.name, Math.max(deepest.get(g.name) ?? 0, depth));
+        continue;
+      }
+      const inner = g.kind === "forall" || g.kind === "exists" ? [...bound, g.variable] : bound;
+      for (const part of parts(g)) todo.push([part, depth + 1, inner]);
+    }
+    return deepest;
+  }
+  var FormulaTooLarge = class extends Error {
+  };
+  function substitute(expr, subst, limit = null) {
     debugMessage("substitute", expr, subst);
+    if (limit) {
+      const free = freeVariables(expr);
+      const put = subst.filter(([x]) => free.includes(x));
+      const size = put.reduce(
+        (n, [x, term]) => n + free.filter((v) => v === x).length * (sizeOf(term) - 1),
+        sizeOf(expr)
+      );
+      const at = freeDepths(
+        expr,
+        put.map(([x]) => x)
+      );
+      const depth = Math.max(
+        depthOf(expr),
+        ...put.map(([x, term]) => at.get(x) - 1 + depthOf(term))
+      );
+      if (size > limit.symbols || depth > limit.depth)
+        throw new FormulaTooLarge();
+    }
     if (binary_connectives.includes(expr.kind)) {
       const left = substitute(expr.left, subst);
       const right = substitute(expr.right, subst);
@@ -4404,6 +4507,18 @@
       };
       return { kind, bars, entry: entry2, fallback };
     }
+    const definition = top2.getChild("DefinitionLine");
+    if (definition) {
+      const [head, body2] = parts2(definition);
+      const entry2 = {
+        kind: "definition",
+        defined: source(head.getChild("Identifier"), text3),
+        parameters: head.getChild("Arguments")?.getChildren("Term").map((t2) => formula(t2, text3)) ?? null,
+        body: formula(body2, text3),
+        loc: locate(number2, offset, definition.from, definition.to)
+      };
+      return { kind: "definition", bars, entry: entry2, fallback };
+    }
     const end = top2.getChild("BlockEnd");
     if (end) {
       const entry2 = {
@@ -4484,7 +4599,8 @@
           else proof.push(errorLine(lineText, number2, start));
           return;
       }
-      if (line.bars > innermost().bars) {
+      const opens = line.bars > innermost().bars;
+      if (opens) {
         const lines = [];
         innermost().lines.push({ kind: "flag", lines });
         openFlags.push(open(line.bars, lines));
@@ -4501,6 +4617,14 @@
             flag.pending = [];
           } else line.entry = line.fallback;
           break;
+        case "definition":
+          if (openFlags.length === 1) {
+            line.entry = line.fallback;
+            break;
+          }
+          flag.lines.push(line.entry);
+          if (opens) close();
+          return;
         case "end":
           if (openFlags.length > 1 && flag.axiom) {
             flag.lines.push(line.entry);
@@ -4558,7 +4682,8 @@
       formulaBody = null,
       block = null,
       blockRole = null,
-      axiom = null
+      axiom = null,
+      definition = null
     }) {
       this.isFirst = isFirst;
       this.isVariableFlagOpening = opensVariableFlag;
@@ -4578,6 +4703,7 @@
       this.block = block;
       this.blockRole = blockRole;
       this.axiom = axiom;
+      this.definition = definition;
     }
     /** True if the line failed to parse. */
     isError() {
@@ -4639,10 +4765,10 @@
      * Whether the line is a step of a proof (#3): any line outside blocks, and
      * a lemma's body, its conclusion included; not a line that states an
      * axiom or a lemma (its arguments, its 'axiom' or 'def' line, an axiom's
-     * conclusion, '.'), which no rule checks.
+     * conclusion, '.'), nor a one-line definition (#26), which no rule checks.
      */
     isProofLine() {
-      return this.blockRole === null || this.blockRole === "body" || this.blockRole === "conclusion" && this.block.lemma;
+      return this.definition === null && (this.blockRole === null || this.blockRole === "body" || this.blockRole === "conclusion" && this.block.lemma);
     }
     /**
      * An 'axiom name args :=' or 'def name args :=' line's axiom or lemma
@@ -4651,6 +4777,15 @@
      */
     getAxiom() {
       return this.axiom;
+    }
+    /**
+     * A one-line definition's name, its parameters (the terms written in
+     * parentheses after it, or null if there are none) and its body, as
+     * written (#26); null on other lines. It states no formula
+     * (getSentence is null).
+     */
+    getDefinition() {
+      return this.definition;
     }
     /** The variable a flag's opening line introduces, or null. */
     getVariable() {
@@ -4728,9 +4863,9 @@
      * @returns {{index: number} | {error: string, index?: number}} the line's
      *   index; or why it can't be used: "range" (a range, not one line),
      *   "unknown-name", "out-of-bounds" (not an earlier line), "syntax-error",
-     *   "not-visible" (in a flag that is closed by now) or "axiom" (a name
-     *   that names an axiom or a lemma, #3), with the index of the line it
-     *   points to
+     *   "not-visible" (in a flag that is closed by now), "axiom" (a name
+     *   that names an axiom or a lemma, #3) or "definition" (a one-line
+     *   definition, #26), with the index of the line it points to
      */
     resolveRef(ref, from) {
       if (ref.end) return { error: "range" };
@@ -4745,6 +4880,8 @@
       }
       if (!(index >= 0 && index < from)) return { error: "out-of-bounds", index };
       if (this.steps[index].isError()) return { error: "syntax-error", index };
+      if (this.steps[index].getDefinition())
+        return { error: "definition", index };
       if (!this.#isVisible(index, from)) return { error: "not-visible", index };
       return { index };
     }
@@ -4763,6 +4900,9 @@
      *   "not-a-flag" (the ends don't open and close a flag),
      *   "not-directly-inside" (with the ends' indices) or "block" (the flag is
      *   an axiom's or a lemma's block, which proves nothing as a flag, #3;
+     *   with the ends' indices), "definition" (the flag of a one-line
+     *   definition, #26; with the ends' indices) or "holds-definition" (a
+     *   flag with a definition among its lines, which is an error there, #26;
      *   with the ends' indices)
      */
     resolveRange(ref, from) {
@@ -4797,6 +4937,11 @@
       }
       if (first.getBlock() !== null && !first.isProofLine())
         return { error: "block", start, end };
+      if (first.getDefinition() !== null)
+        return { error: "definition", start, end };
+      for (let k = start; k <= end; k++)
+        if (this.steps[k].getDefinition() !== null)
+          return { error: "holds-definition", start, end };
       return { start, end };
     }
     /**
@@ -4822,8 +4967,9 @@
     /**
      * The line a name in a formula refers to from line `from` (#2): the
      * nearest earlier line it can see that declares the name, as a line's
-     * name ('p :: φ'), a declaration ('φ :: Form') or a flag's variable
-     * ('with x'). Line, formula and term names share this one namespace, so a
+     * name ('p :: φ'), a declaration ('φ :: Form'), a flag's variable
+     * ('with x'), an axiom's or a lemma's name (#3) or a one-line definition
+     * (#26). Line, formula and term names share this one namespace, so a
      * name in an inner flag shadows the same name outside. A line with a
      * syntax error declares nothing.
      *
@@ -4834,10 +4980,27 @@
         const line = this.steps[k];
         if (this.#axiomVisible(k, from) && line.getAxiom().name === name2)
           return k;
+        if (this.#definitionVisible(k, from) && line.getDefinition().name === name2)
+          return k;
         if (line.isError() || !this.#isVisible(k, from)) continue;
         if (line.getName() === name2 || line.getVariable() === name2) return k;
       }
       return null;
+    }
+    /**
+     * The one-line definitions (#26) that line `from` can see, nearest first:
+     * one is visible from the next line, in the flag around its own flag and
+     * the flags inside that one, so a definition at the top level of the
+     * proof to the end of it.
+     *
+     * @returns {number[]} their indices
+     */
+    visibleDefinitions(from) {
+      const visible = [];
+      for (let k = from - 1; k >= 0; k--) {
+        if (this.#definitionVisible(k, from)) visible.push(k);
+      }
+      return visible;
     }
     /**
      * The 'axiom' and 'def' lines of the axioms and lemmas that line `from`
@@ -4902,27 +5065,28 @@
     }
     /**
      * The name line `step` declares and the flag it declares it in (its
-     * flag ids): a line's name in its own flag, or an axiom's or a lemma's
-     * name in the flag around its block (#3); the name is null if there is
+     * flag ids): a line's name in its own flag, an axiom's or a lemma's
+     * name in the flag around its block (#3), or a defined name in the flag
+     * around the definition's own flag (#26); the name is null if there is
      * none.
      */
     declaredName(step) {
       const line = this.steps[step];
-      const axiom = line.getAxiom();
-      if (axiom)
-        return { name: axiom.name, flag: line.getBoxScope().slice(0, -1) };
+      const declared = line.getAxiom() ?? line.getDefinition();
+      if (declared)
+        return { name: declared.name, flag: line.getBoxScope().slice(0, -1) };
       return { name: line.getName(), flag: line.getBoxScope() };
     }
     /**
      * Why line `step` can't stand where it is, or null if it can (#18). A
      * premise stands outside every flag ("premise-in-flag"), before every line
      * that isn't one ("premise-late"; a line with a syntax error doesn't
-     * count, nor does an axiom's or a lemma's block, #3). An assumption opens
-     * its flag (or comes first after the blocks that open it), or follows the
-     * line that opens its variable flag ("assumption-misplaced"); nothing
-     * would discharge it elsewhere. A declaration also needs a place
-     * where its type may be declared ("formula-declaration",
-     * "term-declaration"; see mayDeclare).
+     * count, nor does an axiom's or a lemma's block, #3, nor a one-line
+     * definition, #26). An assumption opens its flag (or comes first after
+     * the blocks that open it), or follows the line that opens its variable
+     * flag ("assumption-misplaced"); nothing would discharge it elsewhere. A
+     * declaration also needs a place where its type may be declared
+     * ("formula-declaration", "term-declaration"; see mayDeclare).
      */
     placementError(step) {
       const line = this.steps[step];
@@ -4934,7 +5098,7 @@
         case "premise":
           if (line.getBoxScope().length > 0) return "premise-in-flag";
           if (this.steps.slice(0, step).some(
-            (other) => !other.isError() && other.getBlockRole() === null && other.getLineKind() !== "premise"
+            (other) => !other.isError() && other.getBlockRole() === null && other.getDefinition() === null && other.getLineKind() !== "premise"
           )) {
             return "premise-late";
           }
@@ -5010,6 +5174,16 @@
     #axiomVisible(k, from) {
       const line = this.steps[k];
       if (!line.getAxiom() || line.getBlock().last >= from) return false;
+      return encloses(
+        line.getBoxScope().slice(0, -1),
+        this.steps[from].getBoxScope()
+      );
+    }
+    // Whether line k is a one-line definition (#26) that line `from` can
+    // see: after it, in the flag around its own flag or one inside that.
+    #definitionVisible(k, from) {
+      const line = this.steps[k];
+      if (!line.getDefinition() || k >= from) return false;
       return encloses(
         line.getBoxScope().slice(0, -1),
         this.steps[from].getBoxScope()
@@ -5137,6 +5311,18 @@
         case "end":
           proof.steps.push(new Statement(place));
           break;
+        case "definition":
+          proof.steps.push(
+            new Statement({
+              ...place,
+              definition: {
+                name: line.defined,
+                parameters: line.parameters,
+                body: line.body
+              }
+            })
+          );
+          break;
         case "error":
           proof.steps.push(new Statement({ ...place, isError: true }));
           break;
@@ -5174,6 +5360,19 @@
     if (shadowing) return shadowing;
     if (line.getType()) return null;
     if (line.opensVariableFlag()) return null;
+    const definition = line.getDefinition();
+    if (definition) {
+      const parameters2 = (definition.parameters ?? []).map(
+        (parameter) => parameter.name
+      );
+      return definition.body.kind === "id" ? nameError(
+        proof,
+        step,
+        definition.body,
+        definitionRole(proof, step) ?? "formula",
+        parameters2
+      ) : formulaError(proof, step, definition.body, parameters2);
+    }
     return formulaError(proof, step, line.getSentence(), []);
   }
   function shadowError(proof, step) {
@@ -5184,6 +5383,8 @@
       if (k !== null && proof.steps[k].getType() === "Univ") {
         return `'${name2}' is declared at line ${k + 1} as a term, which no name can shadow.`;
       }
+      if (k !== null && proof.steps[k].getDefinition())
+        return `'${name2}' is defined at line ${k + 1}, which no name can shadow.`;
     }
     return null;
   }
@@ -5235,9 +5436,33 @@
       return `'${name2}' is declared at line ${k + 1} with ${describeTerms(expected)}, but is given ${arity || "none"} here.`;
     }
     if (line.getVariable() === name2) return null;
+    const definition = line.getDefinition();
+    if (definition) {
+      const defined = definitionRole(proof, k);
+      if (defined !== null && defined !== role)
+        return `'${name2}' is defined at line ${k + 1} as a ${defined}; it isn't a ${role}.`;
+      const expected = definition.parameters?.length ?? 0;
+      if (expected === arity) return null;
+      return `'${name2}' is defined at line ${k + 1} with ${describeTerms(expected)}, but is given ${arity || "none"} here.`;
+    }
     if (line.getAxiom())
       return `'${name2}' names the ${line.getBlock().lemma ? "lemma" : "axiom"} on line ${k + 1}; it isn't a ${role}.`;
     return `'${name2}' names line ${k + 1}; it isn't a ${role}.${hint(proof, k, name2, role, arity)}`;
+  }
+  function definitionRole(proof, k) {
+    for (; ; ) {
+      const { parameters: parameters2, body } = proof.steps[k].getDefinition();
+      if (body.kind !== "id") return "formula";
+      if (body.args === null && (parameters2 ?? []).some((parameter) => parameter.name === body.name))
+        return "term";
+      const j = proof.resolveName(body.name, k);
+      if (j === null) return null;
+      const line = proof.steps[j];
+      if (line.getType()) return roles[line.getType()];
+      if (line.getVariable() === body.name) return "term";
+      if (!line.getDefinition()) return null;
+      k = j;
+    }
   }
   var describeTerms = (n) => `${n || "no"} term${n === 1 ? "" : "s"}`;
   function hint(proof, k, name2, role, arity) {
@@ -5249,6 +5474,389 @@
       return "";
     return ` Did you mean '${name2} :: ${type}'?`;
   }
+
+  // core/src/definitions.mjs
+  function definitionError(proof, step) {
+    const line = proof.steps[step];
+    const { name: name2, parameters: parameters2, body } = line.getDefinition();
+    if (!line.isFirstStmt() || !line.isLastStmt()) {
+      let first2 = step;
+      while (!proof.steps[first2].isFirstStmt()) first2--;
+      return `A definition stands in a flag of its own, but this one stands in the flag line ${first2 + 1} opens: close that flag before it, with a line of dashes.`;
+    }
+    if (line.getBoxScope().length !== 1)
+      return "A definition stands only at the top level of the proof, not inside another flag: it holds from the next line to the end of the proof.";
+    const variables2 = parameters2 ?? [];
+    const notVariable = variables2.find(
+      (parameter) => parameter.kind !== "id" || parameter.args !== null
+    );
+    if (notVariable)
+      return `A definition's parameters are variables, but ${pretty(notVariable)} isn't one.`;
+    const names = variables2.map((parameter) => parameter.name);
+    const repeated = names.find((x, i2) => names.indexOf(x) !== i2);
+    if (repeated !== void 0)
+      return `'${repeated}' is a parameter of this definition twice.`;
+    const unused = names.find((x) => !freeVariables(body).includes(x));
+    if (unused !== void 0)
+      return namesIn(body).includes(unused) && !takesTerms(proof, step, unused) ? `'${unused}' is a parameter of ${name2}, a term, but its body gives it terms.` : `'${unused}' is a parameter of ${name2}, but its body doesn't use it.`;
+    if (namesIn(body, names).includes(name2))
+      return `'${name2}' occurs in its own body: a definition can't be recursive; state a recursive function by axioms instead.`;
+    const first = firstMentions(proof).get(name2);
+    if (first < step)
+      return `'${name2}' isn't fresh for this definition: it occurs in line ${first + 1}.`;
+    return null;
+  }
+  function takesTerms(proof, step, name2) {
+    const k = proof.resolveName(name2, step);
+    if (k === null) return false;
+    const line = proof.steps[k];
+    return line.getDefinition()?.parameters?.length > 0 || line.getType() === "Form" && line.getTelescope()?.length > 0;
+  }
+  var mentions = /* @__PURE__ */ new WeakMap();
+  function firstMentions(proof) {
+    if (!mentions.has(proof)) {
+      const first = /* @__PURE__ */ new Map();
+      proof.steps.forEach((line, k) => {
+        for (const name2 of mentioned(line))
+          if (!first.has(name2)) first.set(name2, k);
+      });
+      mentions.set(proof, first);
+    }
+    return mentions.get(proof);
+  }
+  function mentioned(line) {
+    if (line.isError()) return [];
+    const definition = line.getDefinition();
+    if (definition) return [definition.name, ...definitionNames(definition)];
+    return [
+      ...line.getName() ? [line.getName()] : [],
+      ...line.getAxiom() ? [line.getAxiom().name] : [],
+      ...line.getSentence() ? namesIn(line.getSentence()) : []
+    ];
+  }
+  function unfold(proof, step, formula2, unfolded = /* @__PURE__ */ new Set(), asTerm = false) {
+    if (formula2 === null || !hasDefinitions(proof)) return formula2;
+    const seen = definitionsSeen(proof, step);
+    if (seen.size === 0) return formula2;
+    return unfoldIn(
+      formula2,
+      seen,
+      unfolded,
+      /* @__PURE__ */ new Map(),
+      unfolding(formula2, seen),
+      asTerm
+    );
+  }
+  var DefinitionMisused = class extends Error {
+    constructor(defined, at) {
+      super(`${defined} is a formula's definition`);
+      this.defined = defined;
+      this.at = at;
+    }
+  };
+  var unfoldingLimit = { symbols: 1e4, depth: 100 };
+  var tooLargeWords = `more than ${unfoldingLimit.symbols} symbols, or more than ${unfoldingLimit.depth} deep`;
+  function buildingLimit(proof, received) {
+    return hasDefinitions(proof) ? limitFor(received) : null;
+  }
+  function bounded(f, limit) {
+    if (sizeOf(f) > limit.symbols || depthOf(f) > limit.depth)
+      throw new FormulaTooLarge();
+    return f;
+  }
+  function limitFor(fs) {
+    const given = fs.filter((f) => f);
+    return {
+      symbols: Math.max(unfoldingLimit.symbols, ...given.map(sizeOf)),
+      depth: Math.max(unfoldingLimit.depth, ...given.map(depthOf))
+    };
+  }
+  function limitWithin(f, seen) {
+    const bodies = namesIn(f).filter((name2) => seen.has(name2)).map((name2) => seen.get(name2).written);
+    return {
+      symbols: Math.max(
+        unfoldingLimit.symbols,
+        bodies.reduce((n, body) => n + sizeOf(body), sizeOf(f))
+      ),
+      depth: Math.max(
+        unfoldingLimit.depth,
+        depthOf(f) + Math.max(0, ...bodies.map(depthOf))
+      )
+    };
+  }
+  function definitionSizeError(proof, step) {
+    expansion(proof, step);
+    return tooLarge.get(proof)?.has(step) ? `'${proof.steps[step].getDefinition().name}' is too large unfolded: ${tooLargeWords}.` : null;
+  }
+  var tooLarge = /* @__PURE__ */ new WeakMap();
+  var withDefinitions = /* @__PURE__ */ new WeakMap();
+  function hasDefinitions(proof) {
+    if (!withDefinitions.has(proof))
+      withDefinitions.set(
+        proof,
+        proof.steps.some((line) => line.getDefinition() !== null)
+      );
+    return withDefinitions.get(proof);
+  }
+  function definitionsSeen(proof, step, except = []) {
+    const seen = /* @__PURE__ */ new Map();
+    const declared = declaredElsewhere(proof);
+    for (const k of proof.visibleDefinitions(step)) {
+      const { name: name2 } = proof.steps[k].getDefinition();
+      if (declared.has(name2) && proof.resolveName(name2, step) !== k) continue;
+      const expanded = expansion(proof, k);
+      if (expanded && !(except.includes(name2) && expanded.parameters.length === 0))
+        seen.set(name2, expanded);
+    }
+    return seen;
+  }
+  var declarations = /* @__PURE__ */ new WeakMap();
+  function declaredElsewhere(proof) {
+    if (!declarations.has(proof))
+      declarations.set(
+        proof,
+        new Set(
+          proof.steps.flatMap((line) => [
+            line.getName(),
+            line.getVariable(),
+            line.getAxiom()?.name
+          ])
+        )
+      );
+    return declarations.get(proof);
+  }
+  var expansions = /* @__PURE__ */ new WeakMap();
+  function expansion(proof, k) {
+    if (!expansions.has(proof)) expansions.set(proof, /* @__PURE__ */ new Map());
+    const read = expansions.get(proof);
+    if (!read.has(k)) {
+      const { parameters: parameters2, body } = proof.steps[k].getDefinition();
+      const names = (parameters2 ?? []).map((parameter) => parameter.name);
+      const broken = definitionError(proof, k) !== null || proof.earlierDeclaration(k) !== null || typeError(proof, k) !== null;
+      if (broken) read.set(k, null);
+      else {
+        const seen = definitionsSeen(proof, k, names);
+        const brought = [...seen.values()].flatMap((other) => other.brought);
+        const fresh = freshNames([
+          ...namesIn(body),
+          ...variables(body),
+          ...brought,
+          ...seen.keys()
+        ]);
+        const renamed = names.map((x) => brought.includes(x) ? fresh(x) : x);
+        const uses = /* @__PURE__ */ new Set();
+        try {
+          const own = substitute(
+            body,
+            names.map((x, i2) => [x, id(renamed[i2])])
+          );
+          const unfolded = bounded(
+            seen.size === 0 ? own : unfoldIn(own, seen, uses, /* @__PURE__ */ new Map(), unfolding(own, seen)),
+            limitWithin(own, seen)
+          );
+          const free = freeVariables(unfolded);
+          read.set(k, {
+            at: k + 1,
+            parameters: renamed,
+            body: unfolded,
+            written: own,
+            uses: [...uses],
+            brought: free.filter((v) => !renamed.includes(v)),
+            occurrences: renamed.map((x) => free.filter((v) => v === x).length),
+            // and how deep each one lies at its deepest, to tell a use's depth
+            reach: freeDepths(unfolded, renamed)
+          });
+        } catch (error) {
+          if (error instanceof DefinitionMisused) {
+            read.set(k, null);
+            return null;
+          }
+          if (!(error instanceof FormulaTooLarge)) throw error;
+          if (!tooLarge.has(proof)) tooLarge.set(proof, /* @__PURE__ */ new Set());
+          tooLarge.get(proof).add(k);
+          read.set(k, null);
+        }
+      }
+    }
+    return read.get(k);
+  }
+  function unfolding(f, seen) {
+    const context = {
+      limit: limitWithin(f, seen),
+      below: /* @__PURE__ */ new WeakMap(),
+      names: seen,
+      // made at the first renaming, from the definitions f uses: most
+      // formulas rename nothing, and a proof may have many definitions
+      fresh: (variable) => {
+        const used = [...definedBelow(f, context)].map((name2) => seen.get(name2));
+        context.fresh = freshNames([
+          ...variables(f),
+          ...used.flatMap(({ brought, body }) => [
+            ...brought,
+            ...variables(body)
+          ]),
+          ...seen.keys()
+        ]);
+        return context.fresh(variable);
+      }
+    };
+    return context;
+  }
+  function definedBelow(f, context) {
+    if (!context.below.has(f)) {
+      const names = new Set(
+        f.kind === "id" && context.names.has(f.name) ? [f.name] : []
+      );
+      for (const part of parts(f))
+        for (const name2 of definedBelow(part, context)) names.add(name2);
+      context.below.set(f, names);
+    }
+    return context.below.get(f);
+  }
+  function unfoldIn(f, seen, unfolded, renamed, context, asTerm = false) {
+    switch (f.kind) {
+      case "id": {
+        if (f.args === null && renamed.has(f.name))
+          return { ...f, name: renamed.get(f.name) };
+        const args = f.args?.map(
+          (term) => unfoldIn(term, seen, unfolded, renamed, context, true)
+        );
+        const definition = seen.get(f.name);
+        if (definition && definition.parameters.length === (args?.length ?? 0)) {
+          if (asTerm && definition.body.kind !== "id")
+            throw new DefinitionMisused(f.name, definition.at);
+          unfolded.add(f.name);
+          for (const name2 of definition.uses) unfolded.add(name2);
+          if (definition.parameters.length === 0) return definition.body;
+          const size = definition.occurrences.reduce(
+            (n, count2, i2) => n + count2 * (sizeOf(args[i2]) - 1),
+            sizeOf(definition.body)
+          );
+          const depth = Math.max(
+            depthOf(definition.body),
+            ...definition.parameters.map(
+              (x, i2) => definition.reach.has(x) ? definition.reach.get(x) - 1 + depthOf(args[i2]) : 0
+            )
+          );
+          if (size > context.limit.symbols || depth > context.limit.depth)
+            throw new FormulaTooLarge();
+          const terms = new Set(args.flatMap(variables));
+          const fresh = freshNames([
+            ...variables(definition.body),
+            ...terms,
+            ...definition.parameters
+          ]);
+          return bounded(
+            putIn(
+              apart(definition.body, terms, fresh, /* @__PURE__ */ new Map()),
+              new Map(definition.parameters.map((x, i2) => [x, args[i2]]))
+            ),
+            context.limit
+          );
+        }
+        return args && args.some((term, i2) => term !== f.args[i2]) ? bounded({ ...f, args }, context.limit) : f;
+      }
+      case "forall":
+      case "exists": {
+        const inside = new Map(seen);
+        if (inside.get(f.variable)?.parameters.length === 0)
+          inside.delete(f.variable);
+        const captures = [...definedBelow(f.body, context)].some(
+          (name2) => inside.get(name2)?.brought.includes(f.variable)
+        );
+        const variable = captures ? context.fresh(f.variable) : f.variable;
+        const within = variable !== f.variable || renamed.has(f.variable) ? new Map(renamed).set(f.variable, variable) : renamed;
+        const inner = unfoldIn(f.body, inside, unfolded, within, context);
+        return inner === f.body && variable === f.variable ? f : bounded(
+          { ...quantified(f.kind, variable, inner), ...userParens(f) },
+          context.limit
+        );
+      }
+      case "bot":
+        return f;
+      case "not": {
+        const body = unfoldIn(f.body, seen, unfolded, renamed, context);
+        return body === f.body ? f : bounded({ ...f, body }, context.limit);
+      }
+      default: {
+        const [left, right] = parts(f).map(
+          (part) => unfoldIn(part, seen, unfolded, renamed, context, f.kind === "=")
+        );
+        return left === f.left && right === f.right ? f : bounded({ ...f, left, right }, context.limit);
+      }
+    }
+  }
+  function freshNames(taken) {
+    const used = new Set(taken);
+    const next = /* @__PURE__ */ new Map();
+    return (variable) => {
+      let n = next.get(variable) ?? 1;
+      while (used.has(variable + n)) n++;
+      next.set(variable, n + 1);
+      used.add(variable + n);
+      return variable + n;
+    };
+  }
+  function apart(f, avoid, fresh, renamed) {
+    switch (f.kind) {
+      case "id":
+        if (f.args === null)
+          return renamed.has(f.name) ? { ...f, name: renamed.get(f.name) } : f;
+        return { ...f, args: f.args.map((t2) => apart(t2, avoid, fresh, renamed)) };
+      case "forall":
+      case "exists": {
+        const variable = avoid.has(f.variable) ? fresh(f.variable) : f.variable;
+        const within = variable !== f.variable || renamed.has(f.variable) ? new Map(renamed).set(f.variable, variable) : renamed;
+        return {
+          ...quantified(f.kind, variable, apart(f.body, avoid, fresh, within)),
+          ...userParens(f)
+        };
+      }
+      case "bot":
+        return f;
+      case "not":
+        return { ...f, body: apart(f.body, avoid, fresh, renamed) };
+      default:
+        return {
+          ...f,
+          left: apart(f.left, avoid, fresh, renamed),
+          right: apart(f.right, avoid, fresh, renamed)
+        };
+    }
+  }
+  function putIn(f, terms) {
+    switch (f.kind) {
+      case "id":
+        if (f.args === null) return terms.get(f.name) ?? f;
+        return { ...f, args: f.args.map((t2) => putIn(t2, terms)) };
+      case "forall":
+      case "exists": {
+        if (!terms.has(f.variable)) return { ...f, body: putIn(f.body, terms) };
+        const inner = new Map(terms);
+        inner.delete(f.variable);
+        return { ...f, body: putIn(f.body, inner) };
+      }
+      case "bot":
+        return f;
+      case "not":
+        return { ...f, body: putIn(f.body, terms) };
+      default:
+        return { ...f, left: putIn(f.left, terms), right: putIn(f.right, terms) };
+    }
+  }
+  var userParens = (f) => f.userParens ? { userParens: true } : {};
+  function definedNames(proof, step) {
+    return new Set(
+      proof.visibleDefinitions(step).map((k) => proof.steps[k].getDefinition().name)
+    );
+  }
+  function mentionedBy(proof, from, name2) {
+    return proof.visibleDefinitions(from).filter((k) => mentioned(proof.steps[k]).includes(name2));
+  }
+  var definitionNames = ({ parameters: parameters2, body }) => namesIn(
+    body,
+    (parameters2 ?? []).map((parameter) => parameter.name)
+  );
 
   // core/src/justifier.mjs
   function emptyFlagError(flag) {
@@ -5319,7 +5927,37 @@
       let checked = this.checkParams(proof, step, part, steps, subst);
       if (typeof checked === "string") return checked;
       debugMessage("Calling justifier on checked", checked);
-      return this.fn(ruleInput(proof, step, checked));
+      const names = /* @__PURE__ */ new Set();
+      let result;
+      try {
+        result = this.fn(
+          ruleInput(proof, step, checked, (k, formula2, asTerm) => {
+            try {
+              return unfold(proof, k, formula2, names, asTerm);
+            } catch (error) {
+              if (error instanceof FormulaTooLarge || error instanceof DefinitionMisused)
+                error.line ??= k + 1;
+              throw error;
+            }
+          })
+        );
+      } catch (error) {
+        if (error instanceof DefinitionMisused)
+          return `Line ${error.line} uses '${error.defined}', defined at line ${error.at} as a formula, as a term.`;
+        if (!(error instanceof FormulaTooLarge)) throw error;
+        return error.line !== void 0 ? `Line ${error.line} is too large with its definitions unfolded: ${tooLargeWords}.` : `The formulas line ${step + 1}'s rule builds are too large with the definitions unfolded: ${tooLargeWords}.`;
+      }
+      if (result === true || names.size === 0) return result;
+      let written;
+      try {
+        written = this.fn(
+          ruleInput(proof, step, checked, (k, formula2) => formula2)
+        );
+      } catch (error) {
+        if (!(error instanceof FormulaTooLarge)) throw error;
+        written = result;
+      }
+      return asWrittenThenUnfolded(written, result, [...names]);
     };
     /**
      * Check the step references.
@@ -5378,6 +6016,9 @@
               return `Step reference #${i2 + 1} (${n + 1}) is outside the current scope (likely from a discharged flag).`;
             case "syntax-error":
               return `Step reference #${i2 + 1} (${n + 1}) refers to a line with a syntax error.`;
+            // a one-line definition names a term or a formula (#26)
+            case "definition":
+              return `Step reference #${i2 + 1} (${n + 1}) is the definition of ${proof.steps[n].getDefinition().name}; it states no formula.`;
             case "axiom": {
               const what = proof.steps[n].getBlock().lemma ? "lemma" : "axiom";
               return `Reference #${i2 + 1} ('${steps[i2].text}') names the ${what} on line ${n + 1}; a justification cites ${article(what)} ${what} as its rule.`;
@@ -5424,6 +6065,10 @@
               return `Range reference #${i2 + 1} (${lines()}) must open and close one flag directly inside this line's flag.`;
             case "block":
               return proof.steps[range.start].getBlock().lemma ? `Range reference #${i2 + 1} (${lines()}) is a lemma's block, which proves nothing as a flag; a justification cites a lemma as its rule.` : `Range reference #${i2 + 1} (${lines()}) is an axiom's block, which proves nothing.`;
+            case "definition":
+              return `Range reference #${i2 + 1} (${lines()}) is a definition, which proves nothing as a flag.`;
+            case "holds-definition":
+              return `Range reference #${i2 + 1} (${lines()}) holds a definition, which stands only at the top level of the proof.`;
           }
           if (proof.steps[range.start].opensVariableFlag() && !this.format.allowsVariableFlag) {
             return `Range reference #${i2 + 1} (${lines()}): only \u2200-introduction and \u2203-elimination take a flag opened by 'with'.`;
@@ -5492,6 +6137,19 @@
       return [variable, term];
     }
   };
+  function asWrittenThenUnfolded(written, unfolded, names) {
+    if (written === unfolded) return unfolded;
+    const which = `With the definition${names.length > 1 ? "s" : ""} of ${listed(names)} unfolded:`;
+    if (written === true) return `${which} ${shortened(unfolded)}`;
+    const prefix = written.match(/^[^ ]+: /)?.[0].toLowerCase();
+    const reason = shortened(
+      prefix && unfolded.toLowerCase().startsWith(prefix) ? unfolded.slice(prefix.length) : unfolded
+    );
+    return `${written}${/[.!?]$/.test(written) ? "" : "."} ${which} ${reason}`;
+  }
+  var messageLimit = 2e3;
+  var shortened = (text3) => text3.length > messageLimit ? text3.slice(0, messageLimit) + " \u2026" : text3;
+  var listed = (names) => names.length === 1 ? names[0] : `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
   var article = (word) => word === "axiom" ? "an" : "a";
   function assumesFormula(line) {
     return line.getBlockRole() === "argument" && (line.getFormulaTelescope() ?? []).some(
@@ -5502,20 +6160,28 @@
     const line = proof.steps[k];
     return line.getBlockRole() === "argument" && (line.getFormulaTelescope() ?? []).length > 0;
   }
-  function ruleInput(proof, step, [side = null, refs = [], substitution = null]) {
+  function ruleInput(proof, step, [side = null, refs = [], substitution = null], read) {
     const line = proof.steps[step];
-    return {
+    const input = {
       citations: refs.map(
-        (ref) => Array.isArray(ref) ? citedFlag(proof, ref[0], ref[1]) : typeof ref !== "object" ? { line: ref + 1, formula: proof.steps[ref].getSentence() } : "hypothesis" in ref ? citedHypothesis(proof, ref.hypothesis) : ref
+        (ref) => Array.isArray(ref) ? citedFlag(proof, ref[0], ref[1], read) : typeof ref !== "object" ? {
+          line: ref + 1,
+          formula: read(ref, proof.steps[ref].getSentence())
+        } : "hypothesis" in ref ? citedHypothesis(proof, ref.hypothesis, read) : { argument: read(step, ref.argument) }
       ),
       current: {
         line: step + 1,
-        formula: line.getSentence(),
+        formula: read(step, line.getSentence()),
         lineKind: line.getLineKind()
       },
       side,
-      substitution,
+      substitution: substitution && substitution.map(([variable, term]) => [
+        variable,
+        read(step, term, true)
+      ]),
       context: {
+        read: (number2, formula2) => read(number2 - 1, formula2),
+        limit: null,
         freeOccurrence: (variable, flag) => {
           const k = proof.visibleLines(flag.first - 1).find(
             (i2) => freeVariables(proof.steps[i2].getSentence()).includes(variable)
@@ -5523,41 +6189,62 @@
           const axioms = proof.axiomStatements(flag.first - 1).filter(
             ({ formula: formula2, declared }) => !declared.includes(variable) && freeVariables(formula2).includes(variable)
           ).map(({ index }) => index);
-          const lines = [...k === void 0 ? [] : [k], ...axioms];
+          const definitions = mentionedBy(proof, flag.first - 1, variable);
+          const lines = [
+            ...k === void 0 ? [] : [k],
+            ...axioms,
+            ...definitions
+          ];
           return lines.length === 0 ? null : Math.min(...lines) + 1;
         }
       }
     };
+    input.context.limit = buildingLimit(proof, [
+      input.current.formula,
+      ...input.citations.flatMap((cited) => [
+        cited.formula,
+        cited.argument,
+        cited.assumption,
+        cited.conclusion,
+        cited.afterVariable?.formula
+      ]),
+      ...(input.substitution ?? []).map(([, term]) => term)
+    ]);
+    return input;
   }
-  function citedHypothesis(proof, k) {
+  function citedHypothesis(proof, k, read) {
     const line = proof.steps[k];
     const telescope = line.getFormulaTelescope();
     const variable = typeof telescope[0] === "string" ? telescope[0] : null;
-    const assumption = telescope.find((parameter) => typeof parameter !== "string")?.formula ?? null;
+    const assumption = read(
+      k,
+      telescope.find((parameter) => typeof parameter !== "string")?.formula ?? null
+    );
+    const conclusion = read(k, line.getFormulaBody());
     return {
       first: k + 1,
       last: k + 1,
       assumption: variable === null ? assumption : null,
-      conclusion: line.getFormulaBody(),
+      conclusion,
       variable,
       empty: false,
       brokenLine: null,
       afterVariable: variable === null ? null : {
         line: k + 1,
-        formula: assumption ?? line.getFormulaBody(),
+        formula: assumption ?? conclusion,
         isAssumption: assumption !== null
       },
       hypothesis: true
     };
   }
-  function citedFlag(proof, start, end) {
+  function citedFlag(proof, start, end, read) {
     const first = proof.steps[start];
     const variable = first.getVariable();
     const flag = {
       first: start + 1,
       last: end + 1,
-      assumption: variable === null ? first.getSentence() : null,
-      conclusion: proof.steps[end].getSentence(),
+      assumption: variable === null ? read(start, first.getSentence()) : null,
+      conclusion: read(end, proof.steps[end].getSentence()),
       variable,
       empty: false,
       brokenLine: null,
@@ -5574,7 +6261,7 @@
       ...flag,
       afterVariable: {
         line: k + 1,
-        formula: next.getSentence(),
+        formula: read(k, next.getSentence()),
         // an assumption that opens a flag inside it is that flag's own
         isAssumption: next.getLineKind() === "assumption" && !next.isFirstStmt()
       }
@@ -5724,14 +6411,19 @@
         if (substError) return "All-x-Intro: " + substError;
         const notFresh = freshnessError(context, current, flag);
         if (notFresh) return "All-x-Intro: " + notFresh;
-        var currExprSub = substitute(currExpr.body, substitution);
+        var currExprSub = substitute(
+          currExpr.body,
+          substitution,
+          context.limit
+        );
         if (equal(endExpr, currExprSub)) return true;
         return "All-x-Intro: Last step in range doesn't match current step after " + prettySubst(substitution) + ": " + pretty(endExpr) + " != " + pretty(currExprSub) + ".";
       }),
       elimination: new Justifier({ stepRefs: ["num"], subst: true }, function({
         citations,
         current,
-        substitution
+        substitution,
+        context
       }) {
         var currExpr = current.formula;
         var refExpr = citations[0].formula;
@@ -5754,7 +6446,11 @@
           return `All-x-elim: The substitution variable (${substitution[0][0]}) does 
         not match the quantified variable (${refExpr.variable}).`;
         }
-        var refExprSub = substitute(refExpr.body, substitution);
+        var refExprSub = substitute(
+          refExpr.body,
+          substitution,
+          context.limit
+        );
         if (equal(refExprSub, currExpr)) return true;
         return "All-x-Elim: Referenced step " + citations[0].line + " did not match current step after " + prettySubst(substitution) + ": " + pretty(refExprSub) + " != " + pretty(currExpr) + ".";
       })
@@ -5765,7 +6461,8 @@
       introduction: new Justifier({ stepRefs: ["num"], subst: true }, function({
         citations,
         current,
-        substitution
+        substitution,
+        context
       }) {
         const currExpr = current.formula;
         const refExpr = citations[0].formula;
@@ -5788,7 +6485,11 @@
           return `Exists-x-Intro: The substitution variable (${substitution[0][0]}) does 
         not match the quantified variable (${currExpr.variable}).`;
         }
-        const currExprSub = substitute(currExpr.body, substitution);
+        const currExprSub = substitute(
+          currExpr.body,
+          substitution,
+          context.limit
+        );
         if (equal(refExpr, currExprSub)) {
           return true;
         }
@@ -5820,7 +6521,11 @@
           if (substError) return "Exists-x-Elim: " + substError;
           const notFresh = freshnessError(context, current, flag);
           if (notFresh) return "Exists-x-Elim: " + notFresh;
-          var refExprSub = substitute(refExpr.body, substitution);
+          var refExprSub = substitute(
+            refExpr.body,
+            substitution,
+            context.limit
+          );
           if (equal(refExprSub, startExpr)) {
             if (equal(endExpr, currExpr)) return true;
             return "Exists-x-Elim: assumption ending step " + flag.last + " does not match current step: " + pretty(endExpr) + " != " + pretty(currExpr) + ".";
@@ -5834,7 +6539,7 @@
       type: "derived",
       verifier: new Justifier(
         { stepRefs: ["num", "nums"], subst: true },
-        function({ citations, current, substitution }) {
+        function({ citations, current, substitution, context }) {
           var currExpr = current.formula;
           var refExpr = citations.map((cited) => cited.formula);
           debugMessage(
@@ -5852,8 +6557,10 @@
           if (head.length != citations.length - 1) {
             return "Backchaining: " + (citations.length - 1) + " proof steps provided, but " + head.length + " required to match the head of the Horn clause " + pretty(refExpr[0]);
           }
-          var headSub = head.map((c) => substitute(c, substitution));
-          var tailSub = substitute(clause[2], substitution);
+          var headSub = head.map(
+            (c) => substitute(c, substitution, context.limit)
+          );
+          var tailSub = substitute(clause[2], substitution, context.limit);
           debugMessage("backchaining", "headSub", headSub, "tailSub", tailSub);
           if (equal(tailSub, currExpr)) {
             for (let i2 = 0; i2 < headSub.length; i2++) {
@@ -5934,20 +6641,29 @@
   }
 
   // core/src/matcher.mjs
-  function instantiate(pattern, solution) {
+  function instantiate(pattern, solution, limit = null) {
     const abstractions = [...solution.values()];
-    const outside = abstractions.flatMap(
-      ({ parameters: parameters2, body }) => freeVariables(body).filter((v) => !parameters2.includes(v))
+    const outside = new Set(
+      abstractions.flatMap(
+        ({ parameters: parameters2, body }) => freeVariables(body).filter((v) => !parameters2.includes(v))
+      )
     );
-    const taken = [
+    const taken = /* @__PURE__ */ new Set([
       ...variables(pattern),
       ...abstractions.flatMap(({ parameters: parameters2, body }) => [
         ...parameters2,
         ...variables(body)
       ])
-    ];
+    ]);
+    const primes = /* @__PURE__ */ new Map();
     return fill(pattern, /* @__PURE__ */ new Map());
     function fill(f, renamed) {
+      const filled = fillIn(f, renamed);
+      if (limit && (sizeOf(filled) > limit.symbols || depthOf(filled) > limit.depth))
+        throw new FormulaTooLarge();
+      return filled;
+    }
+    function fillIn(f, renamed) {
       switch (f.kind) {
         case "id": {
           if (f.args === null && renamed.has(f.name))
@@ -5964,7 +6680,7 @@
           return equality(fill(f.left, renamed), fill(f.right, renamed));
         case "forall":
         case "exists": {
-          const variable = outside.includes(f.variable) ? fresh(f.variable) : f.variable;
+          const variable = outside.has(f.variable) ? fresh(f.variable) : f.variable;
           const inner = new Map(renamed).set(f.variable, variable);
           return quantified(f.kind, variable, fill(f.body, inner));
         }
@@ -5980,17 +6696,19 @@
         );
       return substitute(
         body,
-        parameters2.map((parameter, i2) => [parameter, terms[i2]])
+        parameters2.map((parameter, i2) => [parameter, terms[i2]]),
+        limit
       );
     }
     function fresh(variable) {
-      let name2 = variable + "'";
-      while (taken.includes(name2)) name2 += "'";
-      taken.push(name2);
-      return name2;
+      let n = (primes.get(variable) ?? 0) + 1;
+      while (taken.has(variable + "'".repeat(n))) n++;
+      primes.set(variable, n);
+      taken.add(variable + "'".repeat(n));
+      return variable + "'".repeat(n);
     }
   }
-  function match(metavariables, pairs, given = /* @__PURE__ */ new Map()) {
+  function match(metavariables, pairs, given = /* @__PURE__ */ new Map(), limit = null) {
     const solution = new Map(given);
     for (const [pair2, { pattern, target }] of pairs.entries()) {
       const place = difference(pattern, target, [], solve);
@@ -5999,8 +6717,8 @@
     }
     const unsolved = [...metavariables.keys()].filter((v) => !solution.has(v));
     for (const [pair2, { pattern, target }] of pairs.entries()) {
-      if (mentions(pattern, unsolved, [])) continue;
-      const instance = instantiate(pattern, solution);
+      if (mentions2(pattern, unsolved, [])) continue;
+      const instance = instantiate(pattern, solution, limit);
       if (!equal(instance, target)) {
         const place = difference(instance, target, []) ?? {
           pattern: instance,
@@ -6014,11 +6732,11 @@
     function isMetavariable(f, bound) {
       return f.kind === "id" && metavariables.has(f.name) && !(f.args === null && bound.includes(f.name));
     }
-    function mentions(f, names, bound) {
+    function mentions2(f, names, bound) {
       if (isMetavariable(f, bound) && names.includes(f.name)) return true;
       if (f.kind === "forall" || f.kind === "exists")
-        return mentions(f.body, names, [...bound, f.variable]);
-      return parts(f).some((g) => mentions(g, names, bound));
+        return mentions2(f.body, names, [...bound, f.variable]);
+      return parts(f).some((g) => mentions2(g, names, bound));
     }
     function solve(p, t2, binders) {
       const terms = p.args ?? [];
@@ -6131,6 +6849,7 @@
   var count = (n) => `${n || "no"} argument${n === 1 ? "" : "s"}`;
   function check(statement, explicit, { citations, current, context }, library) {
     const { name: name2 } = statement;
+    const read = (line, pattern) => library || pattern === null ? pattern : context.read(line, pattern);
     const given = /* @__PURE__ */ new Map();
     const pairs = [];
     const sources2 = [];
@@ -6149,7 +6868,10 @@
           given.set(argument.name, { parameters: [], body: citation.argument });
           break;
         case "line":
-          pairs.push({ pattern: argument.formula, target: citation.formula });
+          pairs.push({
+            pattern: read(argument.at, argument.formula),
+            target: citation.formula
+          });
           sources2.push(`Line ${citation.line} doesn't match ${argument.name}`);
           places.push({ reference: i2 + 1, lines: `line ${citation.line}` });
           break;
@@ -6161,7 +6883,10 @@
           const over = (variable, formula2) => variable === null ? formula2 : quantified("forall", variable, formula2);
           if (argument.assumption) {
             pairs.push({
-              pattern: over(argument.variable, argument.assumption),
+              pattern: over(
+                argument.variable,
+                read(argument.at, argument.assumption)
+              ),
               target: over(citation.variable, assumption)
             });
             sources2.push(lines);
@@ -6170,7 +6895,10 @@
             variablesOf[pairs.length - 1] = argument.variable;
           }
           pairs.push({
-            pattern: over(argument.variable, argument.conclusion),
+            pattern: over(
+              argument.variable,
+              read(argument.at, argument.conclusion)
+            ),
             target: over(citation.variable, citation.conclusion)
           });
           sources2.push(lines);
@@ -6181,13 +6909,26 @@
         }
       }
     }
-    pairs.push({ pattern: statement.conclusion, target: current.formula });
+    pairs.push({
+      pattern: read(statement.conclusionAt, statement.conclusion),
+      target: current.formula
+    });
     sources2.push(`Line ${current.line} doesn't match the conclusion`);
     places.push({ current });
     const metavariables = new Map(
       statement.arguments.filter(({ role }) => role === "term" || role === "formula").map(({ name: argument, arity }) => [argument, arity])
     );
-    const result = match(metavariables, pairs, given);
+    const limit = context.limit && {
+      symbols: Math.max(
+        context.limit.symbols,
+        ...pairs.map(({ pattern }) => sizeOf(pattern))
+      ),
+      depth: Math.max(
+        context.limit.depth,
+        ...pairs.map(({ pattern }) => depthOf(pattern))
+      )
+    };
+    const result = match(metavariables, pairs, given, limit);
     switch (result.kind) {
       case "solved":
         return true;
@@ -6200,7 +6941,8 @@
             places[result.pair],
             pairs[result.pair],
             result.solution,
-            metavariables
+            metavariables,
+            limit
           );
         const where = `${name2}: ${sources2[result.pair]}`;
         const flag = flags[result.pair];
@@ -6219,9 +6961,9 @@
       }
     }
   }
-  function libraryMismatch(name2, place, { pattern, target }, solution, metas) {
+  function libraryMismatch(name2, place, { pattern, target }, solution, metas, limit) {
     const unsolved = [...metas.keys()].filter((meta2) => !solution.has(meta2));
-    const expected = namesIn(pattern).some((n) => unsolved.includes(n)) ? shapeInWords(pattern) : pretty(instantiate(pattern, solution));
+    const expected = namesIn2(pattern).some((n) => unsolved.includes(n)) ? shapeInWords(pattern) : pretty(instantiate(pattern, solution, limit));
     const is = pretty(target);
     if (place.current)
       return `${name2}: Line ${place.current.line} should be ${expected}, but is ${is}.`;
@@ -6231,10 +6973,10 @@
     const lines = `Reference #${place.reference} (lines ${first}-${last2})`;
     return place.assumes ? `${name2}: ${lines} should assume ${expected}, but assumes ${is}.` : `${name2}: ${lines} should end with ${expected}, but ends with ${is}.`;
   }
-  function namesIn(formula2) {
+  function namesIn2(formula2) {
     if (formula2.kind === "id")
-      return [formula2.name, ...(formula2.args ?? []).flatMap(namesIn)];
-    return parts(formula2).flatMap(namesIn);
+      return [formula2.name, ...(formula2.args ?? []).flatMap(namesIn2)];
+    return parts(formula2).flatMap(namesIn2);
   }
   function shapeInWords(formula2) {
     switch (formula2.kind) {
@@ -6346,11 +7088,22 @@
     const later = [];
     for (let k = step + 1; k < axiom; k++)
       if (proof.steps[k].getType()) later.push(proof.steps[k].getName());
-    const early = namesIn2(line.getSentence()).find((n) => later.includes(n));
+    const early = namesIn(line.getSentence()).find((n) => later.includes(n));
     if (!line.getType() && early !== void 0)
       return `'${early}' is declared after this line; a hypothesis can only use the arguments declared before it.`;
-    const listed = proof.steps[axiom].getAxiom().arguments;
-    if (!listed.some((argument) => argument.name === name2))
+    const declares = [
+      ...line.getType() ? [name2] : [],
+      ...(line.getFormulaTelescope() ?? []).filter(
+        (parameter) => typeof parameter === "string"
+      )
+    ];
+    for (const declared of declares) {
+      const [k] = mentionedBy(proof, block.first, declared);
+      if (k !== void 0)
+        return `'${declared}' isn't fresh for this ${block.lemma ? "lemma" : "axiom"}: the definition on line ${k + 1} mentions it.`;
+    }
+    const listed2 = proof.steps[axiom].getAxiom().arguments;
+    if (!listed2.some((argument) => argument.name === name2))
       return `'${name2}' is declared in the block of ${proof.steps[axiom].getAxiom().name} but isn't one of its arguments.`;
     const outside = block.lemma && line.getType() && mention(proof, block, name2);
     if (outside)
@@ -6360,27 +7113,13 @@
   function mention(proof, block, name2) {
     const lines = proof.visibleLines(block.first).filter((k) => {
       const formula2 = proof.steps[k].getSentence();
-      return formula2 !== null && namesIn2(formula2).includes(name2);
+      return formula2 !== null && namesIn(formula2).includes(name2);
     });
     const stated = proof.axiomStatements(block.first).filter(
-      ({ formula: formula2, declared }) => !declared.includes(name2) && namesIn2(formula2).includes(name2)
+      ({ formula: formula2, declared }) => !declared.includes(name2) && namesIn(formula2).includes(name2)
     ).map(({ index }) => index);
     const all = [...lines, ...stated];
     return all.length === 0 ? null : Math.min(...all) + 1;
-  }
-  function namesIn2(formula2, bound = []) {
-    switch (formula2.kind) {
-      case "id":
-        return [
-          ...formula2.args === null && bound.includes(formula2.name) ? [] : [formula2.name],
-          ...(formula2.args ?? []).flatMap((term) => namesIn2(term, bound))
-        ];
-      case "forall":
-      case "exists":
-        return namesIn2(formula2.body, [...bound, formula2.variable]);
-      default:
-        return parts(formula2).flatMap((part) => namesIn2(part, bound));
-    }
   }
   function citable(telescope) {
     const terms = telescope.filter((parameter) => typeof parameter === "string");
@@ -6389,7 +7128,7 @@
   }
   function axiomLineError(proof, step) {
     const line = proof.steps[step];
-    const { name: name2, arguments: listed } = line.getAxiom();
+    const { name: name2, arguments: listed2 } = line.getAxiom();
     const block = line.getBlock();
     if (!block.lemma && line.getBoxScope().length > 1)
       return "An axiom's block stands only at the top level of the proof, not inside another flag: an axiom is assumed for the whole proof.";
@@ -6397,8 +7136,8 @@
     if (reserved !== null)
       return `'${name2}' would be cited as the built-in rule ${reserved}, which no ${block.lemma ? "lemma" : "axiom"} can shadow.`;
     const declared = argumentLines(proof, block);
-    for (const [i2, { name: argument, implicit }] of listed.entries()) {
-      if (listed.findIndex((other) => other.name === argument) !== i2)
+    for (const [i2, { name: argument, implicit }] of listed2.entries()) {
+      if (listed2.findIndex((other) => other.name === argument) !== i2)
         return `'${argument}' is listed twice.`;
       const k = declared.get(argument);
       if (k === void 0)
@@ -6445,7 +7184,7 @@
   var statements = /* @__PURE__ */ new WeakMap();
   function readStatement(proof, k) {
     const block = proof.steps[k].getBlock();
-    const { name: name2, arguments: listed } = proof.steps[k].getAxiom();
+    const { name: name2, arguments: listed2 } = proof.steps[k].getAxiom();
     const what = block.lemma ? "lemma" : "axiom";
     for (let j = block.first; j <= block.last; j++) {
       const line = proof.steps[j];
@@ -6456,8 +7195,10 @@
         return { name: name2, line: k + 1, what, broken: true };
     }
     const declared = argumentLines(proof, block);
-    const argumentsRead = listed.map(({ name: argument, implicit }) => {
-      const line = proof.steps[declared.get(argument)];
+    const conclusionAt = (block.lemma ? block.last - 1 : k + 1) + 1;
+    const argumentsRead = listed2.map(({ name: argument, implicit }) => {
+      const at = declared.get(argument) + 1;
+      const line = proof.steps[at - 1];
       const type = line.getType();
       if (type === "Univ")
         return { name: argument, implicit, role: "term", arity: 0 };
@@ -6474,12 +7215,14 @@
           name: argument,
           implicit,
           role: "line",
-          formula: line.getFormulaBody()
+          formula: line.getFormulaBody(),
+          at
         };
       return {
         name: argument,
         implicit,
         role: "flag",
+        at,
         variable: typeof telescope[0] === "string" ? telescope[0] : null,
         assumption: telescope.find((parameter) => typeof parameter !== "string")?.formula ?? null,
         conclusion: line.getFormulaBody()
@@ -6491,7 +7234,8 @@
       what,
       broken: false,
       arguments: argumentsRead,
-      conclusion: proof.steps[block.lemma ? block.last - 1 : k + 1].getSentence()
+      conclusion: proof.steps[conclusionAt - 1].getSentence(),
+      conclusionAt
     };
   }
 
@@ -6747,7 +7491,7 @@
   var text2 = [
     "# The classical library (#3): the rules a proof cites without stating them, as axioms and lemmas.",
     "# A rule is cited as 'and i' for and-i; a proof's own axioms and lemmas of the same name come first.",
-    "# Natural deduction with Contra and what follows from it (Logic: Classical in the settings).",
+    "# The intuitionistic library, plus Contra and what follows from it (\xAC\xACE, LEM), at the end (Logic: Classical in the settings).",
     blocks,
     "# Contra (part1/3_fitch-truth.tex:881-896)",
     "| \u03C6 :: Form",
@@ -6870,6 +7614,14 @@
     "formula-declaration": "A formula can only be declared as a premise, outside every flag.",
     "term-declaration": "A term can only be declared as a premise or on a flag's first line."
   };
+  var tooLargeToCheck = (proof, step) => ({
+    remainingSorries: 0,
+    error: {
+      step: step + 1,
+      message: `Line ${step + 1} is too large to check.`,
+      srcLoc: proof.steps[step].getMeta()
+    }
+  });
   function labelOf({ why, rule, kind, side, refs }) {
     return { ...why, rule: rule ? rule.name : why.rule, kind, side, refs };
   }
@@ -6890,7 +7642,8 @@
      * `Var. Assum.`), or as written if the checker doesn't know it; null for
      * a line with a syntax error and for a line that states an axiom or a
      * lemma (#3), which no rule checks (a lemma's body is checked and
-     * labelled). Every line has its label, even where checking stopped early.
+     * labelled), and for a one-line definition (#26). Every line has its
+     * label, even where checking stopped early.
      * The proof may cite the rules of `library` (#3, library.mjs), by default
      * the classical one; null for none.
      */
@@ -6901,14 +7654,22 @@
         remainingSorries: 0,
         errors: []
       };
-      const readings = proof.steps.map(
-        (line, step) => line.isError() || !line.isProofLine() ? null : readJustification(
-          line.getJustificationAsRead(),
-          proof,
-          step,
-          library
-        )
-      );
+      const unreadable = /* @__PURE__ */ new Set();
+      const readings = proof.steps.map((line, step) => {
+        if (line.isError() || !line.isProofLine()) return null;
+        try {
+          return readJustification(
+            line.getJustificationAsRead(),
+            proof,
+            step,
+            library
+          );
+        } catch (error) {
+          if (!(error instanceof RangeError)) throw error;
+          unreadable.add(step);
+          return null;
+        }
+      });
       result.labels = readings.map((reading) => reading && labelOf(reading));
       let parsedSignature = null;
       if (restrictSignature) {
@@ -6950,7 +7711,7 @@
         }
       }
       for (let step = 0; step < proof.steps.length; ++step) {
-        const check2 = _Verifier.validateStatement(
+        const check2 = unreadable.has(step) ? tooLargeToCheck(proof, step) : _Verifier.checkLine(
           proof,
           step,
           readings[step],
@@ -6967,6 +7728,24 @@
         result.message = `Proof invalid with ${result.errors.length} errors.`;
       }
       return result;
+    }
+    // A line's check (validateStatement), or, where it runs out of room (a
+    // RangeError: the call stack, or a string or array too long), a message
+    // that the line is too large to check (#26), never a thrown error; any
+    // other error is a bug and is thrown as it is
+    static checkLine(proof, step, reading, restrictPropositional2, restrictSignature) {
+      try {
+        return _Verifier.validateStatement(
+          proof,
+          step,
+          reading,
+          restrictPropositional2,
+          restrictSignature
+        );
+      } catch (error) {
+        if (!(error instanceof RangeError)) throw error;
+        return tooLargeToCheck(proof, step);
+      }
     }
     static validateStatement(proof, step, reading, restrictPropositional2, restrictSignature) {
       const statement = proof.steps[step];
@@ -7005,6 +7784,23 @@
           }
         };
       }
+      if (statement.getDefinition()) {
+        const definitionMessage = definitionError(proof, step) ?? typeError(proof, step) ?? definitionSizeError(proof, step) ?? _Verifier.definitionRestrictions(
+          proof,
+          step,
+          restrictPropositional2,
+          restrictSignature
+        );
+        if (definitionMessage === null) return defaultResult;
+        return {
+          ...defaultResult,
+          error: {
+            step: step + 1,
+            message: definitionMessage,
+            srcLoc: statement.getMeta()
+          }
+        };
+      }
       if (statement.getBlockRole() !== null) {
         const blockMessage = blockError(proof, step);
         if (blockMessage !== null) {
@@ -7035,7 +7831,8 @@
         const restrictionCheck = _Verifier.checkRestrictions(
           statement.getSentence(),
           restrictPropositional2,
-          restrictSignature
+          restrictSignature,
+          definedNames(proof, step)
         );
         if (!restrictionCheck.valid) {
           return {
@@ -7104,7 +7901,21 @@
         }
       };
     }
-    static checkRestrictions(statement, restrictPropositional2, restrictSignature) {
+    // The restrictions on a one-line definition's body (#26), where it is
+    // stated: a message, or null if it keeps them
+    static definitionRestrictions(proof, step, restrictPropositional2, restrictSignature) {
+      if (!restrictPropositional2 && !restrictSignature) return null;
+      const check2 = _Verifier.checkRestrictions(
+        proof.steps[step].getDefinition().body,
+        restrictPropositional2,
+        restrictSignature,
+        definedNames(proof, step)
+      );
+      return check2.valid ? null : check2.message;
+    }
+    // `defined`: the names of the definitions the line sees (#26), which the
+    // restrictions leave to their bodies, checked where they are stated
+    static checkRestrictions(statement, restrictPropositional2, restrictSignature, defined = /* @__PURE__ */ new Set()) {
       const result = { valid: true, message: "" };
       const checkBot = function() {
         return true;
@@ -7118,7 +7929,7 @@
         }
       };
       const checkId = function(x, args) {
-        if (args.length > 0) {
+        if (args.length > 0 && !defined.has(x)) {
           if (restrictPropositional2) {
             result.message = `Propositional restriction: only propositional variables allowed, but ${x} uses ${args.length} arguments.`;
             return false;
@@ -7207,6 +8018,7 @@
         case "declaration":
         case "axiom":
         case "def":
+        case "definition":
         case "end":
         case "error":
           line = renderRule(DOM, item, labels, line, options, inBlock);
@@ -7261,6 +8073,11 @@
       step.append(
         `${AST.kind} ${AST.rule}${args.length ? " " : ""}${args.join(", ")} :=`
       );
+    } else if (AST.kind === "definition") {
+      step.append("def ");
+      step.appendChild(renderTerm(id(AST.defined, AST.parameters), options));
+      step.append(" := ");
+      step.appendChild(renderClause(AST.body, options));
     } else if (AST.kind === "end") {
       step.append(".");
     } else if (inBlock && AST.telescope) {
@@ -24679,8 +25496,7 @@
       const response = await fetch("assets/examples.json");
       const data = await response.json();
       const proofs = data.proofs;
-      createExampleDropdown(proofs);
-      createExampleNavbar(proofs);
+      createExampleSections(proofs);
       const defaultID = data.default;
       if (defaultID in proofs) {
         proofInput.dispatch({
@@ -24695,33 +25511,104 @@
       console.error(`Failed to load examples: ${error}`);
     }
   }
-  function createExampleDropdown(proofs) {
-    const dropdownMenu = document.getElementById("example-dropdown");
-    for (const key in proofs) {
-      const listItem = document.createElement("li");
-      const button = createExampleButton(proofs[key], true);
-      listItem.appendChild(button);
-      dropdownMenu.appendChild(listItem);
-    }
+  var extendedCategory = "Axioms, lemmas and definitions";
+  var isLibrary = (example) => example.name.startsWith("The default library");
+  var isRulesAsAxioms = (example) => / with axioms$/.test(example.name);
+  function originalName(name2) {
+    return name2.replace(/ with .*$/, "").replace(/ \(unchanged\)$/, "");
   }
-  function createExampleNavbar(proofs) {
-    const container = document.getElementById("example-buttons");
+  function createExampleSections(proofs) {
+    const all = Object.values(proofs);
+    const originals = all.filter((e) => e.category !== extendedCategory);
+    const extended = all.filter(
+      (e) => e.category === extendedCategory && !isLibrary(e) && !isRulesAsAxioms(e)
+    );
+    const rulesAsAxioms = all.filter(
+      (e) => e.category === extendedCategory && isRulesAsAxioms(e)
+    );
+    const libraries2 = all.filter(
+      (e) => e.category === extendedCategory && isLibrary(e)
+    );
+    const paired = [];
+    const used = /* @__PURE__ */ new Set();
+    for (const original of originals) {
+      const version = extended.find(
+        (e) => !used.has(e) && originalName(e.name) === original.name
+      );
+      if (version) {
+        used.add(version);
+        paired.push({
+          ...version,
+          category: original.category,
+          name: original.name
+        });
+      }
+    }
+    const more = extended.filter((e) => !used.has(e)).map((e) => ({ ...e, category: "More" }));
+    const sections = [
+      {
+        id: "examples-original",
+        title: "Original examples",
+        examples: originals
+      },
+      {
+        id: "examples-extended",
+        title: "With axioms, lemmas and definitions",
+        examples: [...paired, ...more]
+      },
+      {
+        id: "examples-libraries",
+        title: "Default libraries",
+        examples: [
+          ...libraries2.map((e) => ({
+            ...e,
+            category: void 0,
+            name: e.name.replace(
+              /^The default library \((.*)\)$/,
+              (_, logic4) => logic4.charAt(0).toUpperCase() + logic4.slice(1)
+            )
+          })),
+          ...rulesAsAxioms.map((e) => ({
+            ...e,
+            category: "Rules as axioms",
+            name: originalName(e.name)
+          }))
+        ]
+      }
+    ];
+    const container = document.getElementById("example-sections");
+    sections.forEach(({ id: id2, title, examples }, index) => {
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "btn btn-link px-0 fw-bold text-decoration-none example-section-toggle d-block";
+      toggle.setAttribute("data-bs-toggle", "collapse");
+      toggle.setAttribute("data-bs-target", `#${id2}`);
+      toggle.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+      toggle.setAttribute("aria-controls", id2);
+      toggle.textContent = title;
+      const body = document.createElement("div");
+      body.id = id2;
+      body.className = index === 0 ? "collapse show" : "collapse";
+      const row = document.createElement("div");
+      row.className = "d-flex flex-wrap gap-1 pb-2";
+      fillExampleButtons(row, examples);
+      body.appendChild(row);
+      container.appendChild(toggle);
+      container.appendChild(body);
+    });
+  }
+  function fillExampleButtons(container, examples) {
     const categories = /* @__PURE__ */ new Map();
-    for (const key in proofs) {
-      const proofObject = proofs[key];
-      const category = proofObject.category || proofObject.name;
+    for (const example of examples) {
+      const category = example.category || example.name;
       if (!categories.has(category)) {
         categories.set(category, []);
       }
-      categories.get(category).push({
-        name: proofObject.name,
-        proof: proofObject.proof
-      });
+      categories.get(category).push(example);
     }
-    categories.forEach((examples, category) => {
-      if (examples.length === 1) {
-        const button = createExampleButton(examples[0]);
-        container.appendChild(button);
+    categories.forEach((group, category) => {
+      if (group.length === 1) {
+        container.appendChild(createExampleButton(group[0]));
       } else {
         const fieldset = document.createElement("fieldset");
         fieldset.className = "btn-group";
@@ -24733,10 +25620,9 @@
         dropdownBtn.textContent = category;
         const dropdownMenu = document.createElement("ul");
         dropdownMenu.className = "dropdown-menu";
-        examples.forEach((example) => {
+        group.forEach((example) => {
           const listItem = document.createElement("li");
-          const button = createExampleButton(example, true);
-          listItem.appendChild(button);
+          listItem.appendChild(createExampleButton(example, true));
           dropdownMenu.appendChild(listItem);
         });
         fieldset.appendChild(dropdownBtn);

@@ -36,6 +36,17 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .example-section-toggle::before {
+        content: "▸";
+        display: inline-block;
+        margin-right: 0.4em;
+        transition: transform 0.15s;
+      }
+      .example-section-toggle[aria-expanded="true"]::before {
+        transform: rotate(90deg);
+      }
+    </style>
 
     <script type="module" src="scripts/bundle.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
@@ -57,14 +68,17 @@
       <header class="row justify-content-between">
         <div class="col-auto">
           <h1>
-            Proof Rondo
-            <small class="text-body-secondary">
-              First-Order Logic Proof Checker
-            </small>
+            Proof Rondo 1.1
+            <small class="text-body-secondary">(preview)</small>
           </h1>
-          <p>
+          <p class="lead mb-1">
+            First-order logic proof checker, now with axioms, lemmas and
+            definitions
+          </p>
+          <p class="mb-0">
             <small>
-              Source:
+              <strong>Original:</strong> Proof Rondo by H. Basold and J. van
+              Leenen ·
               <a
                 href="https://gitlab.com/hbasold/proof-rondo"
                 title="proof-rondo on GitLab"
@@ -73,16 +87,20 @@
               >
                 gitlab.com/hbasold/proof-rondo
               </a>
-              <br />
-              By H. Basold and J. van Leenen. Development version with
-              extensions by R. F. Cunha
-              (<a
-                href="https://gitlab.com/rafaelcunha2013/proof-rondo/-/tree/project2"
-                title="The project2 branch on GitLab"
+            </small>
+          </p>
+          <p>
+            <small>
+              <strong>This version:</strong> axioms, lemmas and definitions, by
+              R. F. Cunha ·
+              <a
+                href="https://gitlab.com/rafaelcunha2013/proof-rondo"
+                title="This version's source on GitLab"
                 referrerpolicy="no-referrer"
                 target="_blank"
-                >branch project2</a
-              >).
+              >
+                gitlab.com/rafaelcunha2013/proof-rondo
+              </a>
             </small>
           </p>
         </div>
@@ -182,24 +200,7 @@
       <main class="row">
         <div class="col-12">
           <h2>Proof Checker</h2>
-          <p class="d-inline d-xl-none pe-2 fw-bold">Load an example:</p>
-          <p class="d-none d-xl-block fw-bold">Examples:</p>
-          <fieldset class="btn-group d-xl-none" aria-label="Button group">
-            <button
-              type="button"
-              class="btn btn-primary dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Select an Example
-            </button>
-            <ul id="example-dropdown" class="dropdown-menu"></ul>
-          </fieldset>
-          <fieldset
-            id="example-buttons"
-            class="btn-group d-none d-xl-inline-flex"
-            aria-label="Button group with nested dropdown"
-          ></fieldset>
+          <div id="example-sections"></div>
         </div>
 
         <div id="proof-input-col" class="col-12 col-lg-7">

@@ -62,6 +62,31 @@
         "Ex.~P(x)                 : contra 3-11"
       ]
     },
+    "31": {
+      "category": "Chapter 7",
+      "name": "Example 7.19",
+      "proof": [
+        "∀n. L(n, n)",
+        "∀n. ∀m. L(n, m) → L(n, s(m))",
+        "L('0, '0) : B.n/'0 1",
+        "L('0, s('0)) : B.n/'0; m/'0 2, 3",
+        "∃m. L('0, m) : E.m/s('0) i 4"
+      ]
+    },
+    "32": {
+      "category": "Chapter 7",
+      "name": "Exercise 26a",
+      "proof": [
+        "∀m. P('0, m, m)",
+        "∀n. ∀m. ∀k. P(n, m, k) → P(s(n), m, s(k))",
+        "∀n. L(n, n)",
+        "∀n. ∀m. L(n, m) → L(n, s(m))",
+        "P('0, s('0), s('0)) : B.m/s('0) 1",
+        "P(s('0), s('0), s(s('0))) : B.n/'0; m/s('0); k/s('0) 2, 5",
+        "P(s(s('0)), s('0), s(s(s('0)))) : B.n/s('0); m/s('0); k/s(s('0)) 2, 6",
+        "∃k. P(s(s('0)), s('0), k) : E.k/s(s(s('0))) i 7"
+      ]
+    },
     "40": {
       "name": "Negation Forall",
       "proof": [
@@ -207,7 +232,7 @@
       ]
     },
     "110": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "Example 3.1 with axioms",
       "proof": [
         "# Each rule this proof uses is stated as an axiom first (#3); a citation such as 'and i' finds the axiom and-i.",
@@ -260,7 +285,7 @@
       ]
     },
     "120": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "Example 5.8 with axioms",
       "proof": [
         "# Each rule this proof uses is stated as an axiom first (#3); a citation such as 'and i' finds the axiom and-i.",
@@ -290,7 +315,7 @@
       ]
     },
     "130": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "Negation Forall with axioms",
       "proof": [
         "# Each rule this proof uses is stated as an axiom first (#3); a citation such as 'and i' finds the axiom and-i.",
@@ -354,7 +379,7 @@
       ]
     },
     "140": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "Example 5.12 with lemmas",
       "proof": [
         "# Example 5.12 includes its lemma as a premise; here it states and proves it first, with a lemma for double negation (#3).",
@@ -388,7 +413,7 @@
       ]
     },
     "150": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "Admissible Rules with lemmas",
       "proof": [
         "# The admissible rules for symmetry and transitivity (theorem 9.10), stated and proved as lemmas (#3).",
@@ -415,12 +440,12 @@
       ]
     },
     "160": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "The default library (classical)",
       "proof": [
         "# The classical library (#3): the rules a proof cites without stating them, as axioms and lemmas.",
         "# A rule is cited as 'and i' for and-i; a proof's own axioms and lemmas of the same name come first.",
-        "# Natural deduction with Contra and what follows from it (Logic: Classical in the settings).",
+        "# The intuitionistic library, plus Contra and what follows from it (¬¬E, LEM), at the end (Logic: Classical in the settings).",
         "# Ax: a line the proof has (part1/2_deduction-pl.tex:285-342)",
         "| φ :: Form",
         "| p :: φ",
@@ -566,7 +591,7 @@
       ]
     },
     "170": {
-      "category": "Axioms and lemmas",
+      "category": "Axioms, lemmas and definitions",
       "name": "The default library (intuitionistic)",
       "proof": [
         "# The intuitionistic library (#3): the rules a proof cites without stating them, as axioms and lemmas.",
@@ -688,6 +713,300 @@
         "|| b :: ⊥ : neg e q, s",
         "| ¬φ : neg i h-b",
         "| ."
+      ]
+    },
+    "180": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Arithmetic with a definition",
+      "proof": [
+        "# #3's arithmetic with a definition (#26): '1 names s('0), unfolded silently, so the axiom's conclusion",
+        "# about '1 is one about s('0).",
+        "| def '1 := s('0)",
+        "# add-zero: adding y to zero gives y",
+        "| x :: Univ",
+        "| y :: Univ",
+        "| p :: x = '0",
+        "| axiom add-zero x, y, p :=",
+        "| add(x, y) = y",
+        "| .",
+        "'0 = '0 : = i",
+        "add('0, '1) = '1 : add-zero '0, '1, 8",
+        "add('0, '1) = s('0) : copy 9"
+      ]
+    },
+    "190": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Even and odd with definitions",
+      "proof": [
+        "# The successor of an even number is odd (part2/8_fol-equality.tex:710-757), with '1, even and odd as",
+        "# definitions (#26): ∃-elimination opens even(x) as the ∃ it stands for, and odd(p(x, '1)) is the ∃ that",
+        "# ∃-introduction gives, both unfolded silently.",
+        "| def '1 := s('0)",
+        "| def even(x) := ∃y. N(y) ∧ x = p(y, y)",
+        "| def odd(x) := ∃z. N(z) ∧ x = p(p(z, z), '1)",
+        "| with x",
+        "|| ih :: even(x)",
+        "||| with y",
+        "||| eh :: N(y) ∧ x = p(y, y)",
+        "||| eh1 :: N(y) : and e1 eh",
+        "||| eh2 :: x = p(y, y) : and e2 eh",
+        "||| r :: p(x, '1) = p(x, '1) : = i",
+        "||| o :: p(x, '1) = p(p(y, y), '1) : = e eh2, r",
+        "||| ny :: N(y) ∧ p(x, '1) = p(p(y, y), '1) : and i eh1, o",
+        "||| eg :: ∃z. N(z) ∧ p(x, '1) = p(p(z, z), '1) : E.z/y i ny",
+        "|| ig :: odd(p(x, '1)) : E.y/y e ih, 6-13",
+        "| n :: even(x) → odd(p(x, '1)) : -> i 5-14",
+        "∀x. even(x) → odd(p(x, '1)) : A.x/x i 4-15"
+      ]
+    },
+    "200": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Drinkers Paradox with lemmas",
+      "proof": [
+        "# Drinkers Paradox with lemmas (#3): the step the original takes as its first premise is proved here as a lemma,",
+        "# and each case of the excluded middle is a lemma too; the theorem at the end cites them.",
+        "| φ :: (x :: Univ) -> Form",
+        "| ψ :: (x :: Univ) -> Form",
+        "| p :: ¬(∀x. φ(x) → ψ(x))",
+        "| def counterexample {φ}, {ψ}, p :=",
+        "|| ¬(∃x. φ(x) ∧ ¬ψ(x))",
+        "||| with x0",
+        "|||| φ(x0)",
+        "||||| ¬ψ(x0)",
+        "||||| φ(x0) ∧ ¬ψ(x0)        : and i 7, 8",
+        "||||| ∃x. φ(x) ∧ ¬ψ(x)      : E.x/x0 i 9",
+        "||||| ⊥                     : neg e 10, 5",
+        "|||| ψ(x0)                  : contra 8-11",
+        "||| φ(x0) → ψ(x0)           : -> i 7-12",
+        "|| ∀x. φ(x) → ψ(x)          : A.x/x0 i 6-13",
+        "|| ⊥                        : neg e 14, p",
+        "| ∃x. φ(x) ∧ ¬ψ(x)          : contra 5-15",
+        "| .",
+        "| φ :: (x :: Univ) -> Form",
+        "| χ :: (x :: Univ) -> Form",
+        "| θ :: Form",
+        "| p :: ∃x. φ(x)",
+        "| q :: θ",
+        "| def anyone-will-do {φ}, {χ}, {θ}, p, q :=",
+        "|| with x0",
+        "|| φ(x0)",
+        "||| χ(x0)",
+        "||| θ                       : copy q",
+        "|| χ(x0) → θ                : -> i 26-27",
+        "|| ∃y. χ(y) → θ             : E.y/x0 i 28",
+        "| ∃y. χ(y) → θ              : E.x/x0 e p, 24-29",
+        "| .",
+        "| φ :: (x :: Univ) -> Form",
+        "| ψ :: (x :: Univ) -> Form",
+        "| θ :: Form",
+        "| p :: ∃x. φ(x) ∧ ¬ψ(x)",
+        "| def the-sober-one {φ}, {ψ}, {θ}, p :=",
+        "|| with x0",
+        "|| φ(x0) ∧ ¬ψ(x0)",
+        "||| φ(x0) ∧ ψ(x0)",
+        "||| ψ(x0)                   : and e2 39",
+        "||| ¬ψ(x0)                  : and e2 38",
+        "||| ⊥                       : neg e 40, 41",
+        "||| θ                       : bot e 42",
+        "|| φ(x0) ∧ ψ(x0) → θ        : -> i 39-43",
+        "|| ∃y. φ(y) ∧ ψ(y) → θ      : E.y/x0 i 44",
+        "| ∃y. φ(y) ∧ ψ(y) → θ       : E.x/x0 e p, 37-45",
+        "| .",
+        "Ex.P(x)",
+        "(Ax.P(x) -> D(x)) ∨ ~(Ax.P(x) -> D(x))     : lem",
+        "| Ax.P(x) -> D(x)",
+        "| (Ey. P(y) & D(y) -> (Ax.P(x) -> D(x)))   : anyone-will-do 48, 50",
+        "------",
+        "| ~(Ax.P(x) -> D(x))",
+        "| Ex. P(x) & ~D(x)                         : counterexample 52",
+        "| (Ey. P(y) & D(y) -> (Ax.P(x) -> D(x)))   : the-sober-one 53",
+        "------",
+        "(Ey. P(y) & D(y) -> (Ax.P(x) -> D(x)))     : or e 49, 50-51, 52-54"
+      ]
+    },
+    "210": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 1.6 (unchanged)",
+      "proof": [
+        "# Example 1.6 has no proof to restructure: it only checks that formulas are written correctly, so it reads the same here.",
+        "# One can use Proof Rondo to just check the syntactic correctness of formulas.",
+        "# For instance, the following is the failure model for a train crossing from the first lecture.",
+        "",
+        "TrainArrives → ClosingSignal",
+        "¬CommunicationFailure ∧ ClosingSignal → BarrierClosed",
+        "¬TrainStops ∧ TrainArrives → TrainOnCrossing",
+        "¬BarrierClosed ∧ TrainArrives → TrainBrakes",
+        "¬BrakeFailure ∧ TrainBrakes → TrainStops",
+        "TrainOnCrossing ∧ BarrierOpen → Unsafe"
+      ]
+    },
+    "220": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 7.13 (unchanged)",
+      "proof": [
+        "# Example 7.13 is already a direct proof with the basic rules; nothing to simplify, so it reads the same here.",
+        "An. L(n,n)",
+        "An.Am. L(n,m) -> L(n, s(m))",
+        "L(z,z)                       : B.n/z 1",
+        "L(z,s(z))                    : B.n/z;m/z 2,3",
+        "Em. L(z, m)                  : E.m/s(z) i 4"
+      ]
+    },
+    "230": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 7.19 with a definition",
+      "proof": [
+        "# Example 7.19 with a definition (#26): the same premises and steps, with '1 for s('0).",
+        "| def '1 := s('0)",
+        "∀n. L(n, n)",
+        "∀n. ∀m. L(n, m) → L(n, s(m))",
+        "L('0, '0) : B.n/'0 2",
+        "L('0, '1) : B.n/'0; m/'0 3, 4",
+        "∃m. L('0, m) : E.m/'1 i 5"
+      ]
+    },
+    "240": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Exercise 26a with definitions",
+      "proof": [
+        "# Exercise 26a with definitions (#26): the same premises and steps, with '1, '2 and '3 for s('0), s(s('0)) and s(s(s('0))).",
+        "| def '1 := s('0)",
+        "| def '2 := s('1)",
+        "| def '3 := s('2)",
+        "∀m. P('0, m, m)",
+        "∀n. ∀m. ∀k. P(n, m, k) → P(s(n), m, s(k))",
+        "∀n. L(n, n)",
+        "∀n. ∀m. L(n, m) → L(n, s(m))",
+        "P('0, '1, '1) : B.m/'1 4",
+        "P('1, '1, '2) : B.n/'0; m/'1; k/'1 5, 8",
+        "P('2, '1, '3) : B.n/'1; m/'1; k/'2 5, 9",
+        "∃k. P('2, '1, k) : E.k/'3 i 10"
+      ]
+    },
+    "250": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 9.13 with definitions",
+      "proof": [
+        "# Example 9.13 with definitions (#26): the same proof, with even and odd as definitions, which the original's comment",
+        "# says it lacks; o is still 1. ∃-elimination opens even(x0), and ∃-introduction gives odd(p(x0, o)), both unfolded silently.",
+        "| def even(x) := ∃y. x = p(y, y)",
+        "| def odd(x) := ∃y. x = p(p(y, y), o)",
+        "| with x0",
+        "|| even(x0)",
+        "||| with y0",
+        "||| x0 = p(y0, y0)",
+        "||| p(x0, o) = p(x0, o)                         : = i",
+        "||| p(x0, o) = p(p(y0, y0), o)                  : = e 6, 7",
+        "||| odd(p(x0, o))                               : E.y/y0 i 8",
+        "|| odd(p(x0, o))                                : E.y/y0 e 4, 5-9",
+        "| even(x0) -> odd(p(x0, o))                     : -> i 4-10",
+        "Ax. even(x) -> odd(p(x, o))                     : A.x/x0 i 3-11"
+      ]
+    },
+    "260": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example Solution with a definition",
+      "proof": [
+        "# This is a possible solution to the exam question that asks for a proof of a formula from",
+        "# the given formulas, here in lines 2 - 4. With a definition (#26): k(y) names the term i(g(y), i(y, i(y, y))).",
+        "",
+        "| def k(y) := i(g(y), i(y, i(y, y)))",
+        "(Ex0. Ax1. x0 = i(g(x0), i(x1 , i(x0 , x1)))) & (Ax2. x2 = x2)",
+        "(Ex3. O(i(i(g(x3), d(x3 , x3 , x3)), x3), x3 , x3) & T(x3)) & (Ax4. x4 = x4)",
+        "Ex5. (Ax6. x6 = g(g(d(x5 , x6 , x5)))) v x5 = x5",
+        "Ex0. Ax1. x0 = i(g(x0), i(x1 , i(x0 , x1))) : and e1 2",
+        "| with y0",
+        "| Ax1. y0 = i(g(y0), i(x1 , i(y0 , x1)))",
+        "| y0 = k(y0)                                 : A.x1/y0 e 7",
+        "|| T(y0)",
+        "|| T(k(y0))                                  : = e 8, 9",
+        "| T(y0) -> T(k(y0))                          : -> i 9-10",
+        "| Ey. T(y) -> T(k(y))                        : E.y/y0 i 11",
+        "Ey. T(y) -> T(k(y))                          : E.x0/y0 e 5, 6-12"
+      ]
+    },
+    "270": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Uniform Proof Example Solution with definitions",
+      "proof": [
+        "# Horn theory exam exercise, with definitions (#26) for the people the proof meets.",
+        "# We use the following interpretation:",
+        "# d(x, y, z) : assigns to the colour combination of hair, paints and shows a person with that colour combination",
+        "# g(x)       : maps x to the next colour",
+        "# i(p, x)    : maps (p,x) to next person after p with pants colour x",
+        "# O(p, q, x) : person p sees person q with pants colour x",
+        "# T(x)       : x is a colour",
+        "# Q()        : someone has a yellow backpack",
+        "# We introduce one extra constant c for the base colour, and name the people: p0 is d(c, c, c), and each next one",
+        "# is the person after the last with the next pants colour.",
+        "",
+        "| def p0 := d(c, c, c)",
+        "| def p1 := i(p0, c)",
+        "| def p2 := i(p1, g(c))",
+        "| def p3 := i(p2, g(g(c)))",
+        "Ap. O(p, p, c)",
+        "Ap. Aq. Ax. O(p, q, x) & T(x) -> O(p, i(q, x), g(x))",
+        "Ax. T(x) -> T(g(x))",
+        "T(c)",
+        "# ----------------------",
+        "O(p0, p0, c)                                   : B.p/p0 5",
+        "O(p0, p1, g(c))                                : B.p/p0; q/p0; x/c 6, 9, 8",
+        "T(g(c))                                        : B.x/c 7, 8",
+        "O(p0, p2, g(g(c)))                             : B.p/p0; q/p1; x/g(c) 6, 10, 11",
+        "T(g(g(c)))                                     : B.x/g(c) 7, 11",
+        "O(p0, p3, g(g(g(c))))                          : B.p/p0; q/p2; x/g(g(c)) 6, 12, 13",
+        "T(g(g(c))) & O(p0, p3, g(g(g(c))))             : and i 13, 14",
+        "Eq. T(g(g(c))) & O(p0, q, g(g(g(c))))          : E.q/p3 i 15",
+        "Ex. Eq. T(x) & O(p0, q, g(x))                  : E.x/g(g(c)) i 16",
+        "Ep. Ex. Eq. T(x) & O(p, q, g(x))               : E.p/p0 i 17"
+      ]
+    },
+    "280": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 3.1 (unchanged)",
+      "proof": [
+        "# Example 3.1 is already a direct proof with the basic rules; nothing to simplify, so it reads the same here.",
+        "r and u -> w : premise",
+        "u and ~w     : premise",
+        "| r",
+        "| u          : and e1 2",
+        "| r and u    : and i 3,4",
+        "| w          : -> e 1, 5",
+        "| ~w         : and e2 2",
+        "| _|_        : neg e 6,7",
+        "~r           : neg i 3-8"
+      ]
+    },
+    "290": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Example 5.8 (unchanged)",
+      "proof": [
+        "# Example 5.8 is already a direct proof with the basic rules; nothing to simplify, so it reads the same here.",
+        "Ax.P(c, x)   : premise",
+        "| with x0",
+        "| P(c,x0)    : A.x/x0 e 1",
+        "| Ey.P(y,x0) : E.y/c i 3",
+        "Ax.Ey.P(y,x) : A.x/x0 i 2-4"
+      ]
+    },
+    "300": {
+      "category": "Axioms, lemmas and definitions",
+      "name": "Negation Forall (unchanged)",
+      "proof": [
+        "# Negation Forall is already a direct proof with the basic rules; nothing to simplify, so it reads the same here.",
+        "A x.(P(x) -> ~Q(x))",
+        "| E x.(P(x) and Q(x))    : hypothesis",
+        "|| with x0",
+        "|| P(x0) and Q(x0)       : hypothesis",
+        "|| P(x0)                 : and elim1 4",
+        "|| P(x0) -> ~Q(x0)       : A.x/x0 elim 1",
+        "|| ~Q(x0)                : -> e 6,5",
+        "|| Q(x0)                 : and elim2 4",
+        "|| _|_                   : neg elim 7,8",
+        " ---",
+        "| _|_                    : E.x/x0 elim 2,3-9",
+        "---",
+        "~(E x. (P(x) and Q(x))) : neg introduction 2-10"
       ]
     }
   }
