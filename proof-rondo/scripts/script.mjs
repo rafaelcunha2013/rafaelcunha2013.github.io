@@ -413,7 +413,7 @@ function createExampleSections(proofs) {
     },
     {
       id: "examples-extended",
-      title: "With axioms, lemmas and definitions",
+      title: "With named lines, axioms, lemmas and definitions",
       examples: [...paired, ...more],
     },
     {
