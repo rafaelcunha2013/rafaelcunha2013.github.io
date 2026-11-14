@@ -325,8 +325,7 @@ async function loadExamples() {
     const data = await response.json();
 
     const proofs = data.proofs;
-    createExampleDropdown(proofs);
-    createExampleNavbar(proofs);
+    createExampleSections(proofs);
 
     const defaultID = data.default;
     if (defaultID in proofs) {
@@ -343,53 +342,147 @@ async function loadExamples() {
   }
 }
 
-/**
- * Create a dropdown menu of example proofs.
- *
- * Used on small screens.
- *
- * @param proofs {Object} the example proofs
- */
-function createExampleDropdown(proofs) {
-  const dropdownMenu = document.getElementById("example-dropdown");
+// The category the course site's examples rewritten with axioms, lemmas and
+// definitions share, and the names of the default libraries in it.
+const extendedCategory = "Axioms, lemmas and definitions";
+const isLibrary = (example) => example.name.startsWith("The default library");
+// The examples that state every rule they use as an axiom, showing how a rule
+// is an axiom: they go beside the libraries, not beside their originals.
+const isRulesAsAxioms = (example) => / with axioms$/.test(example.name);
 
-  for (const key in proofs) {
-    const listItem = document.createElement("li");
-    const button = createExampleButton(proofs[key], true);
-    listItem.appendChild(button);
-    dropdownMenu.appendChild(listItem);
-  }
+/**
+ * The name of the original example a rewritten one stands beside: its name
+ * without " with …" or " (unchanged)".
+ *
+ * @param name {string} the rewritten example's name
+ * @returns {string} the original's name
+ */
+function originalName(name) {
+  return name.replace(/ with .*$/, "").replace(/ \(unchanged\)$/, "");
 }
 
 /**
- * Create a set of buttons for example proofs.
- *
- * Used on larger screens.
+ * Create the three example sections: the originals, the same examples
+ * written with axioms, lemmas and definitions, and the default libraries.
+ * Each opens and closes with its arrow, on its own, so the originals and
+ * their rewritten versions can be open together; the originals start open. A rewritten example's button carries its original's name and sits
+ * in its original's group, so the two sections line up.
  *
  * @param proofs {Object} the example proofs
  */
-function createExampleNavbar(proofs) {
-  const container = document.getElementById("example-buttons");
+function createExampleSections(proofs) {
+  const all = Object.values(proofs);
+  const originals = all.filter((e) => e.category !== extendedCategory);
+  const extended = all.filter(
+    (e) =>
+      e.category === extendedCategory && !isLibrary(e) && !isRulesAsAxioms(e),
+  );
+  const rulesAsAxioms = all.filter(
+    (e) => e.category === extendedCategory && isRulesAsAxioms(e),
+  );
+  const libraries = all.filter(
+    (e) => e.category === extendedCategory && isLibrary(e),
+  );
 
+  // each original's rewritten version, in the originals' order, under the
+  // original's group and name; the rest after them, under "More"
+  const paired = [];
+  const used = new Set();
+  for (const original of originals) {
+    const version = extended.find(
+      (e) => !used.has(e) && originalName(e.name) === original.name,
+    );
+    if (version) {
+      used.add(version);
+      paired.push({
+        ...version,
+        category: original.category,
+        name: original.name,
+      });
+    }
+  }
+  const more = extended
+    .filter((e) => !used.has(e))
+    .map((e) => ({ ...e, category: "More" }));
+
+  const sections = [
+    {
+      id: "examples-original",
+      title: "Original examples",
+      examples: originals,
+    },
+    {
+      id: "examples-extended",
+      title: "With axioms, lemmas and definitions",
+      examples: [...paired, ...more],
+    },
+    {
+      id: "examples-libraries",
+      title: "Default libraries",
+      examples: [
+        ...libraries.map((e) => ({
+          ...e,
+          category: undefined,
+          name: e.name.replace(
+            /^The default library \((.*)\)$/,
+            (_, logic) => logic.charAt(0).toUpperCase() + logic.slice(1),
+          ),
+        })),
+        ...rulesAsAxioms.map((e) => ({
+          ...e,
+          category: "Rules as axioms",
+          name: originalName(e.name),
+        })),
+      ],
+    },
+  ];
+
+  const container = document.getElementById("example-sections");
+  sections.forEach(({ id, title, examples }, index) => {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className =
+      "btn btn-link px-0 fw-bold text-decoration-none example-section-toggle d-block";
+    toggle.setAttribute("data-bs-toggle", "collapse");
+    toggle.setAttribute("data-bs-target", `#${id}`);
+    toggle.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+    toggle.setAttribute("aria-controls", id);
+    toggle.textContent = title;
+
+    const body = document.createElement("div");
+    body.id = id;
+    body.className = index === 0 ? "collapse show" : "collapse";
+
+    const row = document.createElement("div");
+    row.className = "d-flex flex-wrap gap-1 pb-2";
+    fillExampleButtons(row, examples);
+    body.appendChild(row);
+
+    container.appendChild(toggle);
+    container.appendChild(body);
+  });
+}
+
+/**
+ * Fill a row with buttons for example proofs: one button for an example
+ * alone in its group, a dropdown for a group of several.
+ *
+ * @param container {HTMLElement} the row
+ * @param examples {Object[]} the examples, each with a name, a proof and maybe a category
+ */
+function fillExampleButtons(container, examples) {
   const categories = new Map();
-  for (const key in proofs) {
-    const proofObject = proofs[key];
-    const category = proofObject.category || proofObject.name;
-
+  for (const example of examples) {
+    const category = example.category || example.name;
     if (!categories.has(category)) {
       categories.set(category, []);
     }
-
-    categories.get(category).push({
-      name: proofObject.name,
-      proof: proofObject.proof,
-    });
+    categories.get(category).push(example);
   }
 
-  categories.forEach((examples, category) => {
-    if (examples.length === 1) {
-      const button = createExampleButton(examples[0]);
-      container.appendChild(button);
+  categories.forEach((group, category) => {
+    if (group.length === 1) {
+      container.appendChild(createExampleButton(group[0]));
     } else {
       const fieldset = document.createElement("fieldset");
       fieldset.className = "btn-group";
@@ -403,11 +496,9 @@ function createExampleNavbar(proofs) {
 
       const dropdownMenu = document.createElement("ul");
       dropdownMenu.className = "dropdown-menu";
-
-      examples.forEach((example) => {
+      group.forEach((example) => {
         const listItem = document.createElement("li");
-        const button = createExampleButton(example, true);
-        listItem.appendChild(button);
+        listItem.appendChild(createExampleButton(example, true));
         dropdownMenu.appendChild(listItem);
       });
 
