@@ -1,0 +1,13 @@
+# Python environment that mybinder.org builds for the tutorials that need PyTorch.
+# Versions: the course environment (requirements.txt, 2025-26). CPU-only PyTorch wheel:
+# the default Linux wheel bundles CUDA (~2 GB), which Binder neither needs nor builds fast.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0
+gymnasium[classic-control,other]==1.2.1
+stable-baselines3==2.7.0
+optuna==4.5.0
+numpy==2.3.3
+pandas==2.3.3
+matplotlib==3.10.6
+seaborn==0.13.2
+tqdm==4.67.1
