@@ -139,6 +139,34 @@ giscus_comments: false
             color: var(--global-text-color-light);
             font-style: italic;
         }
+        /* Open material */
+        .material-card {
+            display: block;
+            padding: 1.1rem 1.25rem;
+            border-radius: 10px;
+            border-left: 4px solid #4b9cd3;
+            background: var(--global-code-bg-color);
+            text-decoration: none !important;
+            transition: box-shadow 0.2s ease;
+        }
+        .material-card:hover {
+            box-shadow: 0 4px 12px rgba(75, 156, 211, 0.2);
+        }
+        .material-title {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--global-text-color);
+        }
+        .material-text {
+            display: block;
+            margin: 0.25rem 0 0.5rem;
+            color: var(--global-text-color-light);
+        }
+        .material-link {
+            font-weight: 500;
+            color: #4b9cd3;
+        }
         /* Responsive */
         @media (max-width: 768px) {
             .section-title {
@@ -152,6 +180,20 @@ giscus_comments: false
             }
         }
 </style>
+
+<div class="teaching-section">
+    <div class="section-header">
+        <h2 class="section-title">Open Teaching Material</h2>
+        <p class="section-description">Material from my courses, free to use and adapt under an open licence.</p>
+    </div>
+    <a class="material-card" href="/teaching/rl-tutorials/">
+        <span class="material-title">Reinforcement Learning Tutorials</span>
+        <span class="material-text">Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.</span>
+        <span class="material-link">Open the tutorials →</span>
+    </a>
+</div>
+
+<br>
 
 <div class="teaching-section">
     <div class="section-header">
@@ -230,7 +272,7 @@ giscus_comments: false
                     </td>
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice</span></td>
+                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice. <a href="/teaching/rl-tutorials/" class="course-link">Open the tutorials</a></span></td>
                 </tr>
                 <tr>
                     <td class="year-block">2025/26 IA</td>
