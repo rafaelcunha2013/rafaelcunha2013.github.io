@@ -365,7 +365,7 @@ function originalName(name) {
  * Create the three example sections: the originals, the same examples
  * written with axioms, lemmas and definitions, and the default libraries.
  * Each opens and closes with its arrow, on its own, so the originals and
- * their rewritten versions can be open together; the originals start open. A rewritten example's button carries its original's name and sits
+ * their rewritten versions can be open together; the originals and their rewritten versions start open. A rewritten example's button carries its original's name and sits
  * in its original's group, so the two sections line up.
  *
  * @param proofs {Object} the example proofs
@@ -445,13 +445,13 @@ function createExampleSections(proofs) {
       "btn btn-link px-0 fw-bold text-decoration-none example-section-toggle d-block";
     toggle.setAttribute("data-bs-toggle", "collapse");
     toggle.setAttribute("data-bs-target", `#${id}`);
-    toggle.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+    toggle.setAttribute("aria-expanded", index < 2 ? "true" : "false");
     toggle.setAttribute("aria-controls", id);
     toggle.textContent = title;
 
     const body = document.createElement("div");
     body.id = id;
-    body.className = index === 0 ? "collapse show" : "collapse";
+    body.className = index < 2 ? "collapse show" : "collapse";
 
     const row = document.createElement("div");
     row.className = "d-flex flex-wrap gap-1 pb-2";

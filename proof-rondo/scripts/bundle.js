@@ -25583,12 +25583,12 @@
       toggle.className = "btn btn-link px-0 fw-bold text-decoration-none example-section-toggle d-block";
       toggle.setAttribute("data-bs-toggle", "collapse");
       toggle.setAttribute("data-bs-target", `#${id2}`);
-      toggle.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+      toggle.setAttribute("aria-expanded", index < 2 ? "true" : "false");
       toggle.setAttribute("aria-controls", id2);
       toggle.textContent = title;
       const body = document.createElement("div");
       body.id = id2;
-      body.className = index === 0 ? "collapse show" : "collapse";
+      body.className = index < 2 ? "collapse show" : "collapse";
       const row = document.createElement("div");
       row.className = "d-flex flex-wrap gap-1 pb-2";
       fillExampleButtons(row, examples);
