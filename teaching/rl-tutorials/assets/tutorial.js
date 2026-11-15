@@ -16,7 +16,7 @@
     return n;
   };
   const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
-  // Pages whose code needs PyTorch show it read-only; readers run it in Google Colab.
+  // Read-only pages (no Python on the page) show the code without Run buttons.
   const RUNNABLE = DATA.runnable !== false;
 
   // ---------- Markdown + math ----------
@@ -45,15 +45,15 @@
       const note = DATA.solutions
         ? el("p", "hero-note is-solutions", RUNNABLE
           ? "<b>Solutions version.</b> Every cell runs automatically once Python is ready."
-          : "<b>Solutions version.</b> This tutorial needs PyTorch, so its code does not run in the browser.")
+          : "<b>Solutions version.</b> The code on this page is read-only.")
         : DATA.remote
           ? el("p", "hero-note",
-            "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, use <b>Open in Colab</b>.")
+            "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, download the notebook and <a href=\"./#run-locally\">run on your own computer</a>.")
         : RUNNABLE
           ? el("p", "hero-note",
-            "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, and <b>Open in Colab</b> runs the tutorial in Google Colab.")
+            "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, which you can also <a href=\"./#run-locally\">run on your own computer</a>.")
           : el("p", "hero-note",
-            "This tutorial uses PyTorch, which does not run in the browser. Read the code here, and run it with <b>Open in Colab</b> (Google Colab, free with a Google account) or download it with <b>Download .ipynb</b> to run it in Jupyter.");
+            "The code on this page is read-only. <b>Download .ipynb</b> saves the tutorial as a notebook to <a href=\"./#run-locally\">run on your own computer</a>.");
       root.lastChild.appendChild(note);
     } else if (c.t === "md") {
       const cell = el("div", "md-cell", renderMarkdown(c.md));
@@ -111,7 +111,7 @@
     det.appendChild(list);
     det.appendChild(el("p", "ref-note", RUNNABLE
       ? "Runs automatically when Python starts. <b>Download .ipynb</b> includes this code as a normal cell."
-      : "<b>Open in Colab</b> and <b>Download .ipynb</b> include this code as a normal cell."));
+      : "<b>Download .ipynb</b> includes this code as a normal cell."));
     const output = el("div", "output");
     det.appendChild(output);
     const cm = { getValue: () => c.src, refresh() {}, focus() {} };
@@ -162,6 +162,10 @@
   };
 
   function setPrompt(cell, text) {
+    if (cell.badge) {
+      cell.badge.textContent = { "[ ]": "not loaded", "[*]": "loading…", failed: "failed" }[text] || "loaded";
+      cell.badge.dataset.state = text === "failed" ? "failed" : /^\[\d+\]$/.test(text) ? "loaded" : text;
+    }
     if (!cell.isHelper) { cell.prompt.textContent = text; return; }
     cell.prompt.textContent = { "[ ]": "not loaded", "[*]": "loading…" }[text] || text;
     cell.prompt.dataset.state = text;
@@ -219,7 +223,10 @@
     if (c.fold) {
       const det = el("details", "code-fold");
       const n = (c.src.match(/^def |^class /gm) || []).length;
-      det.appendChild(el("summary", "", "<span>" + esc(c.title || "Code") + "</span><span class=\"fold-meta\">" + n + " definitions · runs automatically</span>"));
+      const meta = c.meta || n + " definitions · runs automatically";
+      const summary = el("summary", "", "<span>" + esc(c.title || "Code") + "</span><span class=\"fold-meta\">" + esc(meta) + "</span>");
+      if (RUNNABLE) { cell.badge = el("span", "helper-state", "not loaded"); summary.appendChild(cell.badge); }
+      det.appendChild(summary);
       det.appendChild(wrap);
       det.addEventListener("toggle", () => cm.refresh());
       return det;
@@ -331,6 +338,7 @@
       cell.wrap.classList.toggle("has-error", !m.ok);
       if (cell.isHelper) setPrompt(cell, m.ok ? "loaded" : "failed");
       else setPrompt(cell, "[" + ++counter + "]");
+      if (!m.ok && cell.badge) { setPrompt(cell, "failed"); cell.wrap.closest("details").open = true; }
       busy = null;
       if (!m.ok) {
         queue.forEach((q) => { q.wrap.classList.remove("is-queued"); setPrompt(q, "[ ]"); });
@@ -462,5 +470,5 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => codeCells.forEach((c) => c.cm.refresh()));
 
   if (RUNNABLE) startKernel();
-  else setStatus("static", "Runs in Google Colab");
+  else setStatus("static", "Read-only");
 })();

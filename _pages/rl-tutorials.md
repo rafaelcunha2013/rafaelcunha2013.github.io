@@ -32,10 +32,8 @@ nav: false
   .rlt .meta b { font-weight: 600; color: var(--global-text-color); }
   .rlt .rlt-badge { font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 99px; white-space: nowrap; border: 1px solid currentColor; }
   .rlt .rlt-badge.browser { color: #2e7d32; }
-  .rlt .rlt-badge.colab { color: #b26a00; }
   .rlt .rlt-badge.soon { color: var(--global-text-color-light); }
   html[data-theme="dark"] .rlt .rlt-badge.browser { color: #81c784; }
-  html[data-theme="dark"] .rlt .rlt-badge.colab { color: #ffb74d; }
   .rlt .credit { font-size: 0.9rem; color: var(--global-text-color-light); border-top: 1px solid var(--global-divider-color); padding-top: 1rem; margin-top: 2.5rem; }
   @media (max-width: 600px) {
     .rlt .card-t { grid-template-columns: 2.2rem 1fr; }
@@ -60,7 +58,7 @@ These tutorials accompany an introductory course on reinforcement learning. Each
   </div>
   <div class="fact">
     <h3>How the pages work</h3>
-    <p>Tutorials 1–5 run Python in your browser: no installation and no account. Run the cells in order. Your edits are kept in your browser, and <b>Download .ipynb</b> saves your work as a Jupyter notebook. Tutorials 6–7 use PyTorch, which does not run in the browser: Tutorial 7 runs on a free <a href="https://mybinder.org">mybinder.org</a> server started from the page, and Tutorial 6 opens in Google Colab.</p>
+    <p>Tutorials 1–5 run Python in your browser: no installation and no account. Run the cells in order. Your edits are kept in your browser, and <b>Download .ipynb</b> saves your work as a Jupyter notebook, which you can also <a href="#run-locally">run on your own computer</a>. Tutorials 6–7 use PyTorch, which does not run in the browser: they run on a free <a href="https://mybinder.org">mybinder.org</a> server that the page starts for you.</p>
   </div>
   <div class="fact">
     <h3>Reference text</h3>
@@ -134,7 +132,7 @@ These tutorials accompany an introductory course on reinforcement learning. Each
         <p>Deep Q-Networks with Stable-Baselines3, what the hyperparameters do, and automated tuning with Optuna.</p>
         <div class="meta"><span><b>Sutton &amp; Barto</b> Ch. 9–10, §16.5</span><span><b>Environment</b> CartPole</span></div>
       </div>
-      <span class="rlt-badge colab">Opens in Colab</span>
+      <span class="rlt-badge browser">Runs on Binder</span>
     </a>
   </li>
   <li>
@@ -149,6 +147,17 @@ These tutorials accompany an introductory course on reinforcement learning. Each
     </a>
   </li>
 </ol>
+
+<h2 id="run-locally">Running the notebooks on your own computer</h2>
+
+<p>Every tutorial page has a <b>Download .ipynb</b> button. To run the downloaded notebook in Jupyter on your own computer, install Python 3.11, 3.12 or 3.13, save <a href="requirements.txt">requirements.txt</a> (the packages, at the versions the tutorials were tested with), and run these commands in the folder where you saved it:</p>
+
+<pre><code>python3 -m venv rl-env
+source rl-env/bin/activate
+pip install -r requirements.txt
+jupyter lab</code></pre>
+
+<p>On Windows, the first two lines are <code>py -m venv rl-env</code> and <code>rl-env\Scripts\activate</code>. Then open the notebook from the Jupyter window. The virtual environment <code>rl-env</code> keeps these packages separate from your other Python projects; activate it again (line 2) each time before you start Jupyter. The installation takes about 1 GB, most of it PyTorch for Tutorials 6–7. PyTorch 2.8 has no build for Macs with an Intel processor: on those, run Tutorials 6–7 on their pages.</p>
 
 <p class="credit">
 © 2025–2026 Rafael Fernandes Cunha · Text licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> · Code licensed under the <a href="https://opensource.org/license/mit" rel="license">MIT License</a><br>
