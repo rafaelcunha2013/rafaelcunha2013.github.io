@@ -7,7 +7,7 @@ importScripts(PYODIDE_URL + "pyodide.js");
 
 // Packages shipped with Pyodide; anything else is installed from PyPI by micropip.
 const BUILTIN = new Set(["numpy", "pandas", "matplotlib", "scipy"]);
-// PyPI packages pinned to the versions the course used (requirements.txt, 2025-26).
+// PyPI packages pinned to the versions the course used (as in pyproject.toml, 2025-26).
 const PINS = { gymnasium: "gymnasium==1.2.1", seaborn: "seaborn==0.13.2", tqdm: "tqdm==4.67.1" };
 
 let py = null;
