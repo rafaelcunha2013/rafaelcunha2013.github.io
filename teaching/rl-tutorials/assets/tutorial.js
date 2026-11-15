@@ -42,18 +42,15 @@
   DATA.cells.forEach((c, i) => {
     if (c.t === "hero") {
       root.appendChild(el("section", "hero", renderMarkdown(c.md)));
-      const note = DATA.solutions
-        ? el("p", "hero-note is-solutions", RUNNABLE
-          ? "<b>Solutions version.</b> Every cell runs automatically once Python is ready."
-          : "<b>Solutions version.</b> The code on this page is read-only.")
-        : DATA.remote
-          ? el("p", "hero-note",
-            "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, download the notebook and <a href=\"./#run-locally\">run on your own computer</a>.")
+      const base = DATA.remote
+        ? "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, download the notebook and <a href=\"./#run-locally\">run on your own computer</a>."
         : RUNNABLE
-          ? el("p", "hero-note",
-            "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, which you can also <a href=\"./#run-locally\">run on your own computer</a>.")
-          : el("p", "hero-note",
-            "The code on this page is read-only. <b>Download .ipynb</b> saves the tutorial as a notebook to <a href=\"./#run-locally\">run on your own computer</a>.");
+          ? "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, which you can also <a href=\"./#run-locally\">run on your own computer</a>."
+          : "The code on this page is read-only. <b>Download .ipynb</b> saves the tutorial as a notebook to <a href=\"./#run-locally\">run on your own computer</a>.";
+      const sol = !DATA.solutions ? ""
+        : "<b>Solutions version:</b> every task is completed. "
+          + (DATA.runAll ? "Every cell runs automatically once Python is ready. " : "");
+      const note = el("p", "hero-note" + (DATA.solutions ? " is-solutions" : ""), sol + base);
       root.lastChild.appendChild(note);
     } else if (c.t === "md") {
       const cell = el("div", "md-cell", renderMarkdown(c.md));
@@ -309,7 +306,7 @@
       ready = true;
       btnRunAll.disabled = false; btnRestart.disabled = false;
       setStatus("ready", "Python ready (" + ((performance.now() - t0) / 1000).toFixed(0) + " s)");
-      codeCells.filter((c) => DATA.solutions || c.autorun).forEach(enqueue);
+      codeCells.filter((c) => DATA.runAll || c.autorun).forEach(enqueue);
       return pump();
     }
     const cell = pending.get(m.id);
