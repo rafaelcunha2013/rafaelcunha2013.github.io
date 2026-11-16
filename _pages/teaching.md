@@ -191,6 +191,11 @@ giscus_comments: false
         <span class="material-text">Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.</span>
         <span class="material-link">Open the tutorials →</span>
     </a>
+    <a class="material-card" href="/teaching/rl-lectures/" style="margin-top: 0.9rem;">
+        <span class="material-title">Reinforcement Learning Lectures</span>
+        <span class="material-text">Eight lectures, from multi-armed bandits to model-based reinforcement learning, as interactive slides.</span>
+        <span class="material-link">Open the lectures →</span>
+    </a>
 </div>
 
 <br>
@@ -272,7 +277,7 @@ giscus_comments: false
                     </td>
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice. <a href="/teaching/rl-tutorials/" class="course-link">Open the tutorials</a></span></td>
+                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice. <a href="/teaching/rl-lectures/" class="course-link">Open the lectures</a> · <a href="/teaching/rl-tutorials/" class="course-link">Open the tutorials</a></span></td>
                 </tr>
                 <tr>
                     <td class="year-block">2025/26 IA</td>
