@@ -10,7 +10,7 @@ nav: false
 <div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
 <div class="rlx-body">
 {% raw %}
-<p>(Note: For the <em>programming</em> part of this question, read the information in the end of it about the GitHub repository.)</p>
+<p>(The <em>programming</em> parts (a)–(c) run in the <a href="/teaching/rl-exercises/workspaces/ex-3-4-4.html">code workspace</a>, in your browser.)</p>
 <p>Consider the MDP given in Figure 1. Actions have a <span class="math inline">\(0.9\)</span> probability of success and with <span class="math inline">\(0.1\)</span> probability we remain in the same state. <span class="math inline">\(R_t =0\)</span> for all transitions that end up in <span class="math inline">\(S_0\)</span>, and <span class="math inline">\(R_t = -1\)</span> for all other transitions. Consider a discount factor of <span class="math inline">\(\gamma = 0.9\)</span>.</p>
 <figure class="qfig"><img src="/teaching/rl-exercises/media/3caec741831c.svg" alt="diagram" style="max-width:100%;height:auto"><figcaption>Figure 1: Diagram of a simple MDP.</figcaption></figure>
 <p>Recall the Bellman equation <span class="math display">\[\begin{align*}
@@ -18,19 +18,18 @@ nav: false
 \end{align*}\]</span></p>
 <ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
 <li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) [<em>programming</em>] Find the values of <span class="math inline">\(\mathbf{v}\)</span> when considering the policy <span class="math inline">\(\pi\)</span> defined as <span class="math inline">\(\pi(a_1|s) = 0.4\)</span>, and <span class="math inline">\(\pi(a_2|s) = 0.6\)</span>, <span class="math inline">\(\forall s\)</span>. Implement the DP iterative method for policy evaluation. To do this, implement the <code>iterative_policy_evaluation</code> in the class <code>DynamicProgrammingSolver</code>. The method should receive a <code>DiscretePolicy</code> object and output <span class="math inline">\(\mathbf{v}\)</span>.</p>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-4.html#part-a">Open (a) in the code workspace →</a></p>
 </li>
 <li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) [<em>programming</em>] Find the optimal policy for this MDP via <strong>policy iteration</strong>.</p>
 <p>Inside the class <code>DynamicProgrammingSolver</code>, implement <code>policy_improvement</code> method, and combine it with the <code>iterative_policy_evaluation</code> method created in (a). Put everything together in the <code>policy_iteration</code> method. The method should return <span class="math inline">\(\pi_* : \mathcal{S} \rightarrow \mathcal{A}\)</span> (as a <code>DiscretePolicy</code> object) and <span class="math inline">\(v_* : \mathcal{S} \rightarrow \mathbb{R}\)</span> (as an array).</p>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-4.html#part-b">Open (b) in the code workspace →</a></p>
 </li>
 <li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (1 point) [<em>programming</em>] Find the optimal policy for this MDP via <strong>value iteration</strong>.</p>
 <p>For Value Iteration implement the <code>value_iteration</code> method of the <code>DynamicProgrammingSolver</code>. This method should also return <span class="math inline">\(\pi_* : \mathcal{S} \rightarrow \mathcal{A}\)</span>.</p>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-4.html#part-c">Open (c) in the code workspace →</a></p>
 </li>
 </ul>
-<p>NOTE:</p>
-<ul>
-<li><p>On GitHub you should have accessed to a <code>rl-assignment3</code> <a href="https://classroom.github.com/a/Zj9PlXeS">repository</a> , which contains skeleton code you will work with. The repository contains some pre-defined classes which will allow you to define a simple MDP and policy. You will also find a <code>DynamicProgrammingSolver</code> class that take an MDP as argument. More information can be found in the repository’s <code>README</code>.</p></li>
-<li><p>Implementation detail: The pseudocode implementation of Value Iteration and Policy Iteration implements the policy as an array, mapping states to actions. You can keep this convention. The <code>DiscretePolicy</code> constructor supports an optional argument where you can pass such an array.</p></li>
-</ul>
+<p>Implementation detail: The pseudocode implementation of Value Iteration and Policy Iteration implements the policy as an array, mapping states to actions. You can keep this convention. The <code>DiscretePolicy</code> constructor supports an optional argument where you can pass such an array.</p>
 
 {% endraw %}
 </div>

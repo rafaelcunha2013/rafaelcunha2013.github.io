@@ -10,16 +10,22 @@ nav: false
 <div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
 <div class="rlx-body">
 {% raw %}
-<p>On GitHub you should have accessed to a <code>rl-mdp</code> repository, which contains skeleton code you will work with. The repository contains some pre-defined classes which will allow you to define a simple MDP and policy. You will also find a <code>BellmanEquationSolver</code> and <code>DynamicProgrammingSolver</code> class. Both provide constructors that take an MDP as argument. More information can be found in the repository’s <code>README</code>.</p>
+<p>The parts (a)–(c) run in the <a href="/teaching/rl-exercises/workspaces/ex-3-4-3.html">code workspace</a>, in your browser. It has classes to define an MDP and a policy (<code>MDP</code>, <code>DiscretePolicy</code>), a <code>BellmanEquationSolver</code> and a <code>DynamicProgrammingSolver</code>; both solvers take an MDP in their constructor.</p>
 <ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Design your own MDP. You can design a MDP directly as in question [X] or derive one from a practical problem. Note that we only consider MDPs with finite state and action spaces. Provide a diagram of the MDP.</p></li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Implement the <code>BellmanEquationSolver</code> which should provide a method that takes in a stochastic policy <span class="math inline">\(\pi(a|s)\)</span> and returns the associated value function <span class="math inline">\(v_{\pi}:\mathcal{S} \rightarrow \mathbb{R}\)</span>. You can create your own class or simple define the value function as an array mapping each action to a value. The value function should be computed in exact form using the matrix formulation as shown in question [X].</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Design your own MDP. You can design a MDP directly as in <a href="/teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/">Exercise 2.6.2</a> or derive one from a practical problem. Note that we only consider MDPs with finite state and action spaces. Provide a diagram of the MDP.</p>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-3.html#part-a">Open (a) in the code workspace →</a></p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Implement the <code>BellmanEquationSolver</code> which should provide a method that takes in a stochastic policy <span class="math inline">\(\pi(a|s)\)</span> and returns the associated value function <span class="math inline">\(v_{\pi}:\mathcal{S} \rightarrow \mathbb{R}\)</span>. You can create your own class or simple define the value function as an array mapping each action to a value. The value function should be computed in exact form using the matrix formulation as shown in <a href="/teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/">Exercise 2.6.2</a>.</p>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-3.html#part-b">Open (b) in the code workspace →</a></p>
+</li>
 <li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> For this question you will be asked to implement the Value Iteration and Policy Iteration algorithms.</p>
 <ul>
-<li><p>For Value Iteration implement the <code>value_iteration</code> method of the <code>DynamicProgrammingSolver</code>. The method should return a <code>Policy</code> object which encapsulates the optimal deterministic policy <span class="math inline">\(\pi_* : \mathcal{S} \rightarrow \mathcal{A}\)</span>.</p></li>
+<li><p>For Value Iteration implement the <code>value_iteration</code> method of the <code>DynamicProgrammingSolver</code>. The method should return a <code>DiscretePolicy</code> object which encapsulates the optimal deterministic policy <span class="math inline">\(\pi_* : \mathcal{S} \rightarrow \mathcal{A}\)</span>.</p></li>
 <li><p>For Policy Iteration you need to implement the policy evaluation and policy improvement step of the algorithm. This method should also return <span class="math inline">\(\pi_* : \mathcal{S} \rightarrow \mathcal{A}\)</span>.</p></li>
-<li><p>Implementation detail: The pseudocode implements of Value Iteration and Policy Iteration implements the policy as an array, mapping states to actions. You can keep this convention. The <code>Policy</code> constructor supports an optional argument where you can pass such an array.</p></li>
-</ul></li>
+<li><p>Implementation detail: The pseudocode implements of Value Iteration and Policy Iteration implements the policy as an array, mapping states to actions. You can keep this convention. The <code>DiscretePolicy</code> constructor supports an optional argument where you can pass such an array.</p></li>
+</ul>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-3-4-3.html#part-c">Open (c) in the code workspace →</a></p>
+</li>
 </ul>
 
 {% endraw %}
