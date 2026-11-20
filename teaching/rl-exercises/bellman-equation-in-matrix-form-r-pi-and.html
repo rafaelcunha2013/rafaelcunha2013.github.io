@@ -1,0 +1,36 @@
+---
+layout: page
+title: "Exercise 2.6.1"
+description: "Bellman equation in matrix form: r^π and P^π, equiprobable policy"
+permalink: /teaching/rl-exercises/bellman-equation-in-matrix-form-r-pi-and/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.6 Bellman equation in matrix form</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the MDP given in Figure 1. Actions have a <span class="math inline">\(0.9\)</span> probability of success and with <span class="math inline">\(0.1\)</span> probability we remain in the same state. <span class="math inline">\(R_t =0\)</span> for all transitions that end up in <span class="math inline">\(S_0\)</span>, and <span class="math inline">\(R_t = -1\)</span> for all other transitions. Consider a discount factor of <span class="math inline">\(\gamma = 0.9\)</span>.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/1a6c744119a9.svg" alt="diagram" style="max-width:100%;height:auto"><figcaption>Figure 1: Diagram of a simple MDP.</figcaption></figure>
+<p>Recall the Bellman equation <span class="math display">\[\begin{align*}
+    v_{\pi}(s) = \sum_a \pi(a|s) \sum_{s&#39; , r} p(s&#39; , r|s,a) [r + \gamma v_{\pi}(s&#39;)]
+\end{align*}\]</span> The Bellman value equation, for a given <span class="math inline">\(\pi\)</span>, can be expressed using matrices, <span class="math display">\[\begin{align*}
+    \mathbf{v} = \mathbf{r}^{\pi} + \gamma \mathbf{P}^{\pi} \mathbf{v}
+\end{align*}\]</span> where the elements of these matrices are defined as <span class="math display">\[\begin{align*}
+    v_i &amp;\equiv v(s_i) \\
+    r_i^{\pi} &amp;\equiv \mathbb{E}[R_{t+1}|S_t = s_i, A_t \sim \pi] \\
+    P_{ij}^{\pi} &amp;\equiv \sum_a \pi(a|s_i)p(s_j|s_i, a)
+\end{align*}\]</span> For the equiprobable random policy, provide the vector <span class="math inline">\(\mathbf{r}^{\pi}\)</span> and the matrix <span class="math inline">\(\mathbf{P}^{\pi}\)</span>, given that <span class="math display">\[\begin{align*}
+    \mathbf{v} \equiv \begin{bmatrix}
+        v(s_0) \\
+        v(s_1) \\
+        v(s_2)
+    \end{bmatrix}
+\end{align*}\]</span></p>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#73">Slides: L2 · 73–74</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/returns-and-discounting-optimal-policy-of-a-two/">← Ex 2.5.1 · Returns and discounting: optimal policy of a two-action MDP for γ = 0, 0.5, 0.9</a><a class="next" href="/teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/">Ex 2.6.2 · Bellman equation in matrix form: three-state MDP, r^π, P^π, v →</a></nav>
+

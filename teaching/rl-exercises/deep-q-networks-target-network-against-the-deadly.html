@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 6.4.1"
+description: "Deep Q-networks: target network against the deadly triad"
+permalink: /teaching/rl-exercises/deep-q-networks-target-network-against-the-deadly/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-6">Lecture 6 · Function Approximation</a> › 6.4 Convergence, divergence and experience replay</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Deep Q-Networks (DQN) introduced several key innovations to stabilize the learning process in the presence of the deadly triad (function approximation, bootstrapping, and off-policy learning). Which of the following techniques are employed in DQN to address these challenges?</p>
+<ul class="qlist qmcq" data-salt="deep-q-networks-target-network-against-the-deadly" data-key="07538eaff75acc1c62d723b4c5059d267b55b82605641f24d96ff8304af51846" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>Utilizing a fixed Q-targets network to reduce correlations between the target and the parameters being updated, thus mitigating the risk of harmful bootstrapping.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>Employing an on-policy learning approach to avoid the deadly triad entirely, ensuring that the policy being evaluated is always the policy being improved.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>Using larger neural networks to represent the Q-values, assuming that more capacity directly correlates with stability and performance.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>Abandoning experience replay to ensure that each experience influences the network only once, preventing potential overfitting to specific transitions.</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-06/#58">Slides: L6 · 58–63</a><a href="/teaching/rl-course-map/#lec-6">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/on-policy-vs-off-policy-control-data-efficiency/">← Ex 6.3.2 · On-policy vs off-policy control: data efficiency and exploration</a><a class="next" href="/teaching/rl-exercises/linear-to-deep-function-approximation-dqn-challenges-remedies/">Ex 6.4.2 · Linear to deep function approximation: DQN, challenges, remedies →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

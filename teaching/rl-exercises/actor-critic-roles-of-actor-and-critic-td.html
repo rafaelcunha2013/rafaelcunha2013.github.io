@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 7.5.1"
+description: "Actor-critic: roles of actor and critic, TD error as baseline"
+permalink: /teaching/rl-exercises/actor-critic-roles-of-actor-and-critic-td/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.5 Actor-critic, advantage function, A2C</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Actor-Critic methods can be seen as a natural evolution of the REINFORCE algorithm with a baseline, designed to reduce variance and improve learning stability.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> Describe the architecture of an Actor-Critic agent. Clearly define the roles of the ‘actor’ and the ‘critic’ and explain what each component learns.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> In the policy update for the actor, the critic’s output is used to form a learning signal. Explain the connection between this learning signal and the ‘(Return - Baseline)’ term in the REINFORCE algorithm. Why is the Actor-Critic approach generally considered an advancement over REINFORCE with a simple baseline?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#41">Slides: L7 · 41–54</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/reinforce-with-baseline-unbiasedness-variance-exploration-principles/">← Ex 7.4.4 · REINFORCE with baseline: unbiasedness, variance, exploration, principles</a><a class="next" href="/teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/">Ex 7.5.2 · Baseline and advantage function: TD error as advantage estimate →</a></nav>
+

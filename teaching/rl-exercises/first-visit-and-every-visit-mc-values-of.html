@@ -1,0 +1,76 @@
+---
+layout: page
+title: "Exercise 4.1.1"
+description: "First-visit and every-visit MC: values of A and B, with and without discounting"
+permalink: /teaching/rl-exercises/first-visit-and-every-visit-mc-values-of/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.1 Monte Carlo prediction</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider an MDP with two non-terminal states <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> and a terminal state <span class="math inline">\(T\)</span>. An episode ends if the agent enters state <span class="math inline">\(T\)</span>. Let the reward be +1 if the agent ends up in state <span class="math inline">\(A\)</span> (so either from <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>, or from <span class="math inline">\(A\)</span> to <span class="math inline">\(A\)</span>). All other transitions have a reward of 0. The allowed transitions (denoted by arrows) and a sketch of the dynamics can be found in Figure 1. Let <span class="math inline">\(\gamma=1\)</span> and suppose we observe a sequence of states and rewards, given in Table 1.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/1bc65eb75136.svg" alt="diagram" style="max-width:100%;height:auto"><figcaption>Figure 1: Diagram of the described MDP. Entering (or re-entering) state <span class="math inline">\(A\)</span> gives a reward of <span class="math inline">\(+1\)</span> and all other transitions have a reward of 0. An episode ends if the agent enters state <span class="math inline">\(T\)</span>.</figcaption></figure>
+<table>
+<caption>Table 1: The sequence of random state transitions and received rewards.</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong><span class="math inline">\(t\)</span></strong></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong><span class="math inline">\(S_t\)</span></strong></td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><span class="math inline">\(R_t\)</span></strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> What are the first-visit and every-visit estimators of the value of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, assuming arbitrary initialization <span class="math inline">\(v(s)=0\)</span> for all <span class="math inline">\(s \in \mathcal{S}\)</span>?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Considering an unknown discount factor <span class="math inline">\(\gamma\)</span> and the given numerical values for the rewards, what are the algebraic expressions for <span class="math inline">\(G_0\)</span> and <span class="math inline">\(G_3\)</span>?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> Changing to <span class="math inline">\(\gamma = 0.95\)</span>, what are the first-visit and every-visit estimators of the value of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, assuming arbitrary initialization <span class="math inline">\(v(s)=0\)</span> for all <span class="math inline">\(s \in \mathcal{S}\)</span>?</p>
+<p><em>Hint:</em> If you decide to write code, feel free to use this as input. Be careful about the indices (you can check if the implementation is correct with <span class="math inline">\(\gamma=1\)</span> from the previous part).</p>
+<pre><code>visited_states = [&quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;]
+rewards = [1, 1, 0, 1, 1, 1, 0, 0]</code></pre>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-4-1-1.html#part-c">Open (c) in the code workspace →</a></p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#7">Slides: L4 · 7–17</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/">← Ex 3.6.3 · Value iteration: return bound, error bound proof, stopping rule, convergence</a><a class="next" href="/teaching/rl-exercises/monte-carlo-prediction-convergence-with-probability-1-via/">Ex 4.1.2 · Monte Carlo prediction: convergence with probability 1 via Robbins-Monro →</a></nav>
+

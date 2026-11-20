@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 6.4.4"
+description: "Deadly triad and DQN: instability, experience replay, target network"
+permalink: /teaching/rl-exercises/deadly-triad-and-dqn-instability-experience-replay-target/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-6">Lecture 6 · Function Approximation</a> › 6.4 Convergence, divergence and experience replay</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p><strong>The Challenge of Stable Function Approximation methods</strong></p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> It is well-known that combining function approximation, bootstrapping (as in TD methods), and off-policy training can lead to instability and divergence. From a theoretical standpoint, explain why the interaction of these three elements is so problematic for learning.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> The Deep Q-Network (DQN) algorithm is a prominent example of a stable off-policy method that uses a powerful non-linear function approximator. Analyze the key architectural and algorithmic components of DQN and explain how they specifically address the instability issues you described in part (a).</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-06/#58">Slides: L6 · 58–63</a><a href="/teaching/rl-course-map/#lec-6">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/linear-vs-non-linear-function-approximators-trade-offs/">← Ex 6.4.3 · Linear vs non-linear function approximators: trade-offs</a><a class="next" href="/teaching/rl-exercises/semi-gradient-sarsa-on-policy-vs-off-policy/">Ex 6.4.5 · Semi-gradient SARSA: on-policy vs off-policy closeness to gradient descent →</a></nav>
+

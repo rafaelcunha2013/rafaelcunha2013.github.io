@@ -1,0 +1,142 @@
+---
+layout: page
+title: "Exercise 1.9.3"
+description: "Action-value methods and policies: probabilities of each action at t = 9"
+permalink: /teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-1">Lecture 1 · Exploration Methods</a> › 1.9 Policy gradient methods: action preferences</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider a <span class="math inline">\(k\)</span>-armed bandit problem with <span class="math inline">\(k=4\)</span> actions, <span class="math inline">\(a \in \{1, 2, 3, 4\}\)</span>. Consider initial estimates of <span class="math inline">\(Q_1(a) = 0\)</span>, for all <span class="math inline">\(a\)</span>. Table 1 contains the observed rewards <span class="math inline">\(R_t\)</span> for the actions <span class="math inline">\(A_t = k\)</span> taken at each time step t.</p>
+<div class="center">
+<table>
+<caption>Table 1: Sequence of rewards received in a <span class="math inline">\(4\)</span>-armed bandit problem.</caption>
+<thead>
+<tr>
+<th style="text-align: center;">Time <span class="math inline">\(t\)</span></th>
+<th style="text-align: center;">Action <span class="math inline">\(1\)</span></th>
+<th style="text-align: center;">Action <span class="math inline">\(2\)</span></th>
+<th style="text-align: center;">Action <span class="math inline">\(3\)</span></th>
+<th style="text-align: center;">Action <span class="math inline">\(4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=4\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4.5\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=6\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=7\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(-2.5\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(t=8\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recall that for action-value methods, you must first select the method you will use to update the action-value function and then apply the selected policy using the estimation of the action-value function obtained.</p>
+<p>Fill in Table 3 with the probability of selecting each action at time <span class="math inline">\(t=9\)</span>, rounded to three decimal places, using the methods listed below. Provide the equations that you used. If you decide to write Python code to answer this question, please attach it to your answer. For the action-value methods, consider the estimated action-values in Table 2, and the number of times each action was selected as shown in Table 1. For the action preference method, consider Table 1 and <span class="math inline">\(H_1(a) = 0\)</span> for all <span class="math inline">\(a\)</span>.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> Sample-Average method and:</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span> Greedy policy.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> <span class="math inline">\(\epsilon\)</span>-greedy policy with <span class="math inline">\(\epsilon=0.2\)</span>.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">3.</span> Upper confidence bound policy with <span class="math inline">\(c=2\)</span>.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">4.</span> Softmax policy with <span class="math inline">\(\tau=2\)</span>.</p></li>
+</ul></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> Weight-Average method with <span class="math inline">\(\alpha = 0.5\)</span> and:</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span> Greedy policy.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> <span class="math inline">\(\epsilon\)</span>-greedy policy with <span class="math inline">\(\epsilon=0.2\)</span>.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">3.</span> Upper confidence bound policy with <span class="math inline">\(c=2\)</span>.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">4.</span> Softmax policy with <span class="math inline">\(\tau=2\)</span>.</p></li>
+</ul></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">c)</span> Action Preference (<span class="math inline">\(\alpha=0.25\)</span>).</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">d)</span> Action Preference with baseline (<span class="math inline">\(\alpha=0.25\)</span>).</p></li>
+</ul>
+<table>
+<caption>Table 2: Estimated <span class="math inline">\(Q\)</span>-value (<span class="math inline">\(Q_t(a)\)</span>) for time step <span class="math inline">\(t=9\)</span> for each action.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: center;"><span class="math inline">\(Q_9(1)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q_9(2)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q_9(3)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q_9(4)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sample-Average</td>
+<td style="text-align: center;"><span class="math inline">\(0.8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Weight-Average with <span class="math inline">\(\alpha=0.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.5\)</span></td>
+</tr>
+</tbody>
+</table>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/3b2176adbf43.svg" alt="table" style="max-width:100%;height:auto"><figcaption>Table 3: Probability of selecting each Action Under Different Policies</figcaption></figure>
+<p class="rlx-ws"><a href="/teaching/rl-exercises/workspaces/ex-1-9-3.html">Open the code workspace →</a></p>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#83">Slides: L1 · 83–100</a><a href="/teaching/rl-course-map/#lec-1">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/">← Ex 1.9.2 · Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline</a><a class="next" href="/teaching/rl-exercises/softmax-over-q-sarsa-vs-softmax-over-action/">Ex 1.9.4 · Softmax over Q* (SARSA) vs softmax over action preferences →</a></nav>
+

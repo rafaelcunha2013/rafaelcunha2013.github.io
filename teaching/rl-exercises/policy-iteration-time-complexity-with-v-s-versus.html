@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Exercise 3.3.2"
+description: "Policy iteration: time complexity with V(s) versus Q(s,a)"
+permalink: /teaching/rl-exercises/policy-iteration-time-complexity-with-v-s-versus/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.3 Policy iteration</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the policy iteration algorithm for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>. What is the time complexity of policy iterations using <span class="math inline">\(V(s)\)</span> and using <span class="math inline">\(Q(s,a)\)</span>? Provide the answer in big-<span class="math inline">\(O\)</span> notation and assume evaluation takes <span class="math inline">\(K\)</span> iterations to converge and the algorithm as a whole to take <span class="math inline">\(K&#39;\)</span> steps to converge. Additionally, assume the 3-argument transition function <span class="math inline">\(p(s&#39;|s,a) = \sum_r p(s&#39;,r|s,a)\)</span> is used instead of the 4-argument one and that we have a deterministic policy where lookup takes <span class="math inline">\(O(1)\)</span> time.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/11cbe99a61b3.svg" alt="boxed text" style="max-width:100%;height:auto"><figcaption><span class="rlx-fig-credit">Policy iteration pseudocode from <a href="http://incompleteideas.net/book/the-book-2nd.html">Sutton &amp; Barto (2018)</a>, Section 4.3.</span></figcaption></figure>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#37">Slides: L3 · 37–39</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/">← Ex 3.3.1 · Policy iteration: stochastic policies, 3-argument p, and the action-value version</a><a class="next" href="/teaching/rl-exercises/policy-iteration-epsilon-soft-policies-tie-breaking-action/">Ex 3.3.3 · Policy iteration: ε-soft policies, tie-breaking, action-value version →</a></nav>
+

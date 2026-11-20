@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 4.3.3"
+description: "MC vs TD: when a TD update beats a Monte Carlo update (driving home)"
+permalink: /teaching/rl-exercises/mc-vs-td-when-a-td-update-beats/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.3 MC vs TD: bias and variance, batch updates</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>This is an exercise to help develop your intuition about why TD methods are often more efficient than Monte Carlo methods. Consider the driving home example (example 6.1 from the book) and how it is addressed by TD and Monte Carlo methods.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Can you imagine a scenario in which a TD update would be better on average than a Monte Carlo update? Give an example scenario—a description of past experience and a current state—in which you would expect the TD update to be better. Here’s a hint: Suppose you have lots of experience driving home from work. Then you move to a new building and a new parking lot (but you still enter the highway at the same place). Now you are starting to learn predictions for the new building.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Can you see why TD updates are likely to be much better, at least initially, in this case? Might the same sort of thing happen in the original scenario?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 6.2; Example 6.1. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#30">Slides: L4 · 30–39</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/batch-monte-carlo-versus-batch-td-0-value/">← Ex 4.3.2 · Batch Monte Carlo versus batch TD(0): value estimates from eight episodes</a><a class="next" href="/teaching/rl-exercises/td-0-monte-carlo-error-as-a-sum/">Ex 4.3.4 · TD(0): Monte Carlo error as a sum of TD errors when V changes →</a></nav>
+

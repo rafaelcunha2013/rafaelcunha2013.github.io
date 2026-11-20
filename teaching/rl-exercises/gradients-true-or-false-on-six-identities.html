@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Exercise R.3.5"
+description: "Gradients: true or false on six identities"
+permalink: /teaching/rl-exercises/gradients-true-or-false-on-six-identities/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-0">Background review</a> › R.3 Expected value</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Mark as T/F. Explain why.</p>
+<ul>
+<li><p><span class="math inline">\(\nabla_\theta f(s) \pi_\theta (a) = f(s) \nabla_\theta \pi_\theta (a)\)</span></p></li>
+<li><p><span class="math inline">\(\nabla_s f(s)=f(\nabla_s s)\)</span></p></li>
+<li><p><span class="math inline">\(f(\nabla_x x) = f(1)\)</span></p></li>
+<li><p><span class="math inline">\(\nabla_a (\pi(a)+b(s))=\nabla_a \pi(a)\)</span></p></li>
+<li><p><span class="math inline">\(\nabla_\theta \mathbb{E}[(G-\lvert \lvert \theta \rvert \rvert_2)\log \pi_\theta (a)] = \nabla_\theta \mathbb{E}[-\lvert \lvert \theta \rvert \rvert_2\log \pi_\theta (a)]\)</span></p></li>
+<li><p><span class="math inline">\(\sum_a b(s) \nabla_a \pi(a|s, \theta)=0\)</span>, assuming swapping the sum and gradient is allowed</p></li>
+</ul>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#14">Slides: L1 · 14–17</a><a href="/teaching/rl-course-map/#lec-review">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/expected-value-r-s-a-s-from-p/">← Ex R.3.4 · Expected value: r(s,a,s&#x27;) from p</a><a class="next" href="/teaching/rl-exercises/expected-value-gradient-of-e-log-pi-x/">Ex R.4.1 · Expected value: gradient of E[log π(X)] is zero →</a></nav>
+

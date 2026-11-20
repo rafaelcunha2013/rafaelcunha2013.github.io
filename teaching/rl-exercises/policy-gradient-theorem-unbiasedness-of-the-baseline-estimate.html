@@ -1,0 +1,24 @@
+---
+layout: page
+title: "Exercise 7.4.3"
+description: "Policy-gradient theorem: unbiasedness of the baseline estimate"
+permalink: /teaching/rl-exercises/policy-gradient-theorem-unbiasedness-of-the-baseline-estimate/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.4 Reducing the variance: causality and baseline</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p><strong>Unbiasedness of the Policy Gradient with a Baseline</strong></p>
+<p>Let the policy be denoted by <span class="math inline">\(\pi_\theta(a|s)\)</span>, where <span class="math inline">\(\theta\)</span> are the parameters. The performance objective is the expected total return, <span class="math inline">\(J(\theta)\)</span>. The Policy Gradient Theorem states that the true gradient of this objective is given by: <span class="math display">\[\nabla_\theta J(\theta) = \mathbb{E}_{s \sim d^{\pi_\theta}, a \sim \pi_\theta(\cdot|s)} [Q^{\pi_\theta}(s, a) \nabla_\theta \log \pi_\theta(a|s)]\]</span> Here, <span class="math inline">\(d^{\pi_\theta}(s)\)</span> is the on-policy state distribution, and <span class="math inline">\(Q^{\pi_\theta}(s, a)\)</span> is the action-value function.</p>
+<p>Now, consider a single-sample stochastic estimate of the gradient, <span class="math inline">\(\hat{g}\)</span>, which is computed using a state <span class="math inline">\(s\)</span> and action <span class="math inline">\(a\)</span> sampled from the environment, and which includes a state-dependent baseline <span class="math inline">\(b(s)\)</span>: <span class="math display">\[\hat{g}(s, a, \theta) = (Q^{\pi_\theta}(s, a) - b(s)) \nabla_\theta \log \pi_\theta(a|s)\]</span> Prove that this stochastic estimate is unbiased. That is, prove that its expected value is equal to the true gradient: <span class="math display">\[\mathbb{E}_{s \sim d^{\pi_\theta}, a \sim \pi_\theta(\cdot|s)}[\hat{g}(s, a, \theta)] = \nabla_\theta J(\theta)\]</span> <strong><em>(For this proof, you may assume that the state and action spaces are discrete.)</em></strong></p>
+<p><em>(Hint: The proof requires showing that the expected value of the term involving the baseline is equal to zero.)</em></p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#33">Slides: L7 · 33–40</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/">← Ex 7.4.2 · REINFORCE vs value-based: action spaces, exploration, variance (mock)</a><a class="next" href="/teaching/rl-exercises/reinforce-with-baseline-unbiasedness-variance-exploration-principles/">Ex 7.4.4 · REINFORCE with baseline: unbiasedness, variance, exploration, principles →</a></nav>
+

@@ -1,0 +1,21 @@
+---
+layout: page
+title: "Exercise 4.2.1"
+description: "TD error for action values: identity G_t - Q(S_t,A_t) as a sum of TD errors"
+permalink: /teaching/rl-exercises/td-error-for-action-values-identity-g-t/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.2 Temporal-difference learning: TD(0)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Show that an action-value version of <span class="math display">\[G_t - V(S_t) = \sum^{T-1}_{k=t} \gamma^{k-t} \delta_k, \quad (I)\]</span> holds for the action-value form of the TD error <span class="math inline">\(\delta_t = R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)\)</span>, assuming that the values don’t change from step to step.</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 6.8. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#18">Slides: L4 · 18–29</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/monte-carlo-prediction-every-visit-versus-first-visit/">← Ex 4.1.3 · Monte Carlo prediction: every-visit versus first-visit on blackjack</a><a class="next" href="/teaching/rl-exercises/td-0-first-episode-update-in-the-random/">Ex 4.2.2 · TD(0): first-episode update in the random walk →</a></nav>
+

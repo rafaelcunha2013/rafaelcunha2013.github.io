@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Exercise 7.1.6"
+description: "Stochastic policies: perceptual aliasing, policy gradient vs Q-learning"
+permalink: /teaching/rl-exercises/stochastic-policies-perceptual-aliasing-policy-gradient-vs-q/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.1 Policy-based RL: parameterized policies</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Policy gradient methods are often the preferred choice for certain types of reinforcement learning problems where value-based methods like Q-learning are difficult to apply.</p>
+<p>Consider a problem with perceptual aliasing, where multiple distinct underlying states produce the same observation for an agent. If we constrain our agent to use a reactive policy that maps the current observation directly to an action, the optimal policy within this class may need to be stochastic.</p>
+<p>Analyze how both a policy gradient method and a value-based method (like Q-learning) would attempt to find an optimal policy in this scenario. In your analysis, focus on what each method learns and how it derives a policy from that learned knowledge. Based on this, which approach is more suitable, and why?</p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#9">Slides: L7 · 9–18</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-based-vs-value-based-rl-continuous-action/">← Ex 7.1.5 · Policy-based vs value-based RL: continuous action spaces</a><a class="next" href="/teaching/rl-exercises/policy-gradient-theorem-on-policy-requirement-and-off/">Ex 7.2.1 · Policy-gradient theorem: on-policy requirement and off-policy mismatch →</a></nav>
+

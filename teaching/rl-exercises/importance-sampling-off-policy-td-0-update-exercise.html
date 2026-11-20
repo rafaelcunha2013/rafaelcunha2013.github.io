@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Exercise 5.7.2"
+description: "Importance sampling: off-policy TD(0) update (exercise 6.7)"
+permalink: /teaching/rl-exercises/importance-sampling-off-policy-td-0-update-exercise/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.7 Importance sampling</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Design an off-policy version of the TD(0) update that can be used with arbitrary target policy <span class="math inline">\(\pi\)</span> and covering behavior policy <span class="math inline">\(b\)</span>, using at each step <span class="math inline">\(t\)</span> the importance sampling ratio <span class="math inline">\(\rho_{t:t}\)</span>, where <span class="math display">\[\begin{align*}
+    \rho_{t:T-1} \doteq \frac{\prod_{k=t}^{T-1} \pi(A_k|S_k)p(S_{k+1}|S_k, A_k)}{\prod_{k=t}^{T-1} b(A_k|S_k)p(S_{k+1}|S_k, A_k)} = \prod_{k=t}^{T-1} \frac{\pi(A_k|S_k)}{b(A_k|S_k)}
+\end{align*}\]</span></p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 6.7. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#50">Slides: L5 · 50–60</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/off-policy-learning-identify-an-off-policy-scenario/">← Ex 5.7.1 · Off-policy learning: identify an off-policy scenario</a><a class="next" href="/teaching/rl-exercises/function-approximation-when-tabular-methods-are-impractical/">Ex 6.1.1 · Function approximation: when tabular methods are impractical →</a></nav>
+

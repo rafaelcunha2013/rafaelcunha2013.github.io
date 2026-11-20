@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 2.2.1"
+description: "Markov property: which history-independence equality is false"
+permalink: /teaching/rl-exercises/markov-property-which-history-independence-equality-is-false/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.2 Markov property</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the transition function of a Markov Decision Process (MDP) as <span class="math inline">\(p(S_{t+1} = s&#39;| S_t = s, A_t = a)\)</span>, where <span class="math inline">\(S_t= s\)</span> is the current state at time <span class="math inline">\(t\)</span>, <span class="math inline">\(S_{t+1} = s&#39;\)</span> is the next state at time <span class="math inline">\(t+1\)</span>, and <span class="math inline">\(A_t = a\)</span> is the action at time <span class="math inline">\(t\)</span>. Consider also that <span class="math inline">\(R_t\)</span> represents the reward at time <span class="math inline">\(t\)</span>. Which of the following statements is false in a MDP?</p>
+<ul class="qlist qmcq" data-salt="markov-property-which-history-independence-equality-is-false" data-key="46fe5bc0ea2e33de6eacfada675364f5cc95b495d2c08201375471913076ba80" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span><span class="math inline">\(p(S_{t+1} = s&#39;| S_t = s, A_t = a) = p(S_{t+1} = s&#39;| S_1, \ldots, S_{t-1}, A_1, \ldots, A_t = a, S_t = s)\)</span></span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span><span class="math inline">\(p(S_{t+1} = s&#39;| S_t = s, A_t = a) = p(S_{t+1} = s&#39;| S_1, \ldots, S_{t-1}, A_t = a, S_t = s)\)</span></span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span><span class="math inline">\(p(S_{t+1} = s&#39;| S_t = s, A_t = a) = p(S_{t+1} = s&#39;| S_1, \ldots, S_{t-1}, S_t = s)\)</span></span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span><span class="math inline">\(p(R_{t+1} = r, S_{t+1} = s&#39;| S_t = s) = p(R_{t+1} = r, S_{t+1} = s&#39;| S_1, \ldots, S_{t-1}, S_t = s)\)</span></span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#27">Slides: L2 · 27–29</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/markov-decision-process-states-actions-rewards-for-traffic/">← Ex 2.1.1 · Markov decision process: states, actions, rewards for traffic light control</a><a class="next" href="/teaching/rl-exercises/markov-decision-process-modelling-a-warehouse-robot-markov/">Ex 2.2.2 · Markov decision process: modelling a warehouse robot, Markov property →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 7.4.2"
+description: "REINFORCE vs value-based: action spaces, exploration, variance (mock)"
+permalink: /teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.4 Reducing the variance: causality and baseline</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>The landscape of reinforcement learning (RL) offers a variety of methodologies for tackling a wide range of decision-making problems. Among these, policy-gradient methods and value-based methods are particularly noteworthy due to their unique approaches and areas of applicability. One of the key policy-gradient methods is the REINFORCE algorithm, which updates policies directly in a gradient ascent manner to maximize the expected return. The gradient formula for the REINFORCE algorithm is given by: <span class="math display">\[\begin{equation*}
+    \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}} \left[\sum_{t=0}^{T-1} G_t\nabla_\theta \log \pi_\theta(a_t|s_t)  \right]
+\end{equation*}\]</span> where <span class="math inline">\(J(\theta)\)</span> is the objective function representing the expected return, <span class="math inline">\(\pi_\theta(a_t|s_t)\)</span> is the policy (a distribution over actions given the current state and parameterized by <span class="math inline">\(\theta\)</span>), <span class="math inline">\(G_t\)</span> is the return from time <span class="math inline">\(t\)</span> onwards, and <span class="math inline">\(\tau\)</span> is the trajectory.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span> <strong>Applicability to Complex Action Spaces:</strong> Explain why policy-gradient methods are better suited than value-based methods for dealing with high-dimensional and continuous action spaces. Provide one example where this advantage is particularly significant.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> <strong>Conceptual Foundations:</strong> Outline two core principles that differentiate policy-gradient methods from value-based methods.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">3.</span> <strong>Exploration:</strong> Explain how exploration is driven in policy-gradient methods like REINFORCE.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">4.</span> <strong>Variance:</strong> Explain what is the variance problem in the REINFORCE algorithm and provide a possible mitigation to it.</p></li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#33">Slides: L7 · 33–40</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/baseline-in-reinforce-motivation-and-required-property/">← Ex 7.4.1 · Baseline in REINFORCE: motivation and required property</a><a class="next" href="/teaching/rl-exercises/policy-gradient-theorem-unbiasedness-of-the-baseline-estimate/">Ex 7.4.3 · Policy-gradient theorem: unbiasedness of the baseline estimate →</a></nav>
+

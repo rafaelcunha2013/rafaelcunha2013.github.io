@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Exercise 3.3.4"
+description: "Policy improvement theorem: proof for stochastic policies"
+permalink: /teaching/rl-exercises/policy-improvement-theorem-proof-for-stochastic-policies/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.3 Policy iteration</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Hard">Hard</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>A key concept in policy iteration is that by alternating between evaluating (<span class="math inline">\(E\)</span>) the current policy, obtaining <span class="math inline">\(v_{\pi}\)</span> we can improve (<span class="math inline">\(I\)</span>) the policy be making the new policy greedy with respect <span class="math inline">\(v_{\pi}\)</span>. This results in an alternating sequence of policies and value functions that eventually converge the optimal policy and value function: <span class="math display">\[\pi_0 \overset{E}{\rightarrow} v_{\pi_0} \overset{I}{\rightarrow} \pi_1 \overset{E}{\rightarrow} v_{\pi_1} \overset{I}{\rightarrow} \pi_2 \overset{E}{\rightarrow} ... \overset{I}{\rightarrow} \pi_* \overset{E}{\rightarrow} v_*\]</span></p>
+<p>Why making the next policy greedy with respect to the current value function estimate is an improvement is a consequence of the <em>policy improvement theorem</em>. Recall that the policy improvement theorem states that for two deterministic policies <span class="math inline">\(\pi, \pi&#39;\)</span> such that <span class="math inline">\(\pi&#39;\)</span> is the same except that <span class="math inline">\(\pi&#39;(s) = a \not = \pi(s)\)</span> for some <span class="math inline">\(s\)</span>, we have that if <span class="math inline">\(q_{\pi}(s, \pi&#39;(s)) \geq v_{\pi}(s)\)</span> then <span class="math inline">\(v_{\pi&#39;}(s) \geq v_{\pi}(s)\)</span>. A proof sketch, assuming deterministic policies, can be found in section 4.2 of the book. The policy improvement theorem can be extended for stochastic policies.</p>
+<p>Prove the policy improvement theorem for the stochastic case. What would need to be changed to the existing proof sketch for the deterministic case?</p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#37">Slides: L3 · 37–39</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-iteration-epsilon-soft-policies-tie-breaking-action/">← Ex 3.3.3 · Policy iteration: ε-soft policies, tie-breaking, action-value version</a><a class="next" href="/teaching/rl-exercises/value-iteration-action-value-analogue-q-k-1/">Ex 3.4.1 · Value iteration: action-value analogue q_{k+1}(s,a) →</a></nav>
+

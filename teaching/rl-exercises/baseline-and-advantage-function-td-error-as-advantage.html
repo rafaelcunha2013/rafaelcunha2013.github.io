@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 7.5.2"
+description: "Baseline and advantage function: TD error as advantage estimate"
+permalink: /teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.5 Actor-critic, advantage function, A2C</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>A general form of the policy gradient update is derived from the action-value function, <span class="math inline">\(Q^{\pi_\theta}(s,a)\)</span>: <span class="math display">\[\theta \leftarrow \theta + \alpha Q^{\pi_\theta}(s,a) \nabla_\theta \log \pi_\theta(a|s)\]</span> While this is theoretically sound, using estimates for <span class="math inline">\(Q^{\pi_\theta}(s,a)\)</span> can lead to high variance.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> What is the general technique for modifying the learning signal, <span class="math inline">\(Q^{\pi_\theta}(s,a)\)</span>, in order to reduce its variance without introducing any bias into the policy gradient estimate?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> A powerful and common choice for the baseline is the formal definition of the average value of a state under the current policy. What is this quantity called in reinforcement learning? Using this quantity as the baseline, define the resulting learning signal (this is known as the Advantage Function).</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> Implementing the learning signal you defined in (b) appears to require learning two separate function approximators, which is inefficient. Describe how to construct a practical, single-sample estimate of this signal using only a single learned state-value function, <span class="math inline">\(\hat{v}(s,w)\)</span>. Write down the resulting formula and explain how its components serve as estimates for the terms in the original signal’s definition.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#41">Slides: L7 · 41–54</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/actor-critic-roles-of-actor-and-critic-td/">← Ex 7.5.1 · Actor-critic: roles of actor and critic, TD error as baseline</a><a class="next" href="/teaching/rl-exercises/td-target-as-estimate-of-v-or-q/">Ex 7.5.3 · TD target as estimate of V or Q; TD error as advantage →</a></nav>
+

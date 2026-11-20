@@ -248,7 +248,7 @@ defaults:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ['robots.txt', 'proof-rondo/*', 'teaching/rl-tutorials/*']
+  exclude: ['robots.txt', 'proof-rondo/*', 'teaching/rl-tutorials/*', 'teaching/rl-lectures/*']
   uglifier_args:
     harmony: true
 

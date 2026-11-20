@@ -1,0 +1,37 @@
+---
+layout: page
+title: "Exercise R.3.1"
+description: "Expected value: return of policies in a three-cell corridor"
+permalink: /teaching/rl-exercises/expected-value-return-of-policies-in-a-three/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-0">Background review</a> › R.3 Expected value</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the environment:</p>
+<div class="center">
+<figure class="qfig"><img src="/teaching/rl-exercises/media/9a2f23be767e.svg" alt="diagram" style="max-width:100%;height:auto"></figure>
+</div>
+<p>Assume the agent starts in the middle cell (<span class="math inline">\(S\)</span>). If the agent receives a reward, the episode ends. The left cell gives a reward of 1, and the right cell of -1. Let <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> denote the only possible actions, namely left and right.</p>
+<ul>
+<li><p>What is the expected return of the following policies given the starting state <span class="math inline">\(S\)</span>?</p>
+<ul>
+<li><p><span class="math inline">\(\pi(L \mid S)=0.4\)</span></p></li>
+<li><p><span class="math inline">\(\pi(L \mid S)=0.2\)</span></p></li>
+<li><p><span class="math inline">\(\pi(R \mid S)=0.6\)</span></p></li>
+</ul>
+</li>
+<li><p>The expected value of the return from a policy given the starting state <span class="math inline">\(S\)</span> is 0.5. What is the policy?</p>
+</li>
+<li><p>What is the policy that maximizes the expected return? Is it stochastic or deterministic?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#14">Slides: L1 · 14–17</a><a href="/teaching/rl-course-map/#lec-review">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/random-variables-are-rewards-discrete-continuous-or-mixed/">← Ex R.1.11 · Random variables: are rewards discrete, continuous or mixed</a><a class="next" href="/teaching/rl-exercises/gradients-simplify-five-expressions-with-expectations/">Ex R.3.2 · Gradients: simplify five expressions with expectations →</a></nav>
+

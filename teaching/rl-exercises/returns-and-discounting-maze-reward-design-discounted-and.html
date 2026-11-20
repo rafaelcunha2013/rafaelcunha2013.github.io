@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 2.3.3"
+description: "Returns and discounting: maze, reward design, discounted and undiscounted"
+permalink: /teaching/rl-exercises/returns-and-discounting-maze-reward-design-discounted-and/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.3 Returns and discounting</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Imagine that you are designing a robot to run a maze. The task seems to break down naturally into episodes – the successive runs through the maze. You decide to treat it as an episodic task. Now, consider the following scenarios:</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> The robot receives a reward of 0 at all times unless it escapes the maze when it receives a reward of 1. You try to maximize the undiscounted return. After running the learning agent for a while, you find that it is showing no improvement in escaping from the maze. What is going wrong? Have you effectively communicated to the agent what you want it to achieve?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Now, consider the discounted return with <span class="math inline">\(0&lt;\gamma&lt;1\)</span>. Will the agent learn to escape the maze as soon as possible? Give an expression for the return at time <span class="math inline">\(t\)</span> if the agent completes the maze at time <span class="math inline">\(T\)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> You decide to take a different route – you will design the reward function yourself. What is a possible reward function so that the agent will successfully complete the maze in the undiscounted, episodic case?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 3.7. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#34">Slides: L2 · 34–40</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/returns-and-discounting-g-2-with-0-5/">← Ex 2.3.2 · Returns and discounting: G_2 with γ = 0.5 and five rewards</a><a class="next" href="/teaching/rl-exercises/returns-and-discounting-pole-balancing-episodic-vs-continuing/">Ex 2.3.4 · Returns and discounting: pole balancing, episodic vs continuing return →</a></nav>
+

@@ -4,6 +4,9 @@ permalink: /teaching/rl-tutorials/
 title: Reinforcement Learning Tutorials
 description: Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.
 nav: false
+parent:
+  title: Reinforcement Learning
+  url: /teaching/rl-course-map/
 ---
 
 <style>
@@ -52,7 +55,7 @@ nav: false
 <div class="rlt">
 
 <p class="lead">
-These tutorials accompany an introductory course on reinforcement learning. Each one alternates short explanations, coding tasks with hints, and experiments followed by questions about what the results show. You implement the methods yourself, then test where they work and where they fail.
+These tutorials accompany an introductory course on reinforcement learning. Each one alternates short explanations, coding tasks with hints, and experiments followed by questions about what the results show. You implement the methods yourself, then test where they work and where they fail. The <a href="/teaching/rl-lectures/">lecture slides</a> introduce the methods. The <a href="/teaching/rl-course-map/">course map</a> lists every concept with its slides and the tutorial tasks that practise it.
 </p>
 
 <div class="facts">

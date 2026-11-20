@@ -1,0 +1,31 @@
+---
+layout: page
+title: "Exercise 5.2.2"
+description: "SARSA: derive sampled policy-evaluation update, role of alpha and gamma"
+permalink: /teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.2 SARSA: on-policy TD control</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Dynamic programming algorithms are based on expectation equations for updates. These equations require full knowledge of the model, such as the transition function, to compute a single iteration. One way to iterate over the equation while avoiding the need to know the full model is by using a sampled version of the expectation equation. This sampled version is referred to as the model-free version of the expectation equation.</p>
+<p>Consider the Policy Evaluation dynamic programming update equation:</p>
+<p><span class="math display">\[q_{k+1}(s, a) = \mathbb{E}[R_{t+1} + \gamma q_k(S_{t+1}, A_{t+1}) \mid S_t = s, A_t = a],\]</span> where <span class="math inline">\(q_{k+1}(s, a)\)</span> represents the value of a Q-table at state <span class="math inline">\(s\)</span> and action <span class="math inline">\(a\)</span> at iteration <span class="math inline">\(k+1\)</span>, and <span class="math inline">\(t\)</span> is the time-step.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Convert the equation above into its sampled version.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Which model-free algorithm does this equation represent?</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> Why do we use a learning rate in the sampled version of the equation? What is its role?</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(d)</span> What is the role of the discount factor <span class="math inline">\(\gamma\)</span>?</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(e)</span> Under what conditions is convergence to the optimal Q-values guaranteed in the sampled version of the update equation you found? Does using the greedy policy as the behavior policy provide this guarantee?</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(f)</span> Your sampled equation relies on bootstrapping for its updates. Describe a possible limitation of this approach, particularly in the early stages of learning.</p></li>
+</ul>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#22">Slides: L5 · 22–24</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/monte-carlo-control-glie-behaviour-policy-conditions-for/">← Ex 5.2.1 · Monte Carlo control, GLIE: behaviour-policy conditions for SARSA convergence</a><a class="next" href="/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/">Ex 5.2.3 · SARSA: find and fix errors in faulty pseudocode →</a></nav>
+

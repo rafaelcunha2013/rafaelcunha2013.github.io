@@ -1,0 +1,21 @@
+---
+layout: page
+title: "Exercise 1.5.5"
+description: "ε-greedy: time steps where exploration definitely or possibly occurred"
+permalink: /teaching/rl-exercises/epsilon-greedy-time-steps-where-exploration-definitely-or/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-1">Lecture 1 · Exploration Methods</a> › 1.5 ε-greedy</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider a <span class="math inline">\(k\)</span>-armed bandit problem with <span class="math inline">\(k = 4\)</span> actions, denoted <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, and <span class="math inline">\(4\)</span>. Consider applying to this problem a bandit algorithm using <span class="math inline">\(\epsilon\)</span>-greedy action selection, sample-average action-value estimates, and initial estimates of <span class="math inline">\(Q_1(a) = 0\)</span>, for all <span class="math inline">\(a\)</span>. Suppose the initial sequence of actions and rewards is <span class="math inline">\(A_1 = 3, R_1 =2, A_2 = 2, R_2 = 1, A_3 = 3, R_3 = -1, A_4 = 3, R_4 = 1, A_5 = 1, R_5 = 3\)</span>. On some of these time steps the <span class="math inline">\(\epsilon\)</span> case may have occurred, causing an action to be selected at random. On which time steps did this definitely occur? On which time steps could this possibly have occurred?</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 2.2. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#54">Slides: L1 · 54–63</a><a href="/teaching/rl-course-map/#lec-1">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/epsilon-greedy-long-run-best-method-in-the/">← Ex 1.5.4 · ε-greedy: long-run best method in the 10-armed testbed figure</a><a class="next" href="/teaching/rl-exercises/upper-confidence-bound-ucb-derive-the-uncertainty-term/">Ex 1.7.1 · Upper confidence bound (UCB): derive the uncertainty term →</a></nav>
+

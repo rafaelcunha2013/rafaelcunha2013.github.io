@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise R.4.6"
+description: "Probability mass functions: show the ε-greedy policy is a pmf"
+permalink: /teaching/rl-exercises/probability-mass-functions-show-the-epsilon-greedy-policy/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-0">Background review</a> › R.4 Probability mass functions</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Is the following function a pmf for a finite action space <span class="math inline">\(\mathcal{A}\)</span> and an action-value function <span class="math inline">\(Q_t(a)\)</span>? <span class="math display">\[\begin{align*}
+        \pi_t(a)=\begin{cases}
+            (1-\varepsilon)+\frac{\varepsilon}{ \mid \mathcal{A} \mid } &amp;\quad\text{if $a=argmax \text{ } Q_t(a) $}\\
+            \frac{\varepsilon}{ \mid \mathcal{A} \mid } &amp;\quad\text{otherwise}\\
+        \end{cases}
+\end{align*}\]</span></p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#26">Slides: L1 · 26</a><a href="/teaching/rl-course-map/#lec-review">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/probability-mass-functions-construct-and-verify-a-fair/">← Ex R.4.5 · Probability mass functions: construct and verify a fair-coin pmf</a><a class="next" href="/teaching/rl-exercises/derivatives-four-elementary-derivatives/">Ex R.5.1 · Derivatives: four elementary derivatives →</a></nav>
+

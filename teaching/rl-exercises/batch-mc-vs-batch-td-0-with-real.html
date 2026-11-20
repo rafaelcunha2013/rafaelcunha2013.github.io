@@ -1,0 +1,86 @@
+---
+layout: page
+title: "Exercise 8.1.1"
+description: "Batch MC vs batch TD(0) with real and simulated experience (Dyna-Q)"
+permalink: /teaching/rl-exercises/batch-mc-vs-batch-td-0-with-real/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-8">Lecture 8 · Model-Based Reinforcement Learning</a> › 8.1 Model-based RL and Dyna-Q</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Place yourself in the role of the predictor of returns for an unknown Markov reward process. Suppose you observe the following eight episodes:</p>
+<table>
+<caption>Table 1: Batch of Real Experience</caption>
+<thead>
+<tr>
+<th style="text-align: center;">Episode 1</th>
+<th style="text-align: center;">Episode 2</th>
+<th style="text-align: center;">Episode 3</th>
+<th style="text-align: center;">Episode 4</th>
+<th style="text-align: center;">Episode 5</th>
+<th style="text-align: center;">Episode 6</th>
+<th style="text-align: center;">Episode 7</th>
+<th style="text-align: center;">Episode 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">A, 1, B, 0</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 0</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 0</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 0</td>
+</tr>
+</tbody>
+</table>
+<p>We call this batch a result of “real experiences". This means that the first episode started in state A, and transitioned to B with a reward of <span class="math inline">\(1\)</span>, and then transitioned from B to the terminal state with a reward of <span class="math inline">\(0\)</span>. The other seven episodes were even shorter, starting from B and terminating immediately.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1)</span> Draw the Markov process that can be inferred from this data.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2)</span> What is the state-value estimate of <span class="math inline">\(V(A)\)</span> and <span class="math inline">\(V(B)\)</span> when using: (a)Batch Monte Carlo, (b)Batch TD(0)? Consider <span class="math inline">\(\gamma = 1\)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">3)</span> With the model created in item (1), inspired by Dyna-Q, you decided to generate a batch of simulated experiences. You collected the following batch:</p>
+<table>
+<caption>Table 2: Batch of Simulated Experience</caption>
+<thead>
+<tr>
+<th style="text-align: center;">Episode 1</th>
+<th style="text-align: center;">Episode 2</th>
+<th style="text-align: center;">Episode 3</th>
+<th style="text-align: center;">Episode 4</th>
+<th style="text-align: center;">Episode 5</th>
+<th style="text-align: center;">Episode 6</th>
+<th style="text-align: center;">Episode 7</th>
+<th style="text-align: center;">Episode 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">B, 0</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">A, 0, B, 1</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">A, 0, B, 0</td>
+<td style="text-align: center;">B, 1</td>
+<td style="text-align: center;">B, 1</td>
+</tr>
+</tbody>
+</table>
+<p>Considering the simulated experience and the real experience combined, what is the state-value estimate of <span class="math inline">\(V(A)\)</span> and <span class="math inline">\(V(B)\)</span> when using: (a)Batch Monte Carlo, (b)Batch TD(0)?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">4)</span> Describe an advantage and disadvantage of using a model to improve the estimation of the state-value function.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Example 6.4. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-08/#11">Slides: L8 · 11–30</a><a href="/teaching/rl-course-map/#lec-8">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/reinforce-actor-critic-and-ppo-inverted-pendulum-programming/">← Ex 7.5.4 · REINFORCE, actor-critic and PPO: Inverted Pendulum programming task</a><a class="next" href="/teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/">Ex 8.1.2 · Dyna-Q vs n-step bootstrapping in the Dyna maze →</a></nav>
+

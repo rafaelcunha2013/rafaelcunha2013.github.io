@@ -1,0 +1,2664 @@
+{
+ "review": [
+  {
+   "label": "Random variables",
+   "topics": "Discrete and continuous random variables, PMF and PDF",
+   "lecture": 1,
+   "slides": "8–10",
+   "href": "/teaching/rl-lectures/lecture-01/#8",
+   "num": "R.1",
+   "exercises": [
+    {
+     "num": "R.1.1",
+     "name": "Conditional probability: pass versus study-and-pass (conjunction fallacy)",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/conditional-probability-pass-versus-study-and-pass-conjunction/"
+    },
+    {
+     "num": "R.1.2",
+     "name": "Conditional probability: prove Bayes' theorem",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/conditional-probability-prove-bayes-theorem/"
+    },
+    {
+     "num": "R.1.3",
+     "name": "Conditional probability: random moves between four rooms",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/conditional-probability-random-moves-between-four-rooms/"
+    },
+    {
+     "num": "R.1.4",
+     "name": "Independence: the two definitions are equivalent",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/independence-the-two-definitions-are-equivalent/"
+    },
+    {
+     "num": "R.1.5",
+     "name": "Law of total probability: bulbs from two factories",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/law-of-total-probability-bulbs-from-two-factories/"
+    },
+    {
+     "num": "R.1.6",
+     "name": "Probability density function: P(X=x)=0 for a continuous variable",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/probability-density-function-p-x-x-0-for/"
+    },
+    {
+     "num": "R.1.7",
+     "name": "Probability density function: show the uniform density is a pdf",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/probability-density-function-show-the-uniform-density-is/"
+    },
+    {
+     "num": "R.1.8",
+     "name": "Random variables: values and type of number of sixes in N dice",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/random-variables-values-and-type-of-number-of/"
+    },
+    {
+     "num": "R.1.9",
+     "name": "Conditional probability: conditional is at least the joint",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/conditional-probability-conditional-is-at-least-the-joint/"
+    },
+    {
+     "num": "R.1.10",
+     "name": "Conditional probability: ratio of conditionals equals ratio of joints",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/conditional-probability-ratio-of-conditionals-equals-ratio-of/"
+    },
+    {
+     "num": "R.1.11",
+     "name": "Random variables: are rewards discrete, continuous or mixed",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/random-variables-are-rewards-discrete-continuous-or-mixed/"
+    }
+   ],
+   "also": [
+    {
+     "num": "R.4.4",
+     "name": "Joint pmf: marginals, conditional and independence",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/joint-pmf-marginals-conditional-and-independence/"
+    }
+   ]
+  },
+  {
+   "label": "Sampling from a distribution",
+   "topics": "Sampling from a probability distribution",
+   "lecture": 1,
+   "slides": "12",
+   "href": "/teaching/rl-lectures/lecture-01/#12",
+   "num": "R.2",
+   "exercises": [],
+   "also": []
+  },
+  {
+   "label": "Expected value",
+   "topics": "Expected value vs sample mean (dice, coin)",
+   "lecture": 1,
+   "slides": "14–17",
+   "href": "/teaching/rl-lectures/lecture-01/#14",
+   "num": "R.3",
+   "exercises": [
+    {
+     "num": "R.3.1",
+     "name": "Expected value: return of policies in a three-cell corridor",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-return-of-policies-in-a-three/"
+    },
+    {
+     "num": "R.3.2",
+     "name": "Gradients: simplify five expressions with expectations",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradients-simplify-five-expressions-with-expectations/"
+    },
+    {
+     "num": "R.3.3",
+     "name": "Partial derivatives: six expressions including an expectation",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/partial-derivatives-six-expressions-including-an-expectation/"
+    },
+    {
+     "num": "R.3.4",
+     "name": "Expected value: r(s,a,s') from p",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-r-s-a-s-from-p/"
+    },
+    {
+     "num": "R.3.5",
+     "name": "Gradients: true or false on six identities",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradients-true-or-false-on-six-identities/"
+    }
+   ],
+   "also": [
+    {
+     "num": "R.4.1",
+     "name": "Expected value: gradient of E[log π(X)] is zero",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-gradient-of-e-log-pi-x/"
+    },
+    {
+     "num": "R.4.2",
+     "name": "Expected value: r(s,a) from the four-argument p",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-r-s-a-from-the-four/"
+    },
+    {
+     "num": "R.4.3",
+     "name": "Expected value: r(s,a) from the four-argument p",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-r-s-a-from-the-four-2/"
+    },
+    {
+     "num": "2.4.4",
+     "name": "Bellman expectation equations: derive v_π(s) = Σ π(a|s) q_π(s,a)",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-expectation-equations-derive-v-pi-s-pi/"
+    },
+    {
+     "num": "2.4.5",
+     "name": "Bellman expectation equations: prove q_π from v_π and p",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v/"
+    },
+    {
+     "num": "2.4.6",
+     "name": "Bellman expectation equations: prove q_π from v_π and p",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v-2/"
+    },
+    {
+     "num": "2.4.7",
+     "name": "Bellman expectation equations: q_π in terms of v_π and four-argument p",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-expectation-equations-q-pi-in-terms-of/"
+    },
+    {
+     "num": "5.5.4",
+     "name": "Maximization bias: when overestimation helps, bias parameter mu",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/maximization-bias-when-overestimation-helps-bias-parameter-mu/"
+    }
+   ]
+  },
+  {
+   "label": "Probability mass functions",
+   "topics": "Conditions for a valid PMF",
+   "lecture": 1,
+   "slides": "26",
+   "href": "/teaching/rl-lectures/lecture-01/#26",
+   "num": "R.4",
+   "exercises": [
+    {
+     "num": "R.4.1",
+     "name": "Expected value: gradient of E[log π(X)] is zero",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-gradient-of-e-log-pi-x/"
+    },
+    {
+     "num": "R.4.2",
+     "name": "Expected value: r(s,a) from the four-argument p",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-r-s-a-from-the-four/"
+    },
+    {
+     "num": "R.4.3",
+     "name": "Expected value: r(s,a) from the four-argument p",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/expected-value-r-s-a-from-the-four-2/"
+    },
+    {
+     "num": "R.4.4",
+     "name": "Joint pmf: marginals, conditional and independence",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/joint-pmf-marginals-conditional-and-independence/"
+    },
+    {
+     "num": "R.4.5",
+     "name": "Probability mass functions: construct and verify a fair-coin pmf",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/probability-mass-functions-construct-and-verify-a-fair/"
+    },
+    {
+     "num": "R.4.6",
+     "name": "Probability mass functions: show the ε-greedy policy is a pmf",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/probability-mass-functions-show-the-epsilon-greedy-policy/"
+    }
+   ],
+   "also": [
+    {
+     "num": "2.4.4",
+     "name": "Bellman expectation equations: derive v_π(s) = Σ π(a|s) q_π(s,a)",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-expectation-equations-derive-v-pi-s-pi/"
+    }
+   ]
+  },
+  {
+   "label": "Step-size conditions",
+   "topics": "Why the step size guarantees learning: series that diverge and converge",
+   "lecture": 1,
+   "slides": "38",
+   "href": "/teaching/rl-lectures/lecture-01/#38",
+   "num": "R.5",
+   "exercises": [
+    {
+     "num": "R.5.1",
+     "name": "Derivatives: four elementary derivatives",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/derivatives-four-elementary-derivatives/"
+    },
+    {
+     "num": "R.5.2",
+     "name": "Gradient descent: learning rate reaching the minimum in one step",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradient-descent-learning-rate-reaching-the-minimum-in/"
+    },
+    {
+     "num": "R.5.3",
+     "name": "Sequences: convergence and limits of three sequences",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/sequences-convergence-and-limits-of-three-sequences/"
+    },
+    {
+     "num": "R.5.4",
+     "name": "Series: convergence of eight sums (geometric, p-series)",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/series-convergence-of-eight-sums-geometric-p-series/"
+    },
+    {
+     "num": "R.5.5",
+     "name": "Gradient descent: starting points stuck at a saddle point",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradient-descent-starting-points-stuck-at-a-saddle/"
+    },
+    {
+     "num": "R.5.6",
+     "name": "Gradient descent: starting points that end in a local minimum",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradient-descent-starting-points-that-end-in-a/"
+    },
+    {
+     "num": "R.5.7",
+     "name": "Gradients: counterexample for swapping gradient and sum",
+     "difficulty": "Hard",
+     "coding": false,
+     "href": "/teaching/rl-exercises/gradients-counterexample-for-swapping-gradient-and-sum/"
+    }
+   ],
+   "also": [
+    {
+     "num": "4.1.2",
+     "name": "Monte Carlo prediction: convergence with probability 1 via Robbins-Monro",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/monte-carlo-prediction-convergence-with-probability-1-via/"
+    },
+    {
+     "num": "5.2.2",
+     "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+    },
+    {
+     "num": "5.2.3",
+     "name": "SARSA: find and fix errors in faulty pseudocode",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/"
+    }
+   ]
+  },
+  {
+   "label": "Operators",
+   "topics": "Operator; the Bellman operators as an example",
+   "lecture": 3,
+   "slides": "47–52",
+   "href": "/teaching/rl-lectures/lecture-03/#47",
+   "num": "R.6",
+   "exercises": [],
+   "also": []
+  },
+  {
+   "label": "Fixed points",
+   "topics": "Fixed point of an operator, with an example",
+   "lecture": 3,
+   "slides": "53–55",
+   "href": "/teaching/rl-lectures/lecture-03/#53",
+   "num": "R.7",
+   "exercises": [],
+   "also": [
+    {
+     "num": "3.6.1",
+     "name": "Bellman optimality operator: why γ-contraction gives convergence of value iteration",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-optimality-operator-why-contraction-gives-convergence-of/"
+    },
+    {
+     "num": "3.6.3",
+     "name": "Value iteration: return bound, error bound proof, stopping rule, convergence",
+     "difficulty": "Hard",
+     "coding": false,
+     "href": "/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/"
+    }
+   ]
+  },
+  {
+   "label": "γ-contraction",
+   "topics": "γ-contraction mapping on a normed vector space",
+   "lecture": 3,
+   "slides": "56–58",
+   "href": "/teaching/rl-lectures/lecture-03/#56",
+   "num": "R.8",
+   "exercises": [],
+   "also": [
+    {
+     "num": "3.6.1",
+     "name": "Bellman optimality operator: why γ-contraction gives convergence of value iteration",
+     "difficulty": "Easy",
+     "coding": false,
+     "href": "/teaching/rl-exercises/bellman-optimality-operator-why-contraction-gives-convergence-of/"
+    },
+    {
+     "num": "3.6.2",
+     "name": "Value iteration: return bound, convergence, stopping rule, numeric threshold",
+     "difficulty": "Medium",
+     "coding": false,
+     "href": "/teaching/rl-exercises/value-iteration-return-bound-convergence-stopping-rule-numeric/"
+    },
+    {
+     "num": "3.6.3",
+     "name": "Value iteration: return bound, error bound proof, stopping rule, convergence",
+     "difficulty": "Hard",
+     "coding": false,
+     "href": "/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/"
+    }
+   ]
+  }
+ ],
+ "lectures": [
+  {
+   "n": 1,
+   "title": "Exploration Methods",
+   "href": "/teaching/rl-lectures/lecture-01/",
+   "slides": 102,
+   "video": "https://video.rug.nl/media/0_o36bezqj",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-01.html",
+   "tutorial": "Tutorial 1",
+   "concepts": [
+    {
+     "num": "1.1",
+     "concept": "Multi-armed bandit problem",
+     "slides": "6–30",
+     "href": "/teaching/rl-lectures/lecture-01/#6",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 1",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-1"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 2",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-2"
+      }
+     ],
+     "exercises": [],
+     "also": []
+    },
+    {
+     "num": "1.2",
+     "concept": "Sample-average method",
+     "slides": "33–38",
+     "href": "/teaching/rl-lectures/lecture-01/#33",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-4"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 6",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-6"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "1.2.1",
+       "name": "Sample-average method: Q-values at t = 9 from a reward table",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sample-average-method-q-values-at-t-9/"
+      }
+     ],
+     "also": [
+      {
+       "num": "1.5.5",
+       "name": "ε-greedy: time steps where exploration definitely or possibly occurred",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-time-steps-where-exploration-definitely-or/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      }
+     ]
+    },
+    {
+     "num": "1.3",
+     "concept": "Weighted-average method (nonstationary problems)",
+     "slides": "39–46",
+     "href": "/teaching/rl-lectures/lecture-01/#39",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-5"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 7",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-7"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "1.3.1",
+       "name": "Weighted-average method: step size α from the target and estimate plot",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/weighted-average-method-step-size-from-the-target/"
+      },
+      {
+       "num": "1.3.2",
+       "name": "Weighted-average method: step size α from the target and estimate plot",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/weighted-average-method-step-size-from-the-target-2/"
+      },
+      {
+       "num": "1.3.3",
+       "name": "Weighted-average method: Q-values at t = 9 from a reward table, α = 0.5",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/weighted-average-method-q-values-at-t-9/"
+      },
+      {
+       "num": "1.3.4",
+       "name": "Weighted-average method: Q_{n+1} in terms of Q_1 and past rewards",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/weighted-average-method-q-n-1-in-terms/"
+      }
+     ],
+     "also": [
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      }
+     ]
+    },
+    {
+     "num": "1.4",
+     "concept": "Greedy",
+     "slides": "49–53",
+     "href": "/teaching/rl-lectures/lecture-01/#49",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 8",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-8"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 10",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-10"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "1.4.1",
+       "name": "Greedy: arm selected in the long run, from the estimates (figure)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/greedy-arm-selected-in-the-long-run-from/"
+      },
+      {
+       "num": "1.4.2",
+       "name": "Greedy: arm selected in the long run, second testbed figure",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/greedy-arm-selected-in-the-long-run-second/"
+      }
+     ],
+     "also": [
+      {
+       "num": "1.5.5",
+       "name": "ε-greedy: time steps where exploration definitely or possibly occurred",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-time-steps-where-exploration-definitely-or/"
+      },
+      {
+       "num": "1.9.2",
+       "name": "Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      },
+      {
+       "num": "5.2.2",
+       "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+      }
+     ]
+    },
+    {
+     "num": "1.5",
+     "concept": "ε-greedy",
+     "slides": "54–63",
+     "href": "/teaching/rl-lectures/lecture-01/#54",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 12",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-12"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 13",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-13"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 14",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-14"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "1.5.1",
+       "name": "ε-greedy: probability of the greedy action, five actions, ε = 0.3",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-probability-of-the-greedy-action-five/"
+      },
+      {
+       "num": "1.5.2",
+       "name": "ε-greedy: probability of the greedy action, four actions, ε = 0.2",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-probability-of-the-greedy-action-four/"
+      },
+      {
+       "num": "1.5.3",
+       "name": "ε-greedy: probability of the greedy action, two actions, ε = 0.5",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-probability-of-the-greedy-action-two/"
+      },
+      {
+       "num": "1.5.4",
+       "name": "ε-greedy: long-run best method in the 10-armed testbed figure",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-long-run-best-method-in-the/"
+      },
+      {
+       "num": "1.5.5",
+       "name": "ε-greedy: time steps where exploration definitely or possibly occurred",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/epsilon-greedy-time-steps-where-exploration-definitely-or/"
+      }
+     ],
+     "also": [
+      {
+       "num": "R.4.6",
+       "name": "Probability mass functions: show the ε-greedy policy is a pmf",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/probability-mass-functions-show-the-epsilon-greedy-policy/"
+      },
+      {
+       "num": "1.9.2",
+       "name": "Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      },
+      {
+       "num": "5.2.3",
+       "name": "SARSA: find and fix errors in faulty pseudocode",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/"
+      },
+      {
+       "num": "5.5.3",
+       "name": "Expected SARSA: Double Expected SARSA update equations",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/expected-sarsa-double-expected-sarsa-update-equations/"
+      },
+      {
+       "num": "5.6.1",
+       "name": "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/"
+      }
+     ]
+    },
+    {
+     "num": "1.6",
+     "concept": "Optimistic initial values",
+     "slides": "64–69",
+     "href": "/teaching/rl-lectures/lecture-01/#64",
+     "tasks": [],
+     "exercises": [],
+     "also": []
+    },
+    {
+     "num": "1.7",
+     "concept": "Upper confidence bound (UCB)",
+     "slides": "71–77",
+     "href": "/teaching/rl-lectures/lecture-01/#71",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "1.7.1",
+       "name": "Upper confidence bound (UCB): derive the uncertainty term",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/upper-confidence-bound-ucb-derive-the-uncertainty-term/"
+      }
+     ],
+     "also": [
+      {
+       "num": "1.9.2",
+       "name": "Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      }
+     ]
+    },
+    {
+     "num": "1.8",
+     "concept": "Softmax action selection",
+     "slides": "79–81",
+     "href": "/teaching/rl-lectures/lecture-01/#79",
+     "tasks": [],
+     "exercises": [],
+     "also": [
+      {
+       "num": "1.9.2",
+       "name": "Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      },
+      {
+       "num": "1.9.4",
+       "name": "Softmax over Q* (SARSA) vs softmax over action preferences",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/softmax-over-q-sarsa-vs-softmax-over-action/"
+      }
+     ]
+    },
+    {
+     "num": "1.9",
+     "concept": "Policy gradient methods: action preferences",
+     "slides": "83–100",
+     "href": "/teaching/rl-lectures/lecture-01/#83",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "1.9.1",
+       "name": "Action preferences with baseline: effect of reward above or below baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/action-preferences-with-baseline-effect-of-reward-above/"
+      },
+      {
+       "num": "1.9.2",
+       "name": "Exploration methods: deterministic versus stochastic policies, hyperparameters, baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/exploration-methods-deterministic-versus-stochastic-policies-hyperparameters-baseline/"
+      },
+      {
+       "num": "1.9.3",
+       "name": "Action-value methods and policies: probabilities of each action at t = 9",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/"
+      },
+      {
+       "num": "1.9.4",
+       "name": "Softmax over Q* (SARSA) vs softmax over action preferences",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/softmax-over-q-sarsa-vs-softmax-over-action/"
+      }
+     ],
+     "also": []
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "The RL Problem and Finite MDPs",
+   "href": "/teaching/rl-lectures/lecture-02/",
+   "slides": 77,
+   "video": "https://video.rug.nl/media/0_27h7azg4",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-02.html",
+   "tutorial": "Tutorial 2",
+   "concepts": [
+    {
+     "num": "2.1",
+     "concept": "Markov decision process",
+     "slides": "15–26",
+     "href": "/teaching/rl-lectures/lecture-02/#15",
+     "tasks": [
+      {
+       "tutorial": 2,
+       "label": "Case 2, Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-2-task-4"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "2.1.1",
+       "name": "Markov decision process: states, actions, rewards for traffic light control",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/markov-decision-process-states-actions-rewards-for-traffic/"
+      }
+     ],
+     "also": [
+      {
+       "num": "2.2.1",
+       "name": "Markov property: which history-independence equality is false",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/markov-property-which-history-independence-equality-is-false/"
+      },
+      {
+       "num": "2.2.2",
+       "name": "Markov decision process: modelling a warehouse robot, Markov property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/markov-decision-process-modelling-a-warehouse-robot-markov/"
+      }
+     ]
+    },
+    {
+     "num": "2.2",
+     "concept": "Markov property",
+     "slides": "27–29",
+     "href": "/teaching/rl-lectures/lecture-02/#27",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 5, Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-5-task-4"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "2.2.1",
+       "name": "Markov property: which history-independence equality is false",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/markov-property-which-history-independence-equality-is-false/"
+      },
+      {
+       "num": "2.2.2",
+       "name": "Markov decision process: modelling a warehouse robot, Markov property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/markov-decision-process-modelling-a-warehouse-robot-markov/"
+      }
+     ],
+     "also": [
+      {
+       "num": "2.4.5",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v/"
+      },
+      {
+       "num": "2.4.6",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v-2/"
+      },
+      {
+       "num": "2.4.7",
+       "name": "Bellman expectation equations: q_π in terms of v_π and four-argument p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-q-pi-in-terms-of/"
+      }
+     ]
+    },
+    {
+     "num": "2.3",
+     "concept": "Returns and discounting",
+     "slides": "34–40",
+     "href": "/teaching/rl-lectures/lecture-02/#34",
+     "tasks": [
+      {
+       "tutorial": 2,
+       "label": "Case 1, Task 2",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-1-task-2"
+      },
+      {
+       "tutorial": 2,
+       "label": "Case 1, Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-1-task-3"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "2.3.1",
+       "name": "Returns and discounting: G_1 with γ = 0.5 and five rewards",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-g-1-with-0-5/"
+      },
+      {
+       "num": "2.3.2",
+       "name": "Returns and discounting: G_2 with γ = 0.5 and five rewards",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-g-2-with-0-5/"
+      },
+      {
+       "num": "2.3.3",
+       "name": "Returns and discounting: maze, reward design, discounted and undiscounted",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-maze-reward-design-discounted-and/"
+      },
+      {
+       "num": "2.3.4",
+       "name": "Returns and discounting: pole balancing, episodic vs continuing return",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-pole-balancing-episodic-vs-continuing/"
+      }
+     ],
+     "also": [
+      {
+       "num": "2.4.5",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v/"
+      },
+      {
+       "num": "2.4.6",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v-2/"
+      },
+      {
+       "num": "2.4.7",
+       "name": "Bellman expectation equations: q_π in terms of v_π and four-argument p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-q-pi-in-terms-of/"
+      },
+      {
+       "num": "2.5.1",
+       "name": "Returns and discounting: optimal policy of a two-action MDP for γ = 0, 0.5, 0.9",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-optimal-policy-of-a-two/"
+      },
+      {
+       "num": "3.6.2",
+       "name": "Value iteration: return bound, convergence, stopping rule, numeric threshold",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-convergence-stopping-rule-numeric/"
+      },
+      {
+       "num": "3.6.3",
+       "name": "Value iteration: return bound, error bound proof, stopping rule, convergence",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/"
+      },
+      {
+       "num": "4.1.1",
+       "name": "First-visit and every-visit MC: values of A and B, with and without discounting",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/first-visit-and-every-visit-mc-values-of/"
+      },
+      {
+       "num": "4.2.1",
+       "name": "TD error for action values: identity G_t - Q(S_t,A_t) as a sum of TD errors",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-error-for-action-values-identity-g-t/"
+      },
+      {
+       "num": "5.2.2",
+       "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+      }
+     ]
+    },
+    {
+     "num": "2.4",
+     "concept": "Bellman expectation equations",
+     "slides": "47–61",
+     "href": "/teaching/rl-lectures/lecture-02/#47",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-5"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "2.4.1",
+       "name": "Value functions: comparing policies by v_π(s) in every state",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-functions-comparing-policies-by-v-pi-s/"
+      },
+      {
+       "num": "2.4.2",
+       "name": "Bellman expectation equations: numeric check at a gridworld state valued +3.0",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-numeric-check-at-a-gridworld/"
+      },
+      {
+       "num": "2.4.3",
+       "name": "Bellman expectation equations: numeric check at the gridworld centre state",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-numeric-check-at-the-gridworld/"
+      },
+      {
+       "num": "2.4.4",
+       "name": "Bellman expectation equations: derive v_π(s) = Σ π(a|s) q_π(s,a)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-derive-v-pi-s-pi/"
+      },
+      {
+       "num": "2.4.5",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v/"
+      },
+      {
+       "num": "2.4.6",
+       "name": "Bellman expectation equations: prove q_π from v_π and p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-prove-q-pi-from-v-2/"
+      },
+      {
+       "num": "2.4.7",
+       "name": "Bellman expectation equations: q_π in terms of v_π and four-argument p",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-expectation-equations-q-pi-in-terms-of/"
+      }
+     ],
+     "also": [
+      {
+       "num": "2.6.2",
+       "name": "Bellman equation in matrix form: three-state MDP, r^π, P^π, v",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/"
+      },
+      {
+       "num": "3.1.1",
+       "name": "Policy evaluation: q_π and an added state in the 4x4 gridworld",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state/"
+      },
+      {
+       "num": "3.1.2",
+       "name": "Policy evaluation: q_π and an added state in the 4x4 gridworld (exam)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state-2/"
+      },
+      {
+       "num": "3.3.1",
+       "name": "Policy iteration: stochastic policies, 3-argument p, and the action-value version",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/"
+      },
+      {
+       "num": "7.5.3",
+       "name": "TD target as estimate of V or Q; TD error as advantage",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-target-as-estimate-of-v-or-q/"
+      }
+     ]
+    },
+    {
+     "num": "2.5",
+     "concept": "Bellman optimality equations",
+     "slides": "62–69",
+     "href": "/teaching/rl-lectures/lecture-02/#62",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "2.5.1",
+       "name": "Returns and discounting: optimal policy of a two-action MDP for γ = 0, 0.5, 0.9",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/returns-and-discounting-optimal-policy-of-a-two/"
+      }
+     ],
+     "also": [
+      {
+       "num": "3.4.1",
+       "name": "Value iteration: action-value analogue q_{k+1}(s,a)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-action-value-analogue-q-k-1/"
+      },
+      {
+       "num": "3.4.2",
+       "name": "Value iteration: update rule for action values q_{k+1}(s,a)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-update-rule-for-action-values-q/"
+      }
+     ]
+    },
+    {
+     "num": "2.6",
+     "concept": "Bellman equation in matrix form",
+     "slides": "73–74",
+     "href": "/teaching/rl-lectures/lecture-02/#73",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 6",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-6"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 7",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-7"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "2.6.1",
+       "name": "Bellman equation in matrix form: r^π and P^π, equiprobable policy",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-equation-in-matrix-form-r-pi-and/"
+      },
+      {
+       "num": "2.6.2",
+       "name": "Bellman equation in matrix form: three-state MDP, r^π, P^π, v",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/"
+      }
+     ],
+     "also": [
+      {
+       "num": "3.4.3",
+       "name": "Dynamic programming solvers: design an MDP, matrix-form Bellman solver, VI and PI",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/dynamic-programming-solvers-design-an-mdp-matrix-form/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Dynamic Programming",
+   "href": "/teaching/rl-lectures/lecture-03/",
+   "slides": 78,
+   "video": "https://video.rug.nl/media/0_3bqlzpfw",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-03.html",
+   "tutorial": "Tutorial 3",
+   "concepts": [
+    {
+     "num": "3.1",
+     "concept": "Policy evaluation",
+     "slides": "12–19",
+     "href": "/teaching/rl-lectures/lecture-03/#12",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 7 (direct solve)",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-7"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "3.1.1",
+       "name": "Policy evaluation: q_π and an added state in the 4x4 gridworld",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state/"
+      },
+      {
+       "num": "3.1.2",
+       "name": "Policy evaluation: q_π and an added state in the 4x4 gridworld (exam)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state-2/"
+      }
+     ],
+     "also": [
+      {
+       "num": "3.3.1",
+       "name": "Policy iteration: stochastic policies, 3-argument p, and the action-value version",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/"
+      },
+      {
+       "num": "3.3.3",
+       "name": "Policy iteration: ε-soft policies, tie-breaking, action-value version",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-epsilon-soft-policies-tie-breaking-action/"
+      },
+      {
+       "num": "3.4.3",
+       "name": "Dynamic programming solvers: design an MDP, matrix-form Bellman solver, VI and PI",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/dynamic-programming-solvers-design-an-mdp-matrix-form/"
+      },
+      {
+       "num": "3.4.4",
+       "name": "Policy iteration and value iteration: implement on a 3-state MDP",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/policy-iteration-and-value-iteration-implement-on-a/"
+      },
+      {
+       "num": "5.3.5",
+       "name": "DP vs sampled updates: model-free counterparts, no sampled value iteration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/"
+      }
+     ]
+    },
+    {
+     "num": "3.2",
+     "concept": "Policy improvement theorem",
+     "slides": "20–36",
+     "href": "/teaching/rl-lectures/lecture-03/#20",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 4, Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-4-task-3"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 4, Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-4-task-5"
+      }
+     ],
+     "exercises": [],
+     "also": [
+      {
+       "num": "3.3.4",
+       "name": "Policy improvement theorem: proof for stochastic policies",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-improvement-theorem-proof-for-stochastic-policies/"
+      }
+     ]
+    },
+    {
+     "num": "3.3",
+     "concept": "Policy iteration",
+     "slides": "37–39",
+     "href": "/teaching/rl-lectures/lecture-03/#37",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "3.3.1",
+       "name": "Policy iteration: stochastic policies, 3-argument p, and the action-value version",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/"
+      },
+      {
+       "num": "3.3.2",
+       "name": "Policy iteration: time complexity with V(s) versus Q(s,a)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-time-complexity-with-v-s-versus/"
+      },
+      {
+       "num": "3.3.3",
+       "name": "Policy iteration: ε-soft policies, tie-breaking, action-value version",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-iteration-epsilon-soft-policies-tie-breaking-action/"
+      },
+      {
+       "num": "3.3.4",
+       "name": "Policy improvement theorem: proof for stochastic policies",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-improvement-theorem-proof-for-stochastic-policies/"
+      }
+     ],
+     "also": [
+      {
+       "num": "3.4.3",
+       "name": "Dynamic programming solvers: design an MDP, matrix-form Bellman solver, VI and PI",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/dynamic-programming-solvers-design-an-mdp-matrix-form/"
+      },
+      {
+       "num": "3.4.4",
+       "name": "Policy iteration and value iteration: implement on a 3-state MDP",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/policy-iteration-and-value-iteration-implement-on-a/"
+      }
+     ]
+    },
+    {
+     "num": "3.4",
+     "concept": "Value iteration",
+     "slides": "40–44",
+     "href": "/teaching/rl-lectures/lecture-03/#40",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "3.4.1",
+       "name": "Value iteration: action-value analogue q_{k+1}(s,a)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-action-value-analogue-q-k-1/"
+      },
+      {
+       "num": "3.4.2",
+       "name": "Value iteration: update rule for action values q_{k+1}(s,a)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-update-rule-for-action-values-q/"
+      },
+      {
+       "num": "3.4.3",
+       "name": "Dynamic programming solvers: design an MDP, matrix-form Bellman solver, VI and PI",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/dynamic-programming-solvers-design-an-mdp-matrix-form/"
+      },
+      {
+       "num": "3.4.4",
+       "name": "Policy iteration and value iteration: implement on a 3-state MDP",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/policy-iteration-and-value-iteration-implement-on-a/"
+      }
+     ],
+     "also": [
+      {
+       "num": "3.6.1",
+       "name": "Bellman optimality operator: why γ-contraction gives convergence of value iteration",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-optimality-operator-why-contraction-gives-convergence-of/"
+      },
+      {
+       "num": "3.6.2",
+       "name": "Value iteration: return bound, convergence, stopping rule, numeric threshold",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-convergence-stopping-rule-numeric/"
+      },
+      {
+       "num": "3.6.3",
+       "name": "Value iteration: return bound, error bound proof, stopping rule, convergence",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/"
+      },
+      {
+       "num": "5.3.5",
+       "name": "DP vs sampled updates: model-free counterparts, no sampled value iteration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/"
+      }
+     ]
+    },
+    {
+     "num": "3.5",
+     "concept": "Generalized policy iteration (GPI)",
+     "slides": "45",
+     "href": "/teaching/rl-lectures/lecture-03/#45",
+     "tasks": [],
+     "exercises": [],
+     "also": []
+    },
+    {
+     "num": "3.6",
+     "concept": "Bellman operators and the Banach fixed-point theorem",
+     "slides": "46–66",
+     "href": "/teaching/rl-lectures/lecture-03/#46",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "3.6.1",
+       "name": "Bellman optimality operator: why γ-contraction gives convergence of value iteration",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/bellman-optimality-operator-why-contraction-gives-convergence-of/"
+      },
+      {
+       "num": "3.6.2",
+       "name": "Value iteration: return bound, convergence, stopping rule, numeric threshold",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-convergence-stopping-rule-numeric/"
+      },
+      {
+       "num": "3.6.3",
+       "name": "Value iteration: return bound, error bound proof, stopping rule, convergence",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/value-iteration-return-bound-error-bound-proof-stopping/"
+      }
+     ],
+     "also": []
+    },
+    {
+     "num": "3.7",
+     "concept": "Synchronous and asynchronous DP",
+     "slides": "67–76",
+     "href": "/teaching/rl-lectures/lecture-03/#67",
+     "tasks": [],
+     "exercises": [],
+     "also": []
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Monte Carlo Methods and TD Learning",
+   "href": "/teaching/rl-lectures/lecture-04/",
+   "slides": 68,
+   "video": "https://video.rug.nl/media/0_9crllstx",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-04.html",
+   "tutorial": "Tutorial 4",
+   "concepts": [
+    {
+     "num": "4.1",
+     "concept": "Monte Carlo prediction",
+     "slides": "7–17",
+     "href": "/teaching/rl-lectures/lecture-04/#7",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 1, batch MC",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-1-task"
+      },
+      {
+       "tutorial": 4,
+       "label": "Case 1, constant-α MC",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-1-task-2"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 5, Task 1",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-5-task-1"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "4.1.1",
+       "name": "First-visit and every-visit MC: values of A and B, with and without discounting",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/first-visit-and-every-visit-mc-values-of/"
+      },
+      {
+       "num": "4.1.2",
+       "name": "Monte Carlo prediction: convergence with probability 1 via Robbins-Monro",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/monte-carlo-prediction-convergence-with-probability-1-via/"
+      },
+      {
+       "num": "4.1.3",
+       "name": "Monte Carlo prediction: every-visit versus first-visit on blackjack",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/monte-carlo-prediction-every-visit-versus-first-visit/"
+      }
+     ],
+     "also": [
+      {
+       "num": "4.3.2",
+       "name": "Batch Monte Carlo versus batch TD(0): value estimates from eight episodes",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/batch-monte-carlo-versus-batch-td-0-value/"
+      },
+      {
+       "num": "4.5.2",
+       "name": "MC, TD(0) and TD(λ) prediction: implement and compare two policies",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/mc-td-0-and-td-lambda-prediction-implement/"
+      },
+      {
+       "num": "6.1.2",
+       "name": "Semi-gradient TD(0): true SGD of MSVE and TD error, Gradient MC",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/semi-gradient-td-0-true-sgd-of-msve/"
+      }
+     ]
+    },
+    {
+     "num": "4.2",
+     "concept": "Temporal-difference learning: TD(0)",
+     "slides": "18–29",
+     "href": "/teaching/rl-lectures/lecture-04/#18",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 2, TD(0)",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-task"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "4.2.1",
+       "name": "TD error for action values: identity G_t - Q(S_t,A_t) as a sum of TD errors",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-error-for-action-values-identity-g-t/"
+      },
+      {
+       "num": "4.2.2",
+       "name": "TD(0): first-episode update in the random walk",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-0-first-episode-update-in-the-random/"
+      }
+     ],
+     "also": [
+      {
+       "num": "4.3.1",
+       "name": "Temporal-difference learning: why TD estimates are biased (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/temporal-difference-learning-why-td-estimates-are-biased/"
+      },
+      {
+       "num": "4.3.2",
+       "name": "Batch Monte Carlo versus batch TD(0): value estimates from eight episodes",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/batch-monte-carlo-versus-batch-td-0-value/"
+      },
+      {
+       "num": "4.3.3",
+       "name": "MC vs TD: when a TD update beats a Monte Carlo update (driving home)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/mc-vs-td-when-a-td-update-beats/"
+      },
+      {
+       "num": "4.3.4",
+       "name": "TD(0): Monte Carlo error as a sum of TD errors when V changes",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-0-monte-carlo-error-as-a-sum/"
+      },
+      {
+       "num": "4.5.2",
+       "name": "MC, TD(0) and TD(λ) prediction: implement and compare two policies",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/mc-td-0-and-td-lambda-prediction-implement/"
+      },
+      {
+       "num": "5.2.2",
+       "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+      },
+      {
+       "num": "5.3.5",
+       "name": "DP vs sampled updates: model-free counterparts, no sampled value iteration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/"
+      },
+      {
+       "num": "5.7.2",
+       "name": "Importance sampling: off-policy TD(0) update (exercise 6.7)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/importance-sampling-off-policy-td-0-update-exercise/"
+      },
+      {
+       "num": "6.1.2",
+       "name": "Semi-gradient TD(0): true SGD of MSVE and TD error, Gradient MC",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/semi-gradient-td-0-true-sgd-of-msve/"
+      },
+      {
+       "num": "7.5.1",
+       "name": "Actor-critic: roles of actor and critic, TD error as baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/actor-critic-roles-of-actor-and-critic-td/"
+      },
+      {
+       "num": "7.5.2",
+       "name": "Baseline and advantage function: TD error as advantage estimate",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/"
+      },
+      {
+       "num": "7.5.3",
+       "name": "TD target as estimate of V or Q; TD error as advantage",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-target-as-estimate-of-v-or-q/"
+      }
+     ]
+    },
+    {
+     "num": "4.3",
+     "concept": "MC vs TD: bias and variance, batch updates",
+     "slides": "30–39",
+     "href": "/teaching/rl-lectures/lecture-04/#30",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 2, The Long Journey",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-experiment-the-long-journey"
+      },
+      {
+       "tutorial": 4,
+       "label": "Case 2, final task",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-task-2"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "4.3.1",
+       "name": "Temporal-difference learning: why TD estimates are biased (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/temporal-difference-learning-why-td-estimates-are-biased/"
+      },
+      {
+       "num": "4.3.2",
+       "name": "Batch Monte Carlo versus batch TD(0): value estimates from eight episodes",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/batch-monte-carlo-versus-batch-td-0-value/"
+      },
+      {
+       "num": "4.3.3",
+       "name": "MC vs TD: when a TD update beats a Monte Carlo update (driving home)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/mc-vs-td-when-a-td-update-beats/"
+      },
+      {
+       "num": "4.3.4",
+       "name": "TD(0): Monte Carlo error as a sum of TD errors when V changes",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-0-monte-carlo-error-as-a-sum/"
+      }
+     ],
+     "also": [
+      {
+       "num": "8.1.1",
+       "name": "Batch MC vs batch TD(0) with real and simulated experience (Dyna-Q)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/batch-mc-vs-batch-td-0-with-real/"
+      }
+     ]
+    },
+    {
+     "num": "4.4",
+     "concept": "Multi-step TD",
+     "slides": "40–45",
+     "href": "/teaching/rl-lectures/lecture-04/#40",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "4.4.1",
+       "name": "n-step TD: why a 19-state random walk and how n changes with the task",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/n-step-td-why-a-19-state-random/"
+      }
+     ],
+     "also": [
+      {
+       "num": "8.1.2",
+       "name": "Dyna-Q vs n-step bootstrapping in the Dyna maze",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/"
+      }
+     ]
+    },
+    {
+     "num": "4.5",
+     "concept": "Mixed multi-step returns and eligibility traces",
+     "slides": "46–66",
+     "href": "/teaching/rl-lectures/lecture-04/#46",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "4.5.1",
+       "name": "λ-return: half-life τ_λ in terms of λ",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/lambda-return-half-life-lambda-in-terms-of/"
+      },
+      {
+       "num": "4.5.2",
+       "name": "MC, TD(0) and TD(λ) prediction: implement and compare two policies",
+       "difficulty": "Easy",
+       "coding": true,
+       "href": "/teaching/rl-exercises/mc-td-0-and-td-lambda-prediction-implement/"
+      }
+     ],
+     "also": []
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Model-Free Control",
+   "href": "/teaching/rl-lectures/lecture-05/",
+   "slides": 62,
+   "video": "https://video.rug.nl/media/0_w2y3zc1y",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-05.html",
+   "tutorial": "Tutorial 5",
+   "concepts": [
+    {
+     "num": "5.1",
+     "concept": "Monte Carlo control, GLIE",
+     "slides": "14–21",
+     "href": "/teaching/rl-lectures/lecture-05/#14",
+     "tasks": [],
+     "exercises": [],
+     "also": [
+      {
+       "num": "5.2.1",
+       "name": "Monte Carlo control, GLIE: behaviour-policy conditions for SARSA convergence",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/monte-carlo-control-glie-behaviour-policy-conditions-for/"
+      },
+      {
+       "num": "5.2.2",
+       "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+      },
+      {
+       "num": "5.2.3",
+       "name": "SARSA: find and fix errors in faulty pseudocode",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/"
+      }
+     ]
+    },
+    {
+     "num": "5.2",
+     "concept": "SARSA: on-policy TD control",
+     "slides": "22–24",
+     "href": "/teaching/rl-lectures/lecture-05/#22",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "5.2.1",
+       "name": "Monte Carlo control, GLIE: behaviour-policy conditions for SARSA convergence",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/monte-carlo-control-glie-behaviour-policy-conditions-for/"
+      },
+      {
+       "num": "5.2.2",
+       "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
+      },
+      {
+       "num": "5.2.3",
+       "name": "SARSA: find and fix errors in faulty pseudocode",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/"
+      }
+     ],
+     "also": [
+      {
+       "num": "5.3.1",
+       "name": "On-policy vs off-policy: SARSA vs Q-learning, advantages and disadvantages",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/on-policy-vs-off-policy-sarsa-vs-q/"
+      },
+      {
+       "num": "5.3.2",
+       "name": "Q-learning vs SARSA: off-policy vs on-policy control",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/q-learning-vs-sarsa-off-policy-vs-on/"
+      },
+      {
+       "num": "5.3.4",
+       "name": "SARSA/Q-learning: numeric update of Q(s1,1) from a Q-table",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-q-learning-numeric-update-of-q-s1/"
+      },
+      {
+       "num": "5.3.5",
+       "name": "DP vs sampled updates: model-free counterparts, no sampled value iteration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/"
+      },
+      {
+       "num": "5.3.6",
+       "name": "Q-learning vs SARSA: equivalence under greedy action selection",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/q-learning-vs-sarsa-equivalence-under-greedy-action/"
+      },
+      {
+       "num": "5.6.1",
+       "name": "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/"
+      },
+      {
+       "num": "6.3.1",
+       "name": "Tabular methods as linear function approximation with one-hot features",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/tabular-methods-as-linear-function-approximation-with-one/"
+      },
+      {
+       "num": "6.3.2",
+       "name": "On-policy vs off-policy control: data efficiency and exploration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/on-policy-vs-off-policy-control-data-efficiency/"
+      }
+     ]
+    },
+    {
+     "num": "5.3",
+     "concept": "Q-learning (off-policy learning)",
+     "slides": "26–30",
+     "href": "/teaching/rl-lectures/lecture-05/#26",
+     "tasks": [
+      {
+       "tutorial": 5,
+       "label": "Case 2, Build the Q-learning agent",
+       "href": "/teaching/rl-tutorials/tutorial-05.html#case-2-task-build-the-q-learning-agent"
+      },
+      {
+       "tutorial": 5,
+       "label": "Case 2, Evaluation protocol",
+       "href": "/teaching/rl-tutorials/tutorial-05.html#case-2-task-build-the-evaluation-protocol"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "5.3.1",
+       "name": "On-policy vs off-policy: SARSA vs Q-learning, advantages and disadvantages",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/on-policy-vs-off-policy-sarsa-vs-q/"
+      },
+      {
+       "num": "5.3.2",
+       "name": "Q-learning vs SARSA: off-policy vs on-policy control",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/q-learning-vs-sarsa-off-policy-vs-on/"
+      },
+      {
+       "num": "5.3.3",
+       "name": "Q-learning: find and fix errors in faulty pseudocode",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/q-learning-find-and-fix-errors-in-faulty/"
+      },
+      {
+       "num": "5.3.4",
+       "name": "SARSA/Q-learning: numeric update of Q(s1,1) from a Q-table",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/sarsa-q-learning-numeric-update-of-q-s1/"
+      },
+      {
+       "num": "5.3.5",
+       "name": "DP vs sampled updates: model-free counterparts, no sampled value iteration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/"
+      },
+      {
+       "num": "5.3.6",
+       "name": "Q-learning vs SARSA: equivalence under greedy action selection",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/q-learning-vs-sarsa-equivalence-under-greedy-action/"
+      }
+     ],
+     "also": [
+      {
+       "num": "5.5.1",
+       "name": "Maximization bias: why Q-learning overestimates",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates/"
+      },
+      {
+       "num": "5.5.2",
+       "name": "Maximization bias: why Q-learning overestimates, mitigation",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates-mitigation/"
+      },
+      {
+       "num": "5.5.4",
+       "name": "Maximization bias: when overestimation helps, bias parameter mu",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-when-overestimation-helps-bias-parameter-mu/"
+      },
+      {
+       "num": "5.6.1",
+       "name": "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/"
+      },
+      {
+       "num": "5.7.1",
+       "name": "Off-policy learning: identify an off-policy scenario",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/off-policy-learning-identify-an-off-policy-scenario/"
+      },
+      {
+       "num": "6.3.2",
+       "name": "On-policy vs off-policy control: data efficiency and exploration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/on-policy-vs-off-policy-control-data-efficiency/"
+      },
+      {
+       "num": "8.1.2",
+       "name": "Dyna-Q vs n-step bootstrapping in the Dyna maze",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/"
+      }
+     ]
+    },
+    {
+     "num": "5.4",
+     "concept": "Expected SARSA",
+     "slides": "32",
+     "href": "/teaching/rl-lectures/lecture-05/#32",
+     "tasks": [],
+     "exercises": [],
+     "also": [
+      {
+       "num": "5.5.3",
+       "name": "Expected SARSA: Double Expected SARSA update equations",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/expected-sarsa-double-expected-sarsa-update-equations/"
+      }
+     ]
+    },
+    {
+     "num": "5.5",
+     "concept": "Maximization bias and double Q-learning",
+     "slides": "34–42",
+     "href": "/teaching/rl-lectures/lecture-05/#34",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "5.5.1",
+       "name": "Maximization bias: why Q-learning overestimates",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates/"
+      },
+      {
+       "num": "5.5.2",
+       "name": "Maximization bias: why Q-learning overestimates, mitigation",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates-mitigation/"
+      },
+      {
+       "num": "5.5.3",
+       "name": "Expected SARSA: Double Expected SARSA update equations",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/expected-sarsa-double-expected-sarsa-update-equations/"
+      },
+      {
+       "num": "5.5.4",
+       "name": "Maximization bias: when overestimation helps, bias parameter mu",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/maximization-bias-when-overestimation-helps-bias-parameter-mu/"
+      }
+     ],
+     "also": [
+      {
+       "num": "5.6.1",
+       "name": "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/"
+      }
+     ]
+    },
+    {
+     "num": "5.6",
+     "concept": "Deep Q-networks: experience replay, target network",
+     "slides": "44–48",
+     "href": "/teaching/rl-lectures/lecture-05/#44",
+     "tasks": [
+      {
+       "tutorial": 6,
+       "label": "Train your first DQN agent",
+       "href": "/teaching/rl-tutorials/tutorial-06.html#task-train-log-and-evaluate-your-first"
+      },
+      {
+       "tutorial": 6,
+       "label": "DQN hyperparameters",
+       "href": "/teaching/rl-tutorials/tutorial-06.html#task-investigating-hyperparameters"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "5.6.1",
+       "name": "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments",
+       "difficulty": "Medium",
+       "coding": true,
+       "href": "/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/"
+      }
+     ],
+     "also": [
+      {
+       "num": "6.4.1",
+       "name": "Deep Q-networks: target network against the deadly triad",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/deep-q-networks-target-network-against-the-deadly/"
+      },
+      {
+       "num": "6.4.2",
+       "name": "Linear to deep function approximation: DQN, challenges, remedies",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/linear-to-deep-function-approximation-dqn-challenges-remedies/"
+      },
+      {
+       "num": "6.4.4",
+       "name": "Deadly triad and DQN: instability, experience replay, target network",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/deadly-triad-and-dqn-instability-experience-replay-target/"
+      }
+     ]
+    },
+    {
+     "num": "5.7",
+     "concept": "Importance sampling",
+     "slides": "50–60",
+     "href": "/teaching/rl-lectures/lecture-05/#50",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "5.7.1",
+       "name": "Off-policy learning: identify an off-policy scenario",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/off-policy-learning-identify-an-off-policy-scenario/"
+      },
+      {
+       "num": "5.7.2",
+       "name": "Importance sampling: off-policy TD(0) update (exercise 6.7)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/importance-sampling-off-policy-td-0-update-exercise/"
+      }
+     ],
+     "also": [
+      {
+       "num": "7.2.1",
+       "name": "Policy-gradient theorem: on-policy requirement and off-policy mismatch",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-gradient-theorem-on-policy-requirement-and-off/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Function Approximation",
+   "href": "/teaching/rl-lectures/lecture-06/",
+   "slides": 65,
+   "video": "https://video.rug.nl/media/0_60ysjiwl",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-06.html",
+   "tutorial": "Tutorial 6",
+   "concepts": [
+    {
+     "num": "6.1",
+     "concept": "Value function approximation by stochastic gradient descent",
+     "slides": "14–35",
+     "href": "/teaching/rl-lectures/lecture-06/#14",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "6.1.1",
+       "name": "Function approximation: when tabular methods are impractical",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/function-approximation-when-tabular-methods-are-impractical/"
+      },
+      {
+       "num": "6.1.2",
+       "name": "Semi-gradient TD(0): true SGD of MSVE and TD error, Gradient MC",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/semi-gradient-td-0-true-sgd-of-msve/"
+      }
+     ],
+     "also": []
+    },
+    {
+     "num": "6.2",
+     "concept": "Linear function approximation",
+     "slides": "40–51",
+     "href": "/teaching/rl-lectures/lecture-06/#40",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "6.2.1",
+       "name": "Feature vectors: motivation vs tabular, goal of feature engineering",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/feature-vectors-motivation-vs-tabular-goal-of-feature/"
+      },
+      {
+       "num": "6.2.2",
+       "name": "Linear function approximation: design two features for grid world",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/linear-function-approximation-design-two-features-for-grid/"
+      }
+     ],
+     "also": [
+      {
+       "num": "6.3.1",
+       "name": "Tabular methods as linear function approximation with one-hot features",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/tabular-methods-as-linear-function-approximation-with-one/"
+      },
+      {
+       "num": "6.4.3",
+       "name": "Linear vs non-linear function approximators: trade-offs",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/linear-vs-non-linear-function-approximators-trade-offs/"
+      }
+     ]
+    },
+    {
+     "num": "6.3",
+     "concept": "Control with value-function approximation",
+     "slides": "52–57",
+     "href": "/teaching/rl-lectures/lecture-06/#52",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "6.3.1",
+       "name": "Tabular methods as linear function approximation with one-hot features",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/tabular-methods-as-linear-function-approximation-with-one/"
+      },
+      {
+       "num": "6.3.2",
+       "name": "On-policy vs off-policy control: data efficiency and exploration",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/on-policy-vs-off-policy-control-data-efficiency/"
+      }
+     ],
+     "also": [
+      {
+       "num": "6.4.5",
+       "name": "Semi-gradient SARSA: on-policy vs off-policy closeness to gradient descent",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/semi-gradient-sarsa-on-policy-vs-off-policy/"
+      }
+     ]
+    },
+    {
+     "num": "6.4",
+     "concept": "Convergence, divergence and experience replay",
+     "slides": "58–63",
+     "href": "/teaching/rl-lectures/lecture-06/#58",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "6.4.1",
+       "name": "Deep Q-networks: target network against the deadly triad",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/deep-q-networks-target-network-against-the-deadly/"
+      },
+      {
+       "num": "6.4.2",
+       "name": "Linear to deep function approximation: DQN, challenges, remedies",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/linear-to-deep-function-approximation-dqn-challenges-remedies/"
+      },
+      {
+       "num": "6.4.3",
+       "name": "Linear vs non-linear function approximators: trade-offs",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/linear-vs-non-linear-function-approximators-trade-offs/"
+      },
+      {
+       "num": "6.4.4",
+       "name": "Deadly triad and DQN: instability, experience replay, target network",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/deadly-triad-and-dqn-instability-experience-replay-target/"
+      },
+      {
+       "num": "6.4.5",
+       "name": "Semi-gradient SARSA: on-policy vs off-policy closeness to gradient descent",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/semi-gradient-sarsa-on-policy-vs-off-policy/"
+      }
+     ],
+     "also": []
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "title": "Policy Gradients and Actor-Critic",
+   "href": "/teaching/rl-lectures/lecture-07/",
+   "slides": 58,
+   "video": "https://video.rug.nl/media/0_bntj4war",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-07.html",
+   "tutorial": "Tutorial 7",
+   "concepts": [
+    {
+     "num": "7.1",
+     "concept": "Policy-based RL: parameterized policies",
+     "slides": "9–18",
+     "href": "/teaching/rl-lectures/lecture-07/#9",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Build the policy network",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-build-the-policy-network"
+      },
+      {
+       "tutorial": 7,
+       "label": "Gaussian policy",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-upgrade-the-policy-network"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "7.1.1",
+       "name": "Policy-based RL: advantage over value-based methods (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-based-rl-advantage-over-value-based-methods/"
+      },
+      {
+       "num": "7.1.2",
+       "name": "Policy-based RL: family for continuous action spaces (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-based-rl-family-for-continuous-action-spaces/"
+      },
+      {
+       "num": "7.1.3",
+       "name": "Stochastic policies: advantage under partial observability (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/stochastic-policies-advantage-under-partial-observability-mcq/"
+      },
+      {
+       "num": "7.1.4",
+       "name": "Stochastic policies: advantage with near-optimal actions (MCQ)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/stochastic-policies-advantage-with-near-optimal-actions-mcq/"
+      },
+      {
+       "num": "7.1.5",
+       "name": "Policy-based vs value-based RL: continuous action spaces",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-based-vs-value-based-rl-continuous-action/"
+      },
+      {
+       "num": "7.1.6",
+       "name": "Stochastic policies: perceptual aliasing, policy gradient vs Q-learning",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/stochastic-policies-perceptual-aliasing-policy-gradient-vs-q/"
+      }
+     ],
+     "also": [
+      {
+       "num": "7.4.2",
+       "name": "REINFORCE vs value-based: action spaces, exploration, variance (mock)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/"
+      }
+     ]
+    },
+    {
+     "num": "7.2",
+     "concept": "Policy-gradient theorem",
+     "slides": "19–30",
+     "href": "/teaching/rl-lectures/lecture-07/#19",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Task 2, REINFORCE loss",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-2"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "7.2.1",
+       "name": "Policy-gradient theorem: on-policy requirement and off-policy mismatch",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-gradient-theorem-on-policy-requirement-and-off/"
+      }
+     ],
+     "also": [
+      {
+       "num": "7.3.1",
+       "name": "REINFORCE derivation: model-dependent terms and model-free property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-derivation-model-dependent-terms-and-model-free/"
+      },
+      {
+       "num": "7.4.3",
+       "name": "Policy-gradient theorem: unbiasedness of the baseline estimate",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-gradient-theorem-unbiasedness-of-the-baseline-estimate/"
+      }
+     ]
+    },
+    {
+     "num": "7.3",
+     "concept": "REINFORCE",
+     "slides": "31–32",
+     "href": "/teaching/rl-lectures/lecture-07/#31",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-3"
+      },
+      {
+       "tutorial": 7,
+       "label": "Full training run",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-launch-the-full-training-run"
+      }
+     ],
+     "exercises": [
+      {
+       "num": "7.3.1",
+       "name": "REINFORCE derivation: model-dependent terms and model-free property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-derivation-model-dependent-terms-and-model-free/"
+      }
+     ],
+     "also": [
+      {
+       "num": "7.4.1",
+       "name": "Baseline in REINFORCE: motivation and required property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/baseline-in-reinforce-motivation-and-required-property/"
+      },
+      {
+       "num": "7.4.2",
+       "name": "REINFORCE vs value-based: action spaces, exploration, variance (mock)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/"
+      },
+      {
+       "num": "7.4.4",
+       "name": "REINFORCE with baseline: unbiasedness, variance, exploration, principles",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-with-baseline-unbiasedness-variance-exploration-principles/"
+      },
+      {
+       "num": "7.5.4",
+       "name": "REINFORCE, actor-critic and PPO: Inverted Pendulum programming task",
+       "difficulty": "Hard",
+       "coding": true,
+       "href": "/teaching/rl-exercises/reinforce-actor-critic-and-ppo-inverted-pendulum-programming/"
+      }
+     ]
+    },
+    {
+     "num": "7.4",
+     "concept": "Reducing the variance: causality and baseline",
+     "slides": "33–40",
+     "href": "/teaching/rl-lectures/lecture-07/#33",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "7.4.1",
+       "name": "Baseline in REINFORCE: motivation and required property",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/baseline-in-reinforce-motivation-and-required-property/"
+      },
+      {
+       "num": "7.4.2",
+       "name": "REINFORCE vs value-based: action spaces, exploration, variance (mock)",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/"
+      },
+      {
+       "num": "7.4.3",
+       "name": "Policy-gradient theorem: unbiasedness of the baseline estimate",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/policy-gradient-theorem-unbiasedness-of-the-baseline-estimate/"
+      },
+      {
+       "num": "7.4.4",
+       "name": "REINFORCE with baseline: unbiasedness, variance, exploration, principles",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/reinforce-with-baseline-unbiasedness-variance-exploration-principles/"
+      }
+     ],
+     "also": [
+      {
+       "num": "7.5.1",
+       "name": "Actor-critic: roles of actor and critic, TD error as baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/actor-critic-roles-of-actor-and-critic-td/"
+      },
+      {
+       "num": "7.5.2",
+       "name": "Baseline and advantage function: TD error as advantage estimate",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/"
+      },
+      {
+       "num": "7.5.4",
+       "name": "REINFORCE, actor-critic and PPO: Inverted Pendulum programming task",
+       "difficulty": "Hard",
+       "coding": true,
+       "href": "/teaching/rl-exercises/reinforce-actor-critic-and-ppo-inverted-pendulum-programming/"
+      }
+     ]
+    },
+    {
+     "num": "7.5",
+     "concept": "Actor-critic, advantage function, A2C",
+     "slides": "41–54",
+     "href": "/teaching/rl-lectures/lecture-07/#41",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "7.5.1",
+       "name": "Actor-critic: roles of actor and critic, TD error as baseline",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/actor-critic-roles-of-actor-and-critic-td/"
+      },
+      {
+       "num": "7.5.2",
+       "name": "Baseline and advantage function: TD error as advantage estimate",
+       "difficulty": "Easy",
+       "coding": false,
+       "href": "/teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/"
+      },
+      {
+       "num": "7.5.3",
+       "name": "TD target as estimate of V or Q; TD error as advantage",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/td-target-as-estimate-of-v-or-q/"
+      },
+      {
+       "num": "7.5.4",
+       "name": "REINFORCE, actor-critic and PPO: Inverted Pendulum programming task",
+       "difficulty": "Hard",
+       "coding": true,
+       "href": "/teaching/rl-exercises/reinforce-actor-critic-and-ppo-inverted-pendulum-programming/"
+      }
+     ],
+     "also": []
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "title": "Model-Based Reinforcement Learning",
+   "href": "/teaching/rl-lectures/lecture-08/",
+   "slides": 45,
+   "video": "https://video.rug.nl/media/0_tysl5v21",
+   "tutorial_href": null,
+   "tutorial": null,
+   "concepts": [
+    {
+     "num": "8.1",
+     "concept": "Model-based RL and Dyna-Q",
+     "slides": "11–30",
+     "href": "/teaching/rl-lectures/lecture-08/#11",
+     "tasks": [],
+     "exercises": [
+      {
+       "num": "8.1.1",
+       "name": "Batch MC vs batch TD(0) with real and simulated experience (Dyna-Q)",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/batch-mc-vs-batch-td-0-with-real/"
+      },
+      {
+       "num": "8.1.2",
+       "name": "Dyna-Q vs n-step bootstrapping in the Dyna maze",
+       "difficulty": "Medium",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/"
+      },
+      {
+       "num": "8.1.3",
+       "name": "Dyna-Q: stochastic and changing environments",
+       "difficulty": "Hard",
+       "coding": false,
+       "href": "/teaching/rl-exercises/dyna-q-stochastic-and-changing-environments/"
+      }
+     ],
+     "also": []
+    },
+    {
+     "num": "8.2",
+     "concept": "Planning for action selection: Monte Carlo tree search",
+     "slides": "31–42",
+     "href": "/teaching/rl-lectures/lecture-08/#31",
+     "tasks": [],
+     "exercises": [],
+     "also": []
+    }
+   ]
+  }
+ ]
+}

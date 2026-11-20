@@ -5,6 +5,9 @@ layout: default
         <div class="post">
 
           <header class="post-header">
+            {%- if page.parent %}
+            <a class="post-parent" href="{{ page.parent.url }}" style="display:inline-block; font-size:0.9rem; margin-bottom:0.3rem; color:var(--global-text-color-light);">← {{ page.parent.title }}</a>
+            {%- endif %}
             <h1 class="post-title">{{ page.title }}</h1>
             <p class="post-description">{{ page.description }}</p>
           </header>

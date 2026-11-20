@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Exercise 7.5.3"
+description: "TD target as estimate of V or Q; TD error as advantage"
+permalink: /teaching/rl-exercises/td-target-as-estimate-of-v-or-q/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.5 Actor-critic, advantage function, A2C</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>The quantity <span class="math inline">\(R_{t+1} + \gamma V^{\pi}(S_{t+1})\)</span>, known as the TD target, is a cornerstone of reinforcement learning. Its interpretation depends critically on the context of the estimation problem. This question explores this dual role and its application in Actor-Critic algorithms.</p>
+<p>Analyze the following two scenarios:</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> <strong>Scenario A:</strong> An agent is in state <span class="math inline">\(S_t\)</span> and is about to take an action by sampling from its policy, <span class="math inline">\(A_t \sim \pi(\cdot|S_t)\)</span>. In this context, what fundamental quantity is the TD target a single-sample estimate of?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> <strong>Scenario B:</strong>An agent was in state <span class="math inline">\(S_t\)</span>, took a specific action <span class="math inline">\(A_t\)</span>, and then observed the outcome <span class="math inline">\((R_{t+1}, S_{t+1})\)</span>. In this new context, what fundamental quantity is the TD target a single-sample estimate of?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> In an Actor-Critic algorithm, the actor’s update should be guided by how much better or worse the chosen action was compared to the average value of the state. Demonstrate how the TD error, <span class="math inline">\(\delta_t = R_{t+1} + \gamma V^{\pi}(S_{t+1}) - V^{\pi}(S_t)\)</span>, provides exactly this measurement. Your demonstration must explicitly use your conclusions from (a) and (b) to interpret the components of the TD error formula. Conclude by stating the formal name for the quantity that the TD error is estimating.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#41">Slides: L7 · 41–54</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/baseline-and-advantage-function-td-error-as-advantage/">← Ex 7.5.2 · Baseline and advantage function: TD error as advantage estimate</a><a class="next" href="/teaching/rl-exercises/reinforce-actor-critic-and-ppo-inverted-pendulum-programming/">Ex 7.5.4 · REINFORCE, actor-critic and PPO: Inverted Pendulum programming task →</a></nav>
+

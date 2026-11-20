@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Exercise 4.5.1"
+description: "λ-return: half-life τ_λ in terms of λ"
+permalink: /teaching/rl-exercises/lambda-return-half-life-lambda-in-terms-of/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-course-map/">Reinforcement Learning</a> › <a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.5 Mixed multi-step returns and eligibility traces</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the <span class="math inline">\(\lambda\)</span>-return of the TD(<span class="math inline">\(\lambda\)</span>) algorithm: <span class="math display">\[G^{\lambda}_t = (1- \lambda) \sum^{\infty}_{n=1} \lambda^{n-1} G_{t:t+n}.\]</span> The parameter <span class="math inline">\(\lambda\)</span> characterizes how fast the exponential weighting in Figure 1 falls off, and thus how far into the future the <span class="math inline">\(\lambda\)</span>-return algorithm looks in determining its update. But a rate factor such as <span class="math inline">\(\lambda\)</span> is sometimes an awkward way of characterizing the speed of the decay. For some purposes it is better to specify a time constant, or half-life. What is the equation relating <span class="math inline">\(\lambda\)</span> and the half-life, <span class="math inline">\(\tau_{\lambda}\)</span>, the time by which the weighting sequence will have fallen to half of its initial value?</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/lambda-return-weighting.svg" alt="lambdareturn.png" style="max-width:100%;height:auto"><figcaption>Figure 1: Weighting given in the <span class="math inline">\(\lambda\)</span>-return to each of the <span class="math inline">\(n\)</span>-step returns.</figcaption></figure>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 12.2. Figure 12.2 is redrawn from the book. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#46">Slides: L4 · 46–66</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/n-step-td-why-a-19-state-random/">← Ex 4.4.1 · n-step TD: why a 19-state random walk and how n changes with the task</a><a class="next" href="/teaching/rl-exercises/mc-td-0-and-td-lambda-prediction-implement/">Ex 4.5.2 · MC, TD(0) and TD(λ) prediction: implement and compare two policies →</a></nav>
+

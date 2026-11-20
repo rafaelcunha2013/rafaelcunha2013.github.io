@@ -167,6 +167,10 @@ giscus_comments: false
             font-weight: 500;
             color: #4b9cd3;
         }
+        a.material-title { text-decoration: none; }
+        a.material-title:hover { color: #4b9cd3; }
+        .material-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; align-items: baseline; font-size: 0.95rem; }
+        .material-links a { color: #4b9cd3; }
         /* Responsive */
         @media (max-width: 768px) {
             .section-title {
@@ -186,11 +190,11 @@ giscus_comments: false
         <h2 class="section-title">Open Teaching Material</h2>
         <p class="section-description">Material from my courses, free to use and adapt under an open licence.</p>
     </div>
-    <a class="material-card" href="/teaching/rl-tutorials/">
-        <span class="material-title">Reinforcement Learning Tutorials</span>
-        <span class="material-text">Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.</span>
-        <span class="material-link">Open the tutorials →</span>
-    </a>
+    <div class="material-card">
+        <a class="material-title" href="/teaching/rl-course-map/">Reinforcement Learning</a>
+        <span class="material-text">An open introductory course in eight lectures, following Sutton and Barto's textbook: slides with video recordings, tutorials whose code runs in your browser, and exercises for every concept.</span>
+        <span class="material-links"><a class="material-link" href="/teaching/rl-course-map/">Open the course →</a><a href="/teaching/rl-lectures/">Lectures</a><a href="/teaching/rl-tutorials/">Tutorials</a><a href="/teaching/rl-exercises/">Exercises</a></span>
+    </div>
 </div>
 
 <br>
@@ -272,7 +276,7 @@ giscus_comments: false
                     </td>
                     <td><span class="level-badge level-bachelor">Bachelor</span></td>
                     <td><span class="role-badge">Coordinator & Lecturer</span></td>
-                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice. <a href="/teaching/rl-tutorials/" class="course-link">Open the tutorials</a></span></td>
+                    <td><span class="notes-text">Introduced interactive simulation labs (Jupyter) to bridge theory and practice. <a href="/teaching/rl-lectures/" class="course-link">Open the lectures</a> · <a href="/teaching/rl-tutorials/" class="course-link">Open the tutorials</a></span></td>
                 </tr>
                 <tr>
                     <td class="year-block">2025/26 IA</td>
