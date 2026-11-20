@@ -69,6 +69,7 @@
         root.appendChild(head);
       }
       const box = el("aside", "callout k-" + c.kind);
+      if (c.id) box.id = c.id;
       // labels may contain inline code, e.g. "Task: Investigate the `MountainCarContinuous-v0` Environment"
       box.appendChild(el("div", "callout-label", esc(c.label).replace(/`([^`]+)`/g, "<code>$1</code>")));
       box.appendChild(el("div", "callout-body", renderMarkdown(c.md)));
