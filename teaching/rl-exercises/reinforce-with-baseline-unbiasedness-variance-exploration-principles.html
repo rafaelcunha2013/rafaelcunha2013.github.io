@@ -14,15 +14,15 @@ nav: false
     \nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}} \left[\sum_{t=0}^{T-1} (G_t - b(s))\nabla_\theta \log \pi_\theta(a_t|s_t)  \right]
 \end{equation*}\]</span> where <span class="math inline">\(J(\theta)\)</span> is the objective function representing the expected return, <span class="math inline">\(\pi_\theta(a_t|s_t)\)</span> is the policy (a distribution over actions given the current state and parameterized by <span class="math inline">\(\theta\)</span>), <span class="math inline">\(G_t\)</span> is the return from time <span class="math inline">\(t\)</span> onwards, and <span class="math inline">\(\tau\)</span> is the trajectory.</p>
 <ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> (1 point) Prove mathematically that <span class="math display">\[\begin{equation*}
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> Prove mathematically that <span class="math display">\[\begin{equation*}
         \mathbb{E}_{\tau \sim \pi_{\theta}} \left[\sum_{t=0}^{T-1} (G_t - b(s))\nabla_\theta \log \pi_\theta(a_t|s_t)  \right] = \mathbb{E}_{\tau \sim \pi_{\theta}} \left[\sum_{t=0}^{T-1} (G_t )\nabla_\theta \log \pi_\theta(a_t|s_t)  \right]
 \end{equation*}\]</span></p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> (0.5 point) Why does subtracting a baseline <span class="math inline">\(b(s)\)</span> from the return <span class="math inline">\(G_t\)</span> improve the performance of the REINFORCE algorithm?</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> Why does subtracting a baseline <span class="math inline">\(b(s)\)</span> from the return <span class="math inline">\(G_t\)</span> improve the performance of the REINFORCE algorithm?</p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">c)</span> (0.5 point) Explain how exploration is driven in policy-gradient methods like REINFORCE.</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">c)</span> Explain how exploration is driven in policy-gradient methods like REINFORCE.</p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">d)</span> (0.5 point) Outline two core principles that differentiate policy-gradient methods from value-based methods.</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">d)</span> Outline two core principles that differentiate policy-gradient methods from value-based methods.</p>
 </li>
 </ul>
 

@@ -12,19 +12,19 @@ nav: false
 {% raw %}
 <p>You are designing a robot to run a maze. We will model this as a discounted, continuing task. When the robot completes the maze, it receives a reward of +1 and on the next timestep, it deterministically transitions back to the start state to begin again. The robot receives a reward of 0 at all other timesteps.</p>
 <ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (2 points) Give an expression for the return <span class="math inline">\(G_t\)</span> and show that this return is bounded from above by <span class="math inline">\(\frac{1}{1-\gamma}\)</span>.</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Give an expression for the return <span class="math inline">\(G_t\)</span> and show that this return is bounded from above by <span class="math inline">\(\frac{1}{1-\gamma}\)</span>.</p>
 
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (3 points) Let <span class="math inline">\(\mathcal{V}\)</span> denote the set of value functions over the state space. The <em>Bellman optimality operator</em> <span class="math inline">\(T^{*} : \mathcal{V} \rightarrow \mathcal{V}\)</span> is defined as: <span class="math display">\[\begin{align*}
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Let <span class="math inline">\(\mathcal{V}\)</span> denote the set of value functions over the state space. The <em>Bellman optimality operator</em> <span class="math inline">\(T^{*} : \mathcal{V} \rightarrow \mathcal{V}\)</span> is defined as: <span class="math display">\[\begin{align*}
         (T^{*}v)(s) = \max_a \sum_{s&#39;,r} p(s&#39;,r|s,a)\big[ r + \gamma v(s&#39;) \big]
 \end{align*}\]</span> The value iteration algorithm uses the update rule <span class="math inline">\(v_{k+1} \leftarrow T^{*} v_k\)</span>. Let <span class="math inline">\(v_*\)</span> denote the optimal value function, which is the unique fixed point such that <span class="math inline">\(v_* = T^* v_*\)</span>. The operator <span class="math inline">\(T^*\)</span> is a <span class="math inline">\(\gamma\)</span>-contraction with respect to the max-norm, meaning <span class="math inline">\(\parallel T^*v - T^*v&#39; \parallel_{\infty} \leq \gamma \parallel v - v&#39; \parallel_{\infty}\)</span>, where <span class="math inline">\(\parallel v \parallel_{\infty} := \max_s |v(s)|\)</span>.</p>
 <p>Prove that the error of the value function at iteration <span class="math inline">\(k\)</span> is bounded by the change in the value function from the previous iteration, according to the following expression: <span class="math display">\[\begin{align*}
     \parallel v_k - v_* \parallel_{\infty} \leq \frac{\gamma}{1-\gamma} \parallel v_k - v_{k-1} \parallel_{\infty}
 \end{align*}\]</span></p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (2 points) Explain the practical importance of the inequality you proved in part (b). How does it allow you to define a concrete stopping condition for the value iteration algorithm, even though you do not know the true optimal value function <span class="math inline">\(v_*\)</span>?</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> Explain the practical importance of the inequality you proved in part (b). How does it allow you to define a concrete stopping condition for the value iteration algorithm, even though you do not know the true optimal value function <span class="math inline">\(v_*\)</span>?</p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(d)</span> (1 point) For what values of <span class="math inline">\(\gamma\)</span> is convergence of value iteration guaranteed? Does the choice of the initial value function, <span class="math inline">\(v_0\)</span>, matter for convergence?</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(d)</span> For what values of <span class="math inline">\(\gamma\)</span> is convergence of value iteration guaranteed? Does the choice of the initial value function, <span class="math inline">\(v_0\)</span>, matter for convergence?</p>
 
 </li>
 </ul>

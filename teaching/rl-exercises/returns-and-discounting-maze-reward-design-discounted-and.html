@@ -12,11 +12,11 @@ nav: false
 {% raw %}
 <p>Imagine that you are designing a robot to run a maze. The task seems to break down naturally into episodes – the successive runs through the maze. You decide to treat it as an episodic task. Now, consider the following scenarios:</p>
 <ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) The robot receives a reward of 0 at all times unless it escapes the maze when it receives a reward of 1. You try to maximize the undiscounted return. After running the learning agent for a while, you find that it is showing no improvement in escaping from the maze. What is going wrong? Have you effectively communicated to the agent what you want it to achieve?</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> The robot receives a reward of 0 at all times unless it escapes the maze when it receives a reward of 1. You try to maximize the undiscounted return. After running the learning agent for a while, you find that it is showing no improvement in escaping from the maze. What is going wrong? Have you effectively communicated to the agent what you want it to achieve?</p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (2 points) Now, consider the discounted return with <span class="math inline">\(0&lt;\gamma&lt;1\)</span>. Will the agent learn to escape the maze as soon as possible? Give an expression for the return at time <span class="math inline">\(t\)</span> if the agent completes the maze at time <span class="math inline">\(T\)</span>.</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Now, consider the discounted return with <span class="math inline">\(0&lt;\gamma&lt;1\)</span>. Will the agent learn to escape the maze as soon as possible? Give an expression for the return at time <span class="math inline">\(t\)</span> if the agent completes the maze at time <span class="math inline">\(T\)</span>.</p>
 </li>
-<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (1 point) You decide to take a different route – you will design the reward function yourself. What is a possible reward function so that the agent will successfully complete the maze in the undiscounted, episodic case?</p>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> You decide to take a different route – you will design the reward function yourself. What is a possible reward function so that the agent will successfully complete the maze in the undiscounted, episodic case?</p>
 </li>
 </ul>
 
