@@ -1,0 +1,30 @@
+---
+layout: page
+title: "Exercise 2.2.2"
+description: "Markov decision process: modelling a warehouse robot, Markov property"
+permalink: /teaching/rl-exercises/markov-decision-process-modelling-a-warehouse-robot-markov/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.2 Markov property</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider a scenario in which an autonomous robot navigates through a warehouse to fetch items and deliver them to designated drop-off zones. The warehouse is divided into a grid where each cell can either be empty, contain an item, or be a drop-off zone. Some areas of the warehouse might have slippery floors, causing the robot to occasionally slide into unintended adjacent cells.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) Explain the difference between stochastic and deterministic transition functions. Considering the scenario, which would be more appropriate and why?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) Explain what the Markov property is and why it is theoretically required when using Reinforcement Learning algorithms to solve this problem.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (1 point) Describe how you would model this problem as a Markov Decision Process. Include the definition of states, actions, transition function, and reward function.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(d)</span> (1 point) Provide an example from the scenario that illustrates the memorylessness feature of the Markov property.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#27">Slides: L2 · 27–29</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/markov-property-which-history-independence-equality-is-false/">← Ex 2.2.1 · Markov property: which history-independence equality is false</a><a class="next" href="/teaching/rl-exercises/returns-and-discounting-g-1-with-0-5/">Ex 2.3.1 · Returns and discounting: G_1 with γ = 0.5 and five rewards →</a></nav>
+

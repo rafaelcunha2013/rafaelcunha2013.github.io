@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Exercise 6.1.2"
+description: "Semi-gradient TD(0): true SGD of MSVE and TD error, Gradient MC"
+permalink: /teaching/rl-exercises/semi-gradient-td-0-true-sgd-of-msve/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-6">Lecture 6 · Function Approximation</a> › 6.1 Value function approximation by stochastic gradient descent</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p><strong>The Foundation of Gradient-Based TD Methods</strong></p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> (1 point)For a given policy <span class="math inline">\(\pi\)</span>, the most natural and standard objective for value prediction is the Mean Squared Value Error (<span class="math inline">\(MSVE\)</span>), which measures the quality of a value function approximation <span class="math inline">\(\hat{v}(s, \mathbf{w})\)</span>. It is given by: <span class="math display">\[MSVE(\mathbf{w}) \doteq \sum_{s \in \mathcal{S}} \mu(s) [v_\pi(s) - \hat{v}(s, \mathbf{w})]^2\]</span> where <span class="math inline">\(\mu(s)\)</span> is the on-policy state distribution.</p>
+<p>First, derive the update rule for a true stochastic gradient descent (SGD) step designed to minimize the <span class="math inline">\(MSVE\)</span>. Then, contrast this with the true SGD update for minimizing the squared TD error at each step, <span class="math inline">\([(R_{t+1} + \gamma \hat{v}(S_{t+1}, \mathbf{w})) - \hat{v}(S_t, \mathbf{w})]^2\)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> (1 point) State the update rule used in the semi-gradient TD(0) algorithm for value prediction. By comparing this practical update rule to the true gradient-based updates you derived in part (a), explain the origin of the term “semi-gradient." Your explanation should highlight the key mathematical difference between them. Finally, discuss the theoretical and practical implications of this difference.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">c)</span> (0.5 point)Now, consider a Gradient Monte Carlo (MC) prediction algorithm. Analyze the update target used in Gradient MC and explain how its stochastic gradient descent updates relate to the MSVE objective from part (a). Based on your analysis, does Gradient MC also qualify as a semi-gradient method? Justify your conclusion.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-06/#14">Slides: L6 · 14–35</a><a href="/teaching/rl-course-map/#lec-6">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/function-approximation-when-tabular-methods-are-impractical/">← Ex 6.1.1 · Function approximation: when tabular methods are impractical</a><a class="next" href="/teaching/rl-exercises/feature-vectors-motivation-vs-tabular-goal-of-feature/">Ex 6.2.1 · Feature vectors: motivation vs tabular, goal of feature engineering →</a></nav>
+

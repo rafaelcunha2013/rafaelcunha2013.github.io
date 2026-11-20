@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Exercise 1.4.1"
+description: "Greedy: arm selected in the long run, from the estimates (figure)"
+permalink: /teaching/rl-exercises/greedy-arm-selected-in-the-long-run-from/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-1">Lecture 1 · Exploration Methods</a> › 1.4 Greedy</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>In the k-armed bandit problem depicted in the figure below, the black bars represent the true value of each arm’s reward distribution, labeled with <span class="math inline">\(q_*(i)\)</span>, <span class="math inline">\(i\)</span> corresponds to the arm number (action). The current action-value estimates are denoted by the dashed bars. You are employing a greedy policy and updating your action-value estimates with the data obtained from sampling and a small step size. Considering the current estimates, which arm is the greedy policy most likely to continue selecting in the long run?</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/2076ebdbaca8.png" alt="10_armed_bandit_testbed.png" style="max-width:100%;height:auto"></figure>
+<ul class="qlist qmcq" data-salt="greedy-arm-selected-in-the-long-run-from" data-key="92254384c4a01a06d5c3484b85a759c144be7ba99bb069d44948f9a1a93b6f9f" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>Arm 3</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>Arm 4</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>Arm 5</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>Arm 9</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#49">Slides: L1 · 49–53</a><a href="/teaching/rl-course-map/#lec-1">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/weighted-average-method-q-n-1-in-terms/">← Ex 1.3.4 · Weighted-average method: Q_{n+1} in terms of Q_1 and past rewards</a><a class="next" href="/teaching/rl-exercises/greedy-arm-selected-in-the-long-run-second/">Ex 1.4.2 · Greedy: arm selected in the long run, second testbed figure →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

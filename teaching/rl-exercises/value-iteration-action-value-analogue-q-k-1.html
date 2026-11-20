@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 3.4.1"
+description: "Value iteration: action-value analogue q_{k+1}(s,a)"
+permalink: /teaching/rl-exercises/value-iteration-action-value-analogue-q-k-1/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.4 Value iteration</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>(1 point) From b) and c), by substitution one gets a recursive relation for <span class="math inline">\(q_{\pi}\)</span>: <span class="math display">\[\begin{align*}
+        q_{\pi}(s,a)=\sum_{s&#39;, r}p(s&#39;, r|s,a)(r+\gamma \sum_{a&#39;} \pi(a&#39;|s&#39;) q_{\pi}(s&#39;,a&#39;))
+\end{align*}\]</span></p>
+<p>Consider the value iteration update: <span class="math display">\[\begin{align*}
+        v_{k+1}(s) = \max_a \mathbb{E}(R_{t+1} + \gamma v_k(S_{t+1})|S_t=s, A_t=a)\\
+        = \max_a \sum_{s&#39;,r}p(s&#39;,r|s,a) ( r + \gamma v_k(s&#39;))\\
+        = \max_a (r(s,a) + \gamma \sum_{s&#39;} p(s&#39;|s,a)v_k(s&#39;))
+\end{align*}\]</span> It takes the next action <span class="math inline">\(a\)</span> that maximizes <span class="math inline">\(v_{k+1}\)</span>. What is the analog of the value iteration update for action values, <span class="math inline">\(q_{k+1}(s,a)\)</span>?</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 4.10. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#40">Slides: L3 · 40–44</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-improvement-theorem-proof-for-stochastic-policies/">← Ex 3.3.4 · Policy improvement theorem: proof for stochastic policies</a><a class="next" href="/teaching/rl-exercises/value-iteration-update-rule-for-action-values-q/">Ex 3.4.2 · Value iteration: update rule for action values q_{k+1}(s,a) →</a></nav>
+

@@ -1,0 +1,54 @@
+---
+layout: page
+title: "Exercise 2.6.2"
+description: "Bellman equation in matrix form: three-state MDP, r^π, P^π, v"
+permalink: /teaching/rl-exercises/bellman-equation-in-matrix-form-three-state-mdp/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.6 Bellman equation in matrix form</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>(Note: For the <em>programming</em> part of this question, read the information in the end of it about the GitHub repository.)</p>
+<p>Consider the MDP given in Figure 1. Actions have a <span class="math inline">\(0.9\)</span> probability of success and with <span class="math inline">\(0.1\)</span> probability we remain in the same state. <span class="math inline">\(R_t =0\)</span> for all transitions that end up in <span class="math inline">\(S_0\)</span>, and <span class="math inline">\(R_t = -1\)</span> for all other transitions. Consider a discount factor of <span class="math inline">\(\gamma = 0.9\)</span>.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/3caec741831c.svg" alt="diagram" style="max-width:100%;height:auto"><figcaption>Figure 1: Diagram of a simple MDP.</figcaption></figure>
+<p>Recall the Bellman equation <span class="math display">\[\begin{align*}
+    v_{\pi}(s) = \sum_a \pi(a|s) \Big(r(s,a) + \gamma \sum_{s&#39;} p(s&#39;|s,a) v_{\pi}(s&#39;) \Big).
+\end{align*}\]</span></p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) For <span class="math inline">\(v_i \equiv v(s_i)\)</span>, that is: <span class="math display">\[\begin{align*}
+            \mathbf{v} \equiv \begin{bmatrix}
+            v(s_0) \\
+            v(s_1) \\
+            v(s_2)
+        \end{bmatrix}.
+\end{align*}\]</span> Show that the expression above can be written as the matrix system <span class="math inline">\(\mathbf{v} = \mathbf{r}^{\pi} + \gamma \mathbf{P}^{\pi} \mathbf{v}\)</span>. Show the expressions for <span class="math inline">\(r_i^{\pi}\)</span> and <span class="math inline">\(P_{ij}^{\pi}\)</span> of the elements of vector <span class="math inline">\(\mathbf{r}^{\pi}\)</span>, and matrix <span class="math inline">\(\mathbf{P}^{\pi}\)</span>, for the row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) Using matrix algebra, find a closed-form solution for <span class="math inline">\(\mathbf{v}\)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (2 points) For the problem above, considering the policy <span class="math inline">\(\pi\)</span> defined as <span class="math inline">\(\pi(a_1|s) = 0.4\)</span>, and <span class="math inline">\(\pi(a_2|s) = 0.6\)</span>, <span class="math inline">\(\forall s\)</span>. Find (without using a computer) the numerical values of <span class="math inline">\(\mathbf{r}^{\pi}\)</span> and <span class="math inline">\(\mathbf{P}^{\pi}\)</span>. Show your calculation steps.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(d)</span> (1 point) Give the numerical values for the reward function <span class="math inline">\(r(s,a)\)</span> of the MDP in Figure 1. Show the steps that you used to compute the values. Fill in Table 1. Hint: Note that the reward function can also be written as <span class="math inline">\(r(s,a) = \sum_r r \sum_{s&#39;} p(s&#39;, r|s,a)\)</span>.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/d1a6e085ce0d.svg" alt="table" style="max-width:100%;height:auto"><figcaption>Table 1: Reward function</figcaption></figure>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(e)</span> (1 point) Give the transition function <span class="math inline">\(p(s&#39;|s,a)\)</span> for the MDP described in Figure 1 in a tabular form, by filling in Table 2.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/c08850bf41a7.svg" alt="table" style="max-width:100%;height:auto"><figcaption>Table 2: Transition Function <span class="math inline">\(p(s&#39; | s, a)\)</span></figcaption></figure>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(f)</span> (1 point) [<em>programming</em>] Using the skeleton provided on GitHub, create an MDP object representing Figure 1. Hint: Look for the file <code>/notebooks/guide_mdp_class.ipynb</code> for an example.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(g)</span> (1 point) [<em>programming</em>] Find the values of <span class="math inline">\(\mathbf{v}\)</span> when considering the previously created MDP and the policy <span class="math inline">\(\pi\)</span> defined as <span class="math inline">\(\pi(a_1|s) = 0.4\)</span>, and <span class="math inline">\(\pi(a_2|s) = 0.6\)</span>, <span class="math inline">\(\forall s\)</span>. Implement the direct matrix form solution for <span class="math inline">\(\mathbf{v}\)</span>.</p>
+<p>To do this, implement the method <code>policy_evaluation</code> in the class <code>BellmanEquationSolver</code>. Hint: The <code>BellmanEquationSolver</code> constructor should receive an MDP object as input. The method <code>policy_evaluation</code> should receive a <code>DiscretePolicy</code> object, compute <span class="math inline">\(\mathbf{r}^{\pi}\)</span> and <span class="math inline">\(\mathbf{P}^{\pi}\)</span> as intermediate steps, and give <span class="math inline">\(\mathbf{v}\)</span> as output.</p>
+</li>
+</ul>
+<p>NOTE:</p>
+<ul>
+<li><p>On GitHub you should have accessed to a <code>rl-assignment2</code> <a href="https://classroom.github.com/a/mccpL8bs">repository</a>, which contains skeleton code you will work with. The repository contains some pre-defined classes which will allow you to define a simple MDP and policy. You will also find a <code>BellmanEquationSolver</code> class, which has a constructor that takes an MDP as argument. More information can be found in the repository’s <code>README</code>.</p></li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#73">Slides: L2 · 73–74</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/bellman-equation-in-matrix-form-r-pi-and/">← Ex 2.6.1 · Bellman equation in matrix form: r^π and P^π, equiprobable policy</a><a class="next" href="/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state/">Ex 3.1.1 · Policy evaluation: q_π and an added state in the 4x4 gridworld →</a></nav>
+

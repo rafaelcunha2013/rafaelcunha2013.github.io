@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 5.5.1"
+description: "Maximization bias: why Q-learning overestimates"
+permalink: /teaching/rl-exercises/maximization-bias-why-q-learning-overestimates/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.5 Maximization bias and double Q-learning</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Q-learning updates its Q-values using an update rule that can sometimes lead to an overestimation of Q-values. What is the primary reason why Q-learning suffers from this overestimation problem?</p>
+<ul class="qlist qmcq" data-salt="maximization-bias-why-q-learning-overestimates" data-key="42b0a6871fe7b66e1504ea7802fb643e549e52e7dcb5eaf61129b2f9dd907ce0" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>The learning rate <span class="math inline">\(\alpha\)</span> is usually set too high, causing Q-values to escalate rapidly with each update.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>The max operator in the update rule always selects the highest estimated Q-value for the next state, which can incorporate noise and lead to systematic overestimation.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>Q-learning tends to underestimate the Q-values because it ignores the possibility of discovering more rewarding actions in the future.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>The discount factor <span class="math inline">\(\gamma\)</span> is not appropriately calibrated, resulting in disproportionately high future reward values being added to the current Q-value.</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#34">Slides: L5 · 34–42</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/q-learning-vs-sarsa-equivalence-under-greedy-action/">← Ex 5.3.6 · Q-learning vs SARSA: equivalence under greedy action selection</a><a class="next" href="/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates-mitigation/">Ex 5.5.2 · Maximization bias: why Q-learning overestimates, mitigation →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

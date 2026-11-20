@@ -1,0 +1,33 @@
+---
+layout: page
+title: "Exercise 7.3.1"
+description: "REINFORCE derivation: model-dependent terms and model-free property"
+permalink: /teaching/rl-exercises/reinforce-derivation-model-dependent-terms-and-model-free/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.3 REINFORCE</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span></p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> <strong>[10 points]</strong> <strong>The Derivation and Implications of the REINFORCE Update</strong></p>
+<p>The objective in policy gradient methods is to maximize the expected return, <span class="math inline">\(J(\theta) = \mathbb{E}_{\tau \sim p_\theta(\tau)}[R(\tau)]\)</span>. This expectation is taken over trajectories, <span class="math inline">\(\tau\)</span>, whose probability is given by: <span class="math display">\[p_\theta(\tau) = p(s_0) \prod_{t=0}^{T-1} \pi_\theta(a_t|s_t) p(s_{t+1}|s_t, a_t)\]</span> where <span class="math inline">\(p(s_0)\)</span> is the initial state distribution, <span class="math inline">\(\pi_\theta(a_t|s_t)\)</span> is a conditional probability distribution over actions given the current state (parameterized by <span class="math inline">\(\theta\)</span>), and <span class="math inline">\(p(s_{t+1}|s_t, a_t)\)</span> is the conditional probability of the next state given the current state and action.</p>
+<p>Through a key derivation, this objective leads to the practical REINFORCE update rule: <span class="math display">\[\theta \leftarrow \theta + \alpha G_t \nabla_\theta \log \pi_\theta(a_t|s_t)\]</span> where <span class="math inline">\(\alpha\)</span> is the learning rate and <span class="math inline">\(G_t\)</span> is the return from time step <span class="math inline">\(t\)</span>.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Examine the terms in the formula for <span class="math inline">\(p_\theta(\tau)\)</span>. Identify the term that makes this probability distribution dependent on the environment’s model.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> The policy gradient derivation requires computing the gradient of the log-probability of a trajectory, <span class="math inline">\(\nabla_\theta \log p_\theta(\tau)\)</span>. Derive a simplified expression for this term.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> Using your findings from (a) and (b), explain how the final REINFORCE update rule can be implemented without knowledge of the term you identified as being model-dependent. What is this property of an algorithm called, and why is it so crucial for applying reinforcement learning in practice?</p>
+</li>
+</ul></li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#31">Slides: L7 · 31–32</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-gradient-theorem-on-policy-requirement-and-off/">← Ex 7.2.1 · Policy-gradient theorem: on-policy requirement and off-policy mismatch</a><a class="next" href="/teaching/rl-exercises/baseline-in-reinforce-motivation-and-required-property/">Ex 7.4.1 · Baseline in REINFORCE: motivation and required property →</a></nav>
+

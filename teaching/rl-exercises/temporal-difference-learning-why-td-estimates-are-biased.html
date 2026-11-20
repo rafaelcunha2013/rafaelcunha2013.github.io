@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 4.3.1"
+description: "Temporal-difference learning: why TD estimates are biased (MCQ)"
+permalink: /teaching/rl-exercises/temporal-difference-learning-why-td-estimates-are-biased/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.3 MC vs TD: bias and variance, batch updates</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Temporal Difference (TD) learning is a fundamental method in reinforcement learning that combines ideas from both Monte Carlo and dynamic programming methods. TD learning is known to introduce some bias during the estimation process. What is the primary reason for this bias in TD learning methods?</p>
+<ul class="qlist qmcq" data-salt="temporal-difference-learning-why-td-estimates-are-biased" data-key="229a12af90f0f877ec63c8f6deec6526263e3aa13186c88bd5bb2b4bc095ad33" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>TD learning relies on a fixed learning rate, which can cause estimates to oscillate and never fully converge to the true values.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>TD methods use the current estimate of the value function to update itself, leading to updates that are dependent on potentially inaccurate initial estimates.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>The bias in TD learning stems from the use of a model of the environment, which may not accurately reflect its dynamics.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>TD learning only updates its estimates at the end of each episode, resulting in delayed adjustments to the value function.</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#30">Slides: L4 · 30–39</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/td-0-first-episode-update-in-the-random/">← Ex 4.2.2 · TD(0): first-episode update in the random walk</a><a class="next" href="/teaching/rl-exercises/batch-monte-carlo-versus-batch-td-0-value/">Ex 4.3.2 · Batch Monte Carlo versus batch TD(0): value estimates from eight episodes →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 3.1.2"
+description: "Policy evaluation: q_π and an added state in the 4x4 gridworld (exam)"
+permalink: /teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state-2/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.1 Policy evaluation</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<figure class="qfig"><img src="/teaching/rl-exercises/media/gridworld-4x4.svg" alt="ex4.1.png" style="max-width:100%;height:auto"><figcaption>Figure 1: <span class="math inline">\(4 \times 4\)</span> gridworld MDP.</figcaption></figure>
+<p>Consider the <span class="math inline">\(4 \times 4\)</span> gridworld as shown in Figure 1, which can be formalized as a Markov decision process <span class="math inline">\((\mathcal{S}, \mathcal{A}, p, r, \gamma)\)</span>. The nonterminal states are <span class="math inline">\(\mathcal{S} = \{1,2,...,14\}\)</span>. There are four actions possible in each state, <span class="math inline">\(\mathcal{A} = \{\texttt{up}, \texttt{down}, \texttt{right}, \texttt{left}\}\)</span>, which deterministically cause the corresponding state transitions, except that actions that would take the agent off the grid in fact leave the state unchanged. Thus, for instance, <span class="math inline">\(p(6,-1|5, \texttt{right}) = 1\)</span>, <span class="math inline">\(p(7, -1 | 7, \texttt{right})=1\)</span>, and <span class="math inline">\(p(10,r|5, \texttt{right}) = 0\)</span> for all rewards <span class="math inline">\(r\)</span>. This is an undiscounted, episodic task. The reward is <span class="math inline">\(-1\)</span> on all transitions until the terminal state is reached. The terminal state is shaded in the figure (although it is shown in two places, it is formally one state). The expected reward function is thus <span class="math inline">\(r(s,a,s&#39;) = -1\)</span> for all states <span class="math inline">\(s,s&#39; \in \mathcal{S}\)</span> and actions <span class="math inline">\(a \in \mathcal{A}\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(\pi\)</span> is the equiprobable random policy, what is <span class="math inline">\(q_{\pi}(9, \texttt{down})\)</span>? What is <span class="math inline">\(q_{\pi}(2, \texttt{down})\)</span>?</p></li>
+<li><p>For policy evaluation, the value function <span class="math inline">\(v_k\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span> can be seen in Figure 2. Suppose a new state <span class="math inline">\(15\)</span> is added to the gridworld just below state <span class="math inline">\(13\)</span>, and its actions, <span class="math inline">\(\texttt{left}, \texttt{up}, \texttt{right}\)</span>, and <span class="math inline">\(\texttt{down}\)</span>, take the agent to states <span class="math inline">\(12,13,14,\)</span> and <span class="math inline">\(15\)</span>, respectively. Assume that the transitions <em>from</em> the original states are unchanged. What, then, is <span class="math inline">\(v_{\pi}(15)\)</span> for the equiprobable random policy? Now suppose the dynamics of state <span class="math inline">\(13\)</span> are also changed, such that action <code>down</code> from state <span class="math inline">\(13\)</span> takes the agent to the new state <span class="math inline">\(15\)</span>. What is <span class="math inline">\(v_{\pi}(15)\)</span> for the equiprobable random policy in this case?</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/policy-evaluation-4x4.svg" alt="figex9.png" style="max-width:100%;height:auto"><figcaption>Figure 2: On the left is the value of each state after running iterative policy evaluation with the number of iterations <span class="math inline">\(k \rightarrow \infty\)</span>. On the right is the greedy policy corresponding to the value function.</figcaption></figure></li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercises 4.1 and 4.2; Example 4.1. The gridworld of Example 4.1 is redrawn from the book. Figure 4.1 is redrawn with recomputed values. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#12">Slides: L3 · 12–19</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state/">← Ex 3.1.1 · Policy evaluation: q_π and an added state in the 4x4 gridworld</a><a class="next" href="/teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/">Ex 3.3.1 · Policy iteration: stochastic policies, 3-argument p, and the action-value version →</a></nav>
+

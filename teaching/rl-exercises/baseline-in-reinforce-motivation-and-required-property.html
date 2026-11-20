@@ -1,0 +1,25 @@
+---
+layout: page
+title: "Exercise 7.4.1"
+description: "Baseline in REINFORCE: motivation and required property"
+permalink: /teaching/rl-exercises/baseline-in-reinforce-motivation-and-required-property/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.4 Reducing the variance: causality and baseline</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p><strong>[10 points]</strong> <strong>The Variance Problem and the Role of Baselines</strong></p>
+<p>The standard REINFORCE algorithm is known to be an unbiased estimator of the policy gradient, but it often suffers from high variance in practice, which can make learning slow and unstable.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Explain the motivation for introducing a state-dependent baseline, <span class="math inline">\(b(s)\)</span>, into the policy gradient update. What specific problem is the baseline designed to mitigate, and how does it achieve this?</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> What is the key theoretical property that any valid baseline must satisfy to ensure that the policy gradient estimate remains correct? Briefly explain the mathematical reason why this property is essential.</p></li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#33">Slides: L7 · 33–40</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/reinforce-derivation-model-dependent-terms-and-model-free/">← Ex 7.3.1 · REINFORCE derivation: model-dependent terms and model-free property</a><a class="next" href="/teaching/rl-exercises/reinforce-vs-value-based-action-spaces-exploration-variance/">Ex 7.4.2 · REINFORCE vs value-based: action spaces, exploration, variance (mock) →</a></nav>
+

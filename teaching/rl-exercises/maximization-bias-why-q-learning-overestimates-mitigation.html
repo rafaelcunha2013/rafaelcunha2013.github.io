@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 5.5.2"
+description: "Maximization bias: why Q-learning overestimates, mitigation"
+permalink: /teaching/rl-exercises/maximization-bias-why-q-learning-overestimates-mitigation/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.5 Maximization bias and double Q-learning</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Q-learning updates its Q-values with the following rule: <span class="math display">\[Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left[R_{t+1} + \gamma \max_{a&#39;} Q(S_{t+1}, a&#39;) - Q(S_t, A_t)\right].\]</span> A known issue with Q-learning is its tendency to overestimate Q-values.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) Explain why Q-learning is susceptible to overestimation of Q-values.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) Additionally, consider the implications of this overestimation for the convergence of Q-learning and suggest a possible method to mitigate this issue.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#34">Slides: L5 · 34–42</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/maximization-bias-why-q-learning-overestimates/">← Ex 5.5.1 · Maximization bias: why Q-learning overestimates</a><a class="next" href="/teaching/rl-exercises/expected-sarsa-double-expected-sarsa-update-equations/">Ex 5.5.3 · Expected SARSA: Double Expected SARSA update equations →</a></nav>
+

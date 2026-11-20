@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 6.3.1"
+description: "Tabular methods as linear function approximation with one-hot features"
+permalink: /teaching/rl-exercises/tabular-methods-as-linear-function-approximation-with-one/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-6">Lecture 6 · Function Approximation</a> › 6.3 Control with value-function approximation</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Explain how tabular methods for action-value functions (such as SARSA and Q-learning) can be viewed as a special case of linear function approximation.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> First, describe the specific choice of feature vectors, <span class="math inline">\(\mathbf{x}(s,a)\)</span>, that makes the linear approximation <span class="math inline">\(\hat{q}(s,a, \mathbf{w}) = \mathbf{w}^\top \mathbf{x}(s,a)\)</span> equivalent to a Q-table. What is the relationship between the weight vector <span class="math inline">\(\mathbf{w}\)</span> and the Q-table entries in this case?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Using these features, take the general semi-gradient SARSA update rule and show how it simplifies to become identical to the standard tabular SARSA update rule.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 9.1. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-06/#52">Slides: L6 · 52–57</a><a href="/teaching/rl-course-map/#lec-6">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/linear-function-approximation-design-two-features-for-grid/">← Ex 6.2.2 · Linear function approximation: design two features for grid world</a><a class="next" href="/teaching/rl-exercises/on-policy-vs-off-policy-control-data-efficiency/">Ex 6.3.2 · On-policy vs off-policy control: data efficiency and exploration →</a></nav>
+

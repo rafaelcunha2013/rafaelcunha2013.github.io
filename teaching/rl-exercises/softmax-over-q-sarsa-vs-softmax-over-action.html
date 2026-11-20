@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 1.9.4"
+description: "Softmax over Q* (SARSA) vs softmax over action preferences"
+permalink: /teaching/rl-exercises/softmax-over-q-sarsa-vs-softmax-over-action/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-1">Lecture 1 · Exploration Methods</a> › 1.9 Policy gradient methods: action preferences</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>This question explores the fundamental difference between creating a stochastic policy as a behavioral component of a value-based method versus learning it as the direct objective of an optimization process.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Consider a value-based agent (e.g., using SARSA) that employs a softmax policy for action selection throughout its learning process. The policy is defined based on its current action-value estimates: <span class="math display">\[\pi(a|s) = \frac{\exp(\hat{q}(s,a)/\tau)}{\sum_{b} \exp(\hat{q}(s,b)/\tau)}\]</span> Now, assume the agent learns for a very long time, and its action-value estimates successfully converge to the true optimal values, <span class="math inline">\(\hat{q}(s,a) \to Q^*(s,a)\)</span>. Analyze the agent’s final, converged policy (assuming <span class="math inline">\(\tau=1\)</span>). Does this policy represent the optimal policy? Explain why or why not by describing the action probabilities it will assign in a state with one optimal action and several suboptimal (but not terrible) actions.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Now consider a policy gradient method that learns a set of "action preferences," <span class="math inline">\(h(s,a,\theta)\)</span>, and defines the policy as a softmax over these preferences: <span class="math display">\[\pi(a|s, \theta) = \frac{\exp(h(s,a,\theta))}{\sum_{b} \exp(h(s,b,\theta))}\]</span> The preferences are updated via gradient ascent on the expected return, <span class="math inline">\(J(\theta)\)</span>. How does this optimization process affect the relative magnitudes of the preferences for optimal versus suboptimal actions as learning progresses? What does the policy converge to in the limit?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> <strong>The Critical Difference:</strong> Based on your analysis of their convergence properties in (a) and (b), differentiate between these two approaches. Explain which method should be considered a principled policy optimization algorithm and which is better described as a behavioral heuristic. Justify your reasoning by referencing what each method is fundamentally optimizing.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#83">Slides: L1 · 83–100</a><a href="/teaching/rl-course-map/#lec-1">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/action-value-methods-and-policies-probabilities-of-each/">← Ex 1.9.3 · Action-value methods and policies: probabilities of each action at t = 9</a><a class="next" href="/teaching/rl-exercises/markov-decision-process-states-actions-rewards-for-traffic/">Ex 2.1.1 · Markov decision process: states, actions, rewards for traffic light control →</a></nav>
+

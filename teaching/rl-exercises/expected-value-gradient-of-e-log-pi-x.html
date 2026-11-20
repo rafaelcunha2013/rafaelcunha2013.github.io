@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Exercise R.4.1"
+description: "Expected value: gradient of E[log π(X)] is zero"
+permalink: /teaching/rl-exercises/expected-value-gradient-of-e-log-pi-x/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-0">Background review</a> › R.4 Probability mass functions</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Show that for a discrete random variable <span class="math inline">\(X\)</span> with a pmf <span class="math inline">\(\pi(x)\)</span>, <span class="math inline">\(\nabla_x \mathbb{E}(\log \pi(X)) = 0\)</span>.</p>
+<p><em>Hint:</em> Here swapping the gradient and a sum is correct (if interested, check uniform convergence and derivative of log-likelihood). It is generally allowed to swap the gradient and sum whenever we are working with sums of pmfs, expected values, or sample means (whenever they are finite).</p>
+<p><em>Hint:</em> Push the gradient in, use the definition of expected value, use the properties of the derivative of the natural logarithm, then swap the gradient and the sum, the pmf must sum to 1, the gradient of 1 is 0.</p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#26">Slides: L1 · 26</a><a href="/teaching/rl-course-map/#lec-review">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/gradients-true-or-false-on-six-identities/">← Ex R.3.5 · Gradients: true or false on six identities</a><a class="next" href="/teaching/rl-exercises/expected-value-r-s-a-from-the-four/">Ex R.4.2 · Expected value: r(s,a) from the four-argument p →</a></nav>
+

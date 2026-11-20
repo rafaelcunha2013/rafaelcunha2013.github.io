@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Exercise 5.5.4"
+description: "Maximization bias: when overestimation helps, bias parameter mu"
+permalink: /teaching/rl-exercises/maximization-bias-when-overestimation-helps-bias-parameter-mu/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.5 Maximization bias and double Q-learning</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>It is well-known that Q-learning is prone to overestimation as it uses its own estimate in the update rule. However, overestimation can be helpful in certain environments. For example, consider the simple transition diagram in Figure 1, starting from state <span class="math inline">\(A\)</span> and having only two actions – left and right. The rewards for both actions are deterministic. The left action transitions to state <span class="math inline">\(B\)</span> where there are two transitions to the terminal state (grey square) with a random reward, selected at random. The two possible rewards are drawn from either a uniform distribution <span class="math inline">\(\mathcal{U}(-1, 1)\)</span> plus a bias parameter <span class="math inline">\(\mu\)</span> or a normal distribution <span class="math inline">\(\mathcal{N}(0,1)\)</span> plus the same bias parameter <span class="math inline">\(\mu\)</span> as for the other reward. There is no discount (<span class="math inline">\(\gamma = 1\)</span>). The right action from state <span class="math inline">\(A\)</span> also terminates the environment, with a reward of 0.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/a9cce2c9b8bc.svg" alt="diagram" style="max-width:100%;height:auto"><figcaption>Figure 1: Transition diagram of a simple environment, which has to be solved by Q-learning. The agent starts in state <span class="math inline">\(A\)</span> and can either go left or right. If they go left, they end up in state <span class="math inline">\(B\)</span> where they do a random equiprobable transition to the terminal state and receive a biased reward drawn either from a normal or a uniform distribution.</figcaption></figure>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) What is <span class="math inline">\(Q(A, \text{left})\)</span>?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) For what values of <span class="math inline">\(\mu\)</span> is the overestimation from Q-learning helpful in solving this environment? For what values is it hurtful? For what values does it make no difference?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Based on Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Example 6.7. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#34">Slides: L5 · 34–42</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/expected-sarsa-double-expected-sarsa-update-equations/">← Ex 5.5.3 · Expected SARSA: Double Expected SARSA update equations</a><a class="next" href="/teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/">Ex 5.6.1 · Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments →</a></nav>
+

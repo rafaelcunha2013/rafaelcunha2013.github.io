@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Exercise 8.1.3"
+description: "Dyna-Q: stochastic and changing environments"
+permalink: /teaching/rl-exercises/dyna-q-stochastic-and-changing-environments/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-8">Lecture 8 · Model-Based Reinforcement Learning</a> › 8.1 Model-based RL and Dyna-Q</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Hard">Hard</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<div class="rlx-algo"><div class="rlx-algo-title">Tabular Dyna-Q</div><p>Initialize \(Q(s,a)\) and \(\mathit{Model}(s,a)\) for all \(s \in \mathcal{S}\) and \(a \in \mathcal{A}(s)\)<br>Loop forever:</p><ol class="rlx-steps"><li>\(S \leftarrow\) current (nonterminal) state</li><li>\(A \leftarrow \varepsilon\text{-greedy}(S, Q)\)</li><li>Take action \(A\); observe resultant reward, \(R\), and state, \(S'\)</li><li>\(Q(S,A) \leftarrow Q(S,A) + \alpha\left[R + \gamma \max_a Q(S',a) - Q(S,A)\right]\)</li><li>\(\mathit{Model}(S,A) \leftarrow R, S'\) (assuming deterministic environment)</li><li>Loop repeat \(n\) times:<div class="rlx-inner">\(S \leftarrow\) random previously observed state<br>\(A \leftarrow\) random action previously taken in \(S\)<br>\(R, S' \leftarrow \mathit{Model}(S,A)\)<br>\(Q(S,A) \leftarrow Q(S,A) + \alpha\left[R + \gamma \max_a Q(S',a) - Q(S,A)\right]\)</div></li></ol></div>
+<p>How might the tabular Dyna-Q algorithm above be modified to handle stochastic environments? How might this modification perform poorly on changing environments? How could the algorithm be modified to handle stochastic environments and changing environments?</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 8.5. The Tabular Dyna-Q algorithm of Section 8.2 is reproduced from the book. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-08/#11">Slides: L8 · 11–30</a><a href="/teaching/rl-course-map/#lec-8">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/">← Ex 8.1.2 · Dyna-Q vs n-step bootstrapping in the Dyna maze</a></nav>
+

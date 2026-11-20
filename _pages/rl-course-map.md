@@ -18,10 +18,12 @@ nav: false
   .rlm .lec[open] summary::before { transform: rotate(90deg); }
   .rlm .lec summary:focus-visible { outline: 2px solid var(--rlm-accent); outline-offset: 2px; }
   .rlm .lec .num { font-size: 1.15rem; font-weight: 700; color: var(--rlm-accent); }
-  .rlm .lec .ttl { font-size: 1.15rem; font-weight: 700; color: var(--global-text-color); margin-right: auto; }
+  .rlm .lec .ttl { font-size: 1.15rem; font-weight: 700; color: var(--global-text-color); margin-right: auto; flex: 1 1 10rem; min-width: 0; }
   .rlm .lec .links { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.88rem; font-weight: 600; align-items: baseline; }
+  .rlm .lec .links.cols { display: grid; grid-template-columns: 6.9rem 3.3rem 5.8rem 6.2rem; gap: 0.3rem 0.6rem; }
   .rlm .lec .links .n { font-weight: 400; color: var(--global-text-color-light); }
   .rlm .lec .rows { margin-bottom: 1rem; }
+  .rlm .covers { font-size: 0.9rem; color: var(--global-text-color-light); }
   .rlm .find button {
     font: inherit; font-size: 0.88rem; border: 1px solid var(--global-divider-color); border-radius: 8px;
     padding: 0.35rem 0.8rem; background: var(--global-bg-color); color: var(--global-text-color); cursor: pointer;
@@ -38,7 +40,7 @@ nav: false
   .rlm .find .count { font-size: 0.88rem; color: var(--global-text-color-light); }
   .rlm .rows { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--global-divider-color); }
   .rlm .crow {
-    display: grid; grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1.3fr); gap: 0.3rem 1rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1.1fr) minmax(0, 1fr); gap: 0.3rem 1rem;
     padding: 0.55rem 0.2rem; border-bottom: 1px solid var(--global-divider-color); align-items: baseline;
   }
   .rlm .concept { font-weight: 600; }
@@ -50,21 +52,33 @@ nav: false
   }
   .rlm .tasks a b { color: var(--rlm-accent); font-weight: 600; }
   .rlm .tasks a:hover { border-color: var(--rlm-accent); }
+  .rlm .cnum { color: var(--rlm-accent); font-variant-numeric: tabular-nums; margin-right: 0.4rem; }
+  .rlm .exs { display: flex; flex-wrap: wrap; gap: 0.3rem 0.4rem; font-size: 0.82rem; }
+  .rlm .exs a { border: 1px solid var(--global-divider-color); border-radius: 999px; padding: 0 0.5rem;
+    color: var(--global-text-color); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .rlm .exs a:hover { background: var(--global-divider-color); }
+  .rlm .exs .d-Easy { border-color: #2e8b57; } .rlm .exs .d-Medium { border-color: #c8902a; } .rlm .exs .d-Hard { border-color: #c4474d; }
+  .rlm .exs a.also { border-style: dashed; border-color: var(--global-text-color-light); color: var(--global-text-color-light); }
+  .rlm .exs code { font-size: 0.75rem; color: var(--global-text-color-light); background: none; padding: 0; margin-left: 0.2rem; }
+  .rlm .key { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.85rem; color: var(--global-text-color-light); margin: 0.4rem 0 0; }
+  .rlm .key .exs { display: inline-flex; }
   .rlm .head { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--global-text-color-light); }
   .rlm .credit { font-size: 0.9rem; color: var(--global-text-color-light); border-top: 1px solid var(--global-divider-color); padding-top: 1rem; margin-top: 2.5rem; }
   .rlm [hidden] { display: none !important; }
   @media (max-width: 640px) {
     .rlm .crow { grid-template-columns: minmax(0, 1fr) auto; }
-    .rlm .tasks { grid-column: 1 / -1; }
+    .rlm .tasks, .rlm .covers, .rlm .exs { grid-column: 1 / -1; }
     .rlm .crow.head-row { display: none; }
+    .rlm .lec .links.cols { grid-template-columns: 5.9rem 2.8rem 4.9rem auto; gap: 0.3rem 0.5rem; font-size: 0.8rem; }
   }
 </style>
 
 <div class="rlm">
 
 <p class="lead">
-Each concept of the <a href="/teaching/rl-lectures/">lectures</a>, in the order the slides teach it. The slide link opens the deck at the first slide on the concept; the task links open the <a href="/teaching/rl-tutorials/">tutorial</a> at the exercise that practises it.
+Each concept of the <a href="/teaching/rl-lectures/">lectures</a>, in the order the slides teach it. The slide link opens the deck at the first slide on the concept; the task links open the <a href="/teaching/rl-tutorials/">tutorial</a> at the task that practises it, and the exercise links open the <a href="/teaching/rl-exercises/">exercises</a> on the concept, numbered lecture.concept.n.
 </p>
+<p class="key"><span class="exs"><a class="d-Easy" tabindex="-1">Easy</a> <a class="d-Medium" tabindex="-1">Medium</a> <a class="d-Hard" tabindex="-1">Hard</a></span><span><code>&lt;/&gt;</code> has a coding part</span><span class="exs"><a class="also" tabindex="-1">Ex 1.9.3</a></span><span>dashed: filed under another concept, also practises this one</span></p>
 
 <div class="find">
   <input type="search" id="rlm-filter" placeholder="Find a concept, e.g. TD, Bellman, REINFORCE" aria-label="Find a concept">
@@ -72,25 +86,45 @@ Each concept of the <a href="/teaching/rl-lectures/">lectures</a>, in the order 
   <span class="count" id="rlm-count" aria-live="polite"></span>
 </div>
 
+<details class="lec" id="review">
+  <summary>
+    <span class="num">R</span>
+    <span class="ttl">Background review</span>
+    <span class="links"><span class="n">{{ site.data.rl_course_map.review | size }} topics · probability and functional analysis</span></span>
+  </summary>
+  <ul class="rows">
+    <li class="crow head-row"><span class="head">Topic</span><span class="head">Slides</span><span class="head">What it covers</span><span class="head">Exercises</span></li>
+    {% for r in site.data.rl_course_map.review %}
+    <li class="crow" data-text="{{ r.num | downcase }} {{ r.label | downcase }} {{ r.topics | downcase }}">
+      <span class="concept"><span class="cnum">{{ r.num }}</span>{{ r.label }}</span>
+      <a class="slides" href="{{ r.href }}">L{{ r.lecture }} · {{ r.slides }}</a>
+      <span class="covers">{{ r.topics }}</span>
+      <span class="exs">{% for e in r.exercises %}{% include rl-ex-chip.liquid e=e %}{% endfor %}{% for e in r.also %}{% include rl-ex-chip.liquid e=e also=true %}{% endfor %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</details>
+
 {% for lec in site.data.rl_course_map.lectures %}
 <details class="lec" id="lec-{{ lec.n }}">
   <summary>
     <span class="num">{{ lec.n }}</span>
     <span class="ttl">{{ lec.title }}</span>
-    <span class="links">
+    <span class="links cols">
       <a href="{{ lec.href }}">Slides ({{ lec.slides }})</a>
       <a href="{{ lec.video }}" target="_blank" rel="noopener">Video</a>
-      {% if lec.tutorial_href %}<a href="{{ lec.tutorial_href }}">{{ lec.tutorial }}</a>{% endif %}
+      {% if lec.tutorial_href %}<a href="{{ lec.tutorial_href }}">{{ lec.tutorial }}</a>{% else %}<span></span>{% endif %}
       <span class="n">{{ lec.concepts | size }} concepts</span>
     </span>
   </summary>
   <ul class="rows">
-    <li class="crow head-row"><span class="head">Concept</span><span class="head">Slides</span><span class="head">Tutorial tasks</span></li>
+    <li class="crow head-row"><span class="head">Concept</span><span class="head">Slides</span><span class="head">Tutorial tasks</span><span class="head">Exercises</span></li>
     {% for c in lec.concepts %}
-    <li class="crow" data-text="{{ c.concept | downcase }}">
-      <span class="concept">{{ c.concept }}</span>
+    <li class="crow" data-text="{{ c.num }} {{ c.concept | downcase }}">
+      <span class="concept"><span class="cnum">{{ c.num }}</span>{{ c.concept }}</span>
       <a class="slides" href="{{ c.href }}">Slides {{ c.slides }}</a>
       <span class="tasks">{% for t in c.tasks %}<a href="{{ t.href }}"><b>T{{ t.tutorial }}</b> {{ t.label }}</a>{% endfor %}</span>
+      <span class="exs">{% for e in c.exercises %}{% include rl-ex-chip.liquid e=e %}{% endfor %}{% for e in c.also %}{% include rl-ex-chip.liquid e=e also=true %}{% endfor %}</span>
     </li>
     {% endfor %}
   </ul>

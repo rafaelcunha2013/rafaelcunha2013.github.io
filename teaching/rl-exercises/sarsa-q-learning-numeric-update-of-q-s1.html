@@ -1,0 +1,47 @@
+---
+layout: page
+title: "Exercise 5.3.4"
+description: "SARSA/Q-learning: numeric update of Q(s1,1) from a Q-table"
+permalink: /teaching/rl-exercises/sarsa-q-learning-numeric-update-of-q-s1/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.3 Q-learning (off-policy learning)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Given the following table of Q-values for three states (<span class="math inline">\(s_1, s_2, s_3\)</span>) and two actions (1, 2), calculate the updated Q-value <span class="math inline">\(Q(s, a)\)</span> for the state-action pair <span class="math inline">\(Q(s_1, 1)\)</span> after a transition to state <span class="math inline">\(s_2\)</span> with a reward of 5. Assume <span class="math inline">\(\alpha = 0.1\)</span> and <span class="math inline">\(\gamma = 0.9\)</span>. Consider that the behavior policy is the greedy policy.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">State</th>
+<th style="text-align: center;">Action 1</th>
+<th style="text-align: center;">Action 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(s_1\)</span></td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(s_2\)</span></td>
+<td style="text-align: center;">8.0</td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(s_3\)</span></td>
+<td style="text-align: center;">3.5</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+</tbody>
+</table>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#26">Slides: L5 · 26–30</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/q-learning-find-and-fix-errors-in-faulty/">← Ex 5.3.3 · Q-learning: find and fix errors in faulty pseudocode</a><a class="next" href="/teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/">Ex 5.3.5 · DP vs sampled updates: model-free counterparts, no sampled value iteration →</a></nav>
+

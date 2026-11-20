@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 7.2.1"
+description: "Policy-gradient theorem: on-policy requirement and off-policy mismatch"
+permalink: /teaching/rl-exercises/policy-gradient-theorem-on-policy-requirement-and-off/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-7">Lecture 7 · Policy Gradients and Actor-Critic</a> › 7.2 Policy-gradient theorem</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Policy gradient methods are often the preferred choice for certain types of reinforcement learning problems where value-based methods like Q-learning are difficult to apply.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">a)</span> By referencing the mathematical formulation of the policy gradient, <span class="math inline">\(\nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[...]\)</span>, explain precisely why these methods require on-policy data for their updates.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">b)</span> What is the theoretical problem with trying to use off-policy data (e.g., data from an older policy <span class="math inline">\(\pi_{\theta_{old}}\)</span>) to compute the gradient for the current policy <span class="math inline">\(\pi_\theta\)</span> without any correction? (You do not need to derive Importance Sampling, but explain the source of the issue).</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-07/#19">Slides: L7 · 19–30</a><a href="/teaching/rl-course-map/#lec-7">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/stochastic-policies-perceptual-aliasing-policy-gradient-vs-q/">← Ex 7.1.6 · Stochastic policies: perceptual aliasing, policy gradient vs Q-learning</a><a class="next" href="/teaching/rl-exercises/reinforce-derivation-model-dependent-terms-and-model-free/">Ex 7.3.1 · REINFORCE derivation: model-dependent terms and model-free property →</a></nav>
+

@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 2.3.1"
+description: "Returns and discounting: G_1 with γ = 0.5 and five rewards"
+permalink: /teaching/rl-exercises/returns-and-discounting-g-1-with-0-5/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.3 Returns and discounting</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Suppose a discount factor <span class="math inline">\(\gamma = 0.5\)</span> and we observe the following sequence of rewards: <span class="math inline">\(R_1 = -3, R_2 = 1, R_3 = 4, R_4 = 7\)</span>, and <span class="math inline">\(R_5 = 2\)</span>, with <span class="math inline">\(T = 5\)</span>, where <span class="math inline">\(T\)</span> is the time-step representing the terminal state. What is <span class="math inline">\(G_1\)</span>, where <span class="math inline">\(G_t\)</span> is the discounted return at time <span class="math inline">\(t\)</span>? Recall that the discounted return <span class="math inline">\(G_t\)</span> at time <span class="math inline">\(t\)</span> is defined as the sum of discounted rewards received after time <span class="math inline">\(t\)</span>, mathematically represented as: <span class="math display">\[\begin{equation*}
+    G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots + \gamma^{T-1} R_{T}
+\end{equation*}\]</span> where <span class="math inline">\(R_{t+k}\)</span> is the reward received at time <span class="math inline">\(t+k\)</span>, <span class="math inline">\(k \in \{1, \ldots, T-t\}\)</span>, and <span class="math inline">\(\gamma \in [0,1]\)</span> is the discount factor.</p>
+<ul class="qlist qmcq" data-salt="returns-and-discounting-g-1-with-0-5" data-key="d5c93fce2c54afcadafb115374e62344343191b19d13c73b1c7c10b18d9ecf63" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>-3</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>5</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>-0.5</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>5.5</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 3.8. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#34">Slides: L2 · 34–40</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/markov-decision-process-modelling-a-warehouse-robot-markov/">← Ex 2.2.2 · Markov decision process: modelling a warehouse robot, Markov property</a><a class="next" href="/teaching/rl-exercises/returns-and-discounting-g-2-with-0-5/">Ex 2.3.2 · Returns and discounting: G_2 with γ = 0.5 and five rewards →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

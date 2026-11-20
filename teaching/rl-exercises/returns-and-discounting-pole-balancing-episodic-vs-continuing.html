@@ -1,0 +1,21 @@
+---
+layout: page
+title: "Exercise 2.3.4"
+description: "Returns and discounting: pole balancing, episodic vs continuing return"
+permalink: /teaching/rl-exercises/returns-and-discounting-pole-balancing-episodic-vs-continuing/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-2">Lecture 2 · The RL Problem and Finite MDPs</a> › 2.3 Returns and discounting</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>The pole-balancing problem (also called inverted pendulum) is a classic reinforcement learning task in which an agent must apply forces to a cart so that a pole hinged to it stays upright. The task ends (failure) if the pole falls too far or the cart moves out of bounds. Suppose you treated pole-balancing as an episodic task but also used discounting, with all rewards zero except for <span class="math inline">\(-1\)</span> upon failure. What then would the return be at each time? How does this return differ from that in the discounted, continuing formulation of this task?</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 3.6. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-02/#34">Slides: L2 · 34–40</a><a href="/teaching/rl-course-map/#lec-2">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/returns-and-discounting-maze-reward-design-discounted-and/">← Ex 2.3.3 · Returns and discounting: maze, reward design, discounted and undiscounted</a><a class="next" href="/teaching/rl-exercises/value-functions-comparing-policies-by-v-pi-s/">Ex 2.4.1 · Value functions: comparing policies by v_π(s) in every state →</a></nav>
+

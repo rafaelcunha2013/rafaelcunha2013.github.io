@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Exercise 8.1.2"
+description: "Dyna-Q vs n-step bootstrapping in the Dyna maze"
+permalink: /teaching/rl-exercises/dyna-q-vs-n-step-bootstrapping-in-the/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-8">Lecture 8 · Model-Based Reinforcement Learning</a> › 8.1 Model-based RL and Dyna-Q</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider a reinforcement learning agent in a simple, deterministic maze composed of 47 states, shown in Figure 1. From any state, the agent can take four actions: <code>up, down, left,</code> or <code>right</code>. An action deterministically takes the agent to the corresponding neighboring state, unless that movement is blocked by an obstacle or the maze edge, in which case the agent remains in its current state.</p>
+<p>The agent’s task is to find the shortest path from a start state (S) to a goal state (G). A reward of +1 is given for transitioning into the goal state, and a reward of 0 is given for all other transitions. After reaching the goal, the agent is reset to the start state to begin a new episode. The task is discounted with <span class="math inline">\(\gamma = 0.95\)</span>, and the agent uses a step-size parameter of <span class="math inline">\(\alpha = 0.1\)</span> and an <span class="math inline">\(\epsilon\)</span>-greedy policy with <span class="math inline">\(\epsilon = 0.1\)</span> for exploration.</p>
+<p>When selecting greedily among actions, ties were broken randomly. The agents varied in the number of planning steps, n, they performed per real step. For each n, the curves show the number of steps taken by the agent to reach the goal in each episode, averaged over 30 repetitions of the experiment. In each repetition, the initial seed for the random number generator was held constant across algorithms. Because of this, the first episode was exactly the same (about 1700 steps) for all values of n, and its data are not shown in the figure.</p>
+<p>We compare two methods for solving this task: a <strong>non-planning</strong> method, which is standard one-step Q-learning (equivalent to the Dyna-Q algorithm with zero, or <span class="math inline">\(n=0\)</span>, planning steps), and a <strong>planning</strong> method, which is the Dyna-Q algorithm with fifty (<span class="math inline">\(n=50\)</span>) planning steps performed after each real step in the environment.</p>
+<p>Figure 1 shows the learning curves for these agents, demonstrating that planning significantly speeds up learning. Figure 1 provides a snapshot of the policies learned by both agents halfway through the second episode. The non-planning method looks particularly poor because its one-step updates have propagated very little information from the goal.</p>
+<blockquote>
+<p><strong>Question:</strong> Given this context, do you think one of the multi-step bootstrapping methods, like n-step TD or n-step SARSA, could learn a policy as effectively and rapidly as the Dyna-Q method with <span class="math inline">\(n=50\)</span> planning steps in this scenario? Explain why or why not, referring to the underlying mechanisms of each approach.</p>
+</blockquote>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/dyna-maze-learning-curves-3runs.svg" alt="fig82.png" style="max-width:100%;height:auto"><img src="/teaching/rl-exercises/media/dyna-maze-policies.svg" alt="fig83.png" style="max-width:100%;height:auto"><figcaption>Figure 1: The Dyna Maze environment and average learning curves for Dyna-Q agents with varying numbers of planning steps (<span class="math inline">\(n\)</span>) per real step. The task is to travel from S to G.</figcaption></figure>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 8.1; Example 8.1. Figure 8.2 is redrawn from a new run of the book's experiment. Figure 8.3 is redrawn from the book. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-08/#11">Slides: L8 · 11–30</a><a href="/teaching/rl-course-map/#lec-8">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/batch-mc-vs-batch-td-0-with-real/">← Ex 8.1.1 · Batch MC vs batch TD(0) with real and simulated experience (Dyna-Q)</a><a class="next" href="/teaching/rl-exercises/dyna-q-stochastic-and-changing-environments/">Ex 8.1.3 · Dyna-Q: stochastic and changing environments →</a></nav>
+

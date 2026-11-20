@@ -1,0 +1,43 @@
+---
+layout: page
+title: "Exercise 5.6.1"
+description: "Cliff Walking: SARSA, Q-learning, double Q-learning, DQN experiments"
+permalink: /teaching/rl-exercises/cliff-walking-sarsa-q-learning-double-q-learning/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.6 Deep Q-networks: experience replay, target network</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span><span class="rlx-tag rlx-c-coding">Coding</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>For this question, we are interested in comparing different TD learning methods by running simulations on an environment. The environment in question is the “<a href="https://gymnasium.farama.org/environments/toy_text/cliff_walking/">Cliff Walking</a>“ environment from the Gymnasium library (see also example 6.6 of the book). Cliff-walking has a discrete state and action space, so tabular RL algorithms can be used. Figure 1 shows a visualization of the environment. The goal of the agent is simply to go from the starting point (bottom-left) to the goal (bottom-right) without falling into one of the cliffs. Each time step incurs a -1 reward unless the player steps into the cliff, which incurs a -100 reward. Transitions are deterministic.</p>
+<p>To assist you with the coding, a skeleton program <a href="https://classroom.github.com/a/xO78oeDg">rl-assignment5</a> should be available on GitHub. The included <code>README</code> file provides additional information. In the <code>main.py</code> file there already exists a training loop for you to use.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/89f1e90b6dd6.png" alt="cliffwalk.png" style="max-width:100%;height:auto"><figcaption>Figure 1: Visualization of the Cliff Walking environment. Cliff walking involves crossing a gridworld from start (on the left) to goal (on the right) while avoiding falling off a cliff.</figcaption></figure>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (2.0 points) SARSA, Q-learning, and double Q-learning</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span> <strong>Implementation</strong>: Implement the SARSA, Q-learning, and double Q-learning tabular TD algorithms. The skeleton already has these algorithms inherited from the <code>TabularAgent</code> class. You should implement the <code>update</code>, <code>behavior_policy</code>, and <code>target_policy</code> methods of each algorithm. Note that for SARSA, the behavioral policy is equal to the target policy.</p></li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> <strong>Training and Evaluation</strong>: Consider <span class="math inline">\(\epsilon=0.1\)</span>.</p>
+<p>Report the learning rate used for each algorithm. Select a number of training episodes that ensures convergence for all three algorithms. Provide two plots: one for the behavior policy and another for the target policy, each plot displaying results for all three algorithms.</p>
+<p>Include a caption for each plot, similar to the example provided in the first assignment. To assist with the plots, a <code>MetricsTracker</code> object is provided in the code to keep track of the average return and variance across runs for both the behavior and target policies using <code>metric_tracker.record_metric("return", agent_id, episode_idx, value)</code>.</p></li>
+</ul>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) Train the <a href="https://stable-baselines3.readthedocs.io/en/master/modules/dqn.html">DQN</a> algorithm from the Stable Baselines3 library on the environment by completing the <code>train_dqn</code> function. When creating the model, select appropriate learning_rate, target_update_interval, buffer_size, and total_timesteps. Report the values you choose. See the DQN documentation on how to do this. Provide two plots: one for the behavior policy and another for the target policy. Include a caption for each plot. To keep track of the cumulative average return with variance, pass the <code>MetricsTracker</code>s to a <code>OffPolicyMetricsTrackerCallback</code> and give the callback to DQN’s <code>learn</code> method. This will ensure the <code>record_metric</code> method is called for the return during DQN training.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> (2.0 points) Training results interpretation.</p>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">1.</span> Provide a theoretical motivation for each algorithm, focusing on speed of convergence, stability, and the maximum return obtained from the behavior and target policy learning curves.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">2.</span> Explain how you calibrated the learning rate <span class="math inline">\(\alpha\)</span> for each algorithm.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">3.</span> For the “Cliff-walking”environment, which algorithm do you consider to be the most data-efficient? Justify your answer.</p>
+</li>
+</ul></li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Example 6.6. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#44">Slides: L5 · 44–48</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/maximization-bias-when-overestimation-helps-bias-parameter-mu/">← Ex 5.5.4 · Maximization bias: when overestimation helps, bias parameter mu</a><a class="next" href="/teaching/rl-exercises/off-policy-learning-identify-an-off-policy-scenario/">Ex 5.7.1 · Off-policy learning: identify an off-policy scenario →</a></nav>
+

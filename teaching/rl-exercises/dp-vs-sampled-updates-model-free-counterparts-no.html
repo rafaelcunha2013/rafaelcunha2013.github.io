@@ -1,0 +1,53 @@
+---
+layout: page
+title: "Exercise 5.3.5"
+description: "DP vs sampled updates: model-free counterparts, no sampled value iteration"
+permalink: /teaching/rl-exercises/dp-vs-sampled-updates-model-free-counterparts-no/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.3 Q-learning (off-policy learning)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the dynamic programming algorithms and their update equations, shown in Table 1.</p>
+<table>
+<caption>Table 1: Dynamic programming algorithms and their update equations.</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Algorithm</strong></th>
+<th style="text-align: center;"><strong>Update Equation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Policy Evaluation</td>
+<td style="text-align: center;"><span class="math inline">\(v_{k+1}(s) = \mathbb{E}[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s, A_t \sim \pi(S_t)]\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Value Iteration</td>
+<td style="text-align: center;"><span class="math inline">\(v_{k+1}(s) = \max_a \mathbb{E}[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s, A_t = a]\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Policy Evaluation</td>
+<td style="text-align: center;"><span class="math inline">\(q_{k+1}(s, a) = \mathbb{E}[R_{t+1} + \gamma q_k(S_{t+1}, A_{t+1}) \mid S_t = s, A_t = a]\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Value Iteration</td>
+<td style="text-align: center;"><span class="math inline">\(q_{k+1}(s, a) = \mathbb{E}[R_{t+1} + \gamma \max_{a&#39;} q_k(S_{t+1}, a&#39;) \mid S_t = s, A_t = a]\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> (1 point) For each dynamic programming algorithm, state its equivalent sampled version, with the exception of value iteration for the state-value function.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> (1 point) Why is there no sampling-based algorithm that corresponds directly to value iteration for the state-value function? What conditions would need to be satisfied for such an algorithm to exist?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#26">Slides: L5 · 26–30</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/sarsa-q-learning-numeric-update-of-q-s1/">← Ex 5.3.4 · SARSA/Q-learning: numeric update of Q(s1,1) from a Q-table</a><a class="next" href="/teaching/rl-exercises/q-learning-vs-sarsa-equivalence-under-greedy-action/">Ex 5.3.6 · Q-learning vs SARSA: equivalence under greedy action selection →</a></nav>
+

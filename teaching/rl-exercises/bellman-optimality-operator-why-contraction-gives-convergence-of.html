@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Exercise 3.6.1"
+description: "Bellman optimality operator: why γ-contraction gives convergence of value iteration"
+permalink: /teaching/rl-exercises/bellman-optimality-operator-why-contraction-gives-convergence-of/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.6 Bellman operators and the Banach fixed-point theorem</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the value iteration update rule. Instead of an update rule we can also view that equation as an operator <span class="math inline">\(T^{*}\)</span> that is applied simultaneously to update the value of every state <span class="math display">\[v_{k+1} \leftarrow T^{*} v_k.\]</span> That operator is defined as follows: Let <span class="math inline">\(\mathcal{V}\)</span> denote the set of value functions over some state space, then <span class="math inline">\(T^{*} : \mathcal{V} \rightarrow \mathcal{V}\)</span>, called the <em>Bellman optimality operator</em> is defined as: <span class="math display">\[(T^{*}v)(s) = \max_a \sum_{s&#39;,r} p(s&#39;,r|s,a)\big[ r + \gamma v(s&#39;) \big].\]</span> One property of <span class="math inline">\(T^{*}\)</span> that can be proven (try it) is that it is a <span class="math inline">\(\gamma\)</span>-contraction with respect to the max-norm <span class="math inline">\(\parallel . \parallel_{\infty}\)</span>. This means that for all value functions <span class="math inline">\(v,v&#39;\)</span> it holds that <span class="math display">\[\parallel T^*v - T^*v&#39; \parallel_{\infty} \leq \gamma \parallel v - v&#39; \parallel_{\infty},\]</span> where <span class="math inline">\(\parallel v \parallel_{\infty} := \max_s |v(s)|\)</span>.</p>
+<p>Why is this result important for the convergence of value iteration to a unique <span class="math inline">\(v_*\)</span>? Assuming the environment contains no terminal states, is this convergence guaranteed for any <span class="math inline">\(\gamma\)</span>?</p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#46">Slides: L3 · 46–66</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-iteration-and-value-iteration-implement-on-a/">← Ex 3.4.4 · Policy iteration and value iteration: implement on a 3-state MDP</a><a class="next" href="/teaching/rl-exercises/value-iteration-return-bound-convergence-stopping-rule-numeric/">Ex 3.6.2 · Value iteration: return bound, convergence, stopping rule, numeric threshold →</a></nav>
+

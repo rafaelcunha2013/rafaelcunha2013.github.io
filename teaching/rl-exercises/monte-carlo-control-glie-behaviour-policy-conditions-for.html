@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 5.2.1"
+description: "Monte Carlo control, GLIE: behaviour-policy conditions for SARSA convergence"
+permalink: /teaching/rl-exercises/monte-carlo-control-glie-behaviour-policy-conditions-for/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.2 SARSA: on-policy TD control</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>What are the conditions that the behavior policy in the Tabular SARSA algorithm must satisfy to guarantee convergence to the optimal action-value function?</p>
+<ul class="qlist qmcq" data-salt="monte-carlo-control-glie-behaviour-policy-conditions-for" data-key="8ae6d83354b631f269034803acafe447f5a16eaa3a15c6cd26ea29de4e738c8d" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>The behavior policy must incorporate a varying degree of randomness in action selection throughout the learning process to prevent premature convergence on suboptimal policies.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>The behavior policy must ensure that all state-action pairs are explored infinitely often, and it should become greedy in the limit.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>The behavior policy should be <span class="math inline">\(\epsilon\)</span>-greedy, with a constant <span class="math inline">\(\epsilon\)</span> value greater than <span class="math inline">\(0\)</span> and less than <span class="math inline">\(1\)</span>.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>The behavior policy requires every action in every state to be explored with a decreasing probability, except for the actions deemed optimal by a preliminary policy evaluation phase.</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#22">Slides: L5 · 22–24</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/mc-td-0-and-td-lambda-prediction-implement/">← Ex 4.5.2 · MC, TD(0) and TD(λ) prediction: implement and compare two policies</a><a class="next" href="/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/">Ex 5.2.2 · SARSA: derive sampled policy-evaluation update, role of alpha and gamma →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

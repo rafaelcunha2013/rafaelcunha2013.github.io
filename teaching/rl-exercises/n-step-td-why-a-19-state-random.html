@@ -1,0 +1,37 @@
+---
+layout: page
+title: "Exercise 4.4.1"
+description: "n-step TD: why a 19-state random walk and how n changes with the task"
+permalink: /teaching/rl-exercises/n-step-td-why-a-19-state-random/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.4 Multi-step TD</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider a Random Walk similar to the one in Figure 1 but with <span class="math inline">\(19\)</span> states. Consider <span class="math inline">\(n\)</span>-step TD for estimating <span class="math inline">\(V \approx v_{\pi}\)</span> which uses the following update: <span class="math display">\[V_{t+n}(S_t) = V_{t+n-1}(S_t) + \alpha [G_{t:t+n} - V_{t+n-1}(S_t)], \quad 0 \leq t &lt; T\]</span> where <span class="math inline">\(G_{t:t+n}\)</span> is the <span class="math inline">\(n\)</span>-step return and <span class="math inline">\(T\)</span> is the last time step of the episode.</p>
+<p>Figure 2 shows the results of a simple empirical test for a larger random walk process, with 19 states instead of 5. The performance measure for each parameter setting, shown on the vertical axis, is the root mean squared error <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> between the predictions at the end of the episode for the 19 states and their true values, then averaged over the first 10 episodes and 100 repetitions of the whole experiment (the same sets of walks were used for all parameter settings).</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/random-walk-mrp.svg" alt="randomwalk.png" style="max-width:100%;height:auto"><figcaption>Figure 1: State diagram of the Random Walk Markov reward process. Transition probabilities are uniform (50% left, 50% right). The initial state is the center state <span class="math inline">\(C\)</span>, and the extreme left and right states are the terminal states. When an episode terminates on the right, a reward of <span class="math inline">\(+1\)</span> occurs; all other rewards are zero.</figcaption></figure>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/n-step-td-random-walk.svg" alt="randomwalknstep.png" style="max-width:100%;height:auto"><figcaption>Figure 2: Performance of <span class="math inline">\(n\)</span>-step TD methods as a function of <span class="math inline">\(\alpha\)</span>, for various values of <span class="math inline">\(n\)</span>, on a 19-state random walk task. Here, methods with an intermediate value of <span class="math inline">\(n\)</span> worked best.</figcaption></figure>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Why do you think a larger random walk task (19 states instead of 5) was used in the Large Random Walk example of Lecture 4?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> Would a smaller walk have shifted the advantage to a different value of <span class="math inline">\(n\)</span>?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(c)</span> How about the change in left-side outcome from <span class="math inline">\(0\)</span> to <span class="math inline">\(-1\)</span> made in the larger walk? Do you think that made any difference in the best value of <span class="math inline">\(n\)</span>?</p>
+</li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Common regression metric (lower = better). For an estimate <span class="math inline">\(V\)</span> and true value <span class="math inline">\(v_{\pi}\)</span> the RMSE is <span class="math inline">\(\sqrt{1 / \mathcal{S} \sum_{s \in \mathcal{S}}(V(s) - v_{\pi}(s))^2}\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 7.3; Example 7.1. The random-walk diagram of Example 6.2 is redrawn from the book. Figure 7.2 is redrawn from a new run of the book's experiment. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#40">Slides: L4 · 40–45</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/td-0-monte-carlo-error-as-a-sum/">← Ex 4.3.4 · TD(0): Monte Carlo error as a sum of TD errors when V changes</a><a class="next" href="/teaching/rl-exercises/lambda-return-half-life-lambda-in-terms-of/">Ex 4.5.1 · λ-return: half-life τ_λ in terms of λ →</a></nav>
+

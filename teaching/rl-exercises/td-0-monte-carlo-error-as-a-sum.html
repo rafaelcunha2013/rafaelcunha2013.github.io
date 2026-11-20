@@ -1,0 +1,37 @@
+---
+layout: page
+title: "Exercise 4.3.4"
+description: "TD(0): Monte Carlo error as a sum of TD errors when V changes"
+permalink: /teaching/rl-exercises/td-0-monte-carlo-error-as-a-sum/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.3 MC vs TD: bias and variance, batch updates</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Hard">Hard</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Recall the following derivation from the value function: <span class="math display">\[\begin{array}{l l l}
+           v_{\pi}(s) &amp;= \mathbb{E}_{\pi}[G_t | S_t=s] \\
+             &amp; = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t=s] \\
+             &amp; = \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) | S_t=s].
+        \end{array}\]</span> Let <span class="math inline">\(V\)</span> denote a tabular estimate of <span class="math inline">\(v_{\pi}\)</span>. One step temporal difference learning, TD(0), for estimating <span class="math inline">\(v_{\pi}\)</span> uses an estimate of the last derivation as a target for the update rule: <span class="math display">\[\begin{equation*}
+        \tag{1}
+        V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1}) - V(S_t)],
+\end{equation*}\]</span> where <span class="math inline">\(\delta_t = R_{t+1} + \gamma V(S_{t+1}) - V(S_t)\)</span> is called the <em>TD error</em>. The idea is that we can get “closer" to the true value function by aligning the estimate with the definition of the true value function. <span class="math inline">\(\delta_t\)</span> is called the TD error as it measures the difference between the current estimate <span class="math inline">\(V(S_t)\)</span> and the better estimate <span class="math inline">\(R_{t+1} + \gamma V(S_{t+1})\)</span>. Similarly, Monte-Carlo methods use the first derivation, <span class="math inline">\(\mathbb{E}_{\pi}[G_t|S_t=s]\)</span> as a target. As it turns out, the <em>Monte Carlo error</em> can be written as a sum of TD errors: <span class="math display">\[\begin{array}{l l l}
+    \underbrace{G_t - V(S_t)}_{\text{Target - Current Estimate}} &amp;= R_{t+1} + \gamma G_{t+1} - V(S_t) + \gamma V(S_{t+1}) - \gamma V(S_{t+1}) \\
+    &amp;= \delta_t + \gamma (G_{t+1} - V(S_{t+1})) \\
+    &amp;= \delta + \gamma \delta_{t+1} + \gamma^2(G_{t+2} - V(S_{t+2})) \\
+    &amp;= \delta_t + \gamma \delta_{t+1} + \gamma^2 \delta_{t+2} + \ldots + \gamma^{T - t - 1} \delta_{T-1} + \gamma^{T-t}(G_T - V(S_T)) \\
+    &amp;= \delta_t + \gamma \delta_{t+1} + \gamma^2 \delta_{t+2} + \ldots + \gamma^{T-t-1} \delta_{T-1} + \gamma^{T-t} (0-0) \\
+    &amp; = \sum^{T-1}_{k=t} \gamma^{k-t} \delta_k. 
+
+    \end{array}\]</span> Generalizations of the resulting identity, <span class="math display">\[G_t - V(S_t) = \sum^{T-1}_{k=t} \gamma^{k-t} \delta_k, \quad (I)\]</span> play an important role in the theory and algorithms of TD learning.</p>
+<p>If <span class="math inline">\(V\)</span> changes during the episode, then <span class="math inline">\((I)\)</span> only holds approximately; what would the difference be between the two sides? Let <span class="math inline">\(V_t\)</span> denote the array of state values used at time <span class="math inline">\(t\)</span> in TD error and in the TD update. Redo the derivation above to determine the additional amount that must be added to the sum of TD errors in order to equal the Monte Carlo error.</p>
+
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 6.1. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#30">Slides: L4 · 30–39</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/mc-vs-td-when-a-td-update-beats/">← Ex 4.3.3 · MC vs TD: when a TD update beats a Monte Carlo update (driving home)</a><a class="next" href="/teaching/rl-exercises/n-step-td-why-a-19-state-random/">Ex 4.4.1 · n-step TD: why a 19-state random walk and how n changes with the task →</a></nav>
+

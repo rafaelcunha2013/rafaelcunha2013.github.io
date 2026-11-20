@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Exercise 3.3.1"
+description: "Policy iteration: stochastic policies, 3-argument p, and the action-value version"
+permalink: /teaching/rl-exercises/policy-iteration-stochastic-policies-3-argument-p-and/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-3">Lecture 3 · Dynamic Programming</a> › 3.3 Policy iteration</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Consider the policy iteration algorithm for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/11cbe99a61b3.svg" alt="boxed text" style="max-width:100%;height:auto"></figure>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> Modify the given algorithm to work with stochastic policies <span class="math inline">\(\pi(a|s)\)</span>, the three-argument transition function <span class="math inline">\(p(s&#39;|s,a)\)</span> and two argument reward function <span class="math inline">\(r(s,a)\)</span> instead of the four-argument transition function <span class="math inline">\(p(s&#39;,r|s,a)\)</span> and triple argument reward function <span class="math inline">\(r(s,a,s&#39;)\)</span>. The given algorithm assumes the latter (<span class="roman">(<span class="math inline">\(r\)</span> is shorthand for triple argument reward function)</span>.</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> How would policy iteration be defined for action values? Give a complete algorithm for computing <span class="math inline">\(q_*\)</span> analogous to the one below for computing <span class="math inline">\(v_*\)</span>. Assume a deterministic policy.</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Adapted from Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 4.5. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-03/#37">Slides: L3 · 37–39</a><a href="/teaching/rl-course-map/#lec-3">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/policy-evaluation-q-pi-and-an-added-state-2/">← Ex 3.1.2 · Policy evaluation: q_π and an added state in the 4x4 gridworld (exam)</a><a class="next" href="/teaching/rl-exercises/policy-iteration-time-complexity-with-v-s-versus/">Ex 3.3.2 · Policy iteration: time complexity with V(s) versus Q(s,a) →</a></nav>
+

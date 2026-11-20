@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Exercise 5.3.1"
+description: "On-policy vs off-policy: SARSA vs Q-learning, advantages and disadvantages"
+permalink: /teaching/rl-exercises/on-policy-vs-off-policy-sarsa-vs-q/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-5">Lecture 5 · Model-Free Control</a> › 5.3 Q-learning (off-policy learning)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>In reinforcement learning, algorithms are classified as on-policy or off-policy based on how they learn and update their value functions. Which of the following statements correctly distinguishes between on-policy and off-policy algorithms, including a mention of their advantages and disadvantages?</p>
+<ul class="qlist qmcq" data-salt="on-policy-vs-off-policy-sarsa-vs-q" data-key="25602cbcb872874aea3de56d268aaee8864f1746c16304b3522bedc84fccafe4" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>On-policy algorithms, such as Q-learning, require the agent to learn the value function based on actions taken outside the current policy, which can lead to faster learning but with higher computational costs. Off-policy algorithms, like SARSA, restrict learning to the current policy’s actions, reducing computational demands but also slowing down the learning process.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>On-policy algorithms, such as SARSA, learn the value of the policy being followed and tend to be safer in their exploration, but may converge more slowly because they strictly follow the current policy. Off-policy algorithms, like Q-learning, learn the value of the optimal policy independently of the agent’s actions, allowing for faster convergence but potentially increasing the risk during exploration.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>On-policy algorithms update their value functions based on a predefined policy that does not change with the agent’s experience, leading to highly predictable but inflexible learning paths. Off-policy algorithms dynamically adjust their learning policy based on the agent’s interactions with the environment, making them more adaptable but less stable.</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>Off-policy algorithms, such as SARSA, evaluate and improve a policy different from that used to generate the data, often leading to discrepancies in policy performance. On-policy algorithms, like Q-learning, ensure that the exploration policy is the same as the target policy, which simplifies the learning process but may limit exploration.</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-05/#26">Slides: L5 · 26–30</a><a href="/teaching/rl-course-map/#lec-5">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/sarsa-find-and-fix-errors-in-faulty-pseudocode/">← Ex 5.2.3 · SARSA: find and fix errors in faulty pseudocode</a><a class="next" href="/teaching/rl-exercises/q-learning-vs-sarsa-off-policy-vs-on/">Ex 5.3.2 · Q-learning vs SARSA: off-policy vs on-policy control →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

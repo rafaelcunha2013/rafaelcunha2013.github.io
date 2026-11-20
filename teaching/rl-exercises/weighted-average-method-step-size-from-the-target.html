@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Exercise 1.3.1"
+description: "Weighted-average method: step size α from the target and estimate plot"
+permalink: /teaching/rl-exercises/weighted-average-method-step-size-from-the-target/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-1">Lecture 1 · Exploration Methods</a> › 1.3 Weighted-average method (nonstationary problems)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-MCQ">Multiple choice</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>The weight-average method updates the action-value estimate using the formula: <span class="math display">\[\begin{align*}
+    q_{n+1} = q_n + \alpha [R_n - q_n]
+\end{align*}\]</span> where <span class="math inline">\(q_n\)</span> is the action-value estimate, <span class="math inline">\(\alpha\)</span> is the step-size, and <span class="math inline">\(R_n\)</span> is the reward received, all at time step <span class="math inline">\(n\)</span>. Given the estimated update, what do you think was the value of the step size parameter used to update the estimate on each time step?</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/4e9321193e69.png" alt="target_estimate.png" style="max-width:100%;height:auto"></figure>
+<ul class="qlist qmcq" data-salt="weighted-average-method-step-size-from-the-target" data-key="2fba7e57cf3ba6075ac087e9f69d13aade5cc7aa984e5f99aa1fb5a7c332194c" role="radiogroup">
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="A"><span class="qlabel">A)</span><span>1.0</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="B"><span class="qlabel">B)</span><span>1/2</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="C"><span class="qlabel">C)</span><span>1/8</span></label></li>
+<li><label class="rlx-opt"><input type="radio" name="mcq" value="D"><span class="qlabel">D)</span><span>1/4</span></label></li>
+</ul><div class="rlx-check"><button type="button" disabled>Check</button><output aria-live="polite"></output></div>
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#39">Slides: L1 · 39–46</a><a href="/teaching/rl-course-map/#lec-1">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/sample-average-method-q-values-at-t-9/">← Ex 1.2.1 · Sample-average method: Q-values at t = 9 from a reward table</a><a class="next" href="/teaching/rl-exercises/weighted-average-method-step-size-from-the-target-2/">Ex 1.3.2 · Weighted-average method: step size α from the target and estimate plot →</a></nav>
+<script defer src="/teaching/rl-exercises/exercise.js"></script>

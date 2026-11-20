@@ -1,0 +1,28 @@
+---
+layout: page
+title: "Exercise 4.2.2"
+description: "TD(0): first-episode update in the random walk"
+permalink: /teaching/rl-exercises/td-0-first-episode-update-in-the-random/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-4">Lecture 4 · Monte Carlo Methods and TD Learning</a> › 4.2 Temporal-difference learning: TD(0)</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Medium">Medium</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>Recall the Random Walk example from the lecture and the book (see Figure 1). Because the task is undiscounted the true value <span class="math inline">\(v_{\pi}\)</span> of each state is the probability of terminating on the right if starting from that state. So from <span class="math inline">\(A\)</span> through <span class="math inline">\(E\)</span> the true value <span class="math inline">\(v_{\pi}\)</span> is <span class="math inline">\(\frac{1}{6}, \frac{2}{6}, \frac{3}{6}, \frac{4}{6}, \frac{5}{6}\)</span>. Figure 2 shows the estimates <span class="math inline">\(V(s)\)</span> for all states <span class="math inline">\(s\)</span> after varying number of episodes. From figure 2 it appears that the first episode results in a change in only <span class="math inline">\(V(A)\)</span>.</p>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/random-walk-mrp.svg" alt="randomwalk.png" style="max-width:100%;height:auto"><figcaption>Figure 1: State diagram of the Random Walk Markov reward process. Transition probabilities are uniform (50% left, 50% right). The initial state is the center state <span class="math inline">\(C\)</span>, and the extreme left and right states are the terminal states. When an episode terminates on the right, a reward of <span class="math inline">\(+1\)</span> occurs; all other rewards are zero.</figcaption></figure>
+<figure class="qfig"><img src="/teaching/rl-exercises/media/td-random-walk-values.svg" alt="randomwalkgraph.png" style="max-width:100%;height:auto"><figcaption>Figure 2: Values learned after various numbers of episodes on a single run of TD(0) with <span class="math inline">\(\alpha=0.1\)</span>. The red line corresponds to the estimate <span class="math inline">\(V\)</span> after 1 episode.</figcaption></figure>
+<ul class="qlist" style="list-style:none;margin:.4em 0;padding-left:1.8em">
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(a)</span> What does this tell you about what happened in the first episode? Why was only the estimate for this one state changed?</p>
+</li>
+<li style="margin:.3em 0"><p><span class="qlabel" style="display:inline-block;min-width:1.8em;margin-left:-1.8em">(b)</span> By exactly how much was it changed?</p>
+</li>
+</ul>
+
+{% endraw %}
+</div>
+<p class="rlx-source">Source: Sutton &amp; Barto (2018), <a href="http://incompleteideas.net/book/the-book-2nd.html"><cite>Reinforcement Learning: An Introduction</cite>, 2nd ed.</a>, Exercise 6.3; Example 6.2. The random-walk diagram of Example 6.2 is redrawn from the book. The left graph of Example 6.2 is redrawn from a new run of the book's experiment. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>.</p>
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-04/#18">Slides: L4 · 18–29</a><a href="/teaching/rl-course-map/#lec-4">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/td-error-for-action-values-identity-g-t/">← Ex 4.2.1 · TD error for action values: identity G_t - Q(S_t,A_t) as a sum of TD errors</a><a class="next" href="/teaching/rl-exercises/temporal-difference-learning-why-td-estimates-are-biased/">Ex 4.3.1 · Temporal-difference learning: why TD estimates are biased (MCQ) →</a></nav>
+

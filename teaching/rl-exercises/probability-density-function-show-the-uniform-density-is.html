@@ -1,0 +1,30 @@
+---
+layout: page
+title: "Exercise R.1.7"
+description: "Probability density function: show the uniform density is a pdf"
+permalink: /teaching/rl-exercises/probability-density-function-show-the-uniform-density-is/
+nav: false
+---
+<link rel="stylesheet" href="/teaching/rl-exercises/exercise.css">
+<div class="rlx-crumb"><a href="/teaching/rl-exercises/">Exercises</a> › <a href="/teaching/rl-exercises/#lec-0">Background review</a> › R.1 Random variables</div>
+<div class="rlx-meta"><span class="rlx-tag rlx-d-Easy">Easy</span><span class="rlx-tag rlx-c-written">Written</span></div>
+<div class="rlx-body">
+{% raw %}
+<p>**Most of the time, one can swap sums to integrals to switch from the discrete to the continuous case (although not completely correct).</p>
+<p>A pdf is a function <span class="math inline">\(f\)</span> such that <span class="math inline">\(f(x)\geq 0\)</span> for all <span class="math inline">\(x\)</span> and <span class="math display">\[\begin{align*}
+    \int_{-\infty}^{\infty}f_X(x) dx=1.
+\end{align*}\]</span></p>
+<p>Note that this means that its integral exists. A pdf has density <span class="math inline">\(f_X(x)\)</span> at each point.</p>
+<p>To get probabilities, we need the area under the curve of the pdf over an interval: <span class="math display">\[\begin{align*}
+    \mathbb{P}(a&lt;X&lt;b)=\int_a^b f_X(x) dx,
+\end{align*}\]</span> read as the probability <span class="math inline">\(X\)</span> is between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>A continuous uniform distribution has pdf <span class="math inline">\(f(x)=\frac{1}{b-a}\)</span> for <span class="math inline">\(x \in (a,b)\)</span> and <span class="math inline">\(f(x)=0\)</span> otherwise. Show that it is indeed a pdf.</p>
+<p><em>Hint</em>: the function has to be non-negative and the integral must equal 1.</p>
+
+
+{% endraw %}
+</div>
+
+<div class="rlx-links"><a href="/teaching/rl-lectures/lecture-01/#8">Slides: L1 · 8–10</a><a href="/teaching/rl-course-map/#lec-review">Course map</a></div>
+<nav class="rlx-nav"><a class="prev" href="/teaching/rl-exercises/probability-density-function-p-x-x-0-for/">← Ex R.1.6 · Probability density function: P(X=x)=0 for a continuous variable</a><a class="next" href="/teaching/rl-exercises/random-variables-values-and-type-of-number-of/">Ex R.1.8 · Random variables: values and type of number of sixes in N dice →</a></nav>
+
