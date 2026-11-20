@@ -4,6 +4,9 @@ permalink: /teaching/rl-tutorials/
 title: Reinforcement Learning Tutorials
 description: Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.
 nav: false
+parent:
+  title: Reinforcement Learning
+  url: /teaching/rl-course-map/
 ---
 
 <style>

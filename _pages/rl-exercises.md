@@ -4,6 +4,9 @@ permalink: /teaching/rl-exercises/
 title: Reinforcement Learning Exercises
 description: Exercises for every lecture, in teaching order, from easy to hard within each concept.
 nav: false
+parent:
+  title: Reinforcement Learning
+  url: /teaching/rl-course-map/
 ---
 
 <style>

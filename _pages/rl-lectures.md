@@ -4,6 +4,9 @@ permalink: /teaching/rl-lectures/
 title: Reinforcement Learning Lectures
 description: Eight lectures, from multi-armed bandits to model-based reinforcement learning, as interactive slides.
 nav: false
+parent:
+  title: Reinforcement Learning
+  url: /teaching/rl-course-map/
 ---
 
 <style>

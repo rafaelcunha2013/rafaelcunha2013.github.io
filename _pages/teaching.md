@@ -167,6 +167,10 @@ giscus_comments: false
             font-weight: 500;
             color: #4b9cd3;
         }
+        a.material-title { text-decoration: none; }
+        a.material-title:hover { color: #4b9cd3; }
+        .material-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; align-items: baseline; font-size: 0.95rem; }
+        .material-links a { color: #4b9cd3; }
         /* Responsive */
         @media (max-width: 768px) {
             .section-title {
@@ -186,21 +190,11 @@ giscus_comments: false
         <h2 class="section-title">Open Teaching Material</h2>
         <p class="section-description">Material from my courses, free to use and adapt under an open licence.</p>
     </div>
-    <a class="material-card" href="/teaching/rl-tutorials/">
-        <span class="material-title">Reinforcement Learning Tutorials</span>
-        <span class="material-text">Seven hands-on tutorials, from multi-armed bandits to policy gradients. The code runs in your browser.</span>
-        <span class="material-link">Open the tutorials →</span>
-    </a>
-    <a class="material-card" href="/teaching/rl-lectures/" style="margin-top: 0.9rem;">
-        <span class="material-title">Reinforcement Learning Lectures</span>
-        <span class="material-text">Eight lectures, from multi-armed bandits to model-based reinforcement learning, as interactive slides.</span>
-        <span class="material-link">Open the lectures →</span>
-    </a>
-    <a class="material-card" href="/teaching/rl-course-map/" style="margin-top: 0.9rem;">
-        <span class="material-title">Reinforcement Learning Course Map</span>
-        <span class="material-text">Every concept of the eight lectures, with links to its slides, the lecture video and the tutorial tasks that practise it.</span>
-        <span class="material-link">Open the course map →</span>
-    </a>
+    <div class="material-card">
+        <a class="material-title" href="/teaching/rl-course-map/">Reinforcement Learning</a>
+        <span class="material-text">An open introductory course in eight lectures, following Sutton and Barto's textbook: slides with video recordings, tutorials whose code runs in your browser, and exercises for every concept.</span>
+        <span class="material-links"><a class="material-link" href="/teaching/rl-course-map/">Open the course →</a><a href="/teaching/rl-lectures/">Lectures</a><a href="/teaching/rl-tutorials/">Tutorials</a><a href="/teaching/rl-exercises/">Exercises</a></span>
+    </div>
 </div>
 
 <br>

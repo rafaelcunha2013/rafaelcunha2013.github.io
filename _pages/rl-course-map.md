@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /teaching/rl-course-map/
-title: Reinforcement Learning Course Map
-description: Every concept of the eight lectures, with a link to its slides and to the tutorial tasks that practise it.
+title: Reinforcement Learning
+description: An introductory course in eight lectures, with video recordings, tutorials and exercises, following Sutton and Barto's textbook.
 nav: false
 ---
 
@@ -59,11 +59,26 @@ nav: false
   .rlm .exs a:hover { background: var(--global-divider-color); }
   .rlm .exs .d-Easy { border-color: #2e8b57; } .rlm .exs .d-Medium { border-color: #c8902a; } .rlm .exs .d-Hard { border-color: #c4474d; }
   .rlm .exs a.also { border-style: dashed; border-color: var(--global-text-color-light); color: var(--global-text-color-light); }
-  .rlm .exs code { font-size: 0.75rem; color: var(--global-text-color-light); background: none; padding: 0; margin-left: 0.2rem; }
+  /* a coding part: dark fill, as the Coding tag on the exercises page; the border keeps the difficulty colour */
+  .rlm .exs a.code { background: var(--global-text-color); color: var(--global-bg-color); border-width: 2px; padding: 0 0.45rem; }
+  .rlm .exs a.code:hover { background: var(--global-text-color); opacity: 0.85; }
+  /* filed elsewhere AND coding: the dashes go just outside the fill, on the page background, so they
+     show in both themes (inside, they had the fill's colour in dark mode) */
+  .rlm .exs a.code.also { opacity: 0.75; border-color: transparent; outline: 1.5px dashed var(--global-text-color); outline-offset: 2px; }
   .rlm .key { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.85rem; color: var(--global-text-color-light); margin: 0.4rem 0 0; }
-  .rlm .key .exs { display: inline-flex; }
+  .rlm .key { gap: 0.4rem 1.2rem; align-items: baseline; }
+  .rlm .key .kitem { display: inline-flex; align-items: baseline; gap: 0.4rem; min-width: 0; }   /* a sample chip stays with its text */
+  .rlm .key .exs { display: inline-flex; flex: none; }
   .rlm .head { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--global-text-color-light); }
   .rlm .credit { font-size: 0.9rem; color: var(--global-text-color-light); border-top: 1px solid var(--global-divider-color); padding-top: 1rem; margin-top: 2.5rem; }
+  .rlm h2 { font-size: 1.35rem; font-weight: 700; margin: 2.4rem 0 0.6rem; }
+  .rlm .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 0.8rem; margin: 1.4rem 0 0.4rem; }
+  .rlm .tile { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.9rem 1rem; border: 1px solid var(--global-divider-color);
+    border-top: 3px solid var(--rlm-accent); border-radius: 8px; text-decoration: none !important; color: var(--global-text-color); }
+  .rlm .tile:hover, .rlm .tile:focus-visible { border-color: var(--rlm-accent); }
+  .rlm .tile b { font-size: 1.05rem; color: var(--global-text-color); }
+  .rlm .tile span { font-size: 0.88rem; color: var(--global-text-color-light); }
+  .rlm .tile .go { margin-top: auto; padding-top: 0.3rem; color: var(--rlm-accent); font-weight: 600; font-size: 0.88rem; }
   .rlm [hidden] { display: none !important; }
   @media (max-width: 640px) {
     .rlm .crow { grid-template-columns: minmax(0, 1fr) auto; }
@@ -76,9 +91,22 @@ nav: false
 <div class="rlm">
 
 <p class="lead">
+The course goes from the exploration–exploitation dilemma in multi-armed bandits, through finite Markov decision processes, dynamic programming, and Monte Carlo and temporal-difference learning, to function approximation, policy gradients and model-based methods. It follows R. S. Sutton and A. G. Barto, <a href="http://incompleteideas.net/book/the-book-2nd.html"><i>Reinforcement Learning: An Introduction</i></a>, 2nd ed., 2018, free online from the authors.
+</p>
+
+{% assign n_ex = 0 %}{% for l in site.data.rl_exercises.lectures %}{% assign n_ex = n_ex | plus: l.count %}{% endfor %}
+<div class="tiles">
+  <a class="tile" href="/teaching/rl-lectures/"><b>Lectures</b><span>{{ site.data.rl_course_map.lectures | size }} lectures as interactive slides, each with its video recording.</span><span class="go">Open the lectures →</span></a>
+  <a class="tile" href="/teaching/rl-tutorials/"><b>Tutorials</b><span>7 tutorials in Python. The code runs in your browser.</span><span class="go">Open the tutorials →</span></a>
+  <a class="tile" href="/teaching/rl-exercises/"><b>Exercises</b><span>{{ n_ex }} exercises, from easy to hard within each concept.</span><span class="go">Open the exercises →</span></a>
+  <a class="tile" href="#review"><b>Background review</b><span>The probability and functional analysis the lectures use.</span><span class="go">Open the review ↓</span></a>
+</div>
+
+<h2 id="map">Course map</h2>
+<p class="lead">
 Each concept of the <a href="/teaching/rl-lectures/">lectures</a>, in the order the slides teach it. The slide link opens the deck at the first slide on the concept; the task links open the <a href="/teaching/rl-tutorials/">tutorial</a> at the task that practises it, and the exercise links open the <a href="/teaching/rl-exercises/">exercises</a> on the concept, numbered lecture.concept.n.
 </p>
-<p class="key"><span class="exs"><a class="d-Easy" tabindex="-1">Easy</a> <a class="d-Medium" tabindex="-1">Medium</a> <a class="d-Hard" tabindex="-1">Hard</a></span><span><code>&lt;/&gt;</code> has a coding part</span><span class="exs"><a class="also" tabindex="-1">Ex 1.9.3</a></span><span>dashed: filed under another concept, also practises this one</span></p>
+<p class="key"><span class="kitem exs"><a class="d-Easy" tabindex="-1">Easy</a><a class="d-Medium" tabindex="-1">Medium</a><a class="d-Hard" tabindex="-1">Hard</a></span><span class="kitem"><span class="exs"><a class="code" tabindex="-1">Code</a></span><span>has a coding part</span></span><span class="kitem"><span class="exs"><a class="also" tabindex="-1">Ex 1.9.3</a></span><span>dashed: filed under another concept, also practises this one</span></span></p>
 
 <div class="find">
   <input type="search" id="rlm-filter" placeholder="Find a concept, e.g. TD, Bellman, REINFORCE" aria-label="Find a concept">
