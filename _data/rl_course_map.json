@@ -340,7 +340,7 @@
      "num": "5.2.2",
      "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
      "difficulty": "Easy",
-     "coding": true,
+     "coding": false,
      "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
     },
     {
@@ -609,7 +609,7 @@
        "num": "5.2.2",
        "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
        "difficulty": "Easy",
-       "coding": true,
+       "coding": false,
        "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
       }
      ]
@@ -1037,7 +1037,7 @@
        "num": "5.2.2",
        "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
        "difficulty": "Easy",
-       "coding": true,
+       "coding": false,
        "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
       }
      ]
@@ -1640,7 +1640,7 @@
        "num": "5.2.2",
        "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
        "difficulty": "Easy",
-       "coding": true,
+       "coding": false,
        "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
       },
       {
@@ -1823,7 +1823,7 @@
        "num": "5.2.2",
        "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
        "difficulty": "Easy",
-       "coding": true,
+       "coding": false,
        "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
       },
       {
@@ -1853,7 +1853,7 @@
        "num": "5.2.2",
        "name": "SARSA: derive sampled policy-evaluation update, role of alpha and gamma",
        "difficulty": "Easy",
-       "coding": true,
+       "coding": false,
        "href": "/teaching/rl-exercises/sarsa-derive-sampled-policy-evaluation-update-role-of/"
       },
       {
