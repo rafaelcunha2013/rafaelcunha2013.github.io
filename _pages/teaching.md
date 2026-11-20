@@ -196,6 +196,11 @@ giscus_comments: false
         <span class="material-text">Eight lectures, from multi-armed bandits to model-based reinforcement learning, as interactive slides.</span>
         <span class="material-link">Open the lectures →</span>
     </a>
+    <a class="material-card" href="/teaching/rl-course-map/" style="margin-top: 0.9rem;">
+        <span class="material-title">Reinforcement Learning Course Map</span>
+        <span class="material-text">Every concept of the eight lectures, with links to its slides, the lecture video and the tutorial tasks that practise it.</span>
+        <span class="material-link">Open the course map →</span>
+    </a>
 </div>
 
 <br>

@@ -46,7 +46,7 @@ nav: false
 <div class="rll">
 
 <p class="lead">
-These are the lecture slides of an introductory course on reinforcement learning. They follow Sutton and Barto's textbook, from the exploration–exploitation dilemma in bandits to policy gradients and model-based methods. The <a href="/teaching/rl-tutorials/">tutorials</a> put each lecture's methods into code.
+These are the lecture slides of an introductory course on reinforcement learning. They follow Sutton and Barto's textbook, from the exploration–exploitation dilemma in bandits to policy gradients and model-based methods. The <a href="/teaching/rl-tutorials/">tutorials</a> put each lecture's methods into code. The <a href="/teaching/rl-course-map/">course map</a> lists every concept with its slides and the tutorial tasks that practise it.
 </p>
 
 <div class="facts">

@@ -1,0 +1,562 @@
+{
+ "lectures": [
+  {
+   "n": 1,
+   "title": "Exploration Methods",
+   "href": "/teaching/rl-lectures/lecture-01/",
+   "slides": 102,
+   "video": "https://video.rug.nl/media/0_o36bezqj",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-01.html",
+   "tutorial": "Tutorial 1",
+   "concepts": [
+    {
+     "concept": "Multi-armed bandit problem",
+     "slides": "6–30",
+     "href": "/teaching/rl-lectures/lecture-01/#6",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 1",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-1"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 2",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-2"
+      }
+     ]
+    },
+    {
+     "concept": "Sample-average method",
+     "slides": "33–38",
+     "href": "/teaching/rl-lectures/lecture-01/#33",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-4"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 6",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-6"
+      }
+     ]
+    },
+    {
+     "concept": "Weighted-average method (nonstationary problems)",
+     "slides": "39–46",
+     "href": "/teaching/rl-lectures/lecture-01/#39",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-5"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 7",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-7"
+      }
+     ]
+    },
+    {
+     "concept": "Greedy",
+     "slides": "49–53",
+     "href": "/teaching/rl-lectures/lecture-01/#49",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 8",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-8"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 10",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-10"
+      }
+     ]
+    },
+    {
+     "concept": "ε-greedy",
+     "slides": "54–63",
+     "href": "/teaching/rl-lectures/lecture-01/#54",
+     "tasks": [
+      {
+       "tutorial": 1,
+       "label": "Task 12",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-12"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 13",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-13"
+      },
+      {
+       "tutorial": 1,
+       "label": "Task 14",
+       "href": "/teaching/rl-tutorials/tutorial-01.html#task-14"
+      }
+     ]
+    },
+    {
+     "concept": "Optimistic initial values",
+     "slides": "64–69",
+     "href": "/teaching/rl-lectures/lecture-01/#64",
+     "tasks": []
+    },
+    {
+     "concept": "Upper confidence bound (UCB)",
+     "slides": "71–77",
+     "href": "/teaching/rl-lectures/lecture-01/#71",
+     "tasks": []
+    },
+    {
+     "concept": "Softmax action selection",
+     "slides": "79–81",
+     "href": "/teaching/rl-lectures/lecture-01/#79",
+     "tasks": []
+    },
+    {
+     "concept": "Policy gradient methods: action preferences",
+     "slides": "83–100",
+     "href": "/teaching/rl-lectures/lecture-01/#83",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "The RL Problem and Finite MDPs",
+   "href": "/teaching/rl-lectures/lecture-02/",
+   "slides": 77,
+   "video": "https://video.rug.nl/media/0_27h7azg4",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-02.html",
+   "tutorial": "Tutorial 2",
+   "concepts": [
+    {
+     "concept": "Markov decision process",
+     "slides": "15–26",
+     "href": "/teaching/rl-lectures/lecture-02/#15",
+     "tasks": [
+      {
+       "tutorial": 2,
+       "label": "Case 2, Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-2-task-4"
+      }
+     ]
+    },
+    {
+     "concept": "Markov property",
+     "slides": "27–29",
+     "href": "/teaching/rl-lectures/lecture-02/#27",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 5, Task 4",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-5-task-4"
+      }
+     ]
+    },
+    {
+     "concept": "Returns and discounting",
+     "slides": "34–40",
+     "href": "/teaching/rl-lectures/lecture-02/#34",
+     "tasks": [
+      {
+       "tutorial": 2,
+       "label": "Case 1, Task 2",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-1-task-2"
+      },
+      {
+       "tutorial": 2,
+       "label": "Case 1, Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-02.html#case-1-task-3"
+      }
+     ]
+    },
+    {
+     "concept": "Bellman expectation equations",
+     "slides": "47–61",
+     "href": "/teaching/rl-lectures/lecture-02/#47",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-5"
+      }
+     ]
+    },
+    {
+     "concept": "Bellman optimality equations",
+     "slides": "62–69",
+     "href": "/teaching/rl-lectures/lecture-02/#62",
+     "tasks": []
+    },
+    {
+     "concept": "Bellman equation in matrix form",
+     "slides": "73–74",
+     "href": "/teaching/rl-lectures/lecture-02/#73",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 6",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-6"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 7",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Dynamic Programming",
+   "href": "/teaching/rl-lectures/lecture-03/",
+   "slides": 78,
+   "video": "https://video.rug.nl/media/0_3bqlzpfw",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-03.html",
+   "tutorial": "Tutorial 3",
+   "concepts": [
+    {
+     "concept": "Policy evaluation",
+     "slides": "12–19",
+     "href": "/teaching/rl-lectures/lecture-03/#12",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 3, Task 7 (direct solve)",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-3-task-7"
+      }
+     ]
+    },
+    {
+     "concept": "Policy improvement theorem",
+     "slides": "20–36",
+     "href": "/teaching/rl-lectures/lecture-03/#20",
+     "tasks": [
+      {
+       "tutorial": 3,
+       "label": "Case 4, Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-4-task-3"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 4, Task 5",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-4-task-5"
+      }
+     ]
+    },
+    {
+     "concept": "Policy iteration",
+     "slides": "37–39",
+     "href": "/teaching/rl-lectures/lecture-03/#37",
+     "tasks": []
+    },
+    {
+     "concept": "Value iteration",
+     "slides": "40–44",
+     "href": "/teaching/rl-lectures/lecture-03/#40",
+     "tasks": []
+    },
+    {
+     "concept": "Generalized policy iteration (GPI)",
+     "slides": "45",
+     "href": "/teaching/rl-lectures/lecture-03/#45",
+     "tasks": []
+    },
+    {
+     "concept": "Bellman operators and the Banach fixed-point theorem",
+     "slides": "46–66",
+     "href": "/teaching/rl-lectures/lecture-03/#46",
+     "tasks": []
+    },
+    {
+     "concept": "Synchronous and asynchronous DP",
+     "slides": "67–76",
+     "href": "/teaching/rl-lectures/lecture-03/#67",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Monte Carlo Methods and Temporal-Difference Learning",
+   "href": "/teaching/rl-lectures/lecture-04/",
+   "slides": 68,
+   "video": "https://video.rug.nl/media/0_9crllstx",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-04.html",
+   "tutorial": "Tutorial 4",
+   "concepts": [
+    {
+     "concept": "Monte Carlo prediction",
+     "slides": "7–17",
+     "href": "/teaching/rl-lectures/lecture-04/#7",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 1, batch MC",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-1-task"
+      },
+      {
+       "tutorial": 4,
+       "label": "Case 1, constant-α MC",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-1-task-2"
+      },
+      {
+       "tutorial": 3,
+       "label": "Case 5, Task 1",
+       "href": "/teaching/rl-tutorials/tutorial-03.html#case-5-task-1"
+      }
+     ]
+    },
+    {
+     "concept": "Temporal-difference learning: TD(0)",
+     "slides": "18–29",
+     "href": "/teaching/rl-lectures/lecture-04/#18",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 2, TD(0)",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-task"
+      }
+     ]
+    },
+    {
+     "concept": "MC vs TD: bias and variance, batch updates",
+     "slides": "30–39",
+     "href": "/teaching/rl-lectures/lecture-04/#30",
+     "tasks": [
+      {
+       "tutorial": 4,
+       "label": "Case 2, The Long Journey",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-experiment-the-long-journey"
+      },
+      {
+       "tutorial": 4,
+       "label": "Case 2, final task",
+       "href": "/teaching/rl-tutorials/tutorial-04.html#case-2-task-2"
+      }
+     ]
+    },
+    {
+     "concept": "Multi-step TD",
+     "slides": "40–45",
+     "href": "/teaching/rl-lectures/lecture-04/#40",
+     "tasks": []
+    },
+    {
+     "concept": "Mixed multi-step returns and eligibility traces",
+     "slides": "46–66",
+     "href": "/teaching/rl-lectures/lecture-04/#46",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Model-Free Control",
+   "href": "/teaching/rl-lectures/lecture-05/",
+   "slides": 62,
+   "video": "https://video.rug.nl/media/0_w2y3zc1y",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-05.html",
+   "tutorial": "Tutorial 5",
+   "concepts": [
+    {
+     "concept": "Monte Carlo control, GLIE",
+     "slides": "14–21",
+     "href": "/teaching/rl-lectures/lecture-05/#14",
+     "tasks": []
+    },
+    {
+     "concept": "SARSA: on-policy TD control",
+     "slides": "22–24",
+     "href": "/teaching/rl-lectures/lecture-05/#22",
+     "tasks": []
+    },
+    {
+     "concept": "Q-learning (off-policy learning)",
+     "slides": "26–30",
+     "href": "/teaching/rl-lectures/lecture-05/#26",
+     "tasks": [
+      {
+       "tutorial": 5,
+       "label": "Case 2, Build the Q-learning agent",
+       "href": "/teaching/rl-tutorials/tutorial-05.html#case-2-task-build-the-q-learning-agent"
+      },
+      {
+       "tutorial": 5,
+       "label": "Case 2, Evaluation protocol",
+       "href": "/teaching/rl-tutorials/tutorial-05.html#case-2-task-build-the-evaluation-protocol"
+      }
+     ]
+    },
+    {
+     "concept": "Expected SARSA",
+     "slides": "32",
+     "href": "/teaching/rl-lectures/lecture-05/#32",
+     "tasks": []
+    },
+    {
+     "concept": "Maximization bias and double Q-learning",
+     "slides": "34–42",
+     "href": "/teaching/rl-lectures/lecture-05/#34",
+     "tasks": []
+    },
+    {
+     "concept": "Deep Q-networks: experience replay, target network",
+     "slides": "44–48",
+     "href": "/teaching/rl-lectures/lecture-05/#44",
+     "tasks": [
+      {
+       "tutorial": 6,
+       "label": "Train your first DQN agent",
+       "href": "/teaching/rl-tutorials/tutorial-06.html#task-train-log-and-evaluate-your-first"
+      },
+      {
+       "tutorial": 6,
+       "label": "DQN hyperparameters",
+       "href": "/teaching/rl-tutorials/tutorial-06.html#task-investigating-hyperparameters"
+      }
+     ]
+    },
+    {
+     "concept": "Importance sampling",
+     "slides": "50–60",
+     "href": "/teaching/rl-lectures/lecture-05/#50",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Function Approximation",
+   "href": "/teaching/rl-lectures/lecture-06/",
+   "slides": 65,
+   "video": "https://video.rug.nl/media/0_60ysjiwl",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-06.html",
+   "tutorial": "Tutorial 6",
+   "concepts": [
+    {
+     "concept": "Value function approximation by stochastic gradient descent",
+     "slides": "14–35",
+     "href": "/teaching/rl-lectures/lecture-06/#14",
+     "tasks": []
+    },
+    {
+     "concept": "Linear function approximation",
+     "slides": "40–51",
+     "href": "/teaching/rl-lectures/lecture-06/#40",
+     "tasks": []
+    },
+    {
+     "concept": "Control with value-function approximation",
+     "slides": "52–57",
+     "href": "/teaching/rl-lectures/lecture-06/#52",
+     "tasks": []
+    },
+    {
+     "concept": "Convergence, divergence and experience replay",
+     "slides": "58–63",
+     "href": "/teaching/rl-lectures/lecture-06/#58",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "title": "Policy Gradients and Actor-Critic",
+   "href": "/teaching/rl-lectures/lecture-07/",
+   "slides": 58,
+   "video": "https://video.rug.nl/media/0_bntj4war",
+   "tutorial_href": "/teaching/rl-tutorials/tutorial-07.html",
+   "tutorial": "Tutorial 7",
+   "concepts": [
+    {
+     "concept": "Policy-based RL: parameterized policies",
+     "slides": "9–18",
+     "href": "/teaching/rl-lectures/lecture-07/#9",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Build the policy network",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-build-the-policy-network"
+      },
+      {
+       "tutorial": 7,
+       "label": "Gaussian policy",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-upgrade-the-policy-network"
+      }
+     ]
+    },
+    {
+     "concept": "Policy-gradient theorem",
+     "slides": "19–30",
+     "href": "/teaching/rl-lectures/lecture-07/#19",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Task 2, REINFORCE loss",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-2"
+      }
+     ]
+    },
+    {
+     "concept": "REINFORCE",
+     "slides": "31–32",
+     "href": "/teaching/rl-lectures/lecture-07/#31",
+     "tasks": [
+      {
+       "tutorial": 7,
+       "label": "Task 3",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-3"
+      },
+      {
+       "tutorial": 7,
+       "label": "Full training run",
+       "href": "/teaching/rl-tutorials/tutorial-07.html#task-launch-the-full-training-run"
+      }
+     ]
+    },
+    {
+     "concept": "Reducing the variance: causality and baseline",
+     "slides": "33–40",
+     "href": "/teaching/rl-lectures/lecture-07/#33",
+     "tasks": []
+    },
+    {
+     "concept": "Actor-critic, advantage function, A2C",
+     "slides": "41–54",
+     "href": "/teaching/rl-lectures/lecture-07/#41",
+     "tasks": []
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "title": "Model-Based Reinforcement Learning",
+   "href": "/teaching/rl-lectures/lecture-08/",
+   "slides": 45,
+   "video": "https://video.rug.nl/media/0_tysl5v21",
+   "tutorial_href": null,
+   "tutorial": null,
+   "concepts": [
+    {
+     "concept": "Model-based RL and Dyna-Q",
+     "slides": "11–30",
+     "href": "/teaching/rl-lectures/lecture-08/#11",
+     "tasks": []
+    },
+    {
+     "concept": "Planning for action selection: Monte Carlo tree search",
+     "slides": "31–42",
+     "href": "/teaching/rl-lectures/lecture-08/#31",
+     "tasks": []
+    }
+   ]
+  }
+ ]
+}
