@@ -43,10 +43,10 @@
     if (c.t === "hero") {
       root.appendChild(el("section", "hero", renderMarkdown(c.md)));
       const base = DATA.remote
-        ? "This tutorial uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, download the notebook and <a href=\"./#run-locally\">run on your own computer</a>."
+        ? "This page uses PyTorch, so its code runs on a free Python server at <a href=\"https://mybinder.org\" target=\"_blank\" rel=\"noopener\">mybinder.org</a>, started when you open the page. Starting takes 1–2 minutes (longer the first time after an update), and the server stops after about 10 minutes without activity. Edits are kept in this browser, and <b>Download .ipynb</b> saves your work. If no server is available, download the notebook and <a href=\"/teaching/rl-tutorials/#run-locally\">run on your own computer</a>."
         : RUNNABLE
-          ? "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, which you can also <a href=\"./#run-locally\">run on your own computer</a>."
-          : "The code on this page is read-only. <b>Download .ipynb</b> saves the tutorial as a notebook to <a href=\"./#run-locally\">run on your own computer</a>.";
+          ? "The code cells on this page run Python in your browser. Run them in order; edits are kept in this browser. <b>Download .ipynb</b> saves your work as a notebook, which you can also <a href=\"/teaching/rl-tutorials/#run-locally\">run on your own computer</a>."
+          : "The code on this page is read-only. <b>Download .ipynb</b> saves the tutorial as a notebook to <a href=\"/teaching/rl-tutorials/#run-locally\">run on your own computer</a>.";
       const sol = !DATA.solutions ? ""
         : "<b>Solutions version:</b> every task is completed. "
           + (DATA.runAll ? "Every cell runs automatically once Python is ready. " : "");

@@ -21,6 +21,8 @@
 .rlx-ws a { display: inline-block; font-weight: 600; font-size: 0.9rem; padding: 0.2rem 0.85rem; border-radius: 8px;
   border: 1px solid var(--global-theme-color); color: var(--global-theme-color); text-decoration: none; }
 .rlx-ws a:hover { background: var(--global-theme-color); color: var(--global-bg-color); }
+.rlx-fig-credit { display: block; font-size: 0.8rem; color: var(--global-text-color-light); margin-top: 0.15rem; }
+.rlx-fig-credit a { color: inherit; text-decoration: underline; }
 .rlx-source { font-size: 0.85rem; color: var(--global-text-color-light); margin-top: 1.6rem; }
 .rlx-source a { color: inherit; text-decoration: underline; }
 .rlx-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin-top: 1.6rem; font-size: 0.92rem; }
