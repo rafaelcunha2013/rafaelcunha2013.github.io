@@ -47,3 +47,165 @@
   gap: 0.5rem 1rem;
   align-items: baseline;
 }
+
+/* the result bar (#27), pinned to the bottom of the window; the page keeps
+   room for it below its last line */
+body:has(#result-bar:not([hidden])) {
+  padding-bottom: 4rem;
+}
+
+#result-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1030;
+  border-top: 1px solid var(--bs-border-color);
+  background: var(--bs-body-bg);
+  box-shadow: 0 -0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+}
+
+.result-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+#result-bar-toggle {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.result-bar-verdict {
+  flex: none;
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+  font-weight: 700;
+}
+
+.result-bar-verdict.valid {
+  background: var(--bs-success-bg-subtle);
+  color: var(--bs-success-text-emphasis);
+}
+
+.result-bar-verdict.invalid {
+  background: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+}
+
+.result-bar-verdict.error {
+  background: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger-text-emphasis);
+}
+
+.result-bar-count {
+  flex: none;
+}
+
+.result-bar-first {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--bs-secondary-color);
+}
+
+#result-bar-jump {
+  flex: none;
+}
+
+#result-bar-panel {
+  max-height: 40vh;
+  overflow: auto;
+  padding: 0 1rem 0.75rem;
+  border-top: 1px dashed var(--bs-border-color);
+}
+
+#result-bar-errors {
+  margin: 0.5rem 0 0;
+}
+
+#result-bar-sorries {
+  margin: 0.5rem 0 0;
+}
+
+#result-bar-errors button {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+#result-bar-errors button:hover {
+  text-decoration: underline;
+}
+
+/* the errors marked in the editor (#27) */
+.cm-editor .cm-error-line {
+  background: rgba(var(--bs-danger-rgb), 0.14);
+  box-shadow: inset 3px 0 0 var(--bs-danger);
+}
+
+.cm-editor .cm-error-gutter {
+  width: 1.1em;
+}
+
+.cm-editor .cm-error-dot {
+  color: var(--bs-danger);
+  font-size: 0.8em;
+  cursor: help;
+}
+
+.cm-editor .cm-tooltip:has(.cm-error-tooltip) {
+  border: 1px solid var(--bs-border-color);
+  background: var(--bs-body-bg);
+}
+
+.cm-editor .cm-error-tooltip {
+  max-width: 36em;
+  padding: 0.25rem 0.5rem;
+  border-left: 3px solid var(--bs-danger);
+  color: var(--bs-body-color);
+  font-family: var(--bs-body-font-family);
+  white-space: pre-wrap;
+}
+
+/* the grip under the editor (#27): until it is dragged, the editor grows
+   with the proof; after, it keeps the height it was given, with its own
+   scrollbar */
+#editor-grip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0.875rem;
+  margin-top: 2px;
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--bs-tertiary-bg);
+  color: var(--bs-secondary-color);
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: ns-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+#editor-grip:hover,
+#editor-grip:focus-visible {
+  background: var(--bs-secondary-bg);
+}
+
+#proof-input.fixed-height .cm-editor {
+  height: 100%;
+}

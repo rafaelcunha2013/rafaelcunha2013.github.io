@@ -7758,7 +7758,8 @@
           ...defaultResult,
           error: {
             step: step + 1,
-            message: "Proof invalid due to syntax errors."
+            message: "Proof invalid due to syntax errors.",
+            srcLoc: statement.getMeta()
           }
         };
       }
@@ -8325,6 +8326,35 @@
     const lines = renderRules(box, AST.lines, labels, line, options, block);
     DOM.appendChild(box);
     return lines;
+  }
+  function summarizeResult(result, exception) {
+    if (!result) {
+      const message = String(exception);
+      return {
+        status: "error",
+        errors: [{ message, line: null, text: message }],
+        byLine: /* @__PURE__ */ new Map(),
+        sorries: 0
+      };
+    }
+    const errors = result.errors.map((error) => {
+      const line = error.srcLoc?.line ?? null;
+      let text3 = `Step ${error.step}: ${error.message}`;
+      if (line !== null) text3 += ` (Src Line: ${line})`;
+      return { message: error.message, line, text: text3 };
+    });
+    const byLine = /* @__PURE__ */ new Map();
+    for (const { message, line } of errors) {
+      if (line === null) continue;
+      if (!byLine.has(line)) byLine.set(line, []);
+      byLine.get(line).push(message);
+    }
+    return {
+      status: result.valid ? "valid" : "invalid",
+      errors,
+      byLine,
+      sorries: result.remainingSorries
+    };
   }
 
   // node_modules/@marijn/find-cluster-break/src/index.js
@@ -10958,7 +10988,7 @@
   EditorState.transactionFilter = transactionFilter;
   EditorState.transactionExtender = transactionExtender;
   Compartment.reconfigure = /* @__PURE__ */ StateEffect.define();
-  function combineConfig(configs, defaults2, combine = {}) {
+  function combineConfig(configs, defaults3, combine = {}) {
     let result = {};
     for (let config2 of configs)
       for (let key of Object.keys(config2)) {
@@ -10971,9 +11001,9 @@
         else
           throw new Error("Config merge conflict for field " + key);
       }
-    for (let key in defaults2)
+    for (let key in defaults3)
       if (result[key] === void 0)
-        result[key] = defaults2[key];
+        result[key] = defaults3[key];
     return result;
   }
   var RangeValue = class {
@@ -21007,6 +21037,334 @@
     let filter = (options === null || options === void 0 ? void 0 : options.eventFilter) || ((e) => e.altKey && e.button == 0);
     return EditorView.mouseSelectionStyle.of((view, event) => filter(event) ? rectangleSelectionStyle(view, event) : null);
   }
+  var Outside = "-10000px";
+  var TooltipViewManager = class {
+    constructor(view, facet, createTooltipView, removeTooltipView) {
+      this.facet = facet;
+      this.createTooltipView = createTooltipView;
+      this.removeTooltipView = removeTooltipView;
+      this.input = view.state.facet(facet);
+      this.tooltips = this.input.filter((t2) => t2);
+      let prev = null;
+      this.tooltipViews = this.tooltips.map((t2) => prev = createTooltipView(t2, prev));
+    }
+    update(update, above) {
+      var _a2;
+      let input = update.state.facet(this.facet);
+      let tooltips = input.filter((x) => x);
+      if (input === this.input) {
+        for (let t2 of this.tooltipViews)
+          if (t2.update)
+            t2.update(update);
+        return false;
+      }
+      let tooltipViews = [], newAbove = above ? [] : null;
+      for (let i2 = 0; i2 < tooltips.length; i2++) {
+        let tip = tooltips[i2], known = -1;
+        if (!tip)
+          continue;
+        for (let i3 = 0; i3 < this.tooltips.length; i3++) {
+          let other = this.tooltips[i3];
+          if (other && other.create == tip.create)
+            known = i3;
+        }
+        if (known < 0) {
+          tooltipViews[i2] = this.createTooltipView(tip, i2 ? tooltipViews[i2 - 1] : null);
+          if (newAbove)
+            newAbove[i2] = !!tip.above;
+        } else {
+          let tooltipView = tooltipViews[i2] = this.tooltipViews[known];
+          if (newAbove)
+            newAbove[i2] = above[known];
+          if (tooltipView.update)
+            tooltipView.update(update);
+        }
+      }
+      for (let t2 of this.tooltipViews)
+        if (tooltipViews.indexOf(t2) < 0) {
+          this.removeTooltipView(t2);
+          (_a2 = t2.destroy) === null || _a2 === void 0 ? void 0 : _a2.call(t2);
+        }
+      if (above) {
+        newAbove.forEach((val, i2) => above[i2] = val);
+        above.length = newAbove.length;
+      }
+      this.input = input;
+      this.tooltips = tooltips;
+      this.tooltipViews = tooltipViews;
+      return true;
+    }
+  };
+  function fixedRange(view) {
+    let docElt = view.dom.ownerDocument.documentElement, width = docElt.clientWidth;
+    let style = getComputedStyle(docElt);
+    if (!/stable/.test(style.scrollbarGutter || ""))
+      return { left: 0, right: width };
+    let rect = docElt.getBoundingClientRect(), scrollX = view.win.scrollX;
+    return {
+      left: Math.max(0, rect.left + scrollX - parseFloat(style.marginLeft)),
+      right: Math.min(width, rect.right + scrollX + parseFloat(style.marginRight))
+    };
+  }
+  function windowSpace(view) {
+    let { left, right } = fixedRange(view);
+    return { top: 0, left, right, bottom: view.dom.ownerDocument.documentElement.clientHeight };
+  }
+  var tooltipConfig = /* @__PURE__ */ Facet.define({
+    combine: (values) => {
+      var _a2, _b, _c;
+      return {
+        position: browser.ios ? "absolute" : ((_a2 = values.find((conf) => conf.position)) === null || _a2 === void 0 ? void 0 : _a2.position) || "fixed",
+        parent: ((_b = values.find((conf) => conf.parent)) === null || _b === void 0 ? void 0 : _b.parent) || null,
+        tooltipSpace: ((_c = values.find((conf) => conf.tooltipSpace)) === null || _c === void 0 ? void 0 : _c.tooltipSpace) || windowSpace
+      };
+    }
+  });
+  var knownHeight = /* @__PURE__ */ new WeakMap();
+  var tooltipPlugin = /* @__PURE__ */ ViewPlugin.fromClass(class {
+    constructor(view) {
+      this.view = view;
+      this.above = [];
+      this.inView = true;
+      this.madeAbsolute = false;
+      this.lastTransaction = 0;
+      this.measureTimeout = -1;
+      let config2 = view.state.facet(tooltipConfig);
+      this.position = config2.position;
+      this.parent = config2.parent;
+      this.classes = view.themeClasses;
+      this.createContainer();
+      this.measureReq = { read: this.readMeasure.bind(this), write: this.writeMeasure.bind(this), key: this };
+      this.resizeObserver = typeof ResizeObserver == "function" ? new ResizeObserver(() => this.measureSoon()) : null;
+      this.manager = new TooltipViewManager(view, showTooltip, (t2, p) => this.createTooltip(t2, p), (t2) => {
+        if (this.resizeObserver)
+          this.resizeObserver.unobserve(t2.dom);
+        t2.dom.remove();
+      });
+      this.above = this.manager.tooltips.map((t2) => !!t2.above);
+      this.intersectionObserver = typeof IntersectionObserver == "function" ? new IntersectionObserver((entries) => {
+        if (Date.now() > this.lastTransaction - 50 && entries.length > 0 && entries[entries.length - 1].intersectionRatio < 1)
+          this.measureSoon();
+      }, { threshold: [1] }) : null;
+      this.observeIntersection();
+      view.win.addEventListener("resize", this.measureSoon = this.measureSoon.bind(this));
+      this.maybeMeasure();
+    }
+    createContainer() {
+      if (this.parent) {
+        this.container = document.createElement("div");
+        this.container.style.position = "relative";
+        this.container.className = this.view.themeClasses;
+        this.parent.appendChild(this.container);
+      } else {
+        this.container = this.view.dom;
+      }
+    }
+    observeIntersection() {
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect();
+        for (let tooltip of this.manager.tooltipViews)
+          this.intersectionObserver.observe(tooltip.dom);
+      }
+    }
+    measureSoon() {
+      if (this.measureTimeout < 0)
+        this.measureTimeout = setTimeout(() => {
+          this.measureTimeout = -1;
+          this.maybeMeasure();
+        }, 50);
+    }
+    update(update) {
+      if (update.transactions.length)
+        this.lastTransaction = Date.now();
+      let updated = this.manager.update(update, this.above);
+      if (updated)
+        this.observeIntersection();
+      let shouldMeasure = updated || update.geometryChanged;
+      let newConfig = update.state.facet(tooltipConfig);
+      if (newConfig.position != this.position && !this.madeAbsolute) {
+        this.position = newConfig.position;
+        for (let t2 of this.manager.tooltipViews)
+          t2.dom.style.position = this.position;
+        shouldMeasure = true;
+      }
+      if (newConfig.parent != this.parent) {
+        if (this.parent)
+          this.container.remove();
+        this.parent = newConfig.parent;
+        this.createContainer();
+        for (let t2 of this.manager.tooltipViews)
+          this.container.appendChild(t2.dom);
+        shouldMeasure = true;
+      } else if (this.parent && this.view.themeClasses != this.classes) {
+        this.classes = this.container.className = this.view.themeClasses;
+      }
+      if (shouldMeasure)
+        this.maybeMeasure();
+    }
+    createTooltip(tooltip, prev) {
+      let tooltipView = tooltip.create(this.view);
+      let before = prev ? prev.dom : null;
+      tooltipView.dom.classList.add("cm-tooltip");
+      if (tooltip.arrow && !tooltipView.dom.querySelector(".cm-tooltip > .cm-tooltip-arrow")) {
+        let arrow = document.createElement("div");
+        arrow.className = "cm-tooltip-arrow";
+        tooltipView.dom.appendChild(arrow);
+      }
+      tooltipView.dom.style.position = this.position;
+      tooltipView.dom.style.top = Outside;
+      tooltipView.dom.style.left = "0px";
+      this.container.insertBefore(tooltipView.dom, before);
+      if (tooltipView.mount)
+        tooltipView.mount(this.view);
+      if (this.resizeObserver)
+        this.resizeObserver.observe(tooltipView.dom);
+      return tooltipView;
+    }
+    destroy() {
+      var _a2, _b, _c;
+      this.view.win.removeEventListener("resize", this.measureSoon);
+      for (let tooltipView of this.manager.tooltipViews) {
+        tooltipView.dom.remove();
+        (_a2 = tooltipView.destroy) === null || _a2 === void 0 ? void 0 : _a2.call(tooltipView);
+      }
+      if (this.parent)
+        this.container.remove();
+      (_b = this.resizeObserver) === null || _b === void 0 ? void 0 : _b.disconnect();
+      (_c = this.intersectionObserver) === null || _c === void 0 ? void 0 : _c.disconnect();
+      clearTimeout(this.measureTimeout);
+    }
+    readMeasure() {
+      let scaleX = 1, scaleY = 1, makeAbsolute = false, fixedLeft = 0;
+      if (this.position == "fixed" && this.manager.tooltipViews.length) {
+        let { dom } = this.manager.tooltipViews[0];
+        if (browser.safari) {
+          let rect = dom.getBoundingClientRect();
+          makeAbsolute = Math.abs(rect.top + 1e4) > 1 || Math.abs(rect.left) > 1;
+        } else {
+          makeAbsolute = !!dom.offsetParent && dom.offsetParent != this.container.ownerDocument.body;
+        }
+      }
+      if (makeAbsolute || this.position == "absolute") {
+        if (this.parent) {
+          let rect = this.parent.getBoundingClientRect();
+          if (rect.width && rect.height) {
+            scaleX = rect.width / this.parent.offsetWidth;
+            scaleY = rect.height / this.parent.offsetHeight;
+          }
+        } else {
+          ({ scaleX, scaleY } = this.view.viewState);
+        }
+      } else {
+        fixedLeft = fixedRange(this.view).left;
+      }
+      let visible = this.view.scrollDOM.getBoundingClientRect(), margins = getScrollMargins(this.view);
+      return {
+        visible: {
+          left: visible.left + margins.left,
+          top: visible.top + margins.top,
+          right: visible.right - margins.right,
+          bottom: visible.bottom - margins.bottom
+        },
+        parent: this.parent ? this.container.getBoundingClientRect() : this.view.dom.getBoundingClientRect(),
+        pos: this.manager.tooltips.map((t2, i2) => {
+          let tv = this.manager.tooltipViews[i2];
+          return tv.getCoords ? tv.getCoords(t2.pos) : this.view.coordsAtPos(t2.pos);
+        }),
+        size: this.manager.tooltipViews.map(({ dom }) => dom.getBoundingClientRect()),
+        space: this.view.state.facet(tooltipConfig).tooltipSpace(this.view),
+        scaleX,
+        scaleY,
+        makeAbsolute,
+        fixedLeft
+      };
+    }
+    writeMeasure(measured) {
+      var _a2;
+      if (measured.makeAbsolute) {
+        this.madeAbsolute = true;
+        this.position = "absolute";
+        for (let t2 of this.manager.tooltipViews)
+          t2.dom.style.position = "absolute";
+      }
+      let { visible, space, scaleX, scaleY } = measured;
+      let others = [];
+      for (let i2 = 0; i2 < this.manager.tooltips.length; i2++) {
+        let tooltip = this.manager.tooltips[i2], tView = this.manager.tooltipViews[i2], { dom } = tView;
+        let pos = measured.pos[i2], size = measured.size[i2];
+        if (!pos || tooltip.clip !== false && (pos.bottom <= Math.max(visible.top, space.top) || pos.top >= Math.min(visible.bottom, space.bottom) || pos.right < Math.max(visible.left, space.left) - 0.1 || pos.left > Math.min(visible.right, space.right) + 0.1)) {
+          dom.style.top = Outside;
+          continue;
+        }
+        let arrow = tooltip.arrow ? tView.dom.querySelector(".cm-tooltip-arrow") : null;
+        let arrowHeight = arrow ? 7 : 0;
+        let width = size.right - size.left, height = (_a2 = knownHeight.get(tView)) !== null && _a2 !== void 0 ? _a2 : size.bottom - size.top;
+        let offset = tView.offset || noOffset, ltr = this.view.textDirection == Direction.LTR;
+        let left = size.width > space.right - space.left ? ltr ? space.left : space.right - size.width : ltr ? Math.max(space.left, Math.min(pos.left - (arrow ? 14 : 0) + offset.x, space.right - width)) : Math.min(Math.max(space.left, pos.left - width + (arrow ? 14 : 0) - offset.x), space.right - width);
+        let above = this.above[i2];
+        if (!tooltip.strictSide && (above ? pos.top - height - arrowHeight - offset.y < space.top : pos.bottom + height + arrowHeight + offset.y > space.bottom) && above == space.bottom - pos.bottom > pos.top - space.top)
+          above = this.above[i2] = !above;
+        let spaceVert = (above ? pos.top - space.top : space.bottom - pos.bottom) - arrowHeight;
+        if (spaceVert < height && tView.resize !== false) {
+          if (spaceVert < this.view.defaultLineHeight) {
+            dom.style.top = Outside;
+            continue;
+          }
+          knownHeight.set(tView, height);
+          dom.style.height = (height = spaceVert) / scaleY + "px";
+        } else if (dom.style.height) {
+          dom.style.height = "";
+        }
+        let top2 = above ? pos.top - height - arrowHeight - offset.y : pos.bottom + arrowHeight + offset.y;
+        let right = left + width;
+        if (tView.overlap !== true) {
+          for (let r of others)
+            if (r.left < right && r.right > left && r.top < top2 + height && r.bottom > top2)
+              top2 = above ? r.top - height - 2 - arrowHeight : r.bottom + arrowHeight + 2;
+        }
+        if (this.position == "absolute") {
+          dom.style.top = (top2 - measured.parent.top) / scaleY + "px";
+          setLeftStyle(dom, (left - measured.parent.left) / scaleX);
+        } else {
+          dom.style.top = top2 / scaleY + "px";
+          setLeftStyle(dom, (left - measured.fixedLeft) / scaleX);
+        }
+        if (arrow) {
+          let arrowLeft = pos.left + (ltr ? offset.x : -offset.x) - (left + 14 - 7);
+          arrow.style.left = arrowLeft / scaleX + "px";
+        }
+        if (tView.overlap !== true)
+          others.push({ left, top: top2, right, bottom: top2 + height });
+        dom.classList.toggle("cm-tooltip-above", above);
+        dom.classList.toggle("cm-tooltip-below", !above);
+        if (tView.positioned)
+          tView.positioned(measured.space);
+      }
+    }
+    maybeMeasure() {
+      if (this.manager.tooltips.length) {
+        if (this.view.inView)
+          this.view.requestMeasure(this.measureReq);
+        if (this.inView != this.view.inView) {
+          this.inView = this.view.inView;
+          if (!this.inView)
+            for (let tv of this.manager.tooltipViews)
+              tv.dom.style.top = Outside;
+        }
+      }
+    }
+  }, {
+    eventObservers: {
+      scroll() {
+        this.maybeMeasure();
+      }
+    }
+  });
+  function setLeftStyle(elt, value) {
+    let current = parseInt(elt.style.left, 10);
+    if (isNaN(current) || Math.abs(value - current) > 1)
+      elt.style.left = value + "px";
+  }
   var baseTheme = /* @__PURE__ */ EditorView.baseTheme({
     ".cm-tooltip": {
       zIndex: 500,
@@ -21069,6 +21427,307 @@
       }
     }
   });
+  var noOffset = { x: 0, y: 0 };
+  var showTooltip = /* @__PURE__ */ Facet.define({
+    enables: [tooltipPlugin, baseTheme]
+  });
+  var showHoverTooltip = /* @__PURE__ */ Facet.define({
+    combine: (inputs) => inputs.reduce((a, i2) => a.concat(i2), [])
+  });
+  var HoverTooltipHost = class _HoverTooltipHost {
+    // Needs to be static so that host tooltip instances always match
+    static create(view) {
+      return new _HoverTooltipHost(view);
+    }
+    constructor(view) {
+      this.view = view;
+      this.mounted = false;
+      this.dom = document.createElement("div");
+      this.dom.classList.add("cm-tooltip-hover");
+      this.manager = new TooltipViewManager(view, showHoverTooltip, (t2, p) => this.createHostedView(t2, p), (t2) => t2.dom.remove());
+    }
+    createHostedView(tooltip, prev) {
+      let hostedView = tooltip.create(this.view);
+      hostedView.dom.classList.add("cm-tooltip-section");
+      this.dom.insertBefore(hostedView.dom, prev ? prev.dom.nextSibling : this.dom.firstChild);
+      if (this.mounted && hostedView.mount)
+        hostedView.mount(this.view);
+      return hostedView;
+    }
+    mount(view) {
+      for (let hostedView of this.manager.tooltipViews) {
+        if (hostedView.mount)
+          hostedView.mount(view);
+      }
+      this.mounted = true;
+    }
+    positioned(space) {
+      for (let hostedView of this.manager.tooltipViews) {
+        if (hostedView.positioned)
+          hostedView.positioned(space);
+      }
+    }
+    update(update) {
+      this.manager.update(update);
+    }
+    destroy() {
+      var _a2;
+      for (let t2 of this.manager.tooltipViews)
+        (_a2 = t2.destroy) === null || _a2 === void 0 ? void 0 : _a2.call(t2);
+    }
+    passProp(name2) {
+      let value = void 0;
+      for (let view of this.manager.tooltipViews) {
+        let given = view[name2];
+        if (given !== void 0) {
+          if (value === void 0)
+            value = given;
+          else if (value !== given)
+            return void 0;
+        }
+      }
+      return value;
+    }
+    get offset() {
+      return this.passProp("offset");
+    }
+    get getCoords() {
+      return this.passProp("getCoords");
+    }
+    get overlap() {
+      return this.passProp("overlap");
+    }
+    get resize() {
+      return this.passProp("resize");
+    }
+  };
+  var showHoverTooltipHost = /* @__PURE__ */ showTooltip.compute([showHoverTooltip], (state) => {
+    let tooltips = state.facet(showHoverTooltip);
+    if (tooltips.length === 0)
+      return null;
+    return {
+      pos: Math.min(...tooltips.map((t2) => t2.pos)),
+      end: Math.max(...tooltips.map((t2) => {
+        var _a2;
+        return (_a2 = t2.end) !== null && _a2 !== void 0 ? _a2 : t2.pos;
+      })),
+      create: HoverTooltipHost.create,
+      above: tooltips[0].above,
+      arrow: tooltips.some((t2) => t2.arrow)
+    };
+  });
+  var hoverPlugin = /* @__PURE__ */ Facet.define();
+  var HoverPlugin = class {
+    constructor(view, source2, field, locked, setHover, hoverTime) {
+      this.view = view;
+      this.source = source2;
+      this.field = field;
+      this.locked = locked;
+      this.setHover = setHover;
+      this.hoverTime = hoverTime;
+      this.hoverTimeout = -1;
+      this.restartTimeout = -1;
+      this.pending = null;
+      this.lastMove = { x: 0, y: 0, target: view.dom, time: 0 };
+      this.checkHover = this.checkHover.bind(this);
+      view.dom.addEventListener("mouseleave", this.mouseleave = this.mouseleave.bind(this));
+      view.dom.addEventListener("mousemove", this.mousemove = this.mousemove.bind(this));
+    }
+    update(update) {
+      if (this.pending) {
+        this.pending = null;
+        clearTimeout(this.restartTimeout);
+        this.restartTimeout = setTimeout(() => this.startHover(), 20);
+      }
+    }
+    get active() {
+      return this.view.state.field(this.field);
+    }
+    checkHover() {
+      this.hoverTimeout = -1;
+      if (this.active.length)
+        return;
+      let hovered = Date.now() - this.lastMove.time;
+      if (hovered < this.hoverTime)
+        this.hoverTimeout = setTimeout(this.checkHover, this.hoverTime - hovered);
+      else
+        this.startHover();
+    }
+    startHover() {
+      clearTimeout(this.restartTimeout);
+      let { view, lastMove } = this;
+      let tile = view.docView.tile.nearest(lastMove.target);
+      if (!tile)
+        return;
+      let pos, side = 1;
+      if (tile.isWidget()) {
+        pos = tile.posAtStart;
+      } else {
+        pos = view.posAtCoords(lastMove);
+        if (pos == null)
+          return;
+        let posCoords = view.coordsAtPos(pos);
+        if (!posCoords || lastMove.y < posCoords.top || lastMove.y > posCoords.bottom || lastMove.x < posCoords.left - view.defaultCharacterWidth || lastMove.x > posCoords.right + view.defaultCharacterWidth)
+          return;
+        let bidi = view.bidiSpans(view.state.doc.lineAt(pos)).find((s) => s.from <= pos && s.to >= pos);
+        let rtl = bidi && bidi.dir == Direction.RTL ? -1 : 1;
+        side = lastMove.x < posCoords.left ? -rtl : rtl;
+      }
+      this.activateHover(view, pos, side);
+    }
+    activateHover(view, pos, side, locked) {
+      let open = this.source(view, pos, side);
+      let done = (value) => {
+        if (value && !(Array.isArray(value) && !value.length)) {
+          let tooltips = Array.isArray(value) ? value : [value];
+          if (locked)
+            this.locked.set(tooltips, locked);
+          view.dispatch({ effects: this.setHover.of(tooltips) });
+        }
+      };
+      if (open && "then" in open) {
+        let pending = this.pending = { pos };
+        open.then((result) => {
+          if (this.pending == pending) {
+            this.pending = null;
+            done(result);
+          }
+        }, (e) => logException(view.state, e, "hover tooltip"));
+      } else {
+        done(open);
+      }
+    }
+    get tooltip() {
+      let plugin = this.view.plugin(tooltipPlugin);
+      let index = plugin ? plugin.manager.tooltips.findIndex((t2) => t2.create == HoverTooltipHost.create) : -1;
+      return index > -1 ? plugin.manager.tooltipViews[index] : null;
+    }
+    mousemove(event) {
+      var _a2, _b;
+      this.lastMove = { x: event.clientX, y: event.clientY, target: event.target, time: Date.now() };
+      if (this.hoverTimeout < 0)
+        this.hoverTimeout = setTimeout(this.checkHover, this.hoverTime);
+      let { active, tooltip } = this;
+      if (active.length && !this.locked.has(active) && tooltip && !isInTooltip(tooltip.dom, event) || this.pending) {
+        let { pos } = active[0] || this.pending, end = (_b = (_a2 = active[0]) === null || _a2 === void 0 ? void 0 : _a2.end) !== null && _b !== void 0 ? _b : pos;
+        if (pos == end ? this.view.posAtCoords(this.lastMove) != pos : !isOverRange(this.view, pos, end, event.clientX, event.clientY)) {
+          this.view.dispatch({ effects: this.setHover.of([]) });
+          this.pending = null;
+        }
+      }
+    }
+    mouseleave(event) {
+      clearTimeout(this.hoverTimeout);
+      this.hoverTimeout = -1;
+      let { active } = this;
+      if (active.length && !this.locked.has(active)) {
+        let { tooltip } = this;
+        let inTooltip = tooltip && tooltip.dom.contains(event.relatedTarget);
+        if (!inTooltip)
+          this.view.dispatch({ effects: this.setHover.of([]) });
+        else
+          this.watchTooltipLeave(tooltip.dom);
+      }
+    }
+    watchTooltipLeave(tooltip) {
+      let watch = (event) => {
+        tooltip.removeEventListener("mouseleave", watch);
+        let { active } = this;
+        if (active.length && !this.locked.has(active) && !this.view.dom.contains(event.relatedTarget))
+          this.view.dispatch({ effects: this.setHover.of([]) });
+      };
+      tooltip.addEventListener("mouseleave", watch);
+    }
+    destroy() {
+      clearTimeout(this.hoverTimeout);
+      clearTimeout(this.restartTimeout);
+      this.view.dom.removeEventListener("mouseleave", this.mouseleave);
+      this.view.dom.removeEventListener("mousemove", this.mousemove);
+    }
+  };
+  var tooltipMargin = 4;
+  function isInTooltip(tooltip, event) {
+    let { left, right, top: top2, bottom } = tooltip.getBoundingClientRect(), arrow;
+    if (arrow = tooltip.querySelector(".cm-tooltip-arrow")) {
+      let arrowRect = arrow.getBoundingClientRect();
+      top2 = Math.min(arrowRect.top, top2);
+      bottom = Math.max(arrowRect.bottom, bottom);
+    }
+    return event.clientX >= left - tooltipMargin && event.clientX <= right + tooltipMargin && event.clientY >= top2 - tooltipMargin && event.clientY <= bottom + tooltipMargin;
+  }
+  function isOverRange(view, from, to, x, y, margin) {
+    let rect = view.scrollDOM.getBoundingClientRect();
+    let docBottom = view.documentTop + view.documentPadding.top + view.contentHeight;
+    if (rect.left > x || rect.right < x || rect.top > y || Math.min(rect.bottom, docBottom) < y)
+      return false;
+    let pos = view.posAtCoords({ x, y }, false);
+    return pos >= from && pos <= to;
+  }
+  function hoverTooltip(source2, options = {}) {
+    let setHover = StateEffect.define();
+    let locked = /* @__PURE__ */ new WeakMap();
+    let hoverState = StateField.define({
+      create() {
+        return [];
+      },
+      update(value, tr) {
+        let lock = locked.get(value);
+        if (value.length) {
+          if (options.hideOnChange && (tr.docChanged || tr.selection))
+            value = [];
+          else if (lock && lock(tr))
+            value = [];
+          else if (options.hideOn)
+            value = value.filter((v) => !options.hideOn(tr, v));
+        }
+        if (tr.docChanged && value.length) {
+          let mapped = [];
+          for (let tooltip of value) {
+            let newPos = tr.changes.mapPos(tooltip.pos, -1, MapMode.TrackDel);
+            if (newPos != null) {
+              let copy = Object.assign(/* @__PURE__ */ Object.create(null), tooltip);
+              copy.pos = newPos;
+              if (copy.end != null)
+                copy.end = tr.changes.mapPos(copy.end);
+              mapped.push(copy);
+            }
+          }
+          value = mapped;
+        }
+        for (let effect of tr.effects) {
+          if (effect.is(setHover)) {
+            value = effect.value;
+            lock = void 0;
+          }
+          if (effect.is(closeHoverTooltipEffect) && !effect.value || effect.value == hoverState)
+            value = [];
+        }
+        if (value.length && lock)
+          locked.set(value, lock);
+        return value;
+      },
+      provide: (f) => showHoverTooltip.from(f)
+    });
+    const plugin = ViewPlugin.define((view) => new HoverPlugin(
+      view,
+      source2,
+      hoverState,
+      locked,
+      setHover,
+      options.hoverTime || 300
+      /* Hover.Time */
+    ));
+    return {
+      active: hoverState,
+      extension: [
+        hoverState,
+        plugin,
+        hoverPlugin.of(plugin),
+        showHoverTooltipHost
+      ]
+    };
+  }
+  var closeHoverTooltipEffect = /* @__PURE__ */ StateEffect.define();
   var GutterMarker = class extends RangeValue {
     /**
     @internal
@@ -21096,7 +21755,23 @@
   GutterMarker.prototype.point = true;
   var gutterLineClass = /* @__PURE__ */ Facet.define();
   var gutterWidgetClass = /* @__PURE__ */ Facet.define();
+  var defaults = {
+    class: "",
+    renderEmptyElements: false,
+    elementStyle: "",
+    markers: () => RangeSet.empty,
+    lineMarker: () => null,
+    widgetMarker: () => null,
+    lineMarkerChange: null,
+    initialSpacer: null,
+    updateSpacer: null,
+    domEventHandlers: {},
+    side: "before"
+  };
   var activeGutters = /* @__PURE__ */ Facet.define();
+  function gutter(config2) {
+    return [gutters(), activeGutters.of({ ...defaults, ...config2 })];
+  }
   var unfixGutters = /* @__PURE__ */ Facet.define({
     combine: (values) => values.some((x) => x)
   });
@@ -25072,7 +25747,7 @@
 
   // node_modules/@codemirror/autocomplete/dist/index.js
   var windows = typeof navigator == "object" && /* @__PURE__ */ /Win/.test(navigator.platform);
-  var defaults = {
+  var defaults2 = {
     brackets: ["(", "[", "{", "'", '"'],
     before: ")]}:;>",
     stringPrefixes: []
@@ -25114,7 +25789,7 @@
     return fromCodePoint(ch < 128 ? ch : ch + 1);
   }
   function config(state, pos) {
-    return state.languageDataAt("closeBrackets", pos)[0] || defaults;
+    return state.languageDataAt("closeBrackets", pos)[0] || defaults2;
   }
   var android = typeof navigator == "object" && /* @__PURE__ */ /Android\b/.test(navigator.userAgent);
   var inputHandler2 = /* @__PURE__ */ EditorView.inputHandler.of((view, from, to, insert2) => {
@@ -25131,11 +25806,11 @@
   });
   function insertBracket(state, bracket2) {
     let conf = config(state, state.selection.main.head);
-    let tokens = conf.brackets || defaults.brackets;
+    let tokens = conf.brackets || defaults2.brackets;
     for (let tok of tokens) {
       let closed = closing(codePointAt2(tok, 0));
       if (bracket2 == tok)
-        return closed == tok ? handleSame(state, tok, tokens.indexOf(tok + tok + tok) > -1, conf) : handleOpen(state, tok, closed, conf.before || defaults.before);
+        return closed == tok ? handleSame(state, tok, tokens.indexOf(tok + tok + tok) > -1, conf) : handleOpen(state, tok, closed, conf.before || defaults2.before);
       if (bracket2 == closed && closedBracketAt(state, state.selection.main.from))
         return handleClose(state, tok, closed);
     }
@@ -25190,7 +25865,7 @@
     });
   }
   function handleSame(state, token, allowTriple, config2) {
-    let stringPrefixes = config2.stringPrefixes || defaults.stringPrefixes;
+    let stringPrefixes = config2.stringPrefixes || defaults2.stringPrefixes;
     let dont = null, changes = state.changeByRange((range) => {
       if (!range.empty)
         return {
@@ -25305,6 +25980,85 @@
     }
   };
   var lineNumberFormatter = new LineNumberFormatter();
+  var setErrorMarks = StateEffect.define();
+  var errorMarks = StateField.define({
+    create: () => Decoration.none,
+    update(marks2, transaction) {
+      marks2 = marks2.map(transaction.changes);
+      for (const effect of transaction.effects) {
+        if (effect.is(setErrorMarks)) {
+          marks2 = errorMarksOf(transaction.state.doc, effect.value);
+        }
+      }
+      return marks2;
+    },
+    provide: (field) => EditorView.decorations.from(field)
+  });
+  function errorMarksOf(doc2, byLine) {
+    const lines = [...byLine.keys()].filter((n) => n >= 1 && n <= doc2.lines);
+    return Decoration.set(
+      lines.map(
+        (n) => Decoration.line({
+          class: "cm-error-line",
+          messages: byLine.get(n)
+        }).range(doc2.line(n).from)
+      ),
+      true
+    );
+  }
+  function errorMessagesAt(state, from) {
+    let messages;
+    state.field(errorMarks).between(from, from, (start, _end, mark) => {
+      if (start === from) messages = mark.spec.messages;
+    });
+    return messages;
+  }
+  var ErrorMarker = class extends GutterMarker {
+    constructor(messages) {
+      super();
+      this.messages = messages;
+    }
+    eq(other) {
+      return other.messages.join("\n") === this.messages.join("\n");
+    }
+    toDOM() {
+      const dot = document.createElement("span");
+      dot.className = "cm-error-dot";
+      dot.textContent = "\u25CF";
+      dot.title = this.messages.join("\n");
+      return dot;
+    }
+  };
+  var errorMarking = [
+    errorMarks,
+    gutter({
+      class: "cm-error-gutter",
+      lineMarker: (view, line) => {
+        const messages = errorMessagesAt(view.state, line.from);
+        return messages ? new ErrorMarker(messages) : null;
+      },
+      lineMarkerChange: (update) => update.startState.field(errorMarks) !== update.state.field(errorMarks)
+    }),
+    hoverTooltip((view, pos) => {
+      const line = view.state.doc.lineAt(pos);
+      const messages = errorMessagesAt(view.state, line.from);
+      if (!messages) return null;
+      return {
+        pos,
+        above: true,
+        create() {
+          const dom = document.createElement("div");
+          dom.className = "cm-error-tooltip";
+          for (const message of messages) {
+            const item = document.createElement("div");
+            item.textContent = message;
+            dom.appendChild(item);
+          }
+          return { dom };
+        }
+      };
+    })
+  ];
   var proofInput = new EditorView({
     parent: document.getElementById("proof-input"),
     extensions: [
@@ -25328,6 +26082,7 @@
           updateOutputSection();
         }
       }),
+      errorMarking,
       keymap.of([
         ...historyKeymap,
         ...defaultKeymap,
@@ -25349,7 +26104,7 @@
   var signatureRelation = document.getElementById("signature-relation-input");
   signatureRelation.addEventListener("input", updateOutputSection);
   function updateOutputSection() {
-    let AST, result;
+    let AST, result, summary;
     try {
       AST = folproof_parser_default.parse(proofInput.state.doc.toString());
       result = Verifier.verifyFromAST(
@@ -25358,10 +26113,11 @@
         (signatureFunction.value + " " + signatureRelation.value).trim(),
         libraries[logic3.value]
       );
+      summary = summarizeResult(result);
       const result_HTML = document.createElement("p");
       result_HTML.textContent = result.message;
       if (!result.valid) {
-        const errors = Array.isArray(result.errors) ? result.errors : [];
+        const errors = summary.errors;
         if (errors.length > 0) {
           const listTitle = document.createElement("p");
           listTitle.textContent = "Errors:";
@@ -25369,11 +26125,7 @@
           const errorList = document.createElement("ol");
           for (const error of errors) {
             const item = document.createElement("li");
-            let text3 = `Step ${error.step}: ${error.message}`;
-            if (error.srcLoc?.line) {
-              text3 += ` (Src Line: ${error.srcLoc.line})`;
-            }
-            item.textContent = text3;
+            item.textContent = error.text;
             errorList.appendChild(item);
           }
           result_HTML.appendChild(errorList);
@@ -25401,17 +26153,83 @@
       resultElement.textContent = "";
       resultElement.appendChild(result_HTML);
     } catch (ex) {
+      summary = summarizeResult(null, ex);
       resultElement.textContent = ex;
       resultBox.className = resultBox.className.replace(
         /alert-\w*/,
         "alert-danger"
       );
     }
+    updateResultBar(summary);
+    queueMicrotask(
+      () => proofInput.dispatch({ effects: setErrorMarks.of(summary.byLine) })
+    );
     const HTML = render(AST, result?.labels, { parentheses: parentheses.value });
     renderPanel.textContent = "";
     renderPanel.appendChild(HTML);
   }
   parentheses.addEventListener("change", updateOutputSection);
+  var resultBar = document.getElementById("result-bar");
+  var resultBarToggle = document.getElementById("result-bar-toggle");
+  var resultBarVerdict = document.getElementById("result-bar-verdict");
+  var resultBarCount = document.getElementById("result-bar-count");
+  var resultBarFirst = document.getElementById("result-bar-first");
+  var resultBarCaret = resultBar.querySelector(".result-bar-caret");
+  var resultBarJump = document.getElementById("result-bar-jump");
+  var resultBarPanel = document.getElementById("result-bar-panel");
+  var resultBarErrors = document.getElementById("result-bar-errors");
+  var resultBarSorries = document.getElementById("result-bar-sorries");
+  var verdictLabels = {
+    valid: "\u2713 Valid",
+    invalid: "\u2717 Invalid",
+    error: "! Error"
+  };
+  function updateResultBar(summary) {
+    const { status, errors, sorries } = summary;
+    resultBar.hidden = false;
+    resultBarVerdict.className = "result-bar-verdict " + status;
+    resultBarVerdict.textContent = verdictLabels[status];
+    resultBarCount.textContent = status === "invalid" ? `${errors.length} error${errors.length === 1 ? "" : "s"}` : "";
+    resultBarFirst.textContent = errors[0]?.message ?? (sorries > 0 ? `${sorries} ${sorries === 1 ? "sorry" : "sorries"} remaining` : "");
+    const line = errors[0]?.line;
+    resultBarJump.hidden = !line;
+    resultBarJump.textContent = line ? `Go to line ${line}` : "";
+    resultBarJump.dataset.line = line ?? "";
+    resultBarErrors.textContent = "";
+    resultBarErrors.hidden = errors.length === 0;
+    for (const error of errors) {
+      const item = document.createElement("li");
+      if (error.line) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = error.text;
+        button.addEventListener("click", () => goToLine(error.line));
+        item.appendChild(button);
+      } else {
+        item.textContent = error.text;
+      }
+      resultBarErrors.appendChild(item);
+    }
+    resultBarSorries.hidden = status === "error";
+    resultBarSorries.textContent = `Remaining sorries: ${sorries}`;
+  }
+  function goToLine(line) {
+    const doc2 = proofInput.state.doc;
+    const pos = doc2.line(Math.min(line, doc2.lines)).from;
+    proofInput.dispatch({
+      selection: { anchor: pos },
+      effects: EditorView.scrollIntoView(pos, { y: "center" })
+    });
+    proofInput.focus();
+  }
+  resultBarToggle.addEventListener("click", () => {
+    resultBarPanel.hidden = !resultBarPanel.hidden;
+    resultBarToggle.setAttribute("aria-expanded", String(!resultBarPanel.hidden));
+    resultBarCaret.textContent = resultBarPanel.hidden ? "\u25B4" : "\u25BE";
+  });
+  resultBarJump.addEventListener("click", () => {
+    goToLine(Number(resultBarJump.dataset.line));
+  });
   var clearButton = document.getElementById("clear-input");
   clearButton.addEventListener("click", () => {
     proofInput.dispatch({
@@ -25438,6 +26256,46 @@
     updateLayout();
   });
   updateLayout();
+  var editorGrip = document.getElementById("editor-grip");
+  var editorBox = document.getElementById("proof-input");
+  var minEditorHeight = 96;
+  function setEditorHeight(height) {
+    if (height === null) {
+      editorBox.style.height = "";
+      editorBox.classList.remove("fixed-height");
+      localStorage.removeItem("editorHeight");
+    } else {
+      height = Math.max(minEditorHeight, Math.round(height));
+      editorBox.style.height = `${height}px`;
+      editorBox.classList.add("fixed-height");
+      localStorage.setItem("editorHeight", String(height));
+    }
+  }
+  var storedEditorHeight = Number(localStorage.getItem("editorHeight"));
+  if (storedEditorHeight > 0) setEditorHeight(storedEditorHeight);
+  var dragStart = null;
+  editorGrip.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    dragStart = {
+      y: event.clientY,
+      height: editorBox.getBoundingClientRect().height
+    };
+    editorGrip.setPointerCapture(event.pointerId);
+  });
+  editorGrip.addEventListener("pointermove", (event) => {
+    if (!dragStart || event.clientY === dragStart.y) return;
+    setEditorHeight(dragStart.height + event.clientY - dragStart.y);
+  });
+  editorGrip.addEventListener("lostpointercapture", () => {
+    dragStart = null;
+  });
+  editorGrip.addEventListener("dblclick", () => setEditorHeight(null));
+  editorGrip.addEventListener("keydown", (event) => {
+    const step = { ArrowUp: -32, ArrowDown: 32 }[event.key];
+    if (!step) return;
+    event.preventDefault();
+    setEditorHeight(editorBox.getBoundingClientRect().height + step);
+  });
   var getStoredTheme = () => localStorage.getItem("theme");
   var setStoredTheme = (theme2) => localStorage.setItem("theme", theme2);
   var getPreferredTheme = () => {

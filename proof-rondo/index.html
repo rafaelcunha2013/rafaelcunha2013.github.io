@@ -206,6 +206,17 @@
         <div id="proof-input-col" class="col-12 col-lg-7">
           <p class="fs-4 my-2">Proof Input</p>
           <div id="proof-input" class="form-control"></div>
+          <div
+            id="editor-grip"
+            role="separator"
+            aria-orientation="horizontal"
+            aria-controls="proof-input"
+            aria-label="Editor height"
+            tabindex="0"
+            title="Drag to set the editor's height; double-click to let it grow with the proof again"
+          >
+            ⋯
+          </div>
           <p class="pt-2">
             <strong>Note:</strong> Press <kbd>Esc</kbd> + <kbd>Tab</kbd> to
             escape the proof input.
@@ -302,6 +313,34 @@
           </div>
         </div>
       </main>
+    </div>
+
+    <!-- the result, pinned to the bottom of the window (#27) -->
+    <div id="result-bar" hidden>
+      <div class="result-bar-row">
+        <button
+          id="result-bar-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="result-bar-panel"
+          title="Show the full result"
+        >
+          <span id="result-bar-verdict" class="result-bar-verdict"></span>
+          <span id="result-bar-count" class="result-bar-count"></span>
+          <span id="result-bar-first" class="result-bar-first"></span>
+          <span class="result-bar-caret" aria-hidden="true">▴</span>
+        </button>
+        <button
+          id="result-bar-jump"
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+          hidden
+        ></button>
+      </div>
+      <div id="result-bar-panel" hidden>
+        <ol id="result-bar-errors"></ol>
+        <p id="result-bar-sorries"></p>
+      </div>
     </div>
   </body>
 </html>

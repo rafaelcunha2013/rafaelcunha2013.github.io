@@ -1,11 +1,11 @@
 import parser from "../../../core/src/parser/folproof-parser.mjs";
 import { Verifier } from "../../../core/src/verifier.mjs";
 import { libraries } from "../../../core/src/library.mjs";
-import { render } from "../../../web/web.ts";
+import { render, summarizeResult } from "../../../web/web.ts";
 
 import { folLanguage } from "./fol-syntax.mjs";
 
-import { EditorState } from "@codemirror/state";
+import { EditorState, StateField, StateEffect } from "@codemirror/state";
 import {
   EditorView,
   keymap,
@@ -15,6 +15,10 @@ import {
   rectangularSelection,
   lineNumbers,
   highlightActiveLineGutter,
+  Decoration,
+  gutter,
+  GutterMarker,
+  hoverTooltip,
 } from "@codemirror/view";
 import {
   insertTab,
@@ -70,6 +74,116 @@ class LineNumberFormatter {
 
 const lineNumberFormatter = new LineNumberFormatter();
 
+// The errors marked in the editor (#27): each line with an error gets a
+// tint, a dot in the gutter and its messages on hover. The marks are line
+// decorations, each with the line's messages; they move with the text as
+// it is edited, until the next check replaces them.
+const setErrorMarks = StateEffect.define();
+
+const errorMarks = StateField.define({
+  create: () => Decoration.none,
+  update(marks, transaction) {
+    marks = marks.map(transaction.changes);
+    for (const effect of transaction.effects) {
+      if (effect.is(setErrorMarks)) {
+        marks = errorMarksOf(transaction.state.doc, effect.value);
+      }
+    }
+    return marks;
+  },
+  provide: (field) => EditorView.decorations.from(field),
+});
+
+/**
+ * The marks for the errors by source line.
+ *
+ * @param {import("@codemirror/state").Text} doc the editor's text
+ * @param {Map<number, string[]>} byLine each source line's error messages
+ * @returns {import("@codemirror/view").DecorationSet} a mark on each line
+ */
+function errorMarksOf(doc, byLine) {
+  const lines = [...byLine.keys()].filter((n) => n >= 1 && n <= doc.lines);
+  return Decoration.set(
+    lines.map((n) =>
+      Decoration.line({
+        class: "cm-error-line",
+        messages: byLine.get(n),
+      }).range(doc.line(n).from),
+    ),
+    true,
+  );
+}
+
+/**
+ * The messages of the error mark on a line, if it has one.
+ *
+ * @param {EditorState} state the editor's state
+ * @param {number} from the start of the line
+ * @returns {string[] | undefined} the line's messages
+ */
+function errorMessagesAt(state, from) {
+  let messages;
+  state.field(errorMarks).between(from, from, (start, _end, mark) => {
+    if (start === from) messages = mark.spec.messages;
+  });
+  return messages;
+}
+
+// the dot in the gutter beside a line with an error, its messages as its
+// title
+class ErrorMarker extends GutterMarker {
+  constructor(messages) {
+    super();
+    this.messages = messages;
+  }
+
+  eq(other) {
+    return other.messages.join("\n") === this.messages.join("\n");
+  }
+
+  toDOM() {
+    const dot = document.createElement("span");
+    dot.className = "cm-error-dot";
+    dot.textContent = "●";
+    dot.title = this.messages.join("\n");
+    return dot;
+  }
+}
+
+const errorMarking = [
+  errorMarks,
+  gutter({
+    class: "cm-error-gutter",
+    lineMarker: (view, line) => {
+      const messages = errorMessagesAt(view.state, line.from);
+      return messages ? new ErrorMarker(messages) : null;
+    },
+    lineMarkerChange: (update) =>
+      update.startState.field(errorMarks) !== update.state.field(errorMarks),
+  }),
+  hoverTooltip((view, pos) => {
+    const line = view.state.doc.lineAt(pos);
+    const messages = errorMessagesAt(view.state, line.from);
+    if (!messages) return null;
+    // at the pointer, not the line's start, which may be scrolled out of
+    // view on a narrow screen
+    return {
+      pos,
+      above: true,
+      create() {
+        const dom = document.createElement("div");
+        dom.className = "cm-error-tooltip";
+        for (const message of messages) {
+          const item = document.createElement("div");
+          item.textContent = message;
+          dom.appendChild(item);
+        }
+        return { dom };
+      },
+    };
+  }),
+];
+
 /**
  * The editor view for the proof input.
  *
@@ -99,6 +213,7 @@ let proofInput = new EditorView({
         updateOutputSection();
       }
     }),
+    errorMarking,
     keymap.of([
       ...historyKeymap,
       ...defaultKeymap,
@@ -130,7 +245,7 @@ signatureRelation.addEventListener("input", updateOutputSection);
  * Update the output section based on the current proof content and settings.
  */
 function updateOutputSection() {
-  let AST, result;
+  let AST, result, summary;
   try {
     AST = parser.parse(proofInput.state.doc.toString());
     result = Verifier.verifyFromAST(
@@ -139,11 +254,12 @@ function updateOutputSection() {
       (signatureFunction.value + " " + signatureRelation.value).trim(),
       libraries[logic.value],
     );
+    summary = summarizeResult(result);
     const result_HTML = document.createElement("p");
     result_HTML.textContent = result.message;
 
     if (!result.valid) {
-      const errors = Array.isArray(result.errors) ? result.errors : [];
+      const errors = summary.errors;
 
       if (errors.length > 0) {
         const listTitle = document.createElement("p");
@@ -153,13 +269,7 @@ function updateOutputSection() {
         const errorList = document.createElement("ol");
         for (const error of errors) {
           const item = document.createElement("li");
-          let text = `Step ${error.step}: ${error.message}`;
-
-          if (error.srcLoc?.line) {
-            text += ` (Src Line: ${error.srcLoc.line})`;
-          }
-
-          item.textContent = text;
+          item.textContent = error.text;
           errorList.appendChild(item);
         }
 
@@ -190,6 +300,7 @@ function updateOutputSection() {
     resultElement.textContent = "";
     resultElement.appendChild(result_HTML);
   } catch (ex) {
+    summary = summarizeResult(null, ex);
     resultElement.textContent = ex;
     resultBox.className = resultBox.className.replace(
       /alert-\w*/,
@@ -197,12 +308,113 @@ function updateOutputSection() {
     );
   }
 
+  updateResultBar(summary);
+  // the check may run while the editor is updating, when it can't take a
+  // new transaction: the marks follow right after
+  queueMicrotask(() =>
+    proofInput.dispatch({ effects: setErrorMarks.of(summary.byLine) }),
+  );
+
   const HTML = render(AST, result?.labels, { parentheses: parentheses.value });
   renderPanel.textContent = "";
   renderPanel.appendChild(HTML);
 }
 
 parentheses.addEventListener("change", updateOutputSection);
+
+// The result bar (#27), pinned to the bottom of the window so the verdict
+// stays in view while a long proof is edited; a click on it opens the full
+// list of errors, each of which, like "Go to line", moves the cursor to
+// its line
+const resultBar = document.getElementById("result-bar");
+const resultBarToggle = document.getElementById("result-bar-toggle");
+const resultBarVerdict = document.getElementById("result-bar-verdict");
+const resultBarCount = document.getElementById("result-bar-count");
+const resultBarFirst = document.getElementById("result-bar-first");
+const resultBarCaret = resultBar.querySelector(".result-bar-caret");
+const resultBarJump = document.getElementById("result-bar-jump");
+const resultBarPanel = document.getElementById("result-bar-panel");
+const resultBarErrors = document.getElementById("result-bar-errors");
+const resultBarSorries = document.getElementById("result-bar-sorries");
+
+const verdictLabels = {
+  valid: "✓ Valid",
+  invalid: "✗ Invalid",
+  error: "! Error",
+};
+
+/**
+ * Show the result in the result bar.
+ *
+ * @param {object} summary the result's summary (summarizeResult)
+ */
+function updateResultBar(summary) {
+  const { status, errors, sorries } = summary;
+  resultBar.hidden = false;
+
+  resultBarVerdict.className = "result-bar-verdict " + status;
+  resultBarVerdict.textContent = verdictLabels[status];
+  resultBarCount.textContent =
+    status === "invalid"
+      ? `${errors.length} error${errors.length === 1 ? "" : "s"}`
+      : "";
+  resultBarFirst.textContent =
+    errors[0]?.message ??
+    (sorries > 0
+      ? `${sorries} ${sorries === 1 ? "sorry" : "sorries"} remaining`
+      : "");
+
+  const line = errors[0]?.line;
+  resultBarJump.hidden = !line;
+  resultBarJump.textContent = line ? `Go to line ${line}` : "";
+  resultBarJump.dataset.line = line ?? "";
+
+  // the full result: every error, one with a line going to it on a click,
+  // and the sorries that remain
+  resultBarErrors.textContent = "";
+  resultBarErrors.hidden = errors.length === 0;
+  for (const error of errors) {
+    const item = document.createElement("li");
+    if (error.line) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = error.text;
+      button.addEventListener("click", () => goToLine(error.line));
+      item.appendChild(button);
+    } else {
+      item.textContent = error.text;
+    }
+    resultBarErrors.appendChild(item);
+  }
+  resultBarSorries.hidden = status === "error";
+  resultBarSorries.textContent = `Remaining sorries: ${sorries}`;
+}
+
+/**
+ * Move the cursor to the start of a source line and bring it to the middle
+ * of the window.
+ *
+ * @param {number} line the source line, counted from 1
+ */
+function goToLine(line) {
+  const doc = proofInput.state.doc;
+  const pos = doc.line(Math.min(line, doc.lines)).from;
+  proofInput.dispatch({
+    selection: { anchor: pos },
+    effects: EditorView.scrollIntoView(pos, { y: "center" }),
+  });
+  proofInput.focus();
+}
+
+resultBarToggle.addEventListener("click", () => {
+  resultBarPanel.hidden = !resultBarPanel.hidden;
+  resultBarToggle.setAttribute("aria-expanded", String(!resultBarPanel.hidden));
+  resultBarCaret.textContent = resultBarPanel.hidden ? "▴" : "▾";
+});
+
+resultBarJump.addEventListener("click", () => {
+  goToLine(Number(resultBarJump.dataset.line));
+});
 
 const clearButton = document.getElementById("clear-input");
 clearButton.addEventListener("click", () => {
@@ -238,6 +450,59 @@ layoutSetting.addEventListener("change", (event) => {
 });
 
 updateLayout();
+
+// The grip under the editor (#27). The editor grows with the proof until
+// the grip is dragged (or moved with the arrow keys); then it keeps that
+// height, with its own scrollbar, and the browser remembers it like the
+// layout. A double-click lets it grow with the proof again.
+const editorGrip = document.getElementById("editor-grip");
+const editorBox = document.getElementById("proof-input");
+const minEditorHeight = 96;
+
+/**
+ * Give the editor a fixed height, or let it grow with the proof.
+ *
+ * @param {number | null} height the height in pixels, or null to grow
+ */
+function setEditorHeight(height) {
+  if (height === null) {
+    editorBox.style.height = "";
+    editorBox.classList.remove("fixed-height");
+    localStorage.removeItem("editorHeight");
+  } else {
+    height = Math.max(minEditorHeight, Math.round(height));
+    editorBox.style.height = `${height}px`;
+    editorBox.classList.add("fixed-height");
+    localStorage.setItem("editorHeight", String(height));
+  }
+}
+
+const storedEditorHeight = Number(localStorage.getItem("editorHeight"));
+if (storedEditorHeight > 0) setEditorHeight(storedEditorHeight);
+
+let dragStart = null;
+editorGrip.addEventListener("pointerdown", (event) => {
+  if (event.button !== 0) return;
+  dragStart = {
+    y: event.clientY,
+    height: editorBox.getBoundingClientRect().height,
+  };
+  editorGrip.setPointerCapture(event.pointerId);
+});
+editorGrip.addEventListener("pointermove", (event) => {
+  if (!dragStart || event.clientY === dragStart.y) return;
+  setEditorHeight(dragStart.height + event.clientY - dragStart.y);
+});
+editorGrip.addEventListener("lostpointercapture", () => {
+  dragStart = null;
+});
+editorGrip.addEventListener("dblclick", () => setEditorHeight(null));
+editorGrip.addEventListener("keydown", (event) => {
+  const step = { ArrowUp: -32, ArrowDown: 32 }[event.key];
+  if (!step) return;
+  event.preventDefault();
+  setEditorHeight(editorBox.getBoundingClientRect().height + step);
+});
 
 /*!
  * Based on toggler for Bootstrap's docs (https://getbootstrap.com/)
