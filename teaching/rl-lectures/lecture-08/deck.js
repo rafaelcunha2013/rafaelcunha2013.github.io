@@ -173,9 +173,37 @@
     });
   }
 
+  /* ---- maths-only boxes PowerPoint sizes to their text (data-mathfit) ----
+   * The box's inner width is PowerPoint's width of the maths; KaTeX may set
+   * it wider, which pushes symbols out from under shapes drawn over them.
+   * Shrink each line to the box (never enlarge), anchored by its alignment. */
+  function fitMath(slide) {
+    slide.querySelectorAll(".tx[data-mathfit]").forEach(tx => {
+      const sh = tx.closest(".sh");
+      if (!sh || !sh.offsetWidth) return;
+      const k = sh.getBoundingClientRect().width / sh.offsetWidth;
+      const cs = getComputedStyle(tx);
+      const inner = tx.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      tx.querySelectorAll(":scope > p").forEach(p => {
+        p.style.transform = "";
+        // the visible maths only (KaTeX's hidden MathML would widen a range)
+        let l = Infinity, r = -Infinity;
+        p.querySelectorAll(".katex-html").forEach(e => {
+          const b = e.getBoundingClientRect();
+          if (b.width) { l = Math.min(l, b.left); r = Math.max(r, b.right); }
+        });
+        const w = r > l ? (r - l) / k : 0;
+        if (!w || w <= inner * 1.02) return;
+        const al = getComputedStyle(p).textAlign;
+        p.style.transformOrigin = (al === "center" ? "center" : al === "right" || al === "end" ? "right" : "left") + " center";
+        p.style.transform = "scale(" + (inner / w) + ")";
+      });
+    });
+  }
+
   const refit = () => {
     document.querySelectorAll(".itex[data-fit]").forEach(el => delete el.dataset.fit);
-    if (slides[cur]) { fitTables(slides[cur]); fitTabs(slides[cur]); fitItex(slides[cur]); }
+    if (slides[cur]) { fitTables(slides[cur]); fitTabs(slides[cur]); fitItex(slides[cur]); fitMath(slides[cur]); }
   };
   document.fonts.ready.then(refit);
   // a maths font is only fetched once an equation using it is visible, so an
@@ -184,7 +212,7 @@
   // two copies of a slide): fit again whenever another font arrives
   document.fonts.addEventListener("loadingdone", refit);
   // lay out one slide as show() does (used by textfit.py to measure words)
-  window.deckFit = s => { fitTables(s); fitTabs(s); fitItex(s); };
+  window.deckFit = s => { fitTables(s); fitTabs(s); fitItex(s); fitMath(s); };
   window.deckGlyphRect = glyphRect;   // for QA scripts: an equation's ink, as fitItex measures it
 
   /* ---- bullet widths (hanging indent) ---- */
@@ -272,6 +300,7 @@
     fitTables(slides[i]);
     fitTabs(slides[i]);
     fitItex(slides[i]);
+    fitMath(slides[i]);
     apply(i, k, animate);
     const st = data[i].steps;
     const builds = st && !showAll ? "  ·  " + k + "/" + st : "";

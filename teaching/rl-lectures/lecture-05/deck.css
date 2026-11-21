@@ -57,7 +57,8 @@ html, body { margin: 0; height: 100%; background: var(--chrome); color: var(--in
 .tx .tab { display: inline-block; width: 1em; }
 .tx a { color: inherit; }
 .tx .m { white-space: nowrap; }
-.tx .m .katex { font-size: 1.06em; }  /* matches Cambria Math widths within ~1% */
+.tx .m .katex { font-size: 1.06em; line-height: 1; }  /* matches Cambria Math widths within ~1%; the
+   paragraph's line height governs, as in PowerPoint (KaTeX's own 1.2 at 1.06em added ~3 px a line) */
 .tx .m.d { display: block; text-align: center; }
 
 /* IguanaTex equations: KaTeX on top, the original picture kept as fallback */
